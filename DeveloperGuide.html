@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>AddressBook Level 3 - Developer Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>CS ModBuddy - Developer Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">AddressBook-Level3</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link active" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/se-edu/addressbook-level3"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>AddressBook Level 3 - Developer Guide</h1></div><div id="content"><div id="preamble">
+<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">AddressBook-Level3</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link active" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/se-edu/addressbook-level3"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>CS ModBuddy - Developer Guide</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>By: <code>Team SE-EDU</code>      Since: <code>Jun 2016</code>      Licence: <code>MIT</code></p>
+<p>By: <code>Team CS2103-F09-3</code>      Since: <code>Sep 2019</code>      Licence: <code>MIT</code></p>
 </div>
 </div>
 <div id="toc" class="toc">
@@ -33,17 +33,18 @@
 <li><a href="#dev-ops">6. Dev Ops</a></li>
 <li><a href="#product-scope">Appendix A: Product Scope</a></li>
 <li><a href="#user-stories">Appendix B: User Stories</a></li>
-<li><a href="#use-cases">Appendix C: Use Cases</a></li>
-<li><a href="#non-functional-requirements">Appendix D: Non Functional Requirements</a></li>
-<li><a href="#glossary">Appendix E: Glossary</a></li>
-<li><a href="#product-survey">Appendix F: Product Survey</a></li>
-<li><a href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a>
+<li><a href="#use-cases">Appendix C: Use Cases</a>
 <ul class="sectlevel2">
-<li><a href="#launch-and-shutdown">G.1. Launch and Shutdown</a></li>
-<li><a href="#deleting-a-person">G.2. Deleting a person</a></li>
-<li><a href="#saving-data">G.3. Saving data</a></li>
+<li><a href="#use-case-uc01-create-study-plan">C.1. Use case: UC01 - Create study plan</a></li>
+<li><a href="#use-case-uc02-add-module">C.2. Use case: UC02 - Add module</a></li>
+<li><a href="#use-case-uc03-commit-a-study-plan">C.3. Use case: UC03 - Commit a study plan</a></li>
+<li><a href="#use-case-uc04-tag-a-module">C.4. Use case: UC04 - Tag a module</a></li>
+<li><a href="#use-case-uc05-correct-modules-without-a-prerequisite">C.5. Use case: UC05 - Correct modules without a prerequisite</a></li>
+<li><a href="#use-case-uc06-chaining-commands">C.6. Use case: UC06 - Chaining commands</a></li>
 </ul>
 </li>
+<li><a href="#non-functional-requirements">Appendix D: Non Functional Requirements</a></li>
+<li><a href="#glossary">Appendix E: Glossary</a></li>
 </ul>
 </div>
 </div>
@@ -628,24 +629,52 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="ulist">
 <ul>
 <li>
-<p>has a need to manage a significant number of contacts</p>
+<p>Undergraduate CS student studying in NUS</p>
 </li>
 <li>
-<p>prefer desktop apps over other types</p>
+<p>Needs to manage his/her study plans and module planning</p>
 </li>
 <li>
-<p>can type fast</p>
+<p>Needs to see whether his/her study plans are feasible</p>
 </li>
 <li>
-<p>prefers typing over mouse input</p>
+<p>Prefer desktop apps over other types</p>
 </li>
 <li>
-<p>is reasonably comfortable using CLI apps</p>
+<p>Can type fast</p>
+</li>
+<li>
+<p>Prefers typing over mouse input</p>
+</li>
+<li>
+<p>Is reasonably comfortable using CLI apps</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p><strong>Value proposition</strong>: manage contacts faster than a typical mouse/GUI driven app</p>
+<p><strong>Value proposition</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Functionality is not offered by any other existing application.</p>
+</li>
+<li>
+<p>Tailored to needs of NUS CS undergraduate students.</p>
+</li>
+<li>
+<p>Users will be able to check all the problems (e.g. graduation requirements, prerequisite for modules) with their current study plan with ModBuddy through a desktop application.</p>
+</li>
+<li>
+<p>Have multiple study plans, and move semesters around quickly with a CLI.</p>
+</li>
+<li>
+<p>Version control for saving history of study plans, ensuring that mistakes or past study plans are recoverable.</p>
+</li>
+<li>
+<p>Suits users who are able to type fast and can manage their study plan faster.</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -673,70 +702,275 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">new user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">see usage instructions</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">refer to instructions when I forget how to use the App</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">add a new person</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">student</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">add modules to the planner</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">delete a person</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">remove entries that I no longer need</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">student</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">remove modules from the planner</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">student</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">search a module based on module code</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">student</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">declare my focus area</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">student</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ensure that my modules can fulfill my focus area requirements</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">student who wants to graduate</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">know whether I will fulfill my graduation requirements with my current study plan</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">I can graduate on time</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">find a person by name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">locate details of persons without having to go through the entire list</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">check a module’s prerequisites</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">I can confirm I’ve satisfied them in previous semesters before taking the module this semester</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">set my current semester</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">foolish user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">be warned if any part of my study plan is not feasible</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">indecisive user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">move modules across semesters</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">I can change the order at which I plan to take my modules</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">forgetful user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">view which modules I have already taken</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">I know what modules I do not have to take anymore</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Year 1 user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">view the core modules</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">I know which modules I should take first</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">new user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">view help instructions</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">I know how to use the application easily</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">clumsy user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">be greeted with helpful error messages when I enter commands or their arguments wrongly</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">meticulous student</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">create multiple versions of study plan</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">I can toggle between them and choose the most suitable one when circumstances change</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Year 1 user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">view which modules can be S/U-ed</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">I can prioritise those modules to be taken in Year 1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user with friends</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">download a copy of my study plan</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">I can share it with others.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">hide <a href="#private-contact-detail">private contact details</a> by default</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">minimize chance of someone else seeing them by accident</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">check the total number of MCs in my module plan this semester</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">I know if I need to take more modules or if I’m overloading.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">foolish user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">undo my previous command</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">I can restore the previous state whenever I make mistakes.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Year 1 user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">start out with a default module plan</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">I have an idea of what modules are recommended to be taken in which semesters</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ambitious student</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">to block out a semester</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">I can plan for SEP/NOC/industrial attachment.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">lazy student</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">see a brief description/name of a module</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">I don’t have to memorise all the module codes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">student</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">search a module based on keywords</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">diligent student</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tag my modules so as to classify them better</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">student</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">fill my study plan with UEs too</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">student</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">rename UEs as their actual names</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">visual user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">be able to visualise my modules in a GUI</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">experienced user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">chain my commands together so that I can be more efficient</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">student who admires beauty</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">see different colours</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">forgetful student</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">attach more information to each semester</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">I will remember why I plan my modules this way</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">fickle user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">combine different semesters from different study plans into one new study plan (move semesters around)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">I don’t have to repeat.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">student who wants to be a TA</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">indicate I will be TA-ing a module in a given semester</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CS student with extra programmes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">I want to verify that my study plan allows me to graduate with all the different requirements I have</p></td>
+<td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user with many persons in the address book</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">sort persons by name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">locate a person easily</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">overachiever</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">I want to see how joining one of these Turing/von Neumann programmes affects my study plan</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">student who wants to be a TA</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">indicate I will be TA-ing a module in a given semester</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CS student with extra programmes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">I want to verify that my study plan allows me to graduate with all the different requirements I have</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CS student with friends</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">I want to plan modules with my friends</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">we can take the same modules every semester</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">student who cares about grades</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">I want to be able to analyse my CAP per module, semester, year and overall</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">I can be more aware of my grades</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user who admires beauty</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">I want to set each module with a color 1-8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">I can customise the look of my study plan</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user who admires beauty</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">I want to change the color theme</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">I can customise the look of my study plan</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">experienced user who admires beauty</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">I want to change specific colors with hex code</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">I can customise the look of my study plan</p></td>
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p><em>{More to be added}</em></p>
-</div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="use-cases"><a class="link" href="#use-cases">Appendix C: Use Cases</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>(For all use cases below, the <strong>System</strong> is the <code>AddressBook</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
+<p>(For all use cases below, the <strong>System</strong> is the <code>ModBuddy</code> and the <strong>Actor</strong> is the <code>Student</code>, unless specified otherwise)</p>
 </div>
-<h3 id="use-case-delete-person" class="discrete">Use case: Delete person</h3>
+<div class="sect2">
+<h3 id="use-case-uc01-create-study-plan"><a class="link" href="#use-case-uc01-create-study-plan">C.1. Use case: UC01 - Create study plan</a></h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to list persons</p>
+<p>User chooses to create a study plan.</p>
 </li>
 <li>
-<p>AddressBook shows a list of persons</p>
+<p>User enters the requested description.</p>
 </li>
 <li>
-<p>User requests to delete a specific person in the list</p>
-</li>
-<li>
-<p>AddressBook deletes the person</p>
+<p>ModBuddy displays the new study plan.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -749,19 +983,61 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a. The list is empty.</p>
+<p>2a. User chooses not to enter a description.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>2a1. ModBuddy creates a new study plan with a default description.</p>
+</li>
+<li>
+<p>2a2. Use case resumes from step 4.</p>
+</li>
+</ul>
+</div>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
 </li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-uc02-add-module"><a class="link" href="#use-case-uc02-add-module">C.2. Use case: UC02 - Add module</a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
-<p>3a. The given index is invalid.</p>
+<p>Student requests to add a module to a particular semester.</p>
+</li>
+<li>
+<p>ModBuddy displays changes to study plan.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>3a1. AddressBook shows an error message.</p>
+<p>1a. ModBuddy detects that the module entered does not exist.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1a1. ModBuddy prompts Student to enter a correct module code</p>
+</li>
+<li>
+<p>1a2. User enters new module.</p>
 <div class="paragraph">
-<p>Use case resumes at step 2.</p>
+<p>Steps 1a1-1a2 are repeated until the data entered are correct.</p>
+</div>
+<div class="paragraph">
+<p>Use case ends.</p>
 </div>
 </li>
 </ul>
@@ -769,8 +1045,195 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </li>
 </ul>
 </div>
+</div>
+<div class="sect2">
+<h3 id="use-case-uc03-commit-a-study-plan"><a class="link" href="#use-case-uc03-commit-a-study-plan">C.3. Use case: UC03 - Commit a study plan</a></h3>
 <div class="paragraph">
-<p><em>{More to be added}</em></p>
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Student requests to save the current version of the study plan</p>
+</li>
+<li>
+<p>ModBuddy confirms that the version has been saved.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. ModBuddy detects that there have been no changes to the study plan from the previous commit.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1a1. ModBuddy informs Student that the current version has already been saved.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-uc04-tag-a-module"><a class="link" href="#use-case-uc04-tag-a-module">C.4. Use case: UC04 - Tag a module</a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Student requests to tag a module</p>
+</li>
+<li>
+<p>ModBuddy requests student to enter a tag name.</p>
+</li>
+<li>
+<p>ModBuddy displays changes to study plan.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. ModBuddy detects that the module entered does not exist.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1a1. ModBuddy prompts Student to enter a correct module code</p>
+</li>
+<li>
+<p>1a2. User enters new module.</p>
+<div class="paragraph">
+<p>Steps 1a1-1a2 are repeated until the data entered are correct.</p>
+</div>
+<div class="paragraph">
+<p>Use case resumes from step 3.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>2a. ModBuddy detects that the module already has the tag.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>2a1. ModBuddy does not add a new tag.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-uc05-correct-modules-without-a-prerequisite"><a class="link" href="#use-case-uc05-correct-modules-without-a-prerequisite">C.5. Use case: UC05 - Correct modules without a prerequisite</a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>ModBuddy highlights a module in red because its prerequisites have not been fulfilled.</p>
+</li>
+<li>
+<p>Student checks the prerequisites of the module.</p>
+</li>
+<li>
+<p>ModBuddy displays all a module’s prerequisites that have yet to be fulfilled in previous semesters.</p>
+</li>
+<li>
+<p>Student adds the unfulfilled module prerequisite to a selected previous semester.</p>
+</li>
+<li>
+<p>ModBuddy un-highlights the module now that its prerequisites have been fulfilled.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. Student decides not to take the module.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1a1. Student removes the module from the semester.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>3a. ModBuddy suggests suitable semesters where the student can take the untaken prerequisites.</p>
+<div class="paragraph">
+<p>Use case resumes from step 4.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-uc06-chaining-commands"><a class="link" href="#use-case-uc06-chaining-commands">C.6. Use case: UC06 - Chaining commands</a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User chooses to chain multiple commands</p>
+</li>
+<li>
+<p>User inputs the multiple commands.</p>
+</li>
+<li>
+<p>ModBuddy displays the changes as specified.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. User chooses to chain different commands with ‘&amp;&amp;’.</p>
+</li>
+<li>
+<p>2b. User chooses to chain same commands with multiple arguments.</p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
@@ -780,18 +1243,39 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Should work on any <a href="#mainstream-os">mainstream OS</a> as long as it has Java <code>11</code> or above installed.</p>
+<p>Should work on any mainstream OS as long as it has Java 11 or above installed.</p>
 </li>
 <li>
-<p>Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.</p>
+<p>Should be able to hold up to 10 study plans, each containing at least 40 modules, without a noticeable sluggishness in performance for typical usage.</p>
 </li>
 <li>
-<p>A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.</p>
+<p>Should allow a user with above average typing speed for regular English text (i.e. not code, not system admin commands) to accomplish most of the tasks faster using commands than using the mouse.</p>
+</li>
+<li>
+<p>Should allow a user to accomplish all of the tasks without an Internet connection.</p>
+</li>
+<li>
+<p>The module information should be applicable to all NUS Computer Science students without additional programmes (such as Double Degree Programmes).</p>
+</li>
+<li>
+<p>Should allow a user who is relatively familiar with CS module codes to manipulate modules faster using module codes than using module names.</p>
+</li>
+<li>
+<p>The response to any use action should become visible within 1 second.</p>
+</li>
+<li>
+<p>The user interface should be intuitive enough for users who are not IT-savvy</p>
+</li>
+<li>
+<p>The source code should be open source.</p>
+</li>
+<li>
+<p>The product should be free for all NUS CS undergraduate students.</p>
+</li>
+<li>
+<p>Should warn the user that the developers will not be held liable for any failure to graduate within normal candidature period due to the use of the product.</p>
 </li>
 </ol>
-</div>
-<div class="paragraph">
-<p><em>{More to be added}</em></p>
 </div>
 </div>
 </div>
@@ -800,162 +1284,333 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="sectionbody">
 <div class="dlist">
 <dl>
+<dt class="hdlist1"><a id="active-study-plan"></a> Active study plan</dt>
+<dd>
+<p>The study plan that is currently editable by various commands. Also known as the active plan for short.</p>
+</dd>
+<dt class="hdlist1"><a id="CLI"></a> CLI</dt>
+<dd>
+<p>Abbreviation for Command Line Interface, which is a text-based user interface used to view and manage information
+related to study plans in our application.</p>
+</dd>
+<dt class="hdlist1"><a id="command"></a> Command</dt>
+<dd>
+<p>An instruction that the user enters into the text input field of our application. A valid command will result
+in a successful operation on viewing or manipulating the study plan(s).</p>
+</dd>
+<dt class="hdlist1"><a id="commit"></a> Commit</dt>
+<dd>
+<p>A version of a study plan that the user saves to a local file. The user may opt to view or revert to a particular
+version of any study plan.</p>
+</dd>
+<dt class="hdlist1"><a id="core-module"></a> Core module</dt>
+<dd>
+<p>A core module is compulsory for all students in the NUS Computer Science course in order to fulfill the graduation
+requirements. Such modules include:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Computer Science Foundation</p>
+<div class="ulist">
+<ul>
+<li>
+<p>CS1101S Programming Methodology</p>
+</li>
+<li>
+<p>CS1231S Discrete Structures</p>
+</li>
+<li>
+<p>CS2030 Programming Methodology II</p>
+</li>
+<li>
+<p>CS2040S Data Structures and Algorithms</p>
+</li>
+<li>
+<p>CS2100 Computer Organisation</p>
+</li>
+<li>
+<p>CS2103T Software Engineering</p>
+</li>
+<li>
+<p>CS2105 Introduction to Computer Networks</p>
+</li>
+<li>
+<p>CS2106 Introduction to Operating Systems</p>
+</li>
+<li>
+<p>CS3230 Design and Analysis of Algorithms</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>IT Professionalism</p>
+<div class="ulist">
+<ul>
+<li>
+<p>IS1103/X IS Innovations in Organisations and Society</p>
+</li>
+<li>
+<p>CS2101 Effective Communication for Computing Professionals</p>
+</li>
+<li>
+<p>ES2660 Communicating in the Information Age</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Mathematics &amp; Sciences</p>
+<div class="ulist">
+<ul>
+<li>
+<p>MA1521 Calculus for Computing</p>
+</li>
+<li>
+<p>MA1101R Linear Algebra I</p>
+</li>
+<li>
+<p>ST2334 Probability and Statistics</p>
+</li>
+<li>
+<p>One Science Module</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1"><a id="co-requisite"></a> Co-requisite</dt>
+<dd>
+<p>Co-requisites are modules that are to be taken concurrently.</p>
+</dd>
+<dt class="hdlist1"><a id="CS"></a> CS</dt>
+<dd>
+<p>Abbreviation for Computer Science, the study of processes that interact with data and that can be represented
+as data in the form of programs. In particular, CS here refers to the course for Bachelor of Computing in Computer
+Science (with Honours) offered by School of Computing (SoC), National University of Singapore (NUS).</p>
+</dd>
+<dt class="hdlist1"><a id="current-semester"></a> Current Semester</dt>
+<dd>
+<p>The semester in which the user is currently taking modules. All modules taken in and before the current semester are locked
+and uneditable. The user may manipulate modules after the current semester.</p>
+</dd>
+<dt class="hdlist1"><a id="default-study-plan"></a> Default study plan</dt>
+<dd>
+<p>The recommended study plan for a CS freshman, pre-populated with core modules arranged in their recommended semesters of
+study.</p>
+</dd>
+<dt class="hdlist1"><a id="elective"></a> Elective</dt>
+<dd>
+<p>Refer to UE.</p>
+</dd>
+<dt class="hdlist1"><a id="feasibility"></a> Feasibility</dt>
+<dd>
+<p>The feasibility of a study plan, or part of a study plan, refers to whether the following conditions are met:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>All modules are taken after their prerequisites have been taken.</p>
+</li>
+<li>
+<p>All modules are not taken together with any of their respective preclusions.</p>
+</li>
+<li>
+<p>The user, by following this study plan, satisfies their graduation requirements and will be able to graduate without
+extending their candidature in NUS.</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1"><a id="focus-area"></a> Focus area</dt>
+<dd>
+<p>CS modules are organised into Focus Areas of coherent modules according to technical areas of study.
+A CS Focus Area is satisfied by completing 3 modules from the Area Primaries, with at least one module at 4000-level or
+above. CS Foundation Modules (CFM) that appear in the Area Primaries can be counted as one of the 3 modules towards
+satisfying a Focus Area. In this case, a student has to read just two other modules in the Area Primaries to satisfy
+the Focus Area. The ten Focus Areas are listed below:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Algorithms &amp; Theory</p>
+</li>
+<li>
+<p>Artificial Intelligence</p>
+</li>
+<li>
+<p>Computer Graphics and Games</p>
+</li>
+<li>
+<p>Computer Security</p>
+</li>
+<li>
+<p>Database Systems</p>
+</li>
+<li>
+<p>Multimedia Information Retrieval</p>
+</li>
+<li>
+<p>Networking and Distributed Systems</p>
+</li>
+<li>
+<p>Parallel Computing</p>
+</li>
+<li>
+<p>Programming Languages</p>
+</li>
+<li>
+<p>Software Engineering</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1"><a id="graduation"></a> Graduation</dt>
+<dd>
+<p>To graduate from NUS CS means to complete all the stipulated requirements within the user&#8217;s candidature period,
+and finish their studies with a Bachelor&#8217;s degree.</p>
+</dd>
+<dt class="hdlist1"><a id="GUI"></a> GUI</dt>
+<dd>
+<p>Abbreviation for the Graphical User Interface, which allows users to interact with electronic devices through
+graphical icons and visual indicators as opposed to a Command Line Interface (CLI).</p>
+</dd>
+<dt class="hdlist1"><a id="leave-of-absence"></a> Leave of Absence</dt>
+<dd>
+<p>Also known as LOA for short. During LOA, students will temporarily stop taking NUS modules for an extended period
+of time, usually one semester. Students may be granted leave of absence for the following reasons:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Medical reasons</p>
+</li>
+<li>
+<p>Academic reasons</p>
+</li>
+<li>
+<p>Personal reasons</p>
+</li>
+</ul>
+</div>
+</dd>
 <dt class="hdlist1"><a id="mainstream-os"></a> Mainstream OS</dt>
 <dd>
-<p>Windows, Linux, Unix, OS-X</p>
+<p>Windows, Linux, Unix, OS-X.</p>
 </dd>
-<dt class="hdlist1"><a id="private-contact-detail"></a> Private contact detail</dt>
+<dt class="hdlist1"><a id="major"></a> Major</dt>
 <dd>
-<p>A contact detail that is not meant to be shared with others</p>
+<p>An academic major is the academic discipline to which an undergraduate student formally commits. A student who
+successfully completes all modules required for the major qualifies for an undergraduate degree.</p>
+</dd>
+<dt class="hdlist1"><a id="minor"></a> Minor</dt>
+<dd>
+<p>A Minor programme is a coherent course of study providing significant depth in a certain area outside that of the Major,
+within or outside the student&#8217;s department.The modular credit (MC) requirement for a Minor programme should be at least
+24MCs, of which up to 8MCs may be used to meet the requirements for both the Minor and a Major or another Minor subject
+to the agreement of the particular department(s), faculty/faculties or programme(s) hosting the Minor.</p>
+</dd>
+<dt class="hdlist1"><a id="modular-credits"></a> Modular credits</dt>
+<dd>
+<p>The undergraduate and graduate curricula are based on a modular system. Under this system, workloads are expressed
+in terms of Modular Credits (MCs), and academic performance is measured by grade points on a 5-point scale.</p>
+</dd>
+<dt class="hdlist1"><a id="module"></a> Module</dt>
+<dd>
+<p>A module (colloquially <em>mod</em>) is a class of a specific topic that generally runs for an entire semester. Each module carries a stipulated
+number of Modular Credits and requires weekly contact hours for students.</p>
+</dd>
+<dt class="hdlist1"><a id="module-code"></a> Module code</dt>
+<dd>
+<p>Each module of study has a unique module code consisting of a two- or three-letter prefix that denotes the discipline,
+and four digits, the first of which indicates the level of the module (e.g., 1000 indicates a Level 1 module and 2000,
+a Level 2 module). Modules offered by the Department of Computer Science generally start with CS.</p>
+</dd>
+<dt class="hdlist1"><a id="nus-overseas-colleges"></a> NUS Overseas Colleges</dt>
+<dd>
+<p>The NUS Overseas Colleges Programme, or NOC for short, is an internship programme with strong emphasis on technology
+entrepreneurship. Selected candidates will spend either 6 or 12 months with a high-tech start-up and take
+entrepreneurship courses at a designated partner university. NOC students will be full-time interns and
+part-time students.</p>
+</dd>
+<dt class="hdlist1"><a id="nus"></a> NUS</dt>
+<dd>
+<p>The National University of Singapore (NUS) is the first autonomous research university in Singapore.
+NUS is a comprehensive research university, offering a wide range of disciplines, including the sciences,
+medicine and dentistry, design and environment, law, arts and social sciences, engineering, business,
+computing and music at both the undergraduate and postgraduate levels. Computer Science (CS) is one of the
+undergraduate programmes offered by NUS.</p>
+</dd>
+<dt class="hdlist1"><a id="preclusion"></a> Preclusion</dt>
+<dd>
+<p>A module may also specify certain preclusions. These are modules that have similar emphases and may not be taken
+together with that particular module.</p>
+</dd>
+<dt class="hdlist1"><a id="prerequisite"></a> Prerequisite</dt>
+<dd>
+<p>Pre-requisites indicate the base of knowledge on which the subject matter of a particular module will be built.
+Before taking a module, a student should complete any pre-requisite module(s) listed for that particular module.
+Where pre-requisites are specified, equivalent modules will also be accepted. If in doubt, students should consult
+the module instructor or the Department academic advisor regarding the acceptable equivalent modules.</p>
+</dd>
+<dt class="hdlist1"><a id="semester"></a> Semester</dt>
+<dd>
+<p>An academic year in NUS consists of two regular semesters, each spanning 13 weeks excluding the recess and reading
+weeks. In our application, a semester is defined as a regular semester (as opposed to special semesters).</p>
+</dd>
+<dt class="hdlist1"><a id="student"></a> Student</dt>
+<dd>
+<p>Our application is specifically targeted to students who study Computer Science (CS) in the School of
+Computing in the National University of Singapore (NUS).</p>
+</dd>
+<dt class="hdlist1"><a id="student-exchange-programme"></a> Student exchange programme</dt>
+<dd>
+<p>The NUS Student Exchange Programme, or SEP for short, provides students with the opportunity to study in an overseas partner
+university, usually for a semester or two, with approval of the School, to further enhance their learning experience.
+Students from either partner university pay fees only at their home institution while on exchange.</p>
+</dd>
+<dt class="hdlist1"><a id="study-plan"></a> Study plan</dt>
+<dd>
+<p>A study plan is an academic plan detailing all modules that a student plans to take in all the semesters in their
+candidature in NUS. One study plan comprises 8 semesters of modules. The user may have multiple alternative study plans.</p>
+</dd>
+<dt class="hdlist1"><a id="tag"></a> Tag</dt>
+<dd>
+<p>A module can be added a tag or multiple tags, which include the following:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>core module</p>
+</li>
+<li>
+<p>UE</p>
+</li>
+<li>
+<p>focus area
+etc</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1"><a id="UE"></a> UE</dt>
+<dd>
+<p>UE stands for Unrestricted Elective. Unrestricted Electives enable students to pursue their academic interests and aspirations.
+Students may also use Unrestricted Electives to satisfy partially or wholly the requirements of other programmes.
+As long as the appropriate prerequisites are met, students can satisfy the Unrestricted Electives requirement by taking
+modules from any of the Departments/Faculties at any level. The limit on the number of Level-1000 modules to be counted
+towards fulfilment of graduation requirements is 60 MCs for 160-MC programmes. In CS, a student needs to
+fulfill at least 32 MCs of UEs before graduation.</p>
+</dd>
+<dt class="hdlist1"><a id="valid-module"></a> Valid module</dt>
+<dd>
+<p>A module is said to be valid if its prerequisites have been fulfilled and none of its preclusions are being
+taken at the same time as the student takes that particular module.</p>
+</dd>
+<dt class="hdlist1"><a id="year-of-study"></a> Year of study</dt>
+<dd>
+<p>A student&#8217;s year refers to whether the student is in their first (Y1), second (Y2), third (Y3), fourth (Y4), or fifth (Y5)
+year of undergraduate studies in NUS.</p>
 </dd>
 </dl>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="product-survey"><a class="link" href="#product-survey">Appendix F: Product Survey</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Product Name</strong></p>
-</div>
-<div class="paragraph">
-<p>Author: &#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>Pros:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Cons:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="instructions-for-manual-testing"><a class="link" href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Given below are instructions to test the app manually.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-These instructions only provide a starting point for testers to work on; testers are expected to do more <em>exploratory</em> testing.
-</td>
-</tr>
-</table>
-</div>
-<div class="sect2">
-<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">G.1. Launch and Shutdown</a></h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Initial launch</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Download the jar file and copy into an empty folder</p>
-</li>
-<li>
-<p>Double-click the jar file<br>
-Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Saving window preferences</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Resize the window to an optimum size. Move the window to a different location. Close the window.</p>
-</li>
-<li>
-<p>Re-launch the app by double-clicking the jar file.<br>
-Expected: The most recent window size and location is retained.</p>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="deleting-a-person"><a class="link" href="#deleting-a-person">G.2. Deleting a person</a></h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Deleting a person while all persons are listed</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Prerequisites: List all persons using the <code>list</code> command. Multiple persons in the list.</p>
-</li>
-<li>
-<p>Test case: <code>delete 1</code><br>
-Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.</p>
-</li>
-<li>
-<p>Test case: <code>delete 0</code><br>
-Expected: No person is deleted. Error details shown in the status message. Status bar remains the same.</p>
-</li>
-<li>
-<p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size) <em>{give more}</em><br>
-Expected: Similar to previous.</p>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">G.3. Saving data</a></h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Dealing with missing/corrupted data files</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p><em>{explain how to simulate a missing/corrupted file and the expected behavior}</em></p>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
-</div>
-</div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-09-08 11:38:17 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-04 02:03:30 UTC</div></div></div></body></html>

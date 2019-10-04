@@ -1,40 +1,14 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>AddressBook Level 3 - User Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>CS ModBuddy - User Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">AddressBook-Level3</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link active" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/se-edu/addressbook-level3"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>AddressBook Level 3 - User Guide</h1></div><div id="content"><div id="preamble">
-<div class="sectionbody">
-<div class="paragraph">
-<p>By: <code>Team SE-EDU</code>      Since: <code>Jun 2016</code>      Licence: <code>MIT</code></p>
-</div>
-</div>
-<div id="toc" class="toc">
-<div id="toctitle"></div>
-<ul class="sectlevel1">
-<li><a href="#introduction">1. Introduction</a></li>
-<li><a href="#quick-start">2. Quick Start</a></li>
-<li><a href="#Features">3. Features</a>
-<ul class="sectlevel2">
-<li><a href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></li>
-<li><a href="#adding-a-person-code-add-code">3.2. Adding a person: <code>add</code></a></li>
-<li><a href="#listing-all-persons-code-list-code">3.3. Listing all persons : <code>list</code></a></li>
-<li><a href="#editing-a-person-code-edit-code">3.4. Editing a person : <code>edit</code></a></li>
-<li><a href="#locating-persons-by-name-code-find-code">3.5. Locating persons by name: <code>find</code></a></li>
-<li><a href="#deleting-a-person-code-delete-code">3.6. Deleting a person : <code>delete</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code">3.7. Clearing all entries : <code>clear</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.8. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.9. Saving the data</a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.10. Encrypting data files <code>[coming in v2.0]</code></a></li>
-</ul>
-</li>
-<li><a href="#faq">4. FAQ</a></li>
-<li><a href="#command-summary">5. Command Summary</a></li>
-</ul>
-</div>
-</div>
-<div class="sect1">
+<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">AddressBook-Level3</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link active" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/se-edu/addressbook-level3"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>CS ModBuddy - User Guide</h1></div><div id="content"><div class="sect1">
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>AddressBook Level 3 (AB3) is for those who <strong>prefer to use a desktop app for managing contacts</strong>. More importantly, AB3 is <strong>optimized for those who prefer to work with a Command Line Interface</strong> (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, AB3 can get your contact management tasks done faster than traditional GUI apps. Interested? Jump to the <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to get started. Enjoy!</p>
+<p>CS ModBuddy is for those who <strong>prefer to use a desktop app for planning their modules</strong>.
+More importantly, CS ModBuddy is <strong>optimized for those who prefer to work with a Command Line Interface</strong> (CLI)
+while still having the benefits of a Graphical User Interface (GUI).
+If you can type fast, CS ModBuddy can get your module planning done faster than traditional GUI apps.
+Interested? Jump to the <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to get started. Enjoy!</p>
 </div>
 </div>
 </div>
@@ -47,10 +21,10 @@
 <p>Ensure you have Java <code>11</code> or above installed in your Computer.</p>
 </li>
 <li>
-<p>Download the latest <code>addressbook.jar</code> <a href="https://github.com/se-edu/addressbook-level3/releases">here</a>.</p>
+<p>Download the latest <code>csModBuddy.jar</code> <a href="https://github.com/AY1920S1-CS2103-F09-3/main/releases">here</a>.</p>
 </li>
 <li>
-<p>Copy the file to the folder you want to use as the home folder for your Address Book.</p>
+<p>Copy the file to the folder you want to use as the home folder for your module plan.</p>
 </li>
 <li>
 <p>Double-click the file to start the app. The GUI should appear in a few seconds.</p>
@@ -63,25 +37,6 @@
 <li>
 <p>Type the command in the command box and press <kbd>Enter</kbd> to execute it.<br>
 e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> will open the help window.</p>
-</li>
-<li>
-<p>Some example commands you can try:</p>
-<div class="ulist">
-<ul>
-<li>
-<p><strong><code>list</code></strong> : lists all contacts</p>
-</li>
-<li>
-<p><strong><code>add</code></strong><code>n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code> : adds a contact named <code>John Doe</code> to the Address Book.</p>
-</li>
-<li>
-<p><strong><code>delete</code></strong><code>3</code> : deletes the 3rd contact shown in the current list</p>
-</li>
-<li>
-<p><strong><code>exit</code></strong> : exits the app</p>
-</li>
-</ul>
-</div>
 </li>
 <li>
 <p>Refer to <a href="#Features">Section 3, &#8220;Features&#8221;</a> for details of each command.</p>
@@ -101,32 +56,560 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="ulist">
 <ul>
 <li>
-<p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user e.g. in <code>add n/NAME</code>, <code>NAME</code> is a parameter which can be used as <code>add n/John Doe</code>.</p>
+<p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user e.g. in <code>add SEMESTER MODULE_CODE</code>, <code>SEMESTER</code>
+is a parameter which can be used as <code>add y1s1 cs1101s</code>.</p>
 </li>
 <li>
-<p>Items in square brackets are optional e.g <code>n/NAME [t/TAG]</code> can be used as <code>n/John Doe t/friend</code> or as <code>n/John Doe</code>.</p>
+<p>Items in square brackets are optional e.g <code>newplan [TITLE]</code> can be used as <code>newplan</code>
+or as <code>newplan Algo and Graphics</code>.</p>
 </li>
 <li>
-<p>Items with <code>…</code>​ after them can be used multiple times including zero times e.g. <code>[t/TAG]&#8230;&#8203;</code> can be used as <code>&#160;</code> (i.e. 0 times), <code>t/friend</code>, <code>t/friend t/family</code> etc.</p>
-</li>
-<li>
-<p>Parameters can be in any order e.g. if the command specifies <code>n/NAME p/PHONE_NUMBER</code>, <code>p/PHONE_NUMBER n/NAME</code> is also acceptable.</p>
+<p>Items with &#8230;&#8203; after them can be used multiple times e.g. <code>TAG_NAME&#8230;&#8203;</code> can be used as <code>core</code>, <code>core completed</code>, etc.</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></h3>
+<h3 id="storage"><a class="link" href="#storage">3.1. Storage</a></h3>
+<div class="sect3">
+<h4 id="creating-a-new-study-plan-code-newplan-code"><a class="link" href="#creating-a-new-study-plan-code-newplan-code">3.1.1. Creating a new study plan: <code>newplan</code></a></h4>
 <div class="paragraph">
-<p>Format: <code>help</code></p>
+<p>Creates a new study plan with an optional title.<br>
+Format: <code>newplan [TITLE]</code><br>
+Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>newplan noc half year</code></p>
+</li>
+<li>
+<p><code>newplan minor in maths</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="deleting-a-study-plan-code-removeplan-code"><a class="link" href="#deleting-a-study-plan-code-removeplan-code">3.1.2. Deleting a study plan: <code>removeplan</code></a></h4>
+<div class="paragraph">
+<p>Deletes a study plan with a given index.<br>
+Format: <code>removeplan PLAN_NUMBER</code><br>
+Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>removeplan 4</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="commiting-edits-to-a-study-plan-code-commit-code"><a class="link" href="#commiting-edits-to-a-study-plan-code-commit-code">3.1.3. Commiting edits to a study plan: <code>commit</code></a></h4>
+<div class="paragraph">
+<p>Saves changes to a study plan with a short commit message<br>
+Format: <code>commit SHORT_MESSAGE</code><br>
+Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>commit planned until y2s2</code></p>
+</li>
+<li>
+<p><code>commit haven’t added UEs</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="checking-commit-history-code-history-code"><a class="link" href="#checking-commit-history-code-history-code">3.1.4. Checking commit history: <code>history</code></a></h4>
+<div class="paragraph">
+<p>Shows all commit history of the current study plan.<br>
+Format: <code>history</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="viewing-a-commit-code-viewcommit-code"><a class="link" href="#viewing-a-commit-code-viewcommit-code">3.1.5. Viewing a commit: <code>viewcommit</code></a></h4>
+<div class="paragraph">
+<p>Shows the version of the current study plan for a particular commit.This does not discard the commits after the
+specified commit.<br>
+Format: <code>viewcommit COMMIT_NUMBER</code><br>
+Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>viewcommit 1.1</code></p>
+</li>
+<li>
+<p><code>This allows the user to view commit 1 of study plan 1.</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="reverting-to-a-commit-code-revert-code"><a class="link" href="#reverting-to-a-commit-code-revert-code">3.1.6. Reverting to a commit: <code>revert</code></a></h4>
+<div class="paragraph">
+<p>Reverts to the version of the current study plan for a particular commit. This discards all the commits after the
+specified commit.<br>
+Format: <code>revert COMMIT_NUMBER</code><br>
+Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>revert 1.1</code><br>
+This allows the user to revert to commit 1 of study plan 1, discarding all commits after 1.1 (e.g. 1.2 and 1.3).</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="viewing-another-study-plan-code-viewplan-code"><a class="link" href="#viewing-another-study-plan-code-viewplan-code">3.1.7. Viewing another study plan: <code>viewplan</code></a></h4>
+<div class="paragraph">
+<p>Shows the study plan with a given index.<br>
+Format: <code>viewplan PLAN_NUMBER</code><br>
+Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>viewplan 3</code><br>
+This allows the user to view the study plan with an index of 3.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="setting-another-study-plan-as-active-code-activate-code"><a class="link" href="#setting-another-study-plan-as-active-code-activate-code">3.1.8. Setting another study plan as active: <code>activate</code></a></h4>
+<div class="paragraph">
+<p>Replaces the current study plan with the specified study plan as the active one.<br>
+Format: <code>activate PLAN_NUMBER</code><br>
+Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>activate 2</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="moving-a-semester-to-a-study-plan-code-move-code"><a class="link" href="#moving-a-semester-to-a-study-plan-code-move-code">3.1.9. Moving a semester to a study plan: <code>move</code></a></h4>
+<div class="paragraph">
+<p>Moves a semester of modules to another study plan with a specified index.<br></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This is the same command as 3.4 (<code>move MODULE SEM_SRC SEM_DEST</code>). The parser will handle the different
+command interpretation.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Format: <code>move SEMESTER SOURCE_PLAN DESTINATION_PLAN</code><br>
+Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>move y2s2 1 3</code></p>
+</li>
+<li>
+<p><code>move y3s1 2 1</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="deleting-a-semester-from-a-study-plan-code-remove-code"><a class="link" href="#deleting-a-semester-from-a-study-plan-code-remove-code">3.1.10. Deleting a semester from a study plan: <code>remove</code></a></h4>
+<div class="paragraph">
+<p>Deletes a semester of modules in the current active study plan, after which the semester will contain no modules.<br></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This is the same command as 3.2 (<code>remove SEMESTER MODULE</code>). The parser will handle the different command
+interpretation.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Format: <code>remove SEMESTER</code><br>
+Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>remove y2s2</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="viewing-description-of-a-module-code-description-code"><a class="link" href="#viewing-description-of-a-module-code-description-code">3.1.11. Viewing description of a module: <code>description</code></a></h4>
+<div class="paragraph">
+<p>Shows a short textual description of a particular module.<br>
+Format: <code>description MODULE_CODE</code><br>
+Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>description cs2103</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="editing-the-title-of-current-study-plan-code-title-code"><a class="link" href="#editing-the-title-of-current-study-plan-code-title-code">3.1.12. Editing the title of current study plan: <code>title</code></a></h4>
+<div class="paragraph">
+<p>Changes the title of the current active study plan.<br>
+Format: <code>title PLAN_TITLE</code><br>
+Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>title Algo and Graphics</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="setting-default-study-plan-code-default-code"><a class="link" href="#setting-default-study-plan-code-default-code">3.1.13. Setting default study plan: <code>default</code></a></h4>
+<div class="paragraph">
+<p>Generates a study plan with pre-populated modules according to the recommended study plan for a year one student.<br>
+Format: <code>default</code></p>
+</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-a-person-code-add-code"><a class="link" href="#adding-a-person-code-add-code">3.2. Adding a person: <code>add</code></a></h3>
+<h3 id="help-and-handling-the-gui"><a class="link" href="#help-and-handling-the-gui">3.2. Help and handling the GUI</a></h3>
+<div class="sect3">
+<h4 id="general-help-code-help-code"><a class="link" href="#general-help-code-help-code">3.2.1. General Help: <code>help</code></a></h4>
 <div class="paragraph">
-<p>Adds a person to the address book<br>
-Format: <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code></p>
+<p>Provides a list of possible commands the user can type.<br>
+Format: <code>help</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="help-for-a-specific-command-code-help-code"><a class="link" href="#help-for-a-specific-command-code-help-code">3.2.2. Help for a specific command: <code>help</code></a></h4>
+<div class="paragraph">
+<p>Provides help for a specific command.<br>
+Format: <code>help COMMAND</code><br>
+Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>help newplan</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="autocompleting-code-tab-code"><a class="link" href="#autocompleting-code-tab-code">3.2.3. Autocompleting: <code>tab</code></a></h4>
+<div class="paragraph">
+<p>Autocompletes command/module code if there is only one option left.<br>
+Shows a dropdown for selection if there is more than one option left. This is done through the tab key.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="expanding-a-semester-code-expand-code"><a class="link" href="#expanding-a-semester-code-expand-code">3.2.4. Expanding a semester: <code>expand</code></a></h4>
+<div class="paragraph">
+<p>Expands a semester so that more details can be seen.<br>
+Format: <code>expand SEMESTER</code><br>
+Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>expand y1s1</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="collapsing-a-semester-code-collapse-code"><a class="link" href="#collapsing-a-semester-code-collapse-code">3.2.5. Collapsing a semester: <code>collapse</code></a></h4>
+<div class="paragraph">
+<p>Collapses a semester so that most details are hidden.<br>
+Format: <code>collapse SEMESTER</code><br>
+Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>collapse y1s1</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="command-line-interface"><a class="link" href="#command-line-interface">3.3. Command Line Interface</a></h3>
+<div class="sect3">
+<h4 id="assigning-a-module-to-a-given-semester-code-addmodule-code"><a class="link" href="#assigning-a-module-to-a-given-semester-code-addmodule-code">3.3.1. Assigning a module to a given semester: <code>addmodule</code></a></h4>
+<div class="paragraph">
+<p>Assigns the specified module to a given semester of the current study plan.<br>
+Format:  <code>add SEMESTER MODULE &#8230;&#8203;</code><br>
+Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add y1s1 CS1101s</code></p>
+</li>
+<li>
+<p><code>add y2s2 CS3244 CS3245 CS3233</code></p>
+</li>
+<li>
+<p><code>add y1s1 ue</code></p>
+</li>
+<li>
+<p><code>add y1s2 ue:GER1000</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="removing-a-module-from-a-given-semester-code-remove-code"><a class="link" href="#removing-a-module-from-a-given-semester-code-remove-code">3.3.2. Removing a module from a given semester. <code>remove</code></a></h4>
+<div class="paragraph">
+<p>Removes the specified module to a given semester of the current study plan.<br>
+Format: <code>remove SEMESTER MODULE &#8230;&#8203;</code><br>
+Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>remove y1s1 CS1101S</code></p>
+</li>
+<li>
+<p><code>remove y2s2 CS3244</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="naming-a-ue-from-a-semester-code-nameue-code"><a class="link" href="#naming-a-ue-from-a-semester-code-nameue-code">3.3.3. Naming a UE from a semester. <code>nameue</code></a></h4>
+<div class="paragraph">
+<p>Names a UE from the given semester with the given module name. This feature is purely for aesthetic purposes and has no functional implications.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>nameue SEMESTER NAME</code><br>
+Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>nameue y1s1 GER1000</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="moving-a-module-from-one-semester-to-another-code-move-code"><a class="link" href="#moving-a-module-from-one-semester-to-another-code-move-code">3.3.4. Moving a module from one semester to another. <code>move</code></a></h4>
+<div class="paragraph">
+<p>Moves a given module from a source semester to a destination semester, as specified.<br>
+Format: <code>move MODULE SEMESTER_SRC SEMESTER_DEST</code><br>
+Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>move CS3243 y2s1 y2s2</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="setting-the-current-semester-code-setcurrent-code"><a class="link" href="#setting-the-current-semester-code-setcurrent-code">3.3.5. Setting the current semester. <code>setcurrent</code></a></h4>
+<div class="paragraph">
+<p>Sets the given semester as the current one. Semesters before the specified semester will be locked and therefore modules cannot be added or removed from them.<br>
+Format: <code>setcurrent SEMESTER</code><br>
+Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>setcurrent y1s2</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="blocking-off-the-given-semester-code-block-code"><a class="link" href="#blocking-off-the-given-semester-code-block-code">3.3.6. Blocking off the given semester: <code>block</code></a></h4>
+<div class="paragraph">
+<p>Block off the given semester, for reasons such as exchange, LOA, etc.<br>
+Format:  <code>block SEMESTER [REASON]</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="undo-ing-the-previous-command-code-undo-code"><a class="link" href="#undo-ing-the-previous-command-code-undo-code">3.3.7. Undo-ing the previous command: <code>undo</code></a></h4>
+<div class="paragraph">
+<p>Undo the previous command. The state of the application will revert back to that before the previous command. This command cannot undo itself.<br>
+Format: <code>undo</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="redo-ing-the-previous-undone-command-code-redo-code"><a class="link" href="#redo-ing-the-previous-undone-command-code-redo-code">3.3.8. Redo-ing the previous undone command: <code>redo</code></a></h4>
+<div class="paragraph">
+<p>Redo the previous undone command. The state of the application will revert back to that before the undo. This command cannot redo itself.<br>
+Format:  <code>redo</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="declaring-a-focus-area-code-declarefocusarea-code"><a class="link" href="#declaring-a-focus-area-code-declarefocusarea-code">3.3.9. Declaring a focus area: <code>declarefocusarea</code></a></h4>
+<div class="paragraph">
+<p>Declares the given focus area as one of the focus areas of the study plan. This means that the requirements of the focus area has to be met to be eligible for graduation.<br>
+Format: <code>declarefocusarea FOCUS_AREA</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="chaining-commands"><a class="link" href="#chaining-commands">3.3.10. Chaining commands</a></h4>
+<div class="paragraph">
+<p>Chain commands together for greater efficiency. The commands, if different, are separated by a ‘&amp;&amp;’. ‘&amp;&amp;’ is not needed if the command is the same.<br>
+Format: <code>COMMAND_1 &amp;&amp; COMMAND_2 &amp;&amp; …</code><br>
+Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>addmodule y1s1 CS1101S CS1231 MA1521</code></p>
+</li>
+<li>
+<p><code>movemodule CS2105 y2s1 y2s2 &amp;&amp; addmodule CS2106 y2s2</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="data-classification-and-management"><a class="link" href="#data-classification-and-management">3.4. Data classification and management</a></h3>
+<div class="sect3">
+<h4 id="viewing-default-tags-code-viewdefaulttags-code"><a class="link" href="#viewing-default-tags-code-viewdefaulttags-code">3.4.1. Viewing default tags : <code>viewdefaulttags</code></a></h4>
+<div class="paragraph">
+<p>Shows all default tag types.<br>
+Format: <code>viewdefaulttags</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>List of default tags:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>completed</code><br>
+<em>Completed</em> modules are modules that are in any semester before the <strong>current semester</strong>.</p>
+</li>
+<li>
+<p><code>core</code><br>
+<em>Core</em> modules are <strong>Computer Science Foundation</strong> modules that count towards <strong>Programme Requirements</strong>.</p>
+</li>
+<li>
+<p><code>s/u-able</code><br>
+<em>S/U-able</em> modules are modules that permit the <strong>Satisfactory/Unsatisfactory option</strong>.</p>
+</li>
+<li>
+<p><code>ue</code><br>
+<em>UE</em> modules are <strong>Unrestricted Elective</strong> modules.</p>
+</li>
+<li>
+<p><code>ulr</code><br>
+<em>ULR</em> modules are modules that count towards <strong>University Level Requirements</strong>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="viewing-all-tags-code-viewalltags-code"><a class="link" href="#viewing-all-tags-code-viewalltags-code">3.4.2. Viewing all tags : <code>viewalltags</code></a></h4>
+<div class="paragraph">
+<p>Shows all tag types.<br>
+Format: <code>viewalltags</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="creating-new-tags-code-newtag-code"><a class="link" href="#creating-new-tags-code-newtag-code">3.4.3. Creating new tags : <code>newtag</code></a></h4>
+<div class="paragraph">
+<p>Creates a new tag type that can be used to keep track of other types of modules.<br>
+Format: <code>newtag TAG_NAME</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If a tag with the specified <code>TAG_NAME</code> already exists, no new tag will be created.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>newtag exchange</code><br>
+Adds a tag called <em>exchange</em> that can be used to tag modules that are to be taken during an overseas exchange.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="renaming-an-existing-tag-code-renametag-code"><a class="link" href="#renaming-an-existing-tag-code-renametag-code">3.4.4. Renaming an existing tag : <code>renametag</code></a></h4>
+<div class="paragraph">
+<p>Renames a tag.<br>
+Format: <code>renametag ORIGINAL_TAG_NAME NEW_TAG_NAME</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Only user-created tags can be renamed, i.e. default tag cannot be renamed.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>renametag exchange sep</code><br>
+Renames the tag name from <em>exchange</em> to <em>sep</em>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="tagging-modules-code-tag-code"><a class="link" href="#tagging-modules-code-tag-code">3.4.5. Tagging modules : <code>tag</code></a></h4>
+<div class="paragraph">
+<p>Attaches a tag to a module.<br>
+Format: <code>tag MODULE_CODE TAG_NAME</code></p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -135,105 +618,91 @@ Format: <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;<
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-A person can have any number of tags (including 0)
+If a tag with the given <code>TAG_NAME</code> does not exist, a new tag will automatically be created and tagged to the specified module.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
+<p>Example:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code></p>
-</li>
-<li>
-<p><code>add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal</code></p>
+<p><code>tag cs3230 exchange</code><br>
+Attaches the tag with name <em>exchange</em> to <em>CS3230</em>.</p>
 </li>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="listing-all-persons-code-list-code"><a class="link" href="#listing-all-persons-code-list-code">3.3. Listing all persons : <code>list</code></a></h3>
+<div class="sect3">
+<h4 id="removing-a-tag-from-a-module-code-removetag-code"><a class="link" href="#removing-a-tag-from-a-module-code-removetag-code">3.4.6. Removing a tag from a module: <code>removetag</code></a></h4>
 <div class="paragraph">
-<p>Shows a list of all persons in the address book.<br>
-Format: <code>list</code></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="editing-a-person-code-edit-code"><a class="link" href="#editing-a-person-code-edit-code">3.4. Editing a person : <code>edit</code></a></h3>
-<div class="paragraph">
-<p>Edits an existing person in the address book.<br>
-Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Edits the person at the specified <code>INDEX</code>. The index refers to the index number shown in the displayed person list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
-</li>
-<li>
-<p>At least one of the optional fields must be provided.</p>
-</li>
-<li>
-<p>Existing values will be updated to the input values.</p>
-</li>
-<li>
-<p>When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.</p>
-</li>
-<li>
-<p>You can remove all the person&#8217;s tags by typing <code>t/</code> without specifying any tags after it.</p>
-</li>
-</ul>
-</div>
-</div>
+<p>Removes a tag from a module.<br>
+Format: <code>removetag MODULE_CODE TAG_NAME</code></p>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
+<p>Example:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>edit 1 p/91234567 e/johndoe@example.com</code><br>
-Edits the phone number and email address of the 1st person to be <code>91234567</code> and <code>johndoe@example.com</code> respectively.</p>
-</li>
-<li>
-<p><code>edit 2 n/Betsy Crower t/</code><br>
-Edits the name of the 2nd person to be <code>Betsy Crower</code> and clears all existing tags.</p>
+<p><code>removetag cs3230 exchange</code></p>
 </li>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="locating-persons-by-name-code-find-code"><a class="link" href="#locating-persons-by-name-code-find-code">3.5. Locating persons by name: <code>find</code></a></h3>
+<div class="sect3">
+<h4 id="removing-a-tag-from-all-modules-code-removeall-code"><a class="link" href="#removing-a-tag-from-all-modules-code-removeall-code">3.4.7. Removing a tag from all modules: <code>removeall</code></a></h4>
 <div class="paragraph">
-<p>Finds persons whose names contain any of the given keywords.<br>
-Format: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
+<p>Removes a tag from all modules that it is attached to.<br>
+Format: <code>removeall TAG_NAME</code></p>
 </div>
-<div class="sidebarblock">
-<div class="content">
+<div class="paragraph">
+<p>Example:</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p>The search is case insensitive. e.g <code>hans</code> will match <code>Hans</code></p>
-</li>
-<li>
-<p>The order of the keywords does not matter. e.g. <code>Hans Bo</code> will match <code>Bo Hans</code></p>
-</li>
-<li>
-<p>Only the name is searched.</p>
-</li>
-<li>
-<p>Only full words will be matched e.g. <code>Han</code> will not match <code>Hans</code></p>
-</li>
-<li>
-<p>Persons matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Hans Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code></p>
+<p><code>removeall exchange</code></p>
 </li>
 </ul>
 </div>
 </div>
+<div class="sect3">
+<h4 id="deleting-tags-code-deletetag-code"><a class="link" href="#deleting-tags-code-deletetag-code">3.4.8. Deleting tags: <code>deletetag</code></a></h4>
+<div class="paragraph">
+<p>Deletes a tag completely and removes it from any module that it is attached to.<br>
+Format: <code>deletetag TAG_NAME</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Only user-created tags can be deleted, i.e. default tag cannot be deleted.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>deletetag exchange</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="viewing-modules-with-specific-tags-code-viewtagged-code"><a class="link" href="#viewing-modules-with-specific-tags-code-viewtagged-code">3.4.9. Viewing modules with specific tags : <code>viewtagged</code></a></h4>
+<div class="paragraph">
+<p>Shows all modules attached to all the specified tags.<br>
+Format: <code>viewtagged TAG_NAME &#8230;&#8203;</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -241,38 +710,21 @@ Format: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>find John</code><br>
-Returns <code>john</code> and <code>John Doe</code></p>
+<p><code>viewtagged completed</code><br>
+Shows all modules that are tagged as <em>completed</em>.</p>
 </li>
 <li>
-<p><code>find Betsy Tim John</code><br>
-Returns any person having names <code>Betsy</code>, <code>Tim</code>, or <code>John</code></p>
+<p><code>viewtagged core completed</code><br>
+Shows all modules that are tagged as <em>core</em> and <em>completed</em>.</p>
 </li>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="deleting-a-person-code-delete-code"><a class="link" href="#deleting-a-person-code-delete-code">3.6. Deleting a person : <code>delete</code></a></h3>
+<div class="sect3">
+<h4 id="viewing-tags-for-a-specific-module-code-viewtags-code"><a class="link" href="#viewing-tags-for-a-specific-module-code-viewtags-code">3.4.10. Viewing tags for a specific module : <code>viewtags</code></a></h4>
 <div class="paragraph">
-<p>Deletes the specified person from the address book.<br>
-Format: <code>delete INDEX</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Deletes the person at the specified <code>INDEX</code>.</p>
-</li>
-<li>
-<p>The index refers to the index number shown in the displayed person list.</p>
-</li>
-<li>
-<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-</div>
+<p>Shows all tags attached to the specified module.<br>
+Format <code>viewtags MODULE_CODE</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -280,43 +732,152 @@ Format: <code>delete INDEX</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>list</code><br>
-<code>delete 2</code><br>
-Deletes the 2nd person in the address book.</p>
-</li>
-<li>
-<p><code>find Betsy</code><br>
-<code>delete 1</code><br>
-Deletes the 1st person in the results of the <code>find</code> command.</p>
+<p><code>viewtags cs2030</code></p>
 </li>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.7. Clearing all entries : <code>clear</code></a></h3>
+<div class="sect3">
+<h4 id="finding-modules-using-the-module-code-code-findmod-code"><a class="link" href="#finding-modules-using-the-module-code-code-findmod-code">3.4.11. Finding modules using the module code : <code>findmod</code></a></h4>
 <div class="paragraph">
-<p>Clears all entries from the address book.<br>
-Format: <code>clear</code></p>
+<p>Shows which semester the specified module is located at.<br>
+Format: <code>findmod MODULE_CODE</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>findmod cs1101s</code></p>
+</li>
+<li>
+<p><code>findmod cs2103</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="finding-module-code-using-keywords-code-getmodcode-code"><a class="link" href="#finding-module-code-using-keywords-code-getmodcode-code">3.4.12. Finding module code using keywords : <code>getmodcode</code></a></h4>
+<div class="paragraph">
+<p>Shows module codes of all modules with names that contain the specified keywords.<br>
+Format: <code>getmodcode KEYWORDS</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>getmodcode algorithms</code></p>
+</li>
+<li>
+<p><code>getmodcode programming</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="viewing-prerequisites-of-a-module-code-prereq-code"><a class="link" href="#viewing-prerequisites-of-a-module-code-prereq-code">3.4.13. Viewing prerequisites of a module : <code>prereq</code></a></h4>
+<div class="paragraph">
+<p>Shows all prerequisite modules for the specified module.<br>
+Format: <code>prereq MODULE_CODE</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>prereq cs2040</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="viewing-total-completed-mcs-code-mcs-code"><a class="link" href="#viewing-total-completed-mcs-code-mcs-code">3.4.14. Viewing total completed MCs : <code>mcs</code></a></h4>
+<div class="paragraph">
+<p>Shows the current total MCs for all <strong>completed</strong> modules.<br>
+Format: <code>mcs</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="viewing-focus-area-code-viewfocusarea-code"><a class="link" href="#viewing-focus-area-code-viewfocusarea-code">3.4.15. Viewing focus area : <code>viewfocusarea</code></a></h4>
+<div class="paragraph">
+<p>Shows the focus area that the user has previously declared.<br>
+Format: <code>viewfocusarea</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="viewing-modules-that-can-be-taken-in-a-given-semester-code-validmods-code"><a class="link" href="#viewing-modules-that-can-be-taken-in-a-given-semester-code-validmods-code">3.4.16. Viewing modules that can be taken in a given semester : <code>validmods</code></a></h4>
+<div class="paragraph">
+<p>Shows all the modules that can be taken in a given semester based on whether prerequisites have been met.<br>
+Format: <code>validmods SEMESTER</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>validmods y2s1</code></p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.8. Exiting the program : <code>exit</code></a></h3>
+<h3 id="verification"><a class="link" href="#verification">3.5. Verification</a></h3>
+<div class="sect3">
+<h4 id="error-messages"><a class="link" href="#error-messages">3.5.1. Error messages</a></h4>
 <div class="paragraph">
-<p>Exits the program.<br>
-Format: <code>exit</code></p>
+<p>Displays a useful error message if the input is invalid. For example, it should highlight wrong commands, wrong numbers of arguments, or arguments in the wrong format.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.9. Saving the data</a></h3>
+<div class="sect3">
+<h4 id="checking-a-study-plan-s-feasibility"><a class="link" href="#checking-a-study-plan-s-feasibility">3.5.2. Checking a study plan&#8217;s feasibility</a></h4>
 <div class="paragraph">
-<p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
-There is no need to save manually.</p>
+<p>Shows details about what requirements are left to be fulfilled,
+such as modules that remain to be taken or prerequisites that have yet to be satisfied.<br>
+Format: <code>check [AREA]</code></p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.10. Encrypting data files <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
-<p><em>{explain how the user can enable/disable data encryption}</em></p>
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>check</code>&#8201;&#8212;&#8201;checks all graduation requirements by default<br></p>
+</li>
+<li>
+<p><code>check core</code><br></p>
+</li>
+<li>
+<p><code>check focus</code><br></p>
+</li>
+<li>
+<p><code>check prereq</code><br></p>
+</li>
+<li>
+<p><code>check mc</code><br></p>
+</li>
+<li>
+<p><code>check MODULE</code>&#8201;&#8212;&#8201;checks if the module is valid, listing issues with its prerequisites<br></p>
+</li>
+<li>
+<p><code>check SEMESTER</code>&#8201;&#8212;&#8201;checks if all modules in the semester are valid</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="displays"><a class="link" href="#displays">3.5.3. Displays</a></h4>
+<div class="paragraph">
+<p>Highlights a module in red if it doesn&#8217;t satisfy any of its prerequisites, displaying these required modules as tags.</p>
+</div>
+<div class="paragraph">
+<p>The study plan will have a tick or cross beside it, which shows if the entire plan is feasible.</p>
+</div>
 </div>
 </div>
 </div>
@@ -324,43 +885,12 @@ There is no need to save manually.</p>
 <div class="sect1">
 <h2 id="faq"><a class="link" href="#faq">4. FAQ</a></h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
-<strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Address Book folder.</p>
-</div>
+
 </div>
 </div>
 <div class="sect1">
 <h2 id="command-summary"><a class="link" href="#command-summary">5. Command Summary</a></h2>
 <div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Add</strong> <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague</code></p>
-</li>
-<li>
-<p><strong>Clear</strong> : <code>clear</code></p>
-</li>
-<li>
-<p><strong>Delete</strong> : <code>delete INDEX</code><br>
-e.g. <code>delete 3</code></p>
-</li>
-<li>
-<p><strong>Edit</strong> : <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>edit 2 n/James Lee e/jameslee@example.com</code></p>
-</li>
-<li>
-<p><strong>Find</strong> : <code>find KEYWORD [MORE_KEYWORDS]</code><br>
-e.g. <code>find James Jake</code></p>
-</li>
-<li>
-<p><strong>List</strong> : <code>list</code></p>
-</li>
-<li>
-<p><strong>Help</strong> : <code>help</code></p>
-</li>
-</ul>
+
 </div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-09-08 11:38:17 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-04 02:03:30 UTC</div></div></div></body></html>
