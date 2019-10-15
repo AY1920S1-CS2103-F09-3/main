@@ -31,7 +31,7 @@ import seedu.address.model.versiontracking.exception.StudyPlanCommitManagerNotFo
 public class ModelManager implements Model {
     private static final Logger logger = LogsCenter.getLogger(ModelManager.class);
 
-    private final ModulePlanner modulePlanner;
+    private final VersionedModulePlanner modulePlanner;
     private final UserPrefs userPrefs;
     private final FilteredList<StudyPlan> filteredStudyPlans;
 
@@ -44,7 +44,7 @@ public class ModelManager implements Model {
 
         logger.fine("Initializing with module planner: " + modulePlanner + " and user prefs " + userPrefs);
 
-        this.modulePlanner = new ModulePlanner(modulePlanner, modulesInfo);
+        this.modulePlanner = new VersionedModulePlanner(modulePlanner, modulesInfo);
         this.userPrefs = new UserPrefs(userPrefs);
         filteredStudyPlans = new FilteredList<>(this.modulePlanner.getStudyPlanList());
     }
