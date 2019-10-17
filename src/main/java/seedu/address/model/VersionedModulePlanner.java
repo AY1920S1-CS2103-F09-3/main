@@ -57,7 +57,8 @@ public class VersionedModulePlanner extends ModulePlanner {
         currentStatePointer++;
         resetData(historyStateList.get(currentStatePointer));
         System.out.println("============= REDO =============");
-        super.getActiveStudyPlan().getSemesters().forEach(semester -> semester.getModules().forEach(module -> System.out.println(module.getModuleCode().toString() + "\n")));
+        super.getActiveStudyPlan().getSemesters().forEach(semester -> semester.getModules().forEach(
+                module -> System.out.println(module.getModuleCode().toString() + "\n")));
     }
 
     /**
