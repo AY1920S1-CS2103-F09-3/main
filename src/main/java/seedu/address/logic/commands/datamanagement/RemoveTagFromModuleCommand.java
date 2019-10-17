@@ -36,6 +36,13 @@ public class RemoveTagFromModuleCommand extends Command {
      * Creates an {@code RemoveTagFromModuleCommand} to move a tag with the given name from the specified module.
      *
      * @param tagName    The name of the tag.
+<<<<<<< HEAD
+=======
+     *                   =======
+     *                   Creates an {@code RemoveTagCommand} to move a tag with the given name from the module.
+     * @param tagName    The name of the tag.
+     *                   >>>>>>> master:src/main/java/seedu/address/logic/commands/datamanagement/RemoveTagCommand.java
+>>>>>>> Checkstyle fixes
      * @param moduleCode The module code of the module from which the tag is to be deleted.
      */
 

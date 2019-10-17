@@ -3,6 +3,9 @@ package seedu.address.model;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * {@code ModulePlanner} that keeps track of its own history.
+ */
 public class VersionedModulePlanner extends ModulePlanner {
     private final List<ReadOnlyModulePlanner> historyStateList;
     private int currentStatePointer;
@@ -12,7 +15,6 @@ public class VersionedModulePlanner extends ModulePlanner {
         historyStateList = new ArrayList<>();
         historyStateList.add(new ModulePlanner(toBeCopied, modulesInfo));
         currentStatePointer = 0;
-        historyStateList.get(0).getActiveStudyPlan().getSemesters().forEach(semester -> semester.getModules().forEach(module -> System.out.println(module.getModuleCode().toString())));
     }
 
     /**
@@ -23,11 +25,7 @@ public class VersionedModulePlanner extends ModulePlanner {
         removeStatesAfterCurrentPointer();
         historyStateList.add(new ModulePlanner(this, super.getModulesInfo()));
         currentStatePointer++;
-        System.out.println("============= COMMIT =============");
-        for (ReadOnlyModulePlanner b : historyStateList) {
-            b.getActiveStudyPlan().getSemesters().forEach(semester -> semester.getModules().forEach(module -> System.out.println(module.getModuleCode().toString())));
-        }
-//        indicateModified();
+        // indicateModified();
     }
 
     private void removeStatesAfterCurrentPointer() {
@@ -43,8 +41,6 @@ public class VersionedModulePlanner extends ModulePlanner {
         }
         currentStatePointer--;
         resetData(historyStateList.get(currentStatePointer));
-        System.out.println("============= UNDO =============");
-        super.getActiveStudyPlan().getSemesters().forEach(semester -> semester.getModules().forEach(module -> System.out.println(module.getModuleCode().toString())));
     }
 
     /**
@@ -56,9 +52,6 @@ public class VersionedModulePlanner extends ModulePlanner {
         }
         currentStatePointer++;
         resetData(historyStateList.get(currentStatePointer));
-        System.out.println("============= REDO =============");
-        super.getActiveStudyPlan().getSemesters().forEach(semester -> semester.getModules().forEach(
-                module -> System.out.println(module.getModuleCode().toString() + "\n")));
     }
 
     /**
