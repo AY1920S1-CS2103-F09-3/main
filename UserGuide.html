@@ -290,14 +290,14 @@ Example:</p>
 <div class="sect3">
 <h4 id="viewing-description-of-a-module-code-description-code"><a class="link" href="#viewing-description-of-a-module-code-description-code">3.1.11. Viewing description of a module: <code>description</code></a></h4>
 <div class="paragraph">
-<p>Shows a short textual description of a particular module.<br>
+<p>Shows the description of a particular module, including its prerequisites.<br>
 Format: <code>description MODULE_CODE</code><br>
 Example:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>description cs2103</code></p>
+<p><code>description CS2103T</code></p>
 </li>
 </ul>
 </div>
@@ -813,38 +813,14 @@ Format: <code>getmodcode KEYWORDS</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="viewing-prerequisites-of-a-module-code-prereq-code"><a class="link" href="#viewing-prerequisites-of-a-module-code-prereq-code">3.4.13. Viewing prerequisites of a module : <code>prereq</code></a></h4>
-<div class="paragraph">
-<p>Shows all prerequisite modules for the specified module.<br>
-Format: <code>prereq MODULE_CODE</code></p>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>prereq cs2040</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="viewing-total-completed-mcs-code-mcs-code"><a class="link" href="#viewing-total-completed-mcs-code-mcs-code">3.4.14. Viewing total completed MCs : <code>mcs</code></a></h4>
+<h4 id="viewing-total-completed-mcs-code-mcs-code"><a class="link" href="#viewing-total-completed-mcs-code-mcs-code">3.4.13. Viewing total completed MCs : <code>mcs</code></a></h4>
 <div class="paragraph">
 <p>Shows the current total MCs for all <strong>completed</strong> modules.<br>
 Format: <code>mcs</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="viewing-focus-area-code-viewfocusarea-code"><a class="link" href="#viewing-focus-area-code-viewfocusarea-code">3.4.15. Viewing focus area : <code>viewfocusarea</code></a></h4>
-<div class="paragraph">
-<p>Shows the focus area that the user has previously declared.<br>
-Format: <code>viewfocusarea</code></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="viewing-modules-that-can-be-taken-in-a-given-semester-code-validmods-code"><a class="link" href="#viewing-modules-that-can-be-taken-in-a-given-semester-code-validmods-code">3.4.16. Viewing modules that can be taken in a given semester : <code>validmods</code></a></h4>
+<h4 id="viewing-modules-that-can-be-taken-in-a-given-semester-code-validmods-code"><a class="link" href="#viewing-modules-that-can-be-taken-in-a-given-semester-code-validmods-code">3.4.14. Viewing modules that can be taken in a given semester : <code>validmods</code></a></h4>
 <div class="paragraph">
 <p>Shows all the modules that can be taken in a given semester based on whether prerequisites have been met.<br>
 Format: <code>validmods SEMESTER</code></p>
@@ -885,22 +861,10 @@ Format: <code>check [AREA]</code></p>
 <p><code>check</code>&#8201;&#8212;&#8201;checks all graduation requirements by default<br></p>
 </li>
 <li>
-<p><code>check core</code><br></p>
+<p><code>check core</code>&#8201;&#8212;&#8201;checks only core modules<br></p>
 </li>
 <li>
-<p><code>check focus</code><br></p>
-</li>
-<li>
-<p><code>check prereq</code><br></p>
-</li>
-<li>
-<p><code>check mc</code><br></p>
-</li>
-<li>
-<p><code>check MODULE</code>&#8201;&#8212;&#8201;checks if the module is valid, listing issues with its prerequisites<br></p>
-</li>
-<li>
-<p><code>check SEMESTER</code>&#8201;&#8212;&#8201;checks if all modules in the semester are valid</p>
+<p><code>check focus</code>&#8201;&#8212;&#8201;checks only the declared focus area</p>
 </li>
 </ul>
 </div>
@@ -928,4 +892,4 @@ Format: <code>check [AREA]</code></p>
 <div class="sectionbody">
 
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-17 14:24:24 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-19 14:46:54 UTC</div></div></div></body></html>
