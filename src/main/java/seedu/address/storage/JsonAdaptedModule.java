@@ -45,9 +45,7 @@ class JsonAdaptedModule {
         color = source.getColor().toString();
 
         // add only user-defined tags
-        Iterator<Tag> tagIterator = source.getTags().iterator();
-        while (tagIterator.hasNext()) {
-            Tag tag = tagIterator.next();
+        for (Tag tag : source.getTags()) {
             if (!tag.isDefault()) {
                 userTags.add(new JsonAdaptedTag(tag));
             }

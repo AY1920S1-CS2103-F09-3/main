@@ -9,6 +9,7 @@ import java.util.List;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import seedu.address.model.studyplan.exceptions.DuplicateStudyPlanException;
 import seedu.address.model.studyplan.exceptions.StudyPlanNotFoundException;
 
 
@@ -108,12 +109,23 @@ public class UniqueStudyPlanList implements Iterable<StudyPlan> {
             }
         }
         if (!studyPlansAreUnique(studyPlans)) {
-
-            // TODO: implement DuplicateStudyPlanException
-            // throw new DuplicateStudyPlanException();
+            throw new DuplicateStudyPlanException();
         }
 
         internalList.setAll(newList);
+    }
+
+    /**
+     * Replaces the contents of this list with {@code StudyPlans}.
+     * {@code StudyPlans} must not contain duplicate StudyPlans.
+     */
+    public void shallowSetStudyPlans(List<StudyPlan> studyPlans) {
+        requireAllNonNull(studyPlans);
+        if (!studyPlansAreUnique(studyPlans)) {
+            throw new DuplicateStudyPlanException();
+        }
+
+        internalList.setAll(studyPlans);
     }
 
     /**
