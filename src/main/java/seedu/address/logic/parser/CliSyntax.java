@@ -3,8 +3,7 @@ package seedu.address.logic.parser;
 import java.util.regex.Pattern;
 
 /**
- * Contains Command Line Interface (CLI) syntax definitions common to multiple
- * commands
+ * Contains Command Line Interface (CLI) syntax definitions common to multiple commands
  */
 public class CliSyntax {
     public static final Pattern MODULE_PATTERN = Pattern.compile("[a-zA-Z]{2,3}(\\d{4})[a-zA-Z]?");
