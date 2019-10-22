@@ -160,6 +160,8 @@ public class ModulePlanner implements ReadOnlyModulePlanner {
             UniqueTagList defaultTags = activeStudyPlan.assignDefaultTags(moduleInfo);
             for (Tag defaultTag : defaultTags) {
                 module.getTags().addTag(defaultTag);
+                System.out.println(module.getModuleCode().toString());
+                System.out.println(module.getTags());
             }
         }
 
@@ -179,7 +181,6 @@ public class ModulePlanner implements ReadOnlyModulePlanner {
         }
 
         activeStudyPlan.updatePrereqs();
-
         activeStudyPlan.setActivated(true);
 
         return activeStudyPlan;

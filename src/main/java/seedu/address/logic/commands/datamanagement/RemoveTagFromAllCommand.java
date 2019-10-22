@@ -57,5 +57,4 @@ public class RemoveTagFromAllCommand extends Command {
 
         return new CommandResult(String.format(MESSAGE_SUCCESS, toRemove));
     }
-
 }
