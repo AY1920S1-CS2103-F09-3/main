@@ -36,11 +36,7 @@ public class Semester implements Cloneable {
         this.isBlocked = isBlocked;
         this.reasonForBlocked = reasonForBlocked;
         for (Module module : modules) {
-            try {
-                this.modules.add(module.clone());
-            } catch (CloneNotSupportedException e) {
-                e.printStackTrace();
-            }
+            this.modules.add(module);
         }
     }
 

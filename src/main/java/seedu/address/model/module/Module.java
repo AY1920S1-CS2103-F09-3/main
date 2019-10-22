@@ -220,6 +220,11 @@ public class Module implements Cloneable {
     @Override
     public Module clone() throws CloneNotSupportedException {
         Module clone = (Module) super.clone();
+        clone.color = this.getColor();
+        clone.name = this.getName();
+        clone.mcCount = this.getMcCount();
+        clone.prereqsSatisfied = this.getPrereqsSatisfied();
+        clone.prereqTree = this.prereqTree;
         if (tags != null) {
             clone.tags = (UniqueTagList) tags.clone();
         }
