@@ -20,7 +20,7 @@ public class ViewModuleTagsCommand extends Command {
             + "Parameters: "
             + "MODULE CODE \n"
             + "Example: "
-            + "viewtags t/CS3230";
+            + "viewtags CS3230";
 
     public static final String MESSAGE_SUCCESS = "All tags for the module shown \n%1$s";
 

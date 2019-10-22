@@ -20,10 +20,23 @@ import seedu.address.model.module.exceptions.ModuleNotFoundException;
  * <p>
  * Supports a minimal set of list operations.
  */
-public class UniqueModuleList implements Iterable<Module> {
+public class UniqueModuleList implements Iterable<Module>, Cloneable {
     private final ObservableList<Module> internalList = FXCollections.observableArrayList();
     private final ObservableList<Module> internalUnmodifiableList =
             FXCollections.unmodifiableObservableList(internalList);
+
+    @Override
+    public UniqueModuleList clone() {
+        UniqueModuleList clone = new UniqueModuleList();
+        for (Module module : this) {
+            try {
+                clone.add(module.clone());
+            } catch (CloneNotSupportedException e) {
+                e.printStackTrace();
+            }
+        }
+        return clone;
+    }
 
     /**
      * Returns true if the list contains an equivalent module as the given argument.

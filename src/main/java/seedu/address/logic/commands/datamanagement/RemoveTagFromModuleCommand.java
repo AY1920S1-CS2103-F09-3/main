@@ -23,7 +23,7 @@ public class RemoveTagFromModuleCommand extends Command {
             + "MODULE_CODE "
             + "TAG_NAME \n"
             + "Example: "
-            + "remove m/CS3230 t/exchange";
+            + "remove CS3230 exchange";
 
     public static final String MESSAGE_SUCCESS = "Tag %1$s removed from %2$s";
     public static final String MESSAGE_TAG_NOT_FOUND = "The module %1$s does not have the tag [%2$s]";
@@ -33,9 +33,20 @@ public class RemoveTagFromModuleCommand extends Command {
     private final String moduleCode;
 
     /**
+<<<<<<< HEAD
      * Creates an {@code RemoveTagFromModuleCommand} to move a tag with the given name from the specified module.
      *
      * @param tagName    The name of the tag.
+=======
+     * <<<<<<< HEAD:src/main/java/seedu/address/logic/commands/datamanagement/RemoveTagFromModuleCommand.java
+     * Creates an {@code RemoveTagFromModuleCommand} to move a tag with the given name from the specified module.
+     *
+     * @param tagName    The name of the tag.
+     *                   =======
+     *                   Creates an {@code RemoveTagCommand} to move a tag with the given name from the module.
+     * @param tagName    The name of the tag.
+     *                   >>>>>>> master:src/main/java/seedu/address/logic/commands/datamanagement/RemoveTagCommand.java
+>>>>>>> upstream/undoredo-fix
      * @param moduleCode The module code of the module from which the tag is to be deleted.
      */
 
@@ -61,6 +72,7 @@ public class RemoveTagFromModuleCommand extends Command {
         }
 
         boolean removed = model.removeTagFromModuleInActiveSp((UserTag) toRemove, moduleCode);
+        model.addToHistory();
 
         if (!removed) {
             throw new CommandException(String.format(MESSAGE_TAG_NOT_FOUND, moduleCode, tagName));
