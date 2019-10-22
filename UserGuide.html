@@ -109,6 +109,9 @@ Examples:</p>
 <div class="ulist">
 <ul>
 <li>
+<p><code>newplan</code></p>
+</li>
+<li>
 <p><code>newplan noc half year</code></p>
 </li>
 <li>
@@ -179,8 +182,8 @@ Example:</p>
 <div class="sect3">
 <h4 id="reverting-to-a-commit-code-revert-code"><a class="link" href="#reverting-to-a-commit-code-revert-code">3.1.6. Reverting to a commit: <code>revert</code></a></h4>
 <div class="paragraph">
-<p>Reverts to the version of the current study plan for a particular commit. This discards all the commits after the
-specified commit.<br>
+<p>Reverts to the version of the current study plan for a particular commit. This creates a new "revert" commit and
+returns the current active study plan back to the state in the specified commit.<br>
 Format: <code>revert COMMIT_NUMBER</code><br>
 Example:</p>
 </div>
@@ -188,13 +191,29 @@ Example:</p>
 <ul>
 <li>
 <p><code>revert 1.1</code><br>
-This allows the user to revert to commit 1 of study plan 1, discarding all commits after 1.1 (e.g. 1.2 and 1.3).</p>
+Suppose there are commits <code>1.0</code>, <code>1.1</code>, <code>1.2</code>, and <code>1.3</code>. This allows the user to revert to commit 1 of study plan 1,
+creating a new commit called <code>1.4: Revert "COMMIT_MESSAGE_OF_1.1"</code>.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="viewing-another-study-plan-code-viewplan-code"><a class="link" href="#viewing-another-study-plan-code-viewplan-code">3.1.7. Viewing another study plan: <code>viewplan</code></a></h4>
+<h4 id="deleting-a-commit-code-deletecommit-code"><a class="link" href="#deleting-a-commit-code-deletecommit-code">3.1.7. Deleting a commit: <code>deletecommit</code></a></h4>
+<div class="paragraph">
+<p>Deletes a commit in the current active study plan specified by the commit number.<br>
+Format: <code>deletecommit COMMIT_NUMBER</code><br>
+Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>deletecommit 2.2</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="viewing-another-study-plan-code-viewplan-code"><a class="link" href="#viewing-another-study-plan-code-viewplan-code">3.1.8. Viewing another study plan: <code>viewplan</code></a></h4>
 <div class="paragraph">
 <p>Shows the study plan with a given index.<br>
 Format: <code>viewplan PLAN_NUMBER</code><br>
@@ -210,7 +229,7 @@ This allows the user to view the study plan with an index of 3.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="setting-another-study-plan-as-active-code-activate-code"><a class="link" href="#setting-another-study-plan-as-active-code-activate-code">3.1.8. Setting another study plan as active: <code>activate</code></a></h4>
+<h4 id="setting-another-study-plan-as-active-code-activate-code"><a class="link" href="#setting-another-study-plan-as-active-code-activate-code">3.1.9. Setting another study plan as active: <code>activate</code></a></h4>
 <div class="paragraph">
 <p>Replaces the current study plan with the specified study plan as the active one.<br>
 Format: <code>activate PLAN_NUMBER</code><br>
@@ -225,7 +244,7 @@ Example:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="moving-a-semester-to-a-study-plan-code-move-code"><a class="link" href="#moving-a-semester-to-a-study-plan-code-move-code">3.1.9. Moving a semester to a study plan: <code>move</code></a></h4>
+<h4 id="moving-a-semester-to-a-study-plan-code-move-code"><a class="link" href="#moving-a-semester-to-a-study-plan-code-move-code">3.1.10. Moving a semester to a study plan: <code>move</code></a></h4>
 <div class="paragraph">
 <p>Moves a semester of modules to another study plan with a specified index.<br></p>
 </div>
@@ -258,7 +277,7 @@ Examples:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="deleting-a-semester-from-a-study-plan-code-remove-code"><a class="link" href="#deleting-a-semester-from-a-study-plan-code-remove-code">3.1.10. Deleting a semester from a study plan: <code>remove</code></a></h4>
+<h4 id="deleting-a-semester-from-a-study-plan-code-remove-code"><a class="link" href="#deleting-a-semester-from-a-study-plan-code-remove-code">3.1.11. Deleting a semester from a study plan: <code>remove</code></a></h4>
 <div class="paragraph">
 <p>Deletes a semester of modules in the current active study plan, after which the semester will contain no modules.<br></p>
 </div>
@@ -288,7 +307,7 @@ Example:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="viewing-description-of-a-module-code-description-code"><a class="link" href="#viewing-description-of-a-module-code-description-code">3.1.11. Viewing description of a module: <code>description</code></a></h4>
+<h4 id="viewing-description-of-a-module-code-description-code"><a class="link" href="#viewing-description-of-a-module-code-description-code">3.1.12. Viewing description of a module: <code>description</code></a></h4>
 <div class="paragraph">
 <p>Shows the description of a particular module, including its prerequisites.<br>
 Format: <code>description MODULE_CODE</code><br>
@@ -303,7 +322,7 @@ Example:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="editing-the-title-of-current-study-plan-code-title-code"><a class="link" href="#editing-the-title-of-current-study-plan-code-title-code">3.1.12. Editing the title of current study plan: <code>title</code></a></h4>
+<h4 id="editing-the-title-of-current-study-plan-code-title-code"><a class="link" href="#editing-the-title-of-current-study-plan-code-title-code">3.1.13. Editing the title of current study plan: <code>title</code></a></h4>
 <div class="paragraph">
 <p>Changes the title of the current active study plan.<br>
 Format: <code>title PLAN_TITLE</code><br>
@@ -318,10 +337,17 @@ Example:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="setting-default-study-plan-code-default-code"><a class="link" href="#setting-default-study-plan-code-default-code">3.1.13. Setting default study plan: <code>default</code></a></h4>
+<h4 id="setting-default-study-plan-code-default-code"><a class="link" href="#setting-default-study-plan-code-default-code">3.1.14. Setting default study plan: <code>default</code></a></h4>
 <div class="paragraph">
 <p>Generates a study plan with pre-populated modules according to the recommended study plan for a year one student.<br>
 Format: <code>default</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="listing-all-study-plans-code-list-code"><a class="link" href="#listing-all-study-plans-code-list-code">3.1.15. Listing all study plans: <code>list</code></a></h4>
+<div class="paragraph">
+<p>Lists all the study plans that the user has created and has not deleted.<br>
+Format: <code>list</code></p>
 </div>
 </div>
 </div>
@@ -902,4 +928,4 @@ Format: <code>validmods SEMESTER</code></p>
 <div class="sectionbody">
 
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-22 13:24:45 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-22 14:31:37 UTC</div></div></div></body></html>
