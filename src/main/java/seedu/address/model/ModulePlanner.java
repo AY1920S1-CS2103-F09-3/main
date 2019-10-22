@@ -168,9 +168,10 @@ public class ModulePlanner implements ReadOnlyModulePlanner {
 
             // adds default tags to each module
             UniqueTagList defaultTags = activeStudyPlan.assignDefaultTags(moduleInfo);
-            Iterator<Tag> tagIterator = defaultTags.iterator();
-            while (tagIterator.hasNext()) {
-                module.getTags().addTag(tagIterator.next());
+            for (Tag defaultTag : defaultTags) {
+                module.getTags().addTag(defaultTag);
+                System.out.println(module.getModuleCode().toString());
+                System.out.println(module.getTags());
             }
 
         }
@@ -191,7 +192,6 @@ public class ModulePlanner implements ReadOnlyModulePlanner {
         }
 
         activeStudyPlan.updatePrereqs();
-
         activeStudyPlan.setActivated(true);
 
         return activeStudyPlan;
