@@ -54,11 +54,6 @@ public class ModulePlanner implements ReadOnlyModulePlanner {
     public ModulePlanner(ReadOnlyModulePlanner toBeCopied, ModulesInfo modulesInfo) {
         studyPlans = new UniqueStudyPlanList();
         resetData(toBeCopied);
-        try {
-            activeStudyPlan = toBeCopied.getActiveStudyPlan().clone();
-        } catch (CloneNotSupportedException e) {
-            e.printStackTrace();
-        }
         this.modulesInfo = modulesInfo;
         versionTrackingManager = toBeCopied.getVersionTrackingManager();
     }
@@ -90,8 +85,8 @@ public class ModulePlanner implements ReadOnlyModulePlanner {
      */
     public void resetData(ReadOnlyModulePlanner newData) {
         requireNonNull(newData);
-        this.activeStudyPlan = newData.getActiveStudyPlan();
         setStudyPlans(newData.getStudyPlanList());
+        this.activeStudyPlan = this.studyPlans.getStudyPlanByIndex(newData.getActiveStudyPlan().getIndex());
     }
 
     //// studyplan-level operations

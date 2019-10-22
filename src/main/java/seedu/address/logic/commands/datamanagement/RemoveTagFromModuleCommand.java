@@ -72,12 +72,11 @@ public class RemoveTagFromModuleCommand extends Command {
         }
 
         boolean removed = model.removeTagFromModuleInActiveSp((UserTag) toRemove, moduleCode);
-        model.addToHistory();
 
         if (!removed) {
             throw new CommandException(String.format(MESSAGE_TAG_NOT_FOUND, moduleCode, tagName));
         }
-
+        model.addToHistory();
         return new CommandResult(String.format(MESSAGE_SUCCESS, toRemove, moduleCode));
     }
 

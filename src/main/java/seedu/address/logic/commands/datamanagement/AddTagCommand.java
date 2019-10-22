@@ -64,7 +64,7 @@ public class AddTagCommand extends Command {
         if (!added) {
             throw new CommandException(String.format(MESSAGE_EXISTING_TAG, toAdd, moduleCode));
         }
-
+        model.addToHistory();
         if (newTagCreated) {
             return new CommandResult(String.format(MESSAGE_SUCCESS_TAG_ADDED, toAdd, moduleCode));
         }
