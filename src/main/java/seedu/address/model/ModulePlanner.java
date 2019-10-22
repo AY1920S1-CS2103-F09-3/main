@@ -63,11 +63,10 @@ public class ModulePlanner implements ReadOnlyModulePlanner {
     /**
      * Creates an ModulePlanner from JSON. This is used in {@code JsonSerializableModulePlanner}.
      */
-    public ModulePlanner(UniqueStudyPlanList uniqueStudyPlanList, /*StudyPlan activeStudyPlan,*/
+    public ModulePlanner(UniqueStudyPlanList uniqueStudyPlanList,
                          ModulesInfo modulesInfo,
                          VersionTrackingManager versionTrackingManager) {
         this.studyPlans = uniqueStudyPlanList;
-        // this.activeStudyPlan = activeStudyPlan;
         this.modulesInfo = modulesInfo;
         this.versionTrackingManager = versionTrackingManager;
     }
@@ -170,8 +169,6 @@ public class ModulePlanner implements ReadOnlyModulePlanner {
             UniqueTagList defaultTags = activeStudyPlan.assignDefaultTags(moduleInfo);
             for (Tag defaultTag : defaultTags) {
                 module.getTags().addTag(defaultTag);
-                System.out.println(module.getModuleCode().toString());
-                System.out.println(module.getTags());
             }
 
         }

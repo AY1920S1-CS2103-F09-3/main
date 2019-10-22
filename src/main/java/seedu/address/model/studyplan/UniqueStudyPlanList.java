@@ -109,6 +109,19 @@ public class UniqueStudyPlanList implements Iterable<StudyPlan> {
     }
 
     /**
+     * Replaces the contents of this list with {@code StudyPlans}.
+     * {@code StudyPlans} must not contain duplicate StudyPlans.
+     */
+    public void shallowSetStudyPlans(List<StudyPlan> studyPlans) {
+        requireAllNonNull(studyPlans);
+        if (!studyPlansAreUnique(studyPlans)) {
+            throw new DuplicateStudyPlanException();
+        }
+
+        internalList.setAll(studyPlans);
+    }
+
+    /**
      * Returns a {@code StudyPlan} with the given index.
      */
     public StudyPlan getStudyPlanByIndex(int index) throws StudyPlanNotFoundException {

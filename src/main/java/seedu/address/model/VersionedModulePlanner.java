@@ -3,6 +3,9 @@ package seedu.address.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import seedu.address.model.studyplan.UniqueStudyPlanList;
+import seedu.address.model.versiontracking.VersionTrackingManager;
+
 /**
  * {@code ModulePlanner} that keeps track of its own history.
  */
@@ -14,6 +17,18 @@ public class VersionedModulePlanner extends ModulePlanner {
         super(toBeCopied, modulesInfo);
         historyStateList = new ArrayList<>();
         historyStateList.add(new ModulePlanner(toBeCopied, modulesInfo));
+        currentStatePointer = 0;
+    }
+
+    /**
+     * Creates an ModulePlanner from JSON. This is used in {@code JsonSerializableModulePlanner}.
+     */
+    public VersionedModulePlanner(UniqueStudyPlanList uniqueStudyPlanList,
+                         ModulesInfo modulesInfo,
+                         VersionTrackingManager versionTrackingManager) {
+        super(uniqueStudyPlanList, modulesInfo, versionTrackingManager);
+        historyStateList = new ArrayList<>();
+        historyStateList.add(new ModulePlanner(uniqueStudyPlanList, modulesInfo, versionTrackingManager));
         currentStatePointer = 0;
     }
 
