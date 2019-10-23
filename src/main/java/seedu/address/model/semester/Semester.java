@@ -9,7 +9,7 @@ import seedu.address.model.module.UniqueModuleList;
  * Represents a semester of university for CS Undergraduate Students.
  * Guarantees: details are present and not null, field values are validated, immutable.
  */
-public class Semester {
+public class Semester implements Cloneable {
     // Identity fields
     private SemesterName semesterName; // removed final keyword for the clone() method below
 
@@ -38,6 +38,15 @@ public class Semester {
         for (Module module : modules) {
             this.modules.add(module);
         }
+    }
+
+    @Override
+    protected Semester clone() throws CloneNotSupportedException {
+        Semester clone = (Semester) super.clone();
+        clone.isBlocked = this.isBlocked;
+        clone.reasonForBlocked = this.reasonForBlocked;
+        clone.modules = this.modules.clone();
+        return clone;
     }
 
     public SemesterName getSemesterName() {
