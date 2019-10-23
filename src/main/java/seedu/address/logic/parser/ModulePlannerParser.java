@@ -13,6 +13,7 @@ import seedu.address.logic.commands.cli.RedoCommand;
 import seedu.address.logic.commands.cli.SetCurrentSemesterCommand;
 import seedu.address.logic.commands.cli.UndoCommand;
 import seedu.address.logic.commands.datamanagement.DeleteTagCommand;
+import seedu.address.logic.commands.datamanagement.RemoveAllTagsCommand;
 import seedu.address.logic.commands.datamanagement.RemoveTagFromAllCommand;
 import seedu.address.logic.commands.datamanagement.RemoveTagFromModuleCommand;
 import seedu.address.logic.commands.datamanagement.RenameTagCommand;
@@ -164,6 +165,9 @@ public class ModulePlannerParser {
 
         case ViewAllTagsCommand.COMMAND_WORD:
             return new ViewAllTagsCommand();
+
+        case RemoveAllTagsCommand.COMMAND_WORD:
+            return new RemoveAllTagsCommand();
 
         case DeleteCommitCommand.COMMAND_WORD:
             return new DeleteCommitCommandParser().parse(arguments);
