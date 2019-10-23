@@ -9,6 +9,7 @@ import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.ModulePlanner;
 import seedu.address.model.ModulesInfo;
+import seedu.address.model.PrereqTree;
 import seedu.address.model.studyplan.StudyPlan;
 
 //import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -28,16 +29,20 @@ import seedu.address.model.studyplan.StudyPlan;
  */
 public class CommandTestUtil {
 
-    public static final String VALID_NAME_AMY = "Amy Bee";
-    public static final String VALID_NAME_BOB = "Bob Choo";
-    public static final String VALID_PHONE_AMY = "11111111";
-    public static final String VALID_PHONE_BOB = "22222222";
-    public static final String VALID_EMAIL_AMY = "amy@example.com";
-    public static final String VALID_EMAIL_BOB = "bob@example.com";
-    public static final String VALID_ADDRESS_AMY = "Block 312, Amy Street 1";
-    public static final String VALID_ADDRESS_BOB = "Block 123, Bobby Street 3";
-    public static final String VALID_TAG_HUSBAND = "husband";
-    public static final String VALID_TAG_FRIEND = "friend";
+    public static final String VALID_NAME_CS3244 = "Machine Learning";
+    public static final String VALID_NAME_ST2334 = "Probability and Statistics";
+    public static final String VALID_MODULE_CODE_CS3244 = "CS3244";
+    public static final String VALID_MODULE_CODE_ST2334 = "ST2334";
+    public static final int VALID_MC_COUNT_CS3244 = 4;
+    public static final int VALID_MC_COUNT_ST2334 = 4;
+    public static final String VALID_COLOR_CS3244 = "RED";
+    public static final String VALID_COLOR_ST2334 = "Red";
+    public static final String[] VALID_TAGS_CS3244 = new String[]{"Cool", "AI", "ML"};
+    public static final String[] VALID_TAGS_ST2334 = new String[]{"Core"};
+    public static final boolean VALID_PREREQ_SATISFIED_ST2334 = true;
+    public static final boolean VALID_PREREQ_SATISFIED_CS3244 = false;
+    public static final PrereqTree VALID_PREREQ_TREE_ST2334 = ;
+    public static final PrereqTree VALID_PREREQ_TREE_CS3244 = ;
 
     /*
     public static final String NAME_DESC_AMY = " " + PREFIX_NAME + VALID_NAME_AMY;
@@ -62,8 +67,7 @@ public class CommandTestUtil {
 
     public static final EditTitleCommand.EditTitleStudyPlanDescriptor DESC_AMY;
     public static final EditTitleCommand.EditTitleStudyPlanDescriptor DESC_BOB;
-    */
-    /*
+
     static {
         DESC_AMY = new EditTitleStudyPlanDescriptorBuilder().withName(VALID_NAME_AMY)
                 //.withPhone(VALID_PHONE_AMY).withEmail(VALID_EMAIL_AMY).withAddress(VALID_ADDRESS_AMY)
