@@ -25,7 +25,7 @@ import seedu.address.testutil.StudyPlanBuilder;
 public class CreateStudyPlanCommandTest {
 
     //TODO implement tests
-
+    /*
     @Test
     public void execute_studyPlanAcceptedByModel_addSuccessful() throws Exception {
         //ModelStubAcceptingStudyPlanAdded modelStub = new ModelStubAcceptingStudyPlanAdded();

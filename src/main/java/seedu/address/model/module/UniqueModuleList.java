@@ -74,7 +74,11 @@ public class UniqueModuleList implements Iterable<Module>, Cloneable {
      */
     public void remove(String toRemove) {
         requireNonNull(toRemove);
-        this.internalList.remove(getModule(toRemove));
+        if (contains(toRemove)) {
+            this.internalList.remove(getModule(toRemove));
+        } else {
+            throw new ModuleNotFoundException();
+        }
     }
 
     private Module getModule(String moduleCode) {
@@ -165,6 +169,8 @@ public class UniqueModuleList implements Iterable<Module>, Cloneable {
 
         if (!target.equals(editedModule) && !contains(editedModule)) {
             internalList.set(index, editedModule);
+        } else {
+            throw new DuplicateModuleException();
         }
     }
 
