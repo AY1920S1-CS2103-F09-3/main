@@ -73,6 +73,7 @@ public class TagModuleCommand extends Command {
 
     /**
      * Creates a new tag with the given tag name and adds it to the {@code UniqueTaglist}
+     *
      * @param tagName The name of the tag.
      * @return The tag that was created.
      */

@@ -16,8 +16,6 @@ import org.junit.jupiter.api.Test;
 
 import seedu.address.logic.parser.ParserUtil;
 import seedu.address.model.Color;
-import seedu.address.model.tag.Tag;
-import seedu.address.model.tag.UniqueTagList;
 import seedu.address.model.tag.UserTag;
 import seedu.address.testutil.ModuleBuilder;
 
@@ -75,9 +73,9 @@ public class ModuleTest {
     @Test
     public void constructor_null_throwsException() {
         assertThrows(NullPointerException.class, () -> new Module(null));
-        assertThrows(NullPointerException.class, () -> new Module(null, null,null));
+        assertThrows(NullPointerException.class, () -> new Module(null, null, null));
         assertThrows(NullPointerException.class,
-            () -> new Module(null,null,4,null,null,null));
+                () -> new Module(null, null, 4, null, null, null));
     }
 
     @Test

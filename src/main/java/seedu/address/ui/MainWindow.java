@@ -186,7 +186,7 @@ public class MainWindow extends UiPart<Stage> {
         case TEXT:
             TextArea textArea = new TextArea();
             ObservableList<String> textContent = (ObservableList<String>) resultContent;
-            for (String text: textContent) {
+            for (String text : textContent) {
                 textArea.setText(text);
             }
             resultDisplayPlaceholder.getChildren().add(textArea);
