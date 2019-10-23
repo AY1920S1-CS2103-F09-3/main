@@ -2,6 +2,12 @@ package seedu.address.model.studyplan;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static seedu.address.testutil.TypicalStudyPlans.SP_1;
+import static seedu.address.testutil.TypicalStudyPlans.SP_2;
+
+import org.junit.jupiter.api.Test;
+
+import seedu.address.testutil.StudyPlanBuilder;
 
 /*
 import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
@@ -11,13 +17,6 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 import static seedu.address.testutil.Assert.assertThrows;
 */
-
-import static seedu.address.testutil.TypicalStudyPlans.SP_1;
-import static seedu.address.testutil.TypicalStudyPlans.SP_2;
-
-import org.junit.jupiter.api.Test;
-
-import seedu.address.testutil.StudyPlanBuilder;
 
 
 /**
