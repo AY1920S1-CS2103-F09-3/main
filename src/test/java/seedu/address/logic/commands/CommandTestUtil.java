@@ -1,6 +1,7 @@
 package seedu.address.logic.commands;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static seedu.address.testutil.Assert.assertThrows;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -104,6 +105,9 @@ public class CommandTestUtil {
         assertCommandSuccess(command, actualModel, expectedCommandResult, expectedModel);
     }
 
+    public static void assertCommandException(Command command, Model actualModel, String expectedMessage) {
+        assertThrows(CommandException.class, expectedMessage, () -> command.execute(actualModel));
+    }
     /**
      * Executes the given {@code command}, confirms that <br>
      * - a {@code CommandException} is thrown <br>
