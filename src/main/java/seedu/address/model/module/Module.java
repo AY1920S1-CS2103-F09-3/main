@@ -134,7 +134,7 @@ public class Module implements Cloneable {
         return true;
     }
 
-    private boolean hasTag(Tag tag) {
+    public boolean hasTag(Tag tag) {
         return tags.contains(tag);
     }
 

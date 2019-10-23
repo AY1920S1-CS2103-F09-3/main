@@ -1,5 +1,6 @@
 package seedu.address.testutil;
 
+import seedu.address.logic.parser.ParserUtil;
 import seedu.address.model.Color;
 import seedu.address.model.PrereqTree;
 import seedu.address.model.module.Module;
@@ -46,6 +47,7 @@ public class ModuleBuilder {
         color = moduleToCopy.getColor();
         prereqsSatisfied = moduleToCopy.getPrereqsSatisfied();
         moduleCode = moduleToCopy.getModuleCode();
+        prereqTree = ParserUtil.parsePrereqTree(moduleToCopy.getPrereqString());
         tags = new UniqueTagList();
         tags.setTags(moduleToCopy.getTags());
     }
