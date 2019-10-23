@@ -96,6 +96,7 @@ public class ParserUtil {
 
     /**
      * Parses the prerequisite tree from a given string.
+     *
      * @param s Given string representing the prerequisite tree. Either the empty string, a module code, or (OP _ _).
      * @return Prerequisite tree
      */

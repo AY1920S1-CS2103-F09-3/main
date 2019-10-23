@@ -1,10 +1,5 @@
 package seedu.address.model.studyplan;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static seedu.address.testutil.TypicalStudyPlans.SP_1;
-import static seedu.address.testutil.TypicalStudyPlans.SP_2;
-
 import org.junit.jupiter.api.Test;
 
 /**

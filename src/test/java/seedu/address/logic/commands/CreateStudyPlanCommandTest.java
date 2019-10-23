@@ -5,11 +5,6 @@ package seedu.address.logic.commands;
 //import static org.junit.jupiter.api.Assertions.assertFalse;
 //import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.jupiter.api.Test;
-
-import seedu.address.model.studyplan.StudyPlan;
-import seedu.address.testutil.StudyPlanBuilder;
-
 //import java.nio.file.Path;
 //import java.util.ArrayList;
 //import java.util.Arrays;

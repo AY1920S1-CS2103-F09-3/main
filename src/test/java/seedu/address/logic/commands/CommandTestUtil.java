@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import seedu.address.logic.commands.exceptions.CommandException;
-import seedu.address.logic.parser.Parser;
 import seedu.address.logic.parser.ParserUtil;
 import seedu.address.model.Color;
 import seedu.address.model.Model;
@@ -115,6 +114,7 @@ public class CommandTestUtil {
     public static void assertCommandException(Command command, Model actualModel, String expectedMessage) {
         assertThrows(CommandException.class, expectedMessage, () -> command.execute(actualModel));
     }
+
     /**
      * Executes the given {@code command}, confirms that <br>
      * - a {@code CommandException} is thrown <br>
