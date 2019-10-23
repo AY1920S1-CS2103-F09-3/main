@@ -34,6 +34,7 @@ public class RemoveTagFromModuleCommand extends Command {
 
     /**
 <<<<<<< HEAD
+<<<<<<< HEAD
      * Creates an {@code RemoveTagFromModuleCommand} to move a tag with the given name from the specified module.
      *
      * @param tagName    The name of the tag.
@@ -58,6 +59,13 @@ public class RemoveTagFromModuleCommand extends Command {
 =======
      *                   >>>>>>> upstream/undoredo-fix
 >>>>>>> Track
+=======
+     * Creates an {@code RemoveTagFromModuleCommand} to move a tag with the given name from the specified module.
+     *
+     * @param tagName    The name of the tag.
+     *                   Creates an {@code RemoveTagFromModuleCommand} to move a tag with the given name from
+     *                   the specified module.
+>>>>>>> Fix parser - regex (for modules, semesters, tags) now requires a whitespace character in front to be considered
      * @param moduleCode The module code of the module from which the tag is to be deleted.
      */
 

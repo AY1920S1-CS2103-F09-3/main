@@ -499,7 +499,7 @@ public class StudyPlan implements Cloneable {
         // because of this, the mega-lists fields don't have final keyword
         clone.modules = new HashMap<>();
         for (Module module : modules.values()) {
-                clone.modules.put(module.getModuleCode().toString(), module.clone());
+            clone.modules.put(module.getModuleCode().toString(), module.clone());
         }
         for (Semester semester : clone.semesters) {
             for (Module module : semester.getModules()) {
