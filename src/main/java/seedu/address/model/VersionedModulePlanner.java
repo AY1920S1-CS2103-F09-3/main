@@ -24,8 +24,8 @@ public class VersionedModulePlanner extends ModulePlanner {
      * Creates an ModulePlanner from JSON. This is used in {@code JsonSerializableModulePlanner}.
      */
     public VersionedModulePlanner(UniqueStudyPlanList uniqueStudyPlanList,
-                         ModulesInfo modulesInfo,
-                         VersionTrackingManager versionTrackingManager) {
+                                  ModulesInfo modulesInfo,
+                                  VersionTrackingManager versionTrackingManager) {
         super(uniqueStudyPlanList, modulesInfo, versionTrackingManager);
         historyStateList = new ArrayList<>();
         historyStateList.add(new ModulePlanner(uniqueStudyPlanList, modulesInfo, versionTrackingManager));
