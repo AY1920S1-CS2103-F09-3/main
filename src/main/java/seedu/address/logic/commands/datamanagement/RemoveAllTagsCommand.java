@@ -27,12 +27,6 @@ public class RemoveAllTagsCommand extends Command {
     public static final String MESSAGE_SUCCESS = "All the tags that you have created have been removed from "
         + "all modules";
 
-    /**
-     * Creates an {@code RemoveAllTagsCommand} to remove all user-created tags from all modules in the study plan.
-     */
-    public RemoveAllTagsCommand() {
-    }
-
     @Override
     public CommandResult execute(Model model) throws CommandException {
 
