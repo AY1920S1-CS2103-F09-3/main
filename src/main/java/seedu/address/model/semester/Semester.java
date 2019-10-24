@@ -114,18 +114,18 @@ public class Semester implements Cloneable {
         return result.toString();
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        } else if (obj instanceof Semester) {
-            Semester other = (Semester) obj;
-            return this.modules.equals(other.getModules())
-                    && this.isBlocked == other.isBlocked
-                    && this.reasonForBlocked.equals(other.reasonForBlocked)
-                    && this.isExpanded == other.isExpanded
-                    && this.semesterName == other.getSemesterName();
-        }
-        return false;
-    }
+//    @Override
+//    public boolean equals(Object obj) {
+//        if (this == obj) {
+//            return true;
+//        } else if (obj instanceof Semester) {
+//            Semester other = (Semester) obj;
+//            return this.modules.equals(other.getModules())
+//                    && this.isBlocked == other.isBlocked
+//                    && this.reasonForBlocked.equals(other.reasonForBlocked)
+//                    && this.isExpanded == other.isExpanded
+//                    && this.semesterName == other.getSemesterName();
+//        }
+//        return false;
+//    }
 }
