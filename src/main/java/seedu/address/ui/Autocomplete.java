@@ -60,7 +60,7 @@ public class Autocomplete extends TextField {
         this.modulePlanner = modulePlanner;
         tags = modulePlanner.getActiveTags();
         tags.asUnmodifiableObservableList().addListener((ListChangeListener<Tag>) change
-                -> generateArgumentKeywords());
+            -> generateArgumentKeywords());
         generateCommandKeywords();
         generateArgumentKeywords();
         keywordMenu = new ContextMenu();

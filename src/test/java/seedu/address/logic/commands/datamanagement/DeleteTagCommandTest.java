@@ -8,6 +8,7 @@ import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import java.util.HashMap;
 
 import org.junit.jupiter.api.Test;
+
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
@@ -64,11 +65,11 @@ public class DeleteTagCommandTest {
         String validTagNameTwo = validTagTwo.getTagName();
 
         // construct two modules with two tags
-        Module CS1231 = new ModuleBuilder().withTags(validTagNameOne, validTagNameTwo).build();
-        Module CS2100 = new ModuleBuilder().withModuleCode("CS2100").withTags(validTagNameOne, validTagNameTwo).build();
+        Module cs1231 = new ModuleBuilder().withTags(validTagNameOne, validTagNameTwo).build();
+        Module cs2100 = new ModuleBuilder().withModuleCode("CS2100").withTags(validTagNameOne, validTagNameTwo).build();
         HashMap<String, Module> moduleHashMap = new HashMap<String, Module>();
-        moduleHashMap.put("moduleOne", CS1231);
-        moduleHashMap.put("moduleTwo", CS2100);
+        moduleHashMap.put("moduleOne", cs1231);
+        moduleHashMap.put("moduleTwo", cs2100);
 
 
         // construct model containing study plan with two tags
@@ -107,7 +108,7 @@ public class DeleteTagCommandTest {
         // construct model containing study plan with two tags
         StudyPlan studyPlan = new StudyPlanBuilder().withTags(validTagNameOne).build();
         Model model = new ModelManager(new ModulePlannerBuilder().withStudyPlan(studyPlan).build(),
-            new UserPrefs(), TypicalModulesInfo.getTypicalModulesInfo());
+                new UserPrefs(), TypicalModulesInfo.getTypicalModulesInfo());
         model.activateFirstStudyPlan();
 
         // construct command to delete one of the tags
@@ -121,13 +122,13 @@ public class DeleteTagCommandTest {
         // construct model containing study plan with two tags
         StudyPlan studyPlan = new StudyPlanBuilder().build();
         Model model = new ModelManager(new ModulePlannerBuilder().withStudyPlan(studyPlan).build(),
-            new UserPrefs(), TypicalModulesInfo.getTypicalModulesInfo());
+                new UserPrefs(), TypicalModulesInfo.getTypicalModulesInfo());
         model.activateFirstStudyPlan();
 
         // construct command to delete one of the tags
         DeleteTagCommand deleteTagCommand = new DeleteTagCommand("Core");
         assertThrows(CommandException.class, () -> deleteTagCommand.execute(model),
-            DeleteTagCommand.MESSAGE_INVALID_DEFAULT_TAG_MODIFICATION);
+                DeleteTagCommand.MESSAGE_INVALID_DEFAULT_TAG_MODIFICATION);
     }
 
     @Test

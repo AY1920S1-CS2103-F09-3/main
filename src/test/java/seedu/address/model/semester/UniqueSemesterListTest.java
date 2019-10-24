@@ -60,17 +60,20 @@ public class UniqueSemesterListTest {
 
     @Test
     public void setSemester_nullTargetSemester_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () -> uniqueSemesterList.setSemester(null, FULL_UNBLOCKED_SEMESTER_1));
+        assertThrows(NullPointerException.class, () ->
+            uniqueSemesterList.setSemester(null, FULL_UNBLOCKED_SEMESTER_1));
     }
 
     @Test
     public void setSemester_nullEditedSemester_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () -> uniqueSemesterList.setSemester(FULL_UNBLOCKED_SEMESTER_1, null));
+        assertThrows(NullPointerException.class, () ->
+            uniqueSemesterList.setSemester(FULL_UNBLOCKED_SEMESTER_1, null));
     }
 
     @Test
     public void setSemester_targetSemesterNotInList_throwsSemesterNotFoundException() {
-        assertThrows(SemesterNotFoundException.class, () -> uniqueSemesterList.setSemester(FULL_UNBLOCKED_SEMESTER_1, FULL_UNBLOCKED_SEMESTER_1));
+        assertThrows(SemesterNotFoundException.class, () ->
+            uniqueSemesterList.setSemester(FULL_UNBLOCKED_SEMESTER_1, FULL_UNBLOCKED_SEMESTER_1));
     }
 
     @Test
@@ -95,7 +98,8 @@ public class UniqueSemesterListTest {
     public void setSemester_editedSemesterHasNonUniqueIdentity_throwsDuplicateSemesterException() {
         uniqueSemesterList.add(FULL_UNBLOCKED_SEMESTER_1);
         uniqueSemesterList.add(FULL_UNBLOCKED_SEMESTER_2);
-        assertThrows(DuplicateSemesterException.class, () -> uniqueSemesterList.setSemester(FULL_UNBLOCKED_SEMESTER_1, FULL_UNBLOCKED_SEMESTER_2));
+        assertThrows(DuplicateSemesterException.class, () ->
+            uniqueSemesterList.setSemester(FULL_UNBLOCKED_SEMESTER_1, FULL_UNBLOCKED_SEMESTER_2));
     }
 
     @Test
@@ -147,14 +151,16 @@ public class UniqueSemesterListTest {
 
     @Test
     public void setSemesters_listWithDuplicateSemesters_throwsDuplicateSemesterException() {
-        List<Semester> listWithDuplicateSemesters = Arrays.asList(FULL_UNBLOCKED_SEMESTER_1, FULL_UNBLOCKED_SEMESTER_1);
-        assertThrows(DuplicateSemesterException.class, () -> uniqueSemesterList.setSemesters(listWithDuplicateSemesters));
+        List<Semester> listWithDuplicateSemesters =
+            Arrays.asList(FULL_UNBLOCKED_SEMESTER_1, FULL_UNBLOCKED_SEMESTER_1);
+        assertThrows(DuplicateSemesterException.class, () ->
+            uniqueSemesterList.setSemesters(listWithDuplicateSemesters));
     }
 
     @Test
     public void asUnmodifiableObservableList_modifyList_throwsUnsupportedOperationException() {
-        assertThrows(UnsupportedOperationException.class, ()
-                -> uniqueSemesterList.asUnmodifiableObservableList().remove(0));
+        assertThrows(UnsupportedOperationException.class, () ->
+            uniqueSemesterList.asUnmodifiableObservableList().remove(0));
     }
 
     @Test
