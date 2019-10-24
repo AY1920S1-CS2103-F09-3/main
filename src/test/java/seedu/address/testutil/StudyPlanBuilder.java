@@ -7,7 +7,6 @@ import java.util.List;
 
 import seedu.address.model.ModulesInfo;
 import seedu.address.model.module.Module;
-import seedu.address.model.semester.Semester;
 import seedu.address.model.semester.SemesterName;
 import seedu.address.model.semester.UniqueSemesterList;
 import seedu.address.model.studyplan.StudyPlan;

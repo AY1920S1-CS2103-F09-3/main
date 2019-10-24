@@ -64,11 +64,11 @@ public class DeleteTagCommandTest {
         String validTagNameTwo = validTagTwo.getTagName();
 
         // construct two modules with two tags
-        Module moduleOne = new ModuleBuilder().withTags(validTagNameOne, validTagNameTwo).build();
-        Module moduleTwo = new ModuleBuilder().withTags(validTagNameOne, validTagNameTwo).build();
+        Module CS1231 = new ModuleBuilder().withTags(validTagNameOne, validTagNameTwo).build();
+        Module CS2100 = new ModuleBuilder().withModuleCode("CS2100").withTags(validTagNameOne, validTagNameTwo).build();
         HashMap<String, Module> moduleHashMap = new HashMap<String, Module>();
-        moduleHashMap.put("moduleOne", moduleOne);
-        moduleHashMap.put("moduleTwo", moduleTwo);
+        moduleHashMap.put("moduleOne", CS1231);
+        moduleHashMap.put("moduleTwo", CS2100);
 
 
         // construct model containing study plan with two tags
@@ -79,11 +79,11 @@ public class DeleteTagCommandTest {
         model.activateFirstStudyPlan();
 
         // construct two expected modules with only one tags
-        Module expectedModuleOne = new ModuleBuilder().withTags(validTagNameTwo).build();
-        Module expectedModuleTwo = new ModuleBuilder().withTags(validTagNameTwo).build();
+        Module expectedCS1231 = new ModuleBuilder().withTags(validTagNameTwo).build();
+        Module expectedCS2100 = new ModuleBuilder().withModuleCode("CS2100").withTags(validTagNameTwo).build();
         HashMap<String, Module> expectedModuleHashMap = new HashMap<String, Module>();
-        expectedModuleHashMap.put("moduleOne", expectedModuleOne);
-        expectedModuleHashMap.put("moduleTwo", expectedModuleTwo);
+        expectedModuleHashMap.put("CS1231", expectedCS1231);
+        expectedModuleHashMap.put("CS2100", expectedCS2100);
 
         // construct expected model containing study plan with only one tag
         StudyPlan expectedStudyPlan = new StudyPlanBuilder().withTags(validTagNameTwo)
