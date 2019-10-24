@@ -35,7 +35,7 @@ public class StudyPlanBuilder {
     private Title title;
     private int index; // unique identifier of this study plan
     private SemesterName currentSemester;
-    private boolean isActivated = false;
+    private boolean isActivated;
 
     // the "Mega-List" of modules of this study plan. All modules in an *active* study plan refer to a module here.
     // note: this Mega-List is only constructed when a study plan gets activated.
@@ -129,7 +129,7 @@ public class StudyPlanBuilder {
      */
     public StudyPlanBuilder withTags(String... tags) {
         List<Tag> tagList = SampleDataUtil.getTagList(tags);
-        for (Tag tag : tagList) {
+        for (Tag tag: tagList) {
             this.tags.addTag(tag);
         }
         return this;
