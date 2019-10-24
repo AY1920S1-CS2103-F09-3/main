@@ -28,7 +28,7 @@
 <li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#undo-redo-feature">3.1. Undo/Redo feature</a></li>
-<li><a href="#proposed-data-encryption">3.2. [Proposed] Data Encryption</a></li>
+<li><a href="#work-in-progress-version-tracking">3.2. [Work in Progress] Version Tracking</a></li>
 <li><a href="#logging">3.3. Logging</a></li>
 <li><a href="#Implementation-Configuration">3.4. Configuration</a></li>
 <li><a href="#module-tagging-feature">3.5. Module Tagging Feature</a></li>
@@ -515,9 +515,168 @@ If the <code>currentStatePointer</code> is at index <code>historyStateList.size(
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.2. [Proposed] Data Encryption</a></h3>
+<h3 id="work-in-progress-version-tracking"><a class="link" href="#work-in-progress-version-tracking">3.2. [Work in Progress] Version Tracking</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">3.2.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p><em>{Explain here how the data encryption feature will be implemented}</em></p>
+<p>The version tracking mechanism (or <em>commit</em> mechanism) is facilitated by <code>VersionTrackingManager</code>.
+It is stored as an instance attribute of a <code>ModulePlanner</code> object.
+Additionally, it implements the following operations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>VersionTrackingManager#getStudyPlanCommitManagerByStudyPlan(StudyPlan studyPlan)</code>&#8201;&#8212;&#8201;Returns the <code>StudyPlanCommitManager</code> for the specified study plan.</p>
+</li>
+<li>
+<p><code>VersionTrackingManager#commitStudyPlan(StudyPlan studyPlan, String commitMessage)</code>&#8201;&#8212;&#8201;Saves the current state of the
+study plan in its history stored in its corresponding <code>StudyPlanCommitManager</code>, together with a commit message.</p>
+</li>
+<li>
+<p><code>VersionTrackingManager#deleteStudyPlanCommitManagerByIndex(int index)</code>&#8201;&#8212;&#8201;Deletes a <code>StudyPlanCommitManager</code>
+specified by the index of its corresponding study plan.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These operations are exposed in the <code>Model</code> interface as <code>Model#commitActiveStudyPlan(String commitMessage)</code>,
+ <code>Model#deleteStudyPlanCommitManagerByIndex(int index)</code> etc.</p>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the commit mechanism behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user launches the application for the first time. The <code>VersionTrackingManager</code> will be initialized with the
+initial module planner state, and its <code>StudyPlanCommitManagerList</code> will only contain a manager for the default study plan.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/VersionTrackingClassDiagram.png" alt="VersionTrackingClassDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>Step 2. After changing the state of the current active study plan (e.g. by calling <code>addmodule y1s1 cs1101s</code>),
+the user executes <code>commit first draft</code> command to save the current state of this study plan with the commit message
+<code>first draft</code>. The <code>commit</code> command calls <code>Model#commitActiveStudyPlan(String commitMessage)</code>,
+causing the modified state of the current active study plan after the <code>commit first draft command executes to be cloned and saved
+in the `StudyPlanCommitManager</code> corresponding to this study plan, inside the <code>VersionTrackingManager</code> under
+<code>ModulePlanner</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/CommitStudyPlan.png" alt="CommitStudyPlan">
+</div>
+</div>
+<div class="paragraph">
+<p>Step 3. The user executes <code>revert 1.1</code> to revert to the commit indexed by <code>1</code> in the active study plan which
+has an index of <code>1</code>. The <code>revert</code> command also calls <code>Model#revertCommit(int studyPlanIndex, int commitNumber)</code>,
+causing the state of the study plan stored in this commit to be made active, and this reverted state to be saved
+into the <code>StudyPlanCommitManager</code> inside the <code>VersionTrackingManager</code> as a revert commit.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/RevertCommitSequenceDiagram.png" alt="RevertCommitSequenceDiagram">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If a study plan does not have any commit history, it will not call <code>Model#revertCommit(int studyPlanIndex, int commitNumber)</code>,
+so the no commit will be made active. Instead it will prompt the user to create commits first.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Step 4. The user now decides that there is a commit that they want to delete from the history completely,
+and decides to delete that commit by executing the <code>deletecommit</code> command. The <code>deletecommit</code> command
+will call <code>Model#deleteCommit(int studyPlanIndex, int commitNumber)</code>,
+which will delete the commit specified by the <code>commitNumber</code> from the history of the study plan with index <code>studyPlanIndex</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If the commit number entered does not refer to a valid commit (e.g. there is no commit at all or the index is out of bounds),
+no deletion will take place. Instead the user will be prompted by an error message.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the <code>deletecommit</code> operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/DeleteCommitActivityDiagram.png" alt="DeleteCommitActivityDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarizes what happens when a user executes a commit command:</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.2.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-commit-executes"><a class="link" href="#aspect-how-commit-executes">Aspect: How commit executes</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Saves the entire state of the study plan at the moment of commit.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement.</p>
+</li>
+<li>
+<p>Cons: May have performance issues in terms of memory usage.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Only saves the difference of the current state from the state of the last commit.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Will use less memory (e.g. for <code>addmodule</code>, just store the module being added).</p>
+</li>
+<li>
+<p>Cons: We must ensure that the differences in states are stored and loaded correctly when we switch between commits.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-data-structure-to-support-the-commit-commands"><a class="link" href="#aspect-data-structure-to-support-the-commit-commands">Aspect: Data structure to support the commit commands</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Use a list to store the history of commits for each study plan.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement. Each study plan has a clear history of its own.</p>
+</li>
+<li>
+<p>Cons: Hard to handle the possibility of branching (which is currently disallowed).</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -709,7 +868,7 @@ the target module. Hence, a <code>CommandException</code> will be thrown.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.5.2. Design Considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.5.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-tags-are-assigned-to-modules"><a class="link" href="#aspect-how-tags-are-assigned-to-modules">Aspect: How tags are assigned to modules</a></h5>
 <div class="ulist">
@@ -835,7 +994,7 @@ with a red tag beside it.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.6.3. Design Considerations</a></h4>
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.6.3. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-relationship-between-a-module-and-its-module-information"><a class="link" href="#aspect-relationship-between-a-module-and-its-module-information">Aspect: Relationship between a module and its module information</a></h5>
 <div class="ulist">
@@ -1903,4 +2062,4 @@ year of undergraduate studies in NUS.</p>
 </dl>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-24 14:48:34 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-24 15:45:19 UTC</div></div></div></body></html>
