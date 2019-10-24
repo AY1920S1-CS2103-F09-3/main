@@ -43,11 +43,6 @@ public class SemesterTest {
     }
 
     @Test
-    public void toString_valid_success() {
-
-    }
-
-    @Test
     public void constructor_null_throwsException() {
         assertThrows(NullPointerException.class, () -> new Semester(null));
         assertThrows(NullPointerException.class,
