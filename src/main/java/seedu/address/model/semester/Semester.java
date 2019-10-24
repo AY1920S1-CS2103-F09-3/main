@@ -26,7 +26,6 @@ public class Semester implements Cloneable {
      * SemesterName field must be present and not null.
      */
     public Semester(SemesterName semesterName) {
-        requireNonNull(semesterName);
         this.semesterName = semesterName;
         isBlocked = false;
     }
@@ -36,7 +35,6 @@ public class Semester implements Cloneable {
      */
     public Semester(SemesterName semesterName, boolean isBlocked,
                     String reasonForBlocked, List<Module> modules) {
-        requireAllNonNull(semesterName, isBlocked, reasonForBlocked, modules);
         this.semesterName = semesterName;
         this.isBlocked = isBlocked;
         this.reasonForBlocked = reasonForBlocked;
