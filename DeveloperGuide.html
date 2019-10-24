@@ -32,6 +32,7 @@
 <li><a href="#logging">3.3. Logging</a></li>
 <li><a href="#Implementation-Configuration">3.4. Configuration</a></li>
 <li><a href="#module-tagging-feature">3.5. Module Tagging Feature</a></li>
+<li><a href="#module-information-and-verification">3.6. Module Information and Verification</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a></li>
@@ -777,6 +778,132 @@ same name.</p>
 <li>
 <p>Cons: Increases memory usage and duplication checking might be more difficult (have to check the <code>UniqueTagList</code> of
 every <code>Module</code> instead of just the one in the <code>StudyPlan</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="module-information-and-verification"><a class="link" href="#module-information-and-verification">3.6. Module Information and Verification</a></h3>
+<div class="sect3">
+<h4 id="implementation-3"><a class="link" href="#implementation-3">3.6.1. Implementation</a></h4>
+<div class="paragraph">
+<p>The reading of modules information is facilitated by <code>ModulesInfo</code>, which contains a list of <code>ModuleInfo</code> objects.</p>
+</div>
+<div class="paragraph">
+<p>All information regarding our modules are initially stored in json format, within the file <code>data/modules_cs.json</code>.
+Information in a <code>ModuleInfo</code> object includes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>code</code>: Module code</p>
+</li>
+<li>
+<p><code>name</code>: Module name</p>
+</li>
+<li>
+<p><code>mc</code>: MC count</p>
+</li>
+<li>
+<p><code>su</code>: Whether the module can be S/U-ed</p>
+</li>
+<li>
+<p><code>isCore</code>: Whether the module is a core module</p>
+</li>
+<li>
+<p><code>focusPrimaries</code>: List of focus area primaries</p>
+</li>
+<li>
+<p><code>focusElectives</code>: List of focus area electives</p>
+</li>
+<li>
+<p><code>description</code>: Module description</p>
+</li>
+<li>
+<p><code>prereqTree</code>: Module&#8217;s prerequisite tree</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Upon starting the main app, the data is read once into a <code>ModulesInfo</code> object, which contains a list
+of <code>ModuleInfo</code> objects&#8201;&#8212;&#8201;it is then passed into our model, whereby our <code>ModelManager</code> holds it as a reference.</p>
+</div>
+<div class="paragraph">
+<p>Upon creating a study plan, the module planner will create the relevant <code>Module</code> objects, whose information
+matches their corresponding <code>ModulesInfo</code> objects. Each <code>Module</code> object should correspond to exactly one
+<code>ModuleInfo</code> object (with the same module code).</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="prerequisite-checking"><a class="link" href="#prerequisite-checking">3.6.2. Prerequisite checking</a></h4>
+<div class="paragraph">
+<p>To facilitate prerequisite checking, we have an interface <code>PrereqTree</code>, implemented by two classes
+<code>PrereqLeaf</code> and <code>PrereqNode</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/VerificationPrereqTreeClassDiagram.png" alt="VerificationPrereqTreeClassDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>Each <code>PrereqLeaf</code> represents a module prerequisite. Each <code>PrereqNode</code> has an AND or OR operator&#8201;&#8212;&#8201;for instance,
+(CS2030 AND CS2040) would be represented by a <code>PrereqNode</code> with the operator AND, with two <code>PrereqLeaf</code> leaves:
+one for CS2030, and one for CS2040.</p>
+</div>
+<div class="paragraph">
+<p>Importantly, <code>PrereqTree</code> contains the method <code>verify(List&lt;String&gt; prevSemCodes)</code>. Given a list of strings of module
+codes taken in previous semesters, the prerequisite tree will return a boolean value, signalling if the module already
+has its prerequisites satisfied.</p>
+</div>
+<div class="paragraph">
+<p>Upon executing any command, the method <code>refresh()</code> will be called in the module manager, which verifies the prerequisites
+of every <code>Module</code> and updates them in the GUI. Modules that do not have their prerequisites fulfilled will be shown
+with a red tag beside it.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/VerificationRefreshSequenceDiagram.png" alt="VerificationRefreshSequenceDiagram">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.6.3. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-relationship-between-a-module-and-its-module-information"><a class="link" href="#aspect-relationship-between-a-module-and-its-module-information">Aspect: Relationship between a module and its module information</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice)</strong>: All <code>ModuleInfo</code> objects are only created once
+upon initialising the application, one for each CS module.
+When creating a <code>Module</code> object, it then finds the corresponding <code>ModuleInfo</code> object (with the same module code),
+then derives its attributes (e.g. name, MC count, tags) from it.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: The json file is only read once to create all <code>ModuleInfo</code> objects at once, which is more efficient.</p>
+</li>
+<li>
+<p>Cons: It could lead to greater code complexity,
+as the model manager needs to keep track of not only <code>Module</code> objects, but also <code>ModuleInfo</code> objects.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2</strong>: Whenever a new <code>Module</code> object is created, it re-reads the json file to read in
+the necessary information.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: The module manager does not need to persistently hold on to the same list of <code>ModuleInfo</code> objects.</p>
+</li>
+<li>
+<p>Cons: It performs the same reading action multiple times, which could lead to slowdowns.</p>
 </li>
 </ul>
 </div>
@@ -1813,4 +1940,4 @@ year of undergraduate studies in NUS.</p>
 </dl>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-24 04:16:51 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-24 14:33:57 UTC</div></div></div></body></html>
