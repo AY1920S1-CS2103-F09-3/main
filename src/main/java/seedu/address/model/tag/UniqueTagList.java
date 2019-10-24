@@ -240,8 +240,4 @@ public class UniqueTagList implements Iterable<Tag>, Cloneable {
         }
     }
 
-    public List<String> asListOfStrings() {
-        return asUnmodifiableObservableList().stream().map(Tag::getTagName).collect(Collectors.toList());
-    }
-
 }

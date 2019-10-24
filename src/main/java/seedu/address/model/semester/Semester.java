@@ -122,7 +122,7 @@ public class Semester implements Cloneable {
             Semester other = (Semester) obj;
             return this.modules.equals(other.getModules())
                     && this.isBlocked == other.isBlocked
-                    && this.reasonForBlocked.equals(other.reasonForBlocked)
+                    && (this.reasonForBlocked == null ? true : this.reasonForBlocked.equals(other.reasonForBlocked))
                     && this.isExpanded == other.isExpanded
                     && this.semesterName == other.getSemesterName();
         }

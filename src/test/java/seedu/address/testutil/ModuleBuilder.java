@@ -49,6 +49,7 @@ public class ModuleBuilder {
         moduleCode = moduleToCopy.getModuleCode();
         prereqTree = ParserUtil.parsePrereqTree(moduleToCopy.getPrereqString());
         tags = new UniqueTagList();
+        tags.initDefaultTags();
         tags.setTags(moduleToCopy.getTags());
     }
 
@@ -65,6 +66,7 @@ public class ModuleBuilder {
      */
     public ModuleBuilder withTags(String... tags) {
         this.tags = new UniqueTagList();
+        this.tags.initDefaultTags();
         this.tags.setTags(SampleDataUtil.getTagList(tags));
         return this;
     }

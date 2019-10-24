@@ -87,7 +87,9 @@ public class ModulePlanner implements ReadOnlyModulePlanner {
     public void resetData(ReadOnlyModulePlanner newData) {
         requireNonNull(newData);
         setStudyPlans(newData.getStudyPlanList());
-        this.activeStudyPlan = this.studyPlans.getStudyPlanByIndex(newData.getActiveStudyPlan().getIndex());
+        if (newData.getActiveStudyPlan() != null) {
+            this.activeStudyPlan = this.studyPlans.getStudyPlanByIndex(newData.getActiveStudyPlan().getIndex());
+        }
     }
 
     //=========== Study Plan-level Operations ===============================================================
