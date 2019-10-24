@@ -14,15 +14,22 @@ import seedu.address.model.module.Module;
 import seedu.address.model.semester.Semester;
 import seedu.address.model.semester.SemesterName;
 
+/**
+ * A utility class containing sample semesters to be used in tests.
+ */
 public class TypicalSemester {
-    private static List<Module> typicalMods1 = typicalModuleList();
-    private static List<Module> typicalMods2 = typicalModuleList2();
     public static final Semester EMPTY_SEMESTER = new Semester(SemesterName.Y1S1);
+    private static List<Module> typicalMods1 = typicalModuleList();
     public static final Semester FULL_UNBLOCKED_SEMESTER_1 =
             new Semester(SemesterName.Y1S2, false, "", typicalMods1);
+    private static List<Module> typicalMods2 = typicalModuleList2();
     public static final Semester FULL_UNBLOCKED_SEMESTER_2 =
             new Semester(SemesterName.Y1S2, false, "", typicalMods2);
 
+    /**
+     * Generate a list of modules for testing.
+     * @return Typical module list.
+     */
     private static List<Module> typicalModuleList() {
         List<Module> modules = new ArrayList<>();
         modules.add(ST2334);
@@ -31,6 +38,10 @@ public class TypicalSemester {
         return modules;
     }
 
+    /**
+     * Generate a list of modules for testing, different from {@code typicalModuleList()}.
+     * @return Typical module list.
+     */
     private static List<Module> typicalModuleList2() {
         List<Module> modules = new ArrayList<>();
         modules.add(CS2102);

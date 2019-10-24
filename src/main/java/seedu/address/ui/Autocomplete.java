@@ -58,7 +58,7 @@ public class Autocomplete extends TextField {
         super();
         tags = activeStudyPlan.getTags();
         tags.asUnmodifiableObservableList().addListener((ListChangeListener<Tag>) change
-                -> generateArgumentKeywords());
+            -> generateArgumentKeywords());
         generateCommandKeywords();
         generateArgumentKeywords();
         keywordMenu = new ContextMenu();

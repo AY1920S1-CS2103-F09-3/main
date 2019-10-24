@@ -1,7 +1,6 @@
 package seedu.address.model.semester;
 
 import static java.util.Objects.requireNonNull;
-import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.util.List;
 
@@ -36,7 +35,7 @@ public class Semester implements Cloneable {
      */
     public Semester(SemesterName semesterName, boolean isBlocked,
                     String reasonForBlocked, List<Module> modules) {
-        requireAllNonNull(semesterName, isBlocked, reasonForBlocked, modules);
+        // requireAllNonNull(semesterName, isBlocked, reasonForBlocked, modules);
         this.semesterName = semesterName;
         this.isBlocked = isBlocked;
         this.reasonForBlocked = reasonForBlocked;
@@ -122,7 +121,7 @@ public class Semester implements Cloneable {
             Semester other = (Semester) obj;
             return this.modules.equals(other.getModules())
                     && this.isBlocked == other.isBlocked
-                    && this.reasonForBlocked.equals(other.reasonForBlocked)
+                    && (this.reasonForBlocked == null ? true : this.reasonForBlocked.equals(other.reasonForBlocked))
                     && this.isExpanded == other.isExpanded
                     && this.semesterName == other.getSemesterName();
         }
