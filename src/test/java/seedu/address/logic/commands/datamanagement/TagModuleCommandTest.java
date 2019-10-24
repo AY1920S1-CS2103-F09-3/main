@@ -6,6 +6,7 @@ import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import java.util.HashMap;
 
 import org.junit.jupiter.api.Test;
+
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
@@ -45,16 +46,16 @@ public class TagModuleCommandTest {
         String validTagNameOne = validTagOne.getTagName();
 
         // construct two modules with no tags
-        Module CS1231 = new ModuleBuilder().build();
-        Module CS2100 = new ModuleBuilder().withModuleCode("CS2100").build();
+        Module cs1231 = new ModuleBuilder().build();
+        Module cs2100 = new ModuleBuilder().withModuleCode("CS2100").build();
         HashMap<String, Module> moduleHashMap = new HashMap<String, Module>();
-        moduleHashMap.put("CS1231", CS1231);
-        moduleHashMap.put("CS2100", CS2100);
+        moduleHashMap.put("CS1231", cs1231);
+        moduleHashMap.put("CS2100", cs2100);
 
         // construct model containing study plan with no tags
         StudyPlan studyPlan = new StudyPlanBuilder().withModules(moduleHashMap).build();
         Model model = new ModelManager(new ModulePlannerBuilder().withStudyPlan(studyPlan).build(),
-            new UserPrefs(), TypicalModulesInfo.getTypicalModulesInfo());
+                new UserPrefs(), TypicalModulesInfo.getTypicalModulesInfo());
         model.activateFirstStudyPlan();
 
         // construct two modules, one with a tag and one without
@@ -74,7 +75,7 @@ public class TagModuleCommandTest {
         // construct command to add a tag
         TagModuleCommand tagModuleCommand = new TagModuleCommand(validTagNameOne, "CS2100");
         assertCommandSuccess(tagModuleCommand, model, String.format(TagModuleCommand.MESSAGE_SUCCESS_TAG_ADDED,
-                validTagOne, CS2100.getModuleCode().toString()), expectedModel);
+                validTagOne, cs2100.getModuleCode().toString()), expectedModel);
     }
 
 }

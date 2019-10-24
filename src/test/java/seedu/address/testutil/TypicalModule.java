@@ -4,6 +4,9 @@ import seedu.address.logic.parser.ParserUtil;
 import seedu.address.model.Color;
 import seedu.address.model.module.Module;
 
+/**
+ * A utility class containing sample modules to be used in tests.
+ */
 public class TypicalModule {
     public static final Module CS1101S = new ModuleBuilder()
             .withModuleCode("CS1101S")
