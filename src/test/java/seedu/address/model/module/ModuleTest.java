@@ -4,10 +4,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_COLOR_CS3244;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_MODULE_CODE_CS3244;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_ST2334;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_TAGS_CS3244;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalModule.CS3244;
 import static seedu.address.testutil.TypicalModule.ST2334;
@@ -43,8 +41,6 @@ public class ModuleTest {
 
         // different name -> returns true
         Module editedCS3244 = new ModuleBuilder(CS3244).withName(VALID_NAME_ST2334).build();
-        Module jsonCS3244 = new Module(new ModuleCode(VALID_MODULE_CODE_CS3244),
-                VALID_COLOR_CS3244, VALID_TAGS_CS3244);
         assertTrue(CS3244.equals(editedCS3244));
         Module skeletalCS3244 = new Module(new ModuleCode(VALID_MODULE_CODE_CS3244));
         assertNotSame(skeletalCS3244, CS3244_COPY);
@@ -64,10 +60,10 @@ public class ModuleTest {
 
     @Test
     public void toString_valid_success() {
-        assertEquals("Machine Learning Module code: CS3244 " +
-                "MCs: 4 Prereqs satisfied: false Tags: [Cool][AI][ML]", CS3244.toString());
-        assertEquals("Probability and Statistics Module code: ST2334 " +
-                "MCs: 4 Prereqs satisfied: false Tags: [Stats]", ST2334.toString());
+        assertEquals("Machine Learning Module code: CS3244 "
+                + "MCs: 4 Prereqs satisfied: false Tags: [Cool][AI][ML]", CS3244.toString());
+        assertEquals("Probability and Statistics Module code: ST2334 "
+                + "MCs: 4 Prereqs satisfied: false Tags: [Stats]", ST2334.toString());
     }
 
     @Test
