@@ -3,17 +3,13 @@ package seedu.address.model.studyplan;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNotSame;
+import static seedu.address.logic.commands.CommandTestUtil.SP_2_SEMESTER_NAME;
 import static seedu.address.testutil.TypicalStudyPlans.SP_1;
-import static seedu.address.testutil.TypicalStudyPlans.SP_1_TITLE;
 import static seedu.address.testutil.TypicalStudyPlans.SP_2;
-import static seedu.address.testutil.TypicalStudyPlans.SP_2_SEMESTER_NAME;
 import static seedu.address.testutil.TypicalStudyPlans.SP_2_TITLE;
 
 import org.junit.jupiter.api.Test;
 
-import seedu.address.model.module.ModuleCode;
-import seedu.address.model.semester.SemesterName;
-import seedu.address.model.semester.UniqueSemesterList;
 import seedu.address.testutil.StudyPlanBuilder;
 
 /**
@@ -39,8 +35,8 @@ public class StudyPlanTest {
         assertNotEquals(SP_1, SP_2);
 
         // different name -> returns false
-        StudyPlan editedSP_1 = new StudyPlanBuilder(SP_1).withTitle(SP_2_TITLE).build();
-        assertNotEquals(SP_1, editedSP_1);
+        StudyPlan editedSp1 = new StudyPlanBuilder(SP_1).withTitle(SP_2_TITLE).build();
+        assertNotEquals(SP_1, editedSp1);
 
         StudyPlan sp1Clone = sp1Copy.clone();
         assertEquals(sp1Clone, sp1Copy);

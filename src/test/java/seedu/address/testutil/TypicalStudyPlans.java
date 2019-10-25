@@ -1,13 +1,14 @@
 package seedu.address.testutil;
 
+import static seedu.address.logic.commands.CommandTestUtil.SP_1_SEMESTER_NAME;
+import static seedu.address.logic.commands.CommandTestUtil.SP_2_SEMESTER_NAME;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import seedu.address.model.ModulePlanner;
 import seedu.address.model.ModulesInfo;
-import seedu.address.model.module.ModuleCode;
-import seedu.address.model.semester.SemesterName;
 import seedu.address.model.studyplan.StudyPlan;
 import seedu.address.model.studyplan.Title;
 
@@ -17,8 +18,6 @@ import seedu.address.model.studyplan.Title;
 public class TypicalStudyPlans {
     public static final Title SP_1_TITLE = new Title("first study plan");
     public static final Title SP_2_TITLE = new Title("second study plan");
-    public static SemesterName SP_1_SEMESTER_NAME = SemesterName.Y1S1;
-    public static SemesterName SP_2_SEMESTER_NAME = SemesterName.Y1S2;
 
     private static final ModulesInfo modulesInfo = TypicalModulesInfo.getTypicalModulesInfo();
 
