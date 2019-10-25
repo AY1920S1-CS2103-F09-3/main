@@ -39,6 +39,7 @@ public class SemesterTest {
                 fullSemesterCopy.getReasonForBlocked());
         assertEquals(FULL_UNBLOCKED_SEMESTER_1.getMcCount(), fullSemesterCopy.getMcCount());
         assertNotSame(fullSemesterCopy, FULL_UNBLOCKED_SEMESTER_1);
+<<<<<<< HEAD
     }
 
     @Test
@@ -46,7 +47,6 @@ public class SemesterTest {
 
     }
 
-    @Test
     public void getters_setters() throws CloneNotSupportedException {
         Semester emptySemester = EMPTY_SEMESTER.clone();
         assertFalse(emptySemester.hasModule(VALID_MODULE_CODE_CS3244));
