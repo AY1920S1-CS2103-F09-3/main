@@ -39,7 +39,6 @@ public class SemesterTest {
                 fullSemesterCopy.getReasonForBlocked());
         assertEquals(FULL_UNBLOCKED_SEMESTER_1.getMcCount(), fullSemesterCopy.getMcCount());
         assertNotSame(fullSemesterCopy, FULL_UNBLOCKED_SEMESTER_1);
-<<<<<<< HEAD
     }
 
     @Test
