@@ -155,34 +155,21 @@ Classes used by multiple components are in the `seedu.address.commons` package.
 
 This section describes some noteworthy details on how certain features are implemented.
 
-<<<<<<< HEAD
-=== Undo/Redo feature
-==== Current Implementation
-
-The undo/redo mechanism is inspired by the undo/redo implementation in AddressBook 3 and is facilitated by `VersionedModulePlanner`.
-=======
 // tag::undoredo[]
 
 === Undo/Redo feature
 ==== Current Implementation
 
 The undo/redo mechanism is inpired by the undo/redo implementation in AddressBook 3 and is facilitated by `VersionedModulePlanner`.
->>>>>>> Added undo redo implementation in DG
 It extends `modulePlanner` with an undo/redo history, stored internally as an `historyStateList` and `currentStatePointer`.
 Additionally, it implements the following operations:
 
 * `VersionedModulePlanner#commit()` -- Saves the current module planner state in its history.
 * `VersionedModulePlanner#undo()` -- Restores the previous module planner state from its history.
 * `VersionedModulePlanner#redo()` -- Restores a previously undone module planner state from its history.
-<<<<<<< HEAD
 
 These operations are exposed in the `Model` interface as `Model#saveToHistory()`, `Model#undo()` and `Model#redo()` respectively.
 
-=======
-
-These operations are exposed in the `Model` interface as `Model#saveToHistory()`, `Model#undo()` and `Model#redo()` respectively.
-
->>>>>>> Added undo redo implementation in DG
 [NOTE]
 Currently, the undo-redo mechanism does not include/respond to changes to commands involving Commits - saving and removing changes to the storage files.
 
@@ -225,7 +212,6 @@ Step 5. The user then decides to execute the command `history`. Commands that do
 
 image::UndoRedoState4.png[]
 
-<<<<<<< HEAD
 ==== Design Considerations
 
 ===== Aspect: How undo & redo executes
@@ -297,9 +283,6 @@ no deletion will take place. Instead the user will be prompted by an error messa
 The following sequence diagram shows how the `deletecommit` operation works:
 
 image::DeleteCommitActivityDiagram.png[]
-=======
-The following activity diagram summarizes what happens when a user executes a new command:
->>>>>>> Added undo redo implementation in DG
 
 // Step 5. The user then decides to execute the command `history`.
 // image::UndoRedoState4.png[]
@@ -315,26 +298,12 @@ The following activity diagram summarizes what happens when a user executes a co
 
 ===== Aspect: How commit executes
 
-<<<<<<< HEAD
 * **Alternative 1 (current choice):** Saves the entire state of the study plan at the moment of commit.
 ** Pros: Easy to implement.
 ** Cons: May have performance issues in terms of memory usage.
 * **Alternative 2:** Only saves the difference of the current state from the state of the last commit.
 ** Pros: Will use less memory (e.g. for `addmodule`, just store the module being added).
 ** Cons: We must ensure that the differences in states are stored and loaded correctly when we switch between commits.
-=======
-* **Alternative 1 (current choice):** Saves a copy of the  entire module planner in the `historyStateList`. It does this by performing a clone operation through the hierachy of classes of the ModulePlanner, from StudyPlan, Semester, Module down to Tag.
-** Pros: Easier to implement.
-** Cons: May have performance issues in terms of memory usage. Need to take note of the implications of cloning all the objects. 
-* **Alternative 2:** Implemenet redo/undo for every single command.
-** Pros: Will use less memory (e.g. for `removemod`, just save the person being deleted).
-** Cons: Tedious because there are a lot of commands and we must ensure that the implementation of each individual command are correct.
-
-===== Aspect: Data structure to support the undo/redo commands
-
-* **Current choice:** Use a list to store the history of module planner states.
-// end::undoredo[]
->>>>>>> Added undo redo implementation in DG
 
 ===== Aspect: Data structure to support the commit commands
 

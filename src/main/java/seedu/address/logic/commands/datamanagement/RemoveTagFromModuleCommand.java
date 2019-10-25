@@ -33,39 +33,9 @@ public class RemoveTagFromModuleCommand extends Command {
     private final String moduleCode;
 
     /**
-<<<<<<< HEAD
-<<<<<<< HEAD
-     * Creates an {@code RemoveTagFromModuleCommand} to move a tag with the given name from the specified module.
-     *
-     * @param tagName    The name of the tag.
-<<<<<<< HEAD
-=======
-=======
-     * <<<<<<< HEAD
-     * Creates an {@code RemoveTagFromModuleCommand} to move a tag with the given name from the specified module.
-     *
-     * @param tagName    The name of the tag.
-     *                   =======
-     *                   <<<<<<< HEAD:src/main/java/seedu/address/logic/commands/datamanagement/RemoveTagFromModuleCommand.java
-     *                   Creates an {@code RemoveTagFromModuleCommand} to move a tag with the given name from the specified module.
-     * @param tagName    The name of the tag.
->>>>>>> Track
-     *                   =======
-     *                   Creates an {@code RemoveTagCommand} to move a tag with the given name from the module.
-     * @param tagName    The name of the tag.
-     *                   >>>>>>> master:src/main/java/seedu/address/logic/commands/datamanagement/RemoveTagCommand.java
-<<<<<<< HEAD
->>>>>>> Checkstyle fixes
-=======
-     *                   >>>>>>> upstream/undoredo-fix
->>>>>>> Track
-=======
-     * Creates an {@code RemoveTagFromModuleCommand} to move a tag with the given name from the specified module.
-     *
      * @param tagName    The name of the tag.
      *                   Creates an {@code RemoveTagFromModuleCommand} to move a tag with the given name from
      *                   the specified module.
->>>>>>> Fix parser - regex (for modules, semesters, tags) now requires a whitespace character in front to be considered
      * @param moduleCode The module code of the module from which the tag is to be deleted.
      */
 

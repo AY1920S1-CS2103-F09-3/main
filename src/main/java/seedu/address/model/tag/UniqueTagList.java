@@ -202,9 +202,12 @@ public class UniqueTagList implements Iterable<Tag>, Cloneable {
     }
 
     @Override
-    public Object clone() throws CloneNotSupportedException {
-        // TODO: implement this
-        return super.clone();
+    public Object clone() {
+        UniqueTagList clone = new UniqueTagList();
+        for (Tag tag : this) {
+            clone.addTag(tag);
+        }
+        return clone;
     }
 
     private HashMap<String, Tag> getMapTags() {

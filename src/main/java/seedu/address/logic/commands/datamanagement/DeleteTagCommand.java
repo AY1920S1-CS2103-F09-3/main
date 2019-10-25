@@ -52,6 +52,7 @@ public class DeleteTagCommand extends Command {
         UserTag toDelete = (UserTag) model.getTagFromActiveSp(tagName);
 
         model.deleteTagFromActiveSp(toDelete);
+        model.addToHistory();
 
         return new CommandResult(String.format(MESSAGE_SUCCESS, toDelete));
     }

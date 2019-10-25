@@ -38,6 +38,7 @@ public class RemoveAllTagsCommand extends Command {
                     .filter(tag -> tag.isDefault()).collect(Collectors.toList());
             modelTagList.setTags(defaultTags);
         }
+        model.addToHistory();
 
         return new CommandResult(MESSAGE_SUCCESS);
 

@@ -1,7 +1,5 @@
 package seedu.address.model.semester;
 
-import static java.util.Objects.requireNonNull;
-
 import java.util.List;
 
 import seedu.address.model.module.Module;

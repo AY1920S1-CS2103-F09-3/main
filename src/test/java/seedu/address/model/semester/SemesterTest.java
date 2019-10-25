@@ -5,7 +5,6 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_MODULE_CODE_CS3244;
-import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalModule.CS3244;
 import static seedu.address.testutil.TypicalSemester.EMPTY_SEMESTER;
 import static seedu.address.testutil.TypicalSemester.FULL_UNBLOCKED_SEMESTER_1;
@@ -45,13 +44,6 @@ public class SemesterTest {
     @Test
     public void toString_valid_success() {
 
-    }
-
-    @Test
-    public void constructor_null_throwsException() {
-        assertThrows(NullPointerException.class, () -> new Semester(null));
-        assertThrows(NullPointerException.class, () ->
-            new Semester(null, false, null, null));
     }
 
     @Test
