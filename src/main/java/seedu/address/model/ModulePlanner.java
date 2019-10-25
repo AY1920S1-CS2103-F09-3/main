@@ -32,11 +32,10 @@ import seedu.address.model.versiontracking.exception.StudyPlanCommitManagerNotFo
  * Duplicates are not allowed (by .isSameStudyPlan comparison)
  */
 public class ModulePlanner implements ReadOnlyModulePlanner {
-
     private final UniqueStudyPlanList studyPlans;
-    private StudyPlan activeStudyPlan;
     private final ModulesInfo modulesInfo;
     private final VersionTrackingManager versionTrackingManager;
+    private StudyPlan activeStudyPlan;
     private SemesterName currentSemester;
 
     public ModulePlanner() {
@@ -179,13 +178,9 @@ public class ModulePlanner implements ReadOnlyModulePlanner {
         }
 
         // replace skeletal modules under semesters with the actual reference to modules in mega list
-        Iterator<Semester> semesterIterator = activeStudyPlan.getSemesters().iterator();
-        while (semesterIterator.hasNext()) {
-            Semester semester = semesterIterator.next();
+        for (Semester semester : activeStudyPlan.getSemesters()) {
             UniqueModuleList uniqueModuleList = semester.getModules();
-            Iterator<Module> moduleIterator = uniqueModuleList.iterator();
-            while (moduleIterator.hasNext()) {
-                Module skeletalModule = moduleIterator.next();
+            for (Module skeletalModule : uniqueModuleList) {
                 Module actualModule = megaModuleHash.get(skeletalModule.getModuleCode().toString());
                 uniqueModuleList.setModule(skeletalModule, actualModule);
             }
@@ -238,6 +233,7 @@ public class ModulePlanner implements ReadOnlyModulePlanner {
     }
 
     /**
+<<<<<<< HEAD
      * Sets the current semester. The user cannot change any module before the current semester. But they can
      * still change those in the current semester and after the current semester.
      */
@@ -247,6 +243,8 @@ public class ModulePlanner implements ReadOnlyModulePlanner {
     }
 
     /**
+=======
+>>>>>>> Undo redo updates, still not working
      * Returns the current semester. The user cannot change any module before the current semester. But they can
      * still change those in the current semester and after the current semester.
      *

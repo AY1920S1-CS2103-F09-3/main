@@ -329,4 +329,30 @@ public class ModelManager implements Model {
         return modulePlanner.getModulesFromActiveSp();
     }
 
+    //=========== Undo/Redo =================================================================================
+
+    @Override
+    public boolean canUndoModulePlanner() {
+        return modulePlanner.canUndo();
+    }
+
+    @Override
+    public boolean canRedoModulePlanner() {
+        return modulePlanner.canRedo();
+    }
+
+    @Override
+    public void undoModulePlanner() {
+        modulePlanner.undo();
+    }
+
+    @Override
+    public void redoModulePlanner() {
+        modulePlanner.redo();
+    }
+
+    @Override
+    public void addToHistory() {
+        modulePlanner.commit();
+    }
 }

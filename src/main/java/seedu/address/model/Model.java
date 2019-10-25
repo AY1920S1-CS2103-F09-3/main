@@ -233,4 +233,28 @@ public interface Model {
 
     HashMap<String, Module> getModulesFromActiveSp();
 
+    /**
+     * Returns true if the model has previous address book states to restore.
+     */
+    boolean canUndoModulePlanner();
+
+    /**
+     * Returns true if the model has undone address book states to restore.
+     */
+    boolean canRedoModulePlanner();
+
+    /**
+     * Restores the model's address book to its previous state.
+     */
+    void undoModulePlanner();
+
+    /**
+     * Restores the model's address book to its previously undone state.
+     */
+    void redoModulePlanner();
+
+    /**
+     * Saves the current address book state for undo/redo.
+     */
+    void addToHistory();
 }

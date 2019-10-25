@@ -12,6 +12,8 @@ public class VersionedModulePlanner extends ModulePlanner {
         historyStateList = new ArrayList<>();
         historyStateList.add(new ModulePlanner(toBeCopied, modulesInfo));
         currentStatePointer = 0;
+        historyStateList.get(0).getActiveStudyPlan().getSemesters().forEach(semester -> semester.getModules().forEach(module -> System.out.println(module.getModuleCode().toString())));
+
     }
 
     /**
@@ -22,6 +24,10 @@ public class VersionedModulePlanner extends ModulePlanner {
         removeStatesAfterCurrentPointer();
         historyStateList.add(new ModulePlanner(this, super.getModulesInfo()));
         currentStatePointer++;
+        System.out.println("============= COMMIT =============");
+        for (ReadOnlyModulePlanner b: historyStateList) {
+            b.getActiveStudyPlan().getSemesters().forEach(semester -> semester.getModules().forEach(module -> System.out.println(module.getModuleCode().toString())));
+        }
 //        indicateModified();
     }
 
@@ -37,6 +43,10 @@ public class VersionedModulePlanner extends ModulePlanner {
             throw new NoUndoableStateException();
         }
         currentStatePointer--;
+        System.out.println("============= UNDO =============");
+        for (ReadOnlyModulePlanner b: historyStateList) {
+            b.getActiveStudyPlan().getSemesters().forEach(semester -> semester.getModules().forEach(module -> System.out.println(module.getModuleCode().toString())));
+        }
         resetData(historyStateList.get(currentStatePointer));
     }
 
