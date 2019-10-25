@@ -3,6 +3,7 @@ package seedu.address.model.studyplan;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -92,11 +93,19 @@ public class UniqueStudyPlanList implements Iterable<StudyPlan> {
      */
     public void setStudyPlans(List<StudyPlan> studyPlans) {
         requireAllNonNull(studyPlans);
+        List<StudyPlan> newList = new ArrayList<>();
+        for (StudyPlan studyPlan: studyPlans) {
+            try {
+                newList.add(studyPlan.clone());
+            } catch (CloneNotSupportedException e) {
+                e.printStackTrace();
+            }
+        }
         if (!studyPlansAreUnique(studyPlans)) {
             throw new DuplicateStudyPlanException();
         }
 
-        internalList.setAll(studyPlans);
+        internalList.setAll(newList);
     }
 
     /**

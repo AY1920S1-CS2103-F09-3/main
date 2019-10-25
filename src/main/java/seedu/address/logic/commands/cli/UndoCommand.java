@@ -1,7 +1,6 @@
 package seedu.address.logic.commands.cli;
 
 import static java.util.Objects.requireNonNull;
-import static seedu.address.model.Model.PREDICATE_SHOW_ALL_STUDYPLANS;
 
 import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.CommandResult;
@@ -21,7 +20,7 @@ public class UndoCommand extends Command {
         requireNonNull(model);
 
         model.undoModulePlanner();
-        model.updateFilteredStudyPlanList(PREDICATE_SHOW_ALL_STUDYPLANS);
+        model.updateFilteredStudyPlanList(Model.PREDICATE_SHOW_ALL_STUDY_PLANS);
         return new CommandResult(MESSAGE_SUCCESS);
     }
 }

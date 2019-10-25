@@ -13,7 +13,6 @@ public class VersionedModulePlanner extends ModulePlanner {
         historyStateList.add(new ModulePlanner(toBeCopied, modulesInfo));
         currentStatePointer = 0;
         historyStateList.get(0).getActiveStudyPlan().getSemesters().forEach(semester -> semester.getModules().forEach(module -> System.out.println(module.getModuleCode().toString())));
-
     }
 
     /**
@@ -25,7 +24,7 @@ public class VersionedModulePlanner extends ModulePlanner {
         historyStateList.add(new ModulePlanner(this, super.getModulesInfo()));
         currentStatePointer++;
         System.out.println("============= COMMIT =============");
-        for (ReadOnlyModulePlanner b: historyStateList) {
+        for (ReadOnlyModulePlanner b : historyStateList) {
             b.getActiveStudyPlan().getSemesters().forEach(semester -> semester.getModules().forEach(module -> System.out.println(module.getModuleCode().toString())));
         }
 //        indicateModified();
@@ -43,11 +42,9 @@ public class VersionedModulePlanner extends ModulePlanner {
             throw new NoUndoableStateException();
         }
         currentStatePointer--;
-        System.out.println("============= UNDO =============");
-        for (ReadOnlyModulePlanner b: historyStateList) {
-            b.getActiveStudyPlan().getSemesters().forEach(semester -> semester.getModules().forEach(module -> System.out.println(module.getModuleCode().toString())));
-        }
         resetData(historyStateList.get(currentStatePointer));
+        System.out.println("============= UNDO =============");
+        super.getActiveStudyPlan().getSemesters().forEach(semester -> semester.getModules().forEach(module -> System.out.println(module.getModuleCode().toString())));
     }
 
     /**
@@ -59,6 +56,8 @@ public class VersionedModulePlanner extends ModulePlanner {
         }
         currentStatePointer++;
         resetData(historyStateList.get(currentStatePointer));
+        System.out.println("============= REDO =============");
+        super.getActiveStudyPlan().getSemesters().forEach(semester -> semester.getModules().forEach(module -> System.out.println(module.getModuleCode().toString() + "\n")));
     }
 
     /**

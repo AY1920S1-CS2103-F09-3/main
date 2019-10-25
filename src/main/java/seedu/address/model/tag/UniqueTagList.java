@@ -198,6 +198,7 @@ public class UniqueTagList implements Iterable<Tag>, Cloneable {
 
     @Override
     public Object clone() throws CloneNotSupportedException {
+        // TODO: implement this
         return super.clone();
     }
 

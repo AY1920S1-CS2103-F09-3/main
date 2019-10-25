@@ -23,7 +23,7 @@ public interface Model {
     /**
      * {@code Predicate} that always evaluate to true
      */
-    Predicate<StudyPlan> PREDICATE_SHOW_ALL_STUDYPLANS = unused -> true;
+    static Predicate<StudyPlan> PREDICATE_SHOW_ALL_STUDY_PLANS = unused -> true;
 
     /**
      * Replaces user prefs data with the data in {@code userPrefs}.
