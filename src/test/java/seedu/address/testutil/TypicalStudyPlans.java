@@ -15,30 +15,18 @@ import seedu.address.model.studyplan.Title;
  * A utility class containing a list of {@code StudyPlan} objects to be used in tests.
  */
 public class TypicalStudyPlans {
+    public static final Title SP_1_TITLE = new Title("first study plan");
+    public static final Title SP_2_TITLE = new Title("second study plan");
+    public static SemesterName SP_1_SEMESTER_NAME = SemesterName.Y1S1;
+    public static SemesterName SP_2_SEMESTER_NAME = SemesterName.Y1S2;
 
-    public static final String KEYWORD_MATCHING_MEIER = "Meier"; // A keyword that matches MEIER
     private static final ModulesInfo modulesInfo = TypicalModulesInfo.getTypicalModulesInfo();
-    private static SemesterName typicalCurrentSemester = SemesterName.Y1S1;
 
     // typical study plans
-    public static final StudyPlan SP_1 = new StudyPlan(new Title("first study plan"), modulesInfo,
-            typicalCurrentSemester);
-    public static final StudyPlan SP_2 = new StudyPlan(new Title("second study plan"), modulesInfo,
-            typicalCurrentSemester);
+    public static final StudyPlan SP_1 = new StudyPlan(SP_1_TITLE, modulesInfo, SP_1_SEMESTER_NAME);
+    public static final StudyPlan SP_2 = new StudyPlan(SP_2_TITLE, modulesInfo, SP_2_SEMESTER_NAME);
     public static final StudyPlan SP_3 = new StudyPlan(new Title("third study plan"), modulesInfo,
-            typicalCurrentSemester);
-
-    private TypicalStudyPlans() {
-        SP_1.addModuleToSemester(new ModuleCode("CS1101S"), SemesterName.Y1S1);
-        SP_1.addModuleToSemester(new ModuleCode("CS2030"), SemesterName.Y1S2);
-        SP_1.addModuleToSemester(new ModuleCode("CS2040S"), SemesterName.Y2S1);
-
-        SP_2.addModuleToSemester(new ModuleCode("CS3230"), SemesterName.Y2S1);
-        SP_2.addModuleToSemester(new ModuleCode("CS2100"), SemesterName.Y2S1);
-        SP_2.addModuleToSemester(new ModuleCode("CS2103T"), SemesterName.Y2S1);
-
-        SP_3.addModuleToSemester(new ModuleCode("MA1521"), SemesterName.Y1S1);
-    } // prevents instantiation
+            SP_1_SEMESTER_NAME);
 
     /**
      * Returns an {@code ModulePlanner} with all the typical studyPlans.
