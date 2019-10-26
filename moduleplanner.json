@@ -18,6 +18,8 @@
       "reasonForBlocked" : null,
       "modules" : [ {
         "moduleCode" : "CS2030"
+      }, {
+        "moduleCode" : "CS3245"
       } ]
     }, {
       "semesterName" : "Y2S1",
@@ -235,7 +237,9 @@
     }, {
       "moduleCode" : "CS1101S",
       "color" : "RED",
-      "userTags" : [ ]
+      "userTags" : [ {
+        "tagName" : "s"
+      } ]
     }, {
       "moduleCode" : "CS4225",
       "color" : "RED",
@@ -303,7 +307,9 @@
     }, {
       "moduleCode" : "CS3245",
       "color" : "RED",
-      "userTags" : [ ]
+      "userTags" : [ {
+        "tagName" : "s/uable"
+      } ]
     }, {
       "moduleCode" : "CS3243",
       "color" : "RED",
@@ -317,6 +323,8 @@
       "color" : "RED",
       "userTags" : [ {
         "tagName" : "lomaksdma"
+      }, {
+        "tagName" : "a:i"
       } ]
     }, {
       "moduleCode" : "CS4212",
@@ -573,6 +581,12 @@
     } ],
     "tags" : [ {
       "tagName" : "lomaksdma"
+    }, {
+      "tagName" : "s"
+    }, {
+      "tagName" : "s/uable"
+    }, {
+      "tagName" : "a:i"
     } ],
     "currentSemester" : "Y1S1"
   }, {
