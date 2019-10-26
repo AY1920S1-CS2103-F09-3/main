@@ -3,6 +3,7 @@ package seedu.address.storage;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static seedu.address.testutil.Assert.assertThrows;
 
+import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Optional;
@@ -26,13 +27,13 @@ public class JsonModulesInfoStorageTest {
     }
 
     private Optional<ModulesInfo> readModulesInfo(String modulesInfoFileInTestDataFolder)
-            throws DataConversionException {
+            throws IOException {
         Path prefsFilePath = addToTestDataPathIfNotNull(modulesInfoFileInTestDataFolder);
         return new JsonModulesInfoStorage(prefsFilePath).readModulesInfo(prefsFilePath);
     }
 
     @Test
-    public void readModulesInfo_missingFile_emptyResult() throws DataConversionException {
+    public void readModulesInfo_missingFile_emptyResult() throws IOException {
         assertFalse(readModulesInfo("NonExistentFile.json").isPresent());
     }
 
