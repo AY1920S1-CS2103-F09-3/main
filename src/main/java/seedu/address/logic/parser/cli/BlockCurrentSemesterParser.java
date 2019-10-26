@@ -41,7 +41,7 @@ public class BlockCurrentSemesterParser implements Parser<BlockCurrentSemesterCo
         String reason = tokens.length >= 3 ? String.join(" ",
                 Arrays.copyOfRange(tokens, 3, tokens.length)) : "";
         if (!arePrefixesPresent(argMultimap, SEMESTER_PATTERN)
-                || !argMultimap.getPreamble().isEmpty()) {
+        ) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
                     BlockCurrentSemesterCommand.MESSAGE_USAGE));
         }

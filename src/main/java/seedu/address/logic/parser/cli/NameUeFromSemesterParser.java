@@ -38,7 +38,7 @@ public class NameUeFromSemesterParser implements Parser<NameUeFromSemesterComman
                 ArgumentTokenizer.tokenize(args, SEMESTER_PATTERN);
         String[] tokens = args.split(" ");
         if (!arePrefixesPresent(argMultimap, SEMESTER_PATTERN)
-                || !argMultimap.getPreamble().isEmpty()
+
                 || tokens.length != 2
                 || tokens[1].isEmpty()) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT,

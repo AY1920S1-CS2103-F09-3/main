@@ -1,8 +1,5 @@
 package seedu.address.logic.parser;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**

@@ -37,7 +37,7 @@ public class ViewTaggedCommandParser implements Parser<ViewTaggedCommand> {
                 ArgumentTokenizer.tokenize(args, TAG_PATTERN);
 
         if (!arePrefixesPresent(argMultimap, TAG_PATTERN)
-                || !argMultimap.getPreamble().isEmpty()) {
+        ) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
                     ViewTaggedCommand.MESSAGE_USAGE));
         }
