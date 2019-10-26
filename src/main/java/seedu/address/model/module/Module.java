@@ -18,7 +18,6 @@ import seedu.address.model.tag.UserTag;
 public class Module implements Cloneable {
 
     private final ModuleCode moduleCode;
-    // Identity fields
     private Name name;
     private int mcCount;
     private Color color;

@@ -7,6 +7,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import seedu.address.logic.commands.Command;
+import seedu.address.logic.commands.ExitCommand;
+import seedu.address.logic.commands.ListCommand;
 import seedu.address.logic.commands.cli.AddModuleCommand;
 import seedu.address.logic.commands.cli.BlockCurrentSemesterCommand;
 import seedu.address.logic.commands.cli.DeleteModuleCommand;
@@ -181,6 +183,9 @@ public class ModulePlannerParser {
 
         case RemoveAllTagsCommand.COMMAND_WORD:
             return new RemoveAllTagsCommand();
+
+        case ExitCommand.COMMAND_WORD:
+            return new ExitCommand();
 
         case DeleteCommitCommand.COMMAND_WORD:
             return new DeleteCommitCommandParser().parse(arguments);
