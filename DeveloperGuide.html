@@ -1042,7 +1042,7 @@ the necessary information.</p>
 <h4 id="implementation-4"><a class="link" href="#implementation-4">3.7.1. Implementation</a></h4>
 <div class="imageblock">
 <div class="content">
-<img src="images/AutocompleteClassDiagram.png" alt="AutocompleteClassDiagram">
+<img src="images/AutocompleteClassDiagram.png" alt="AutocompleteClassDiagram" width="600">
 </div>
 </div>
 <div class="paragraph">
@@ -1056,7 +1056,9 @@ which starts the autocomplete process.</p>
 <p><code>Autocomplete</code> holds two sets of keywords, a set for commands and a set for arguments.
 These keywords are represented as <code>SortedSet&lt;String&gt;</code>.
 Within each input, the first word will be autocompleted with the set for commands,
-while subsequent words (separated by spaces) will be autocompleted with the set for arguments.</p>
+while subsequent words (separated by spaces) will be autocompleted with the set for arguments.
+An exception is the <code>help</code> command, in which the subsequent words will be autocompleted with the
+set for commands.</p>
 </div>
 <div class="paragraph">
 <p><code>Autocomplete</code> is constructed with a <code>ReadOnlyModulePlanner</code>.
@@ -1123,7 +1125,7 @@ the input text is changed to the search result and the caret is positioned at th
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/AutocompleteActivityDiagram.png" alt="AutocompleteActivityDiagram">
+<img src="images/AutocompleteActivityDiagram.png" alt="AutocompleteActivityDiagram" width="600">
 </div>
 </div>
 </div>
@@ -1154,6 +1156,40 @@ the command.</p>
 <ul>
 <li>
 <p>Pros: User can autocomplete without undesired suggestions.</p>
+</li>
+<li>
+<p>Cons: The command will have to be parsed upon autocomplete call, which will
+take more time and alter the structure of parsing commands.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-how-help-is-implemented"><a class="link" href="#aspect-how-help-is-implemented">Aspect: How help is implemented</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice)</strong>: Help is treated as a special case.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement. Help is the only command that takes in commands as arguments.</p>
+</li>
+<li>
+<p>Cons: A hard-coded exception does not make the code extensible.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2</strong>: Every command is parsed and their keywords identified.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: More extensible as help is future commands can take in commands as keywords.</p>
 </li>
 <li>
 <p>Cons: The command will have to be parsed upon autocomplete call, which will
@@ -2194,4 +2230,4 @@ year of undergraduate studies in NUS.</p>
 </dl>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-26 12:50:01 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-26 12:50:26 UTC</div></div></div></body></html>
