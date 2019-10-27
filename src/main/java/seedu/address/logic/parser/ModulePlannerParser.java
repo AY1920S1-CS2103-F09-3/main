@@ -8,7 +8,6 @@ import java.util.regex.Pattern;
 
 import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.ExitCommand;
-import seedu.address.logic.commands.ListCommand;
 import seedu.address.logic.commands.cli.AddModuleCommand;
 import seedu.address.logic.commands.cli.BlockCurrentSemesterCommand;
 import seedu.address.logic.commands.cli.DeleteModuleCommand;
@@ -60,7 +59,6 @@ import seedu.address.logic.parser.gui.HelpCommandParser;
 import seedu.address.logic.parser.storage.ActivateStudyPlanParser;
 import seedu.address.logic.parser.storage.CommitStudyPlanEditsParser;
 import seedu.address.logic.parser.storage.CreateStudyPlanCommandParser;
-import seedu.address.logic.parser.storage.DefaultStudyPlanCommandParser;
 import seedu.address.logic.parser.storage.DeleteCommitCommandParser;
 import seedu.address.logic.parser.storage.DeleteSemesterCommandParser;
 import seedu.address.logic.parser.storage.DeleteStudyPlanParser;
@@ -68,7 +66,6 @@ import seedu.address.logic.parser.storage.EditStudyPlanTitleParser;
 import seedu.address.logic.parser.storage.ListAllStudyPlansParser;
 import seedu.address.logic.parser.storage.RevertCommitParser;
 import seedu.address.logic.parser.storage.ViewCommitCommandParser;
-import seedu.address.logic.parser.storage.ViewCommitHistoryParser;
 import seedu.address.logic.parser.verification.DescriptionCommandParser;
 import seedu.address.logic.parser.verification.ValidModsCommandParser;
 
@@ -137,7 +134,7 @@ public class ModulePlannerParser {
             return new TagModuleCommandParser().parse(arguments);
 
         case ViewCommitHistoryCommand.COMMAND_WORD:
-            return new ViewCommitHistoryParser().parse(arguments);
+            return new ViewCommitHistoryCommand();
 
         case RemoveTagFromModuleCommand.COMMAND_WORD:
             return new RemoveTagFromModuleCommandParser().parse(arguments);
@@ -191,7 +188,7 @@ public class ModulePlannerParser {
             return new DeleteCommitCommandParser().parse(arguments);
 
         case DefaultStudyPlanCommand.COMMAND_WORD:
-            return new DefaultStudyPlanCommandParser().parse(arguments);
+            return new DefaultStudyPlanCommand();
 
         case DeleteSemesterCommand.COMMAND_WORD:
             return new DeleteSemesterCommandParser().parse(arguments);

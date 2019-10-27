@@ -41,7 +41,7 @@ public class ViewTaggedCommandParser implements Parser<ViewTaggedCommand> {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
                     ViewTaggedCommand.MESSAGE_USAGE));
         }
-        String module = ParserUtil.parseModule(argMultimap.getValue(TAG_PATTERN).get());
+        String module = ParserUtil.parseTag(argMultimap.getValue(TAG_PATTERN).get());
         return new ViewTaggedCommand(module);
     }
 
