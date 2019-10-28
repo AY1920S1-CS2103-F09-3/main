@@ -600,17 +600,17 @@ Format: <code>viewdefaulttags</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="viewing-all-tags-code-viewalltags-code"><a class="link" href="#viewing-all-tags-code-viewalltags-code">3.4.2. Viewing all tags : <code>viewalltags</code></a></h4>
+<h4 id="viewing-all-tags-code-viewallmodtags-code"><a class="link" href="#viewing-all-tags-code-viewallmodtags-code">3.4.2. Viewing all tags : <code>viewallmodtags</code></a></h4>
 <div class="paragraph">
 <p>Shows all tag types.<br>
-Format: <code>viewalltags</code></p>
+Format: <code>viewallmodtags</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="renaming-an-existing-tag-code-renametag-code"><a class="link" href="#renaming-an-existing-tag-code-renametag-code">3.4.3. Renaming an existing tag : <code>renametag</code></a></h4>
+<h4 id="renaming-an-existing-tag-code-renamemodtag-code"><a class="link" href="#renaming-an-existing-tag-code-renamemodtag-code">3.4.3. Renaming an existing tag : <code>renamemodtag</code></a></h4>
 <div class="paragraph">
 <p>Renames a tag.<br>
-Format: <code>renametag ORIGINAL_TAG_NAME NEW_TAG_NAME</code></p>
+Format: <code>renamemodtag ORIGINAL_TAG_NAME NEW_TAG_NAME</code></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -630,17 +630,17 @@ Only user-created tags can be renamed, i.e. default tag cannot be renamed.
 <div class="ulist">
 <ul>
 <li>
-<p><code>renametag exchange sep</code><br>
+<p><code>renamemodtag exchange sep</code><br>
 Renames the tag name from <em>exchange</em> to <em>sep</em>.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="tagging-modules-code-addtag-code"><a class="link" href="#tagging-modules-code-addtag-code">3.4.4. Tagging modules : <code>addtag</code></a></h4>
+<h4 id="tagging-modules-code-tagmod-code"><a class="link" href="#tagging-modules-code-tagmod-code">3.4.4. Tagging modules : <code>tagmod</code></a></h4>
 <div class="paragraph">
 <p>Attaches a tag to a module.<br>
-Format: <code>tag MODULE_CODE TAG_NAME</code></p>
+Format: <code>tagmod MODULE_CODE TAG_NAME</code></p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -660,17 +660,17 @@ If a tag with the given <code>TAG_NAME</code> does not exist, a new tag will aut
 <div class="ulist">
 <ul>
 <li>
-<p><code>tag cs3230 exchange</code><br>
+<p><code>tagmod cs3230 exchange</code><br>
 Attaches the tag with name <em>exchange</em> to <em>CS3230</em>.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="removing-a-tag-from-a-module-code-removetag-code"><a class="link" href="#removing-a-tag-from-a-module-code-removetag-code">3.4.5. Removing a tag from a module: <code>removetag</code></a></h4>
+<h4 id="removing-a-tag-from-a-module-code-removemodtag-code"><a class="link" href="#removing-a-tag-from-a-module-code-removemodtag-code">3.4.5. Removing a tag from a module: <code>removemodtag</code></a></h4>
 <div class="paragraph">
 <p>Removes a tag from a module.<br>
-Format: <code>removetag MODULE_CODE TAG_NAME</code></p>
+Format: <code>removemodtag MODULE_CODE TAG_NAME</code></p>
 </div>
 <div class="paragraph">
 <p>Example:</p>
@@ -678,7 +678,7 @@ Format: <code>removetag MODULE_CODE TAG_NAME</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>removetag cs3230 exchange</code></p>
+<p><code>removemodtag cs3230 exchange</code></p>
 </li>
 </ul>
 </div>
@@ -701,10 +701,10 @@ Format: <code>removeall TAG_NAME</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="deleting-tags-code-deletetag-code"><a class="link" href="#deleting-tags-code-deletetag-code">3.4.7. Deleting tags: <code>deletetag</code></a></h4>
+<h4 id="deleting-tags-code-deletemodtag-code"><a class="link" href="#deleting-tags-code-deletemodtag-code">3.4.7. Deleting tags: <code>deletemodtag</code></a></h4>
 <div class="paragraph">
 <p>Deletes a tag completely and removes it from any module that it is attached to.<br>
-Format: <code>deletetag TAG_NAME</code></p>
+Format: <code>deletemodtag TAG_NAME</code></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -724,7 +724,7 @@ Only user-created tags can be deleted, i.e. default tag cannot be deleted.
 <div class="ulist">
 <ul>
 <li>
-<p><code>deletetag exchange</code></p>
+<p><code>deletemodtag exchange</code></p>
 </li>
 </ul>
 </div>
@@ -755,7 +755,7 @@ Shows all modules that are tagged as <em>core</em> and <em>completed</em>.</p>
 <h4 id="viewing-tags-for-a-specific-module-code-viewtags-code"><a class="link" href="#viewing-tags-for-a-specific-module-code-viewtags-code">3.4.9. Viewing tags for a specific module : <code>viewtags</code></a></h4>
 <div class="paragraph">
 <p>Shows all tags attached to the specified module.<br>
-Format <code>viewtags MODULE_CODE</code></p>
+Format: <code>viewtags MODULE_CODE</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -769,10 +769,10 @@ Format <code>viewtags MODULE_CODE</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="removing-all-tags-from-the-study-plan-code-removealltags-code"><a class="link" href="#removing-all-tags-from-the-study-plan-code-removealltags-code">3.4.10. Removing all tags from the study plan : <code>removealltags</code></a></h4>
+<h4 id="removing-all-tags-from-the-study-plan-code-removeallmodtags-code"><a class="link" href="#removing-all-tags-from-the-study-plan-code-removeallmodtags-code">3.4.10. Removing all tags from the study plan : <code>removeallmodtags</code></a></h4>
 <div class="paragraph">
 <p>Removes all user-created tags in the entire study plan.<br>
-Format <code>removealltags</code></p>
+Format: <code>removeallmodtags</code></p>
 </div>
 </div>
 <div class="sect3">
@@ -796,10 +796,43 @@ Format: <code>findmod MODULE_CODE</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="finding-module-code-using-keywords-code-getmodcode-code"><a class="link" href="#finding-module-code-using-keywords-code-getmodcode-code">3.4.12. Finding module code using keywords : <code>getmodcode</code></a></h4>
+<h4 id="adding-priority-tags-to-a-study-plan-code-tagsp-code"><a class="link" href="#adding-priority-tags-to-a-study-plan-code-tagsp-code">3.4.12. Adding priority tags to a study plan : <code>tagsp</code></a></h4>
 <div class="paragraph">
-<p>Shows module codes of all modules with names that contain the specified keywords.<br>
-Format: <code>getmodcode KEYWORDS</code></p>
+<p>Attaches a priority tag to the study plan.<br>
+Format: <code>tagsp PRIORITY_LEVEL STUDY_PLAN_INDEX</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The <code>PRIORITY_LEVEL</code> must be entered in the format <code>priority_</code> followed by one of the priority level types
+as shown below.
+</td>
+</tr>
+</table>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>List of priority tags:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>HIGH</code><br></p>
+</li>
+<li>
+<p><code>MEDIUM</code><br></p>
+</li>
+<li>
+<p><code>LOW</code></p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -807,29 +840,39 @@ Format: <code>getmodcode KEYWORDS</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>getmodcode algorithms</code></p>
+<p><code>tagsp priority_high 1</code></p>
 </li>
 <li>
-<p><code>getmodcode programming</code></p>
+<p><code>tagsp priority_low 3</code></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="viewing-modules-that-can-be-taken-in-a-given-semester-code-validmods-code"><a class="link" href="#viewing-modules-that-can-be-taken-in-a-given-semester-code-validmods-code">3.4.13. Viewing modules that can be taken in a given semester : <code>validmods</code></a></h4>
+<h4 id="removing-priority-tags-from-study-plan-code-removesptag-code"><a class="link" href="#removing-priority-tags-from-study-plan-code-removesptag-code">3.4.13. Removing priority tags from study plan: <code>removesptag</code></a></h4>
 <div class="paragraph">
-<p>Shows all the modules that can be taken in a given semester based on whether prerequisites have been met.<br>
-Format: <code>validmods SEMESTER</code></p>
+<p>Removes the priority tag from the study plan.<br>
+Format: <code>removesptag PRIORITY_LEVEL STUDY_PLAN_INDEX</code></p>
 </div>
 <div class="paragraph">
-<p>Example:</p>
+<p>Examples</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>validmods y2s1</code></p>
+<p><code>removesptag priority_high 1</code></p>
+</li>
+<li>
+<p><code>removesptag priority_low 3</code></p>
 </li>
 </ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="listing-study-plans-by-priority-code-listbypriority-code"><a class="link" href="#listing-study-plans-by-priority-code-listbypriority-code">3.4.14. Listing study plans by priority: <code>listbypriority</code></a></h4>
+<div class="paragraph">
+<p>Lists all study plans in the order of their priorities.<br>
+Format: <code>listbypriority</code></p>
 </div>
 </div>
 </div>
@@ -866,7 +909,7 @@ Format: <code>check [AREA]</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="viewing-modules-that-can-be-taken-in-a-given-semester-code-validmods-code-2"><a class="link" href="#viewing-modules-that-can-be-taken-in-a-given-semester-code-validmods-code-2">3.5.3. Viewing modules that can be taken in a given semester : <code>validmods</code></a></h4>
+<h4 id="viewing-modules-that-can-be-taken-in-a-given-semester-code-validmods-code"><a class="link" href="#viewing-modules-that-can-be-taken-in-a-given-semester-code-validmods-code">3.5.3. Viewing modules that can be taken in a given semester : <code>validmods</code></a></h4>
 <div class="paragraph">
 <p>Shows all the modules that can be taken in a given semester based on whether prerequisites have been met.<br>
 Format: <code>validmods SEMESTER</code></p>
@@ -905,4 +948,4 @@ Format: <code>validmods SEMESTER</code></p>
 <div class="sectionbody">
 
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-28 07:12:02 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-28 08:10:08 UTC</div></div></div></body></html>
