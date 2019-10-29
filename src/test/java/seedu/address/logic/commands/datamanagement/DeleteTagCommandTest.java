@@ -67,7 +67,7 @@ public class DeleteTagCommandTest {
         // construct two modules with two user tags
         Module cs1231 = new ModuleBuilder().withTags(validTagNameOne, validTagNameTwo).build();
         Module cs2100 = new ModuleBuilder().withModuleCode("CS2100").withTags(validTagNameOne, validTagNameTwo).build();
-        HashMap<String, Module> moduleHashMap = new HashMap<String, Module>();
+        HashMap<String, Module> moduleHashMap = new HashMap<>();
         moduleHashMap.put("CS1231", cs1231);
         moduleHashMap.put("CS2100", cs2100);
 

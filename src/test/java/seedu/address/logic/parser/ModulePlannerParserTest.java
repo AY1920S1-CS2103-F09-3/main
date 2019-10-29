@@ -13,6 +13,7 @@ import seedu.address.logic.commands.ExitCommand;
 import seedu.address.logic.commands.cli.AddModuleCommand;
 import seedu.address.logic.commands.cli.BlockCurrentSemesterCommand;
 import seedu.address.logic.commands.cli.DeleteModuleCommand;
+import seedu.address.logic.commands.cli.NameUeFromSemesterCommand;
 import seedu.address.logic.commands.cli.RedoCommand;
 import seedu.address.logic.commands.cli.SetCurrentSemesterCommand;
 import seedu.address.logic.commands.cli.UndoCommand;
@@ -96,6 +97,13 @@ public class ModulePlannerParserTest {
         BlockCurrentSemesterCommand command = new BlockCurrentSemesterCommand(VALID_SEMESTER_NAME, "LOA");
         assertEquals(parser.parseCommand(BlockCurrentSemesterCommand.COMMAND_WORD + " "
                 + VALID_SEMESTER + " " + "LOA"), command);
+    }
+
+    @Test
+    public void parseCommand_nameUeFromSemester() throws Exception {
+        NameUeFromSemesterCommand command = new NameUeFromSemesterCommand(VALID_MODULE_CODE, VALID_SEMESTER_NAME);
+        assertEquals(parser.parseCommand(NameUeFromSemesterCommand.COMMAND_WORD + " "
+                + VALID_SEMESTER + " " + VALID_MODULE_CODE), command);
     }
 
     // =================== TAG ===================
