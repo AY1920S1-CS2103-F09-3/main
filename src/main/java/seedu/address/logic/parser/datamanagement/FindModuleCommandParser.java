@@ -35,8 +35,7 @@ public class FindModuleCommandParser implements Parser<FindModuleCommand> {
         ArgumentMultimap argMultimap =
                 ArgumentTokenizer.tokenize(args, MODULE_PATTERN);
 
-        if (!arePrefixesPresent(argMultimap, MODULE_PATTERN)
-                || !argMultimap.getPreamble().isEmpty()) {
+        if (!arePrefixesPresent(argMultimap, MODULE_PATTERN)) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
                     FindModuleCommand.MESSAGE_USAGE));
         }
