@@ -2,8 +2,6 @@ package seedu.address.logic.parser;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.parser.CliSyntax.MODULE_PATTERN;
 import static seedu.address.logic.parser.CliSyntax.SEMESTER_PATTERN;
 import static seedu.address.logic.parser.CliSyntax.TAG_PATTERN;
@@ -63,7 +61,8 @@ public class ArgumentTokenizerTest {
     public void tokenize_multipleArguments() {
         // Only two arguments are present
         String argsString = "CS3244 Y1ST2";
-        ArgumentMultimap argMultimap = ArgumentTokenizer.tokenize(argsString, MODULE_PATTERN, SEMESTER_PATTERN, TAG_PATTERN);
+        ArgumentMultimap argMultimap = ArgumentTokenizer.tokenize(argsString,
+                MODULE_PATTERN, SEMESTER_PATTERN, TAG_PATTERN);
         assertArgumentPresent(argMultimap, MODULE_PATTERN, "CS3244");
         assertArgumentPresent(argMultimap, SEMESTER_PATTERN, "Y1ST2");
         assertArgumentAbsent(argMultimap, TAG_PATTERN);
@@ -92,6 +91,6 @@ public class ArgumentTokenizerTest {
                 ArgumentTokenizer.tokenize(argsString, MODULE_PATTERN, SEMESTER_PATTERN, TAG_PATTERN);
         assertArgumentPresent(argMultimap, MODULE_PATTERN, "CS3244");
         assertArgumentPresent(argMultimap, SEMESTER_PATTERN, "Y1S1", "Y1S2");
-        assertArgumentPresent(argMultimap, TAG_PATTERN,  "value");
+        assertArgumentPresent(argMultimap, TAG_PATTERN, "value");
     }
 }

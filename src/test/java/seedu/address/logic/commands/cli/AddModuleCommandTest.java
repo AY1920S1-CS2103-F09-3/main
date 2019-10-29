@@ -50,7 +50,8 @@ class AddModuleCommandTest {
 
 
     @Test
-    public void execute_tagNotPresentInStudyPlan_newTagCreatedAndAddSuccessful() throws CloneNotSupportedException, CommandException {
+    public void execute_tagNotPresentInStudyPlan_newTagCreatedAndAddSuccessful()
+            throws CloneNotSupportedException, CommandException {
         AddModuleCommand addModuleCommand = new AddModuleCommand("CS1101S", SemesterName.Y1S1);
 
         HashMap<String, Module> moduleHashMap = new HashMap<>();

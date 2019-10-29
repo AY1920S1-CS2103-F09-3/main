@@ -1,7 +1,5 @@
 package seedu.address.testutil;
 
-import static seedu.address.testutil.TypicalModule.CS2102;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;

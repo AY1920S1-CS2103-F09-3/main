@@ -138,7 +138,7 @@ public class StudyPlanBuilder {
      */
     public StudyPlanBuilder withModuleTags(String... tags) {
         List<Tag> tagList = SampleDataUtil.getUserTagList(tags);
-        for (Tag tag: tagList) {
+        for (Tag tag : tagList) {
             this.tags.addTag(tag);
         }
         return this;
@@ -167,7 +167,7 @@ public class StudyPlanBuilder {
      * set it to the {@code StudyPlan} that we are building.
      */
     public StudyPlanBuilder withStudyPlanTags(Tag... tags) {
-        for (Tag tag: tags) {
+        for (Tag tag : tags) {
             this.studyPlanTags.addTag(tag);
         }
         return this;

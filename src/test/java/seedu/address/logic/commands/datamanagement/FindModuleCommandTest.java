@@ -5,7 +5,6 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.testutil.TypicalSemesterList.EMPTY_SEMESTER_LIST;
-import static seedu.address.testutil.TypicalSemesterList.TYPICAL_SEMESTER_LIST;
 
 import java.util.HashMap;
 
@@ -43,7 +42,8 @@ public class FindModuleCommandTest {
         moduleHashMap.put("CS1101S", cs1101s);
 
         // construct model containing study plan with module in certain semesters
-        studyPlan = new StudyPlanBuilder().withSemesters(EMPTY_SEMESTER_LIST.clone()).withModules(moduleHashMap).build();
+        studyPlan = new StudyPlanBuilder()
+                .withSemesters(EMPTY_SEMESTER_LIST.clone()).withModules(moduleHashMap).build();
         studyPlan.addModuleToSemester(cs1101s.getModuleCode(), SemesterName.Y1S1);
         studyPlan.addModuleToSemester(cs1101s.getModuleCode(), SemesterName.Y3S2);
         model = new ModelManager(new ModulePlannerBuilder().withStudyPlan(studyPlan).build(),
@@ -72,7 +72,7 @@ public class FindModuleCommandTest {
 
         CommandResult expectedCommandResult = new CommandResult<>(String.format(
                 FindModuleCommand.MESSAGE_SUCCESS, cs1101s.getModuleCode().toString()),
-                        ResultViewType.SEMESTER, expectedList.asUnmodifiableObservableList());
+                ResultViewType.SEMESTER, expectedList.asUnmodifiableObservableList());
 
         assertCommandSuccess(findModuleCommand, model, expectedCommandResult, model);
     }

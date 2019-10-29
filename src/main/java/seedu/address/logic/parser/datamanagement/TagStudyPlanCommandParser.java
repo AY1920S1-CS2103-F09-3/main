@@ -1,8 +1,6 @@
 package seedu.address.logic.parser.datamanagement;
 
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.address.logic.parser.CliSyntax.MODULE_PATTERN;
-import static seedu.address.logic.parser.CliSyntax.TAG_PATTERN;
 
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
@@ -11,7 +9,6 @@ import seedu.address.logic.commands.datamanagement.TagStudyPlanCommand;
 import seedu.address.logic.commands.datamanagement.ViewModuleTagsCommand;
 import seedu.address.logic.parser.ArgumentMultimap;
 import seedu.address.logic.parser.Parser;
-import seedu.address.logic.parser.ParserUtil;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.tag.PriorityTagType;
 

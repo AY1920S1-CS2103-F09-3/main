@@ -254,7 +254,7 @@ public class ModulePlanner implements ReadOnlyModulePlanner {
     }
 
     /**
-<<<<<<< HEAD
+     * <<<<<<< HEAD
      * Sets the current semester. The user cannot change any module before the current semester. But they can
      * still change those in the current semester and after the current semester.
      */
@@ -264,8 +264,8 @@ public class ModulePlanner implements ReadOnlyModulePlanner {
     }
 
     /**
-=======
->>>>>>> Undo redo updates, still not working
+     * =======
+     * >>>>>>> Undo redo updates, still not working
      * Returns the current semester. The user cannot change any module before the current semester. But they can
      * still change those in the current semester and after the current semester.
      *

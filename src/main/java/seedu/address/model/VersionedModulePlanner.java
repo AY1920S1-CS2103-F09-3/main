@@ -99,7 +99,7 @@ public class VersionedModulePlanner extends ModulePlanner {
 
         // state check
         return super.equals(otherVersionedModulePlanner)
-                 && historyStateList.equals(otherVersionedModulePlanner.historyStateList)
+                && historyStateList.equals(otherVersionedModulePlanner.historyStateList)
                 && currentStatePointer == otherVersionedModulePlanner.currentStatePointer;
     }
 

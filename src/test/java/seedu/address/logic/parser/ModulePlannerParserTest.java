@@ -6,10 +6,6 @@ import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT
 import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
 import static seedu.address.testutil.Assert.assertThrows;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
-
 import org.junit.jupiter.api.Test;
 
 import seedu.address.commons.core.index.Index;
@@ -91,8 +87,7 @@ public class ModulePlannerParserTest {
     @Test
     public void parseCommand_setCurrentSemester() throws Exception {
         SetCurrentSemesterCommand command = new SetCurrentSemesterCommand(VALID_SEMESTER_NAME);
-        assertEquals((SetCurrentSemesterCommand)
-                parser.parseCommand(SetCurrentSemesterCommand.COMMAND_WORD + " " + VALID_SEMESTER), command);
+        assertEquals(parser.parseCommand(SetCurrentSemesterCommand.COMMAND_WORD + " " + VALID_SEMESTER), command);
     }
 
 
@@ -174,7 +169,7 @@ public class ModulePlannerParserTest {
         assertEquals(new FindModuleCommand("CS2030"), command);
     }
 
-        public void parseCommand_removeAllTags() throws Exception {
+    public void parseCommand_removeAllTags() throws Exception {
         assertTrue(parser.parseCommand(RemoveAllTagsCommand.COMMAND_WORD) instanceof RemoveAllTagsCommand);
     }
     // =================== GUI ===================
@@ -284,7 +279,7 @@ public class ModulePlannerParserTest {
     @Test
     public void parseCommand_unrecognisedInput_throwsParseException() {
         assertThrows(ParseException.class, String.format(MESSAGE_INVALID_COMMAND_FORMAT, HelpCommand.MESSAGE_USAGE), ()
-                -> parser.parseCommand(""));
+            -> parser.parseCommand(""));
     }
 
     @Test

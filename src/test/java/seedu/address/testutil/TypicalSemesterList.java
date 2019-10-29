@@ -14,10 +14,13 @@ import static seedu.address.testutil.TypicalSemester.FULL_UNBLOCKED_SEMESTER_2;
 
 import seedu.address.model.semester.UniqueSemesterList;
 
+/**
+ * A utility class containing a list of {@code UniqueSemesterList} objects to be used in tests.
+ */
 public class TypicalSemesterList {
     public static final UniqueSemesterList TYPICAL_SEMESTER_LIST = getTypicalUniqueSemesterList1();
-    public static final UniqueSemesterList TYPICAL_SEMESTER_LIST_WITH_CS1101S
-            = getTypicalUniqueSemesterListWithCs1101s();
+    public static final UniqueSemesterList TYPICAL_SEMESTER_LIST_WITH_CS1101S =
+            getTypicalUniqueSemesterListWithCs1101s();
     public static final UniqueSemesterList EMPTY_SEMESTER_LIST = getEmptySemesters();
 
     private static UniqueSemesterList getEmptySemesters() {
