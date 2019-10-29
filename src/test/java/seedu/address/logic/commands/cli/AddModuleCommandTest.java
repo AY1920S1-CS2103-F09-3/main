@@ -50,7 +50,7 @@ class AddModuleCommandTest {
 
 
     @Test
-    public void execute_tagNotPresentInStudyPlan_newTagCreatedAndAddSuccessful()
+    public void execute_moduleNotPresentInStudyPlan_newModuleAddSuccessful()
             throws CloneNotSupportedException, CommandException {
         AddModuleCommand addModuleCommand = new AddModuleCommand("CS1101S", SemesterName.Y1S1);
 
@@ -81,7 +81,7 @@ class AddModuleCommandTest {
         expectedModel.activateFirstStudyPlan();
         expectedModel.addToHistory();
 
-        // construct command to add a user tag
+        // construct command to add a module
         CommandResult res = addModuleCommand.execute(model);
         assertEquals(model.getActiveStudyPlan(), expectedModel.getActiveStudyPlan());
         assertEquals(res.getFeedbackToUser(), String.format(AddModuleCommand.MESSAGE_SUCCESS,

@@ -22,6 +22,8 @@
         "moduleCode" : "CS2030"
       }, {
         "moduleCode" : "CS3245"
+      }, {
+        "moduleCode" : "CS3244"
       } ]
     }, {
       "semesterName" : "Y2S1",
@@ -239,9 +241,7 @@
     }, {
       "moduleCode" : "CS1101S",
       "color" : "RED",
-      "userTags" : [ {
-        "tagName" : "s"
-      } ]
+      "userTags" : [ ]
     }, {
       "moduleCode" : "CS4225",
       "color" : "RED",
@@ -309,9 +309,7 @@
     }, {
       "moduleCode" : "CS3245",
       "color" : "RED",
-      "userTags" : [ {
-        "tagName" : "s/uable"
-      } ]
+      "userTags" : [ ]
     }, {
       "moduleCode" : "CS3243",
       "color" : "RED",
@@ -323,11 +321,7 @@
     }, {
       "moduleCode" : "CS3244",
       "color" : "RED",
-      "userTags" : [ {
-        "tagName" : "lomaksdma"
-      }, {
-        "tagName" : "a:i"
-      } ]
+      "userTags" : [ ]
     }, {
       "moduleCode" : "CS4212",
       "color" : "RED",
@@ -581,16 +575,9 @@
       "color" : "RED",
       "userTags" : [ ]
     } ],
-    "tags" : [ {
-      "tagName" : "lomaksdma"
-    }, {
-      "tagName" : "s"
-    }, {
-      "tagName" : "s/uable"
-    }, {
-      "tagName" : "a:i"
-    } ],
-    "currentSemester" : "Y1S1"
+    "moduleTags" : [ ],
+    "currentSemester" : "Y1S1",
+    "studyPlanTags" : [ ]
   }, {
     "totalNumber" : 4,
     "title" : "second study plan",
@@ -1159,8 +1146,9 @@
       "color" : "RED",
       "userTags" : [ ]
     } ],
-    "tags" : [ ],
-    "currentSemester" : "Y1S1"
+    "moduleTags" : [ ],
+    "currentSemester" : "Y1S1",
+    "studyPlanTags" : [ ]
   }, {
     "totalNumber" : 4,
     "title" : "third study plan",
@@ -1725,8 +1713,9 @@
       "color" : "RED",
       "userTags" : [ ]
     } ],
-    "tags" : [ ],
-    "currentSemester" : "Y1S1"
+    "moduleTags" : [ ],
+    "currentSemester" : "Y1S1",
+    "studyPlanTags" : [ ]
   }, {
     "totalNumber" : 4,
     "title" : "Recommended Plan",
@@ -2315,8 +2304,9 @@
       "color" : "RED",
       "userTags" : [ ]
     } ],
-    "tags" : [ ],
-    "currentSemester" : "Y1S1"
+    "moduleTags" : [ ],
+    "currentSemester" : "Y1S1",
+    "studyPlanTags" : [ ]
   } ],
   "activeStudyPlanIndex" : 1,
   "manager" : {
