@@ -16,6 +16,11 @@ public enum PriorityTagType {
         this.style = style;
     }
 
+    public static boolean isValidPriorityTagString(String s) {
+        String capitalised = s.toUpperCase();
+        return capitalised.equals("HIGH") || capitalised.equals("MEDIUM") || capitalised.equals("LOW");
+    }
+
     public String getPriorityTagTypeName() {
         return priorityTagTypeName;
     }

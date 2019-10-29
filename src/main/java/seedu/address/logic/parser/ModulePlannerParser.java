@@ -19,9 +19,11 @@ import seedu.address.logic.commands.datamanagement.FindModuleCommand;
 import seedu.address.logic.commands.datamanagement.RemoveAllTagsCommand;
 import seedu.address.logic.commands.datamanagement.RemoveTagFromAllCommand;
 import seedu.address.logic.commands.datamanagement.RemoveTagFromModuleCommand;
+import seedu.address.logic.commands.datamanagement.RemoveTagFromStudyPlanCommand;
 import seedu.address.logic.commands.datamanagement.RenameTagCommand;
 import seedu.address.logic.commands.datamanagement.SortStudyPlansByPriorityTagCommand;
 import seedu.address.logic.commands.datamanagement.TagModuleCommand;
+import seedu.address.logic.commands.datamanagement.TagStudyPlanCommand;
 import seedu.address.logic.commands.datamanagement.ViewAllTagsCommand;
 import seedu.address.logic.commands.datamanagement.ViewDefaultTagsCommand;
 import seedu.address.logic.commands.datamanagement.ViewModuleTagsCommand;
@@ -50,8 +52,10 @@ import seedu.address.logic.parser.datamanagement.DeleteTagCommandParser;
 import seedu.address.logic.parser.datamanagement.FindModuleCommandParser;
 import seedu.address.logic.parser.datamanagement.RemoveTagFromAllCommandParser;
 import seedu.address.logic.parser.datamanagement.RemoveTagFromModuleCommandParser;
+import seedu.address.logic.parser.datamanagement.RemoveTagFromStudyPlanCommandParser;
 import seedu.address.logic.parser.datamanagement.RenameTagCommandParser;
 import seedu.address.logic.parser.datamanagement.TagModuleCommandParser;
+import seedu.address.logic.parser.datamanagement.TagStudyPlanCommandParser;
 import seedu.address.logic.parser.datamanagement.ViewModuleTagsCommandParser;
 import seedu.address.logic.parser.datamanagement.ViewTaggedCommandParser;
 import seedu.address.logic.parser.exceptions.ParseException;
@@ -200,6 +204,12 @@ public class ModulePlannerParser {
 
         case SortStudyPlansByPriorityTagCommand.COMMAND_WORD:
             return new SortStudyPlansByPriorityTagCommand();
+
+        case RemoveTagFromStudyPlanCommand.COMMAND_WORD:
+            return new RemoveTagFromStudyPlanCommandParser().parse(arguments);
+
+        case TagStudyPlanCommand.COMMAND_WORD:
+            return new TagStudyPlanCommandParser().parse(arguments);
 
         default:
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
