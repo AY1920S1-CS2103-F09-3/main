@@ -487,6 +487,16 @@
     -fx-background-radius: 10 10 10 10;
 }
 
+#moduleListView {
+    -fx-background-color: white;
+}
+
+#simpleModuleCardPane {
+    -fx-background-color: #f0f0f0;
+    -fx-border-radius: 10 10 10 10;
+    -fx-background-radius: 10 10 10 10;
+}
+
 #studyPlan {
     -fx-background-color: #ffffff;
     -fx-border-radius: 10 10 10 10;
