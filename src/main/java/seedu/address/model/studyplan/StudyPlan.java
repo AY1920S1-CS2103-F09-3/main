@@ -142,14 +142,14 @@ public class StudyPlan implements Cloneable {
         this.modules = modules;
     }
 
-    // "Mega-list" of tags
-    public UniqueTagList getModuleTags() {
-        return moduleTags;
-    }
-
     // for testing
     public void setModuleTags(UniqueTagList moduleTags) {
         this.moduleTags = moduleTags;
+    }
+
+    // "Mega-list" of tags
+    public UniqueTagList getModuleTags() {
+        return moduleTags;
     }
 
     /**
