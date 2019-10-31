@@ -7,7 +7,6 @@ import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.cli.AddModuleCommand;
 import seedu.address.logic.commands.cli.BlockCurrentSemesterCommand;
 import seedu.address.logic.commands.cli.DeleteModuleCommand;
-import seedu.address.logic.commands.cli.NameUeFromSemesterCommand;
 import seedu.address.logic.commands.cli.RedoCommand;
 import seedu.address.logic.commands.cli.SetCurrentSemesterCommand;
 import seedu.address.logic.commands.cli.UndoCommand;
@@ -119,8 +118,6 @@ public class HelpCommand extends Command {
             return new CommandResult(BlockCurrentSemesterCommand.MESSAGE_USAGE, false, false);
         case DeleteModuleCommand.COMMAND_WORD:
             return new CommandResult(DeleteModuleCommand.MESSAGE_USAGE, false, false);
-        case NameUeFromSemesterCommand.COMMAND_WORD:
-            return new CommandResult(NameUeFromSemesterCommand.MESSAGE_USAGE, false, false);
         case SetCurrentSemesterCommand.COMMAND_WORD:
             return new CommandResult(SetCurrentSemesterCommand.MESSAGE_USAGE, false, false);
         case FindModuleCommand.COMMAND_WORD:

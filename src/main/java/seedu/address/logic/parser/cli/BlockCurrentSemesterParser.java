@@ -24,7 +24,7 @@ public class BlockCurrentSemesterParser implements Parser<BlockCurrentSemesterCo
      * Returns true if none of the prefixes contains empty {@code Optional} values in the given
      * {@code ArgumentMultimap}.
      */
-    private static boolean arePrefixesPresent(ArgumentMultimap argumentMultimap, Pattern... patterns) {
+    private static boolean arePatternsPresent(ArgumentMultimap argumentMultimap, Pattern... patterns) {
         return Stream.of(patterns).allMatch(pattern -> argumentMultimap.getValue(pattern).isPresent());
     }
 
@@ -40,7 +40,7 @@ public class BlockCurrentSemesterParser implements Parser<BlockCurrentSemesterCo
         String[] tokens = args.trim().split(" ");
         String reason = tokens.length >= 2 ? String.join(" ",
                 Arrays.copyOfRange(tokens, 1, tokens.length)) : "";
-        if (!arePrefixesPresent(argMultimap, SEMESTER_PATTERN)
+        if (!arePatternsPresent(argMultimap, SEMESTER_PATTERN)
         ) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
                     BlockCurrentSemesterCommand.MESSAGE_USAGE));

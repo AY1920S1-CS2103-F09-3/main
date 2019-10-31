@@ -20,7 +20,7 @@ public class RemoveTagFromStudyPlanCommandParser implements Parser<RemoveTagFrom
      * Returns true if none of the prefixes contains empty {@code Optional} values in the given
      * {@code ArgumentMultimap}.
      */
-    private static boolean arePrefixesPresent(ArgumentMultimap argumentMultimap, Pattern... patterns) {
+    private static boolean arePatternsPresent(ArgumentMultimap argumentMultimap, Pattern... patterns) {
         return Stream.of(patterns).allMatch(pattern -> argumentMultimap.getValue(pattern).isPresent());
     }
 

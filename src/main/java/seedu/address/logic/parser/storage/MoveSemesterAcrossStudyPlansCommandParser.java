@@ -21,7 +21,7 @@
 //     * Returns true if none of the prefixes contains empty {@code Optional} values in the given
 //     * {@code ArgumentMultimap}.
 //     */
-//    private static boolean arePrefixesPresent(ArgumentMultimap argumentMultimap, Prefix... prefixes) {
+//    private static boolean arePatternsPresent(ArgumentMultimap argumentMultimap, Prefix... prefixes) {
 //        return Stream.of(prefixes).allMatch(prefix -> argumentMultimap.getValue(prefix).isPresent());
 //    }
 //
@@ -36,7 +36,7 @@
 //                ArgumentTokenizer.tokenize(args, PREFIX_SEMESTER);
 //        String[] argTokens = args.trim().split(" ");
 //
-//        if (!arePrefixesPresent(argMultimap, PREFIX_SEMESTER)
+//        if (!arePatternsPresent(argMultimap, PREFIX_SEMESTER)
 //                || !argMultimap.getPreamble().isEmpty()
 //                || argTokens.length != 3
 //                || !argTokens[1].matches("-?\\d+")

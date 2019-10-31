@@ -7,24 +7,12 @@
       "semesterName" : "Y1S1",
       "isBlocked" : false,
       "reasonForBlocked" : null,
-      "modules" : [ {
-        "moduleCode" : "CS1101S"
-      }, {
-        "moduleCode" : "CS3244"
-      }, {
-        "moduleCode" : "CS3233"
-      } ]
+      "modules" : [ ]
     }, {
       "semesterName" : "Y1S2",
       "isBlocked" : false,
       "reasonForBlocked" : null,
-      "modules" : [ {
-        "moduleCode" : "CS2030"
-      }, {
-        "moduleCode" : "CS3245"
-      }, {
-        "moduleCode" : "CS3244"
-      } ]
+      "modules" : [ ]
     }, {
       "semesterName" : "Y2S1",
       "isBlocked" : false,
@@ -41,7 +29,9 @@
       "semesterName" : "Y3S1",
       "isBlocked" : false,
       "reasonForBlocked" : null,
-      "modules" : [ ]
+      "modules" : [ {
+        "moduleCode" : "CS3210"
+      } ]
     }, {
       "semesterName" : "Y3S2",
       "isBlocked" : false,

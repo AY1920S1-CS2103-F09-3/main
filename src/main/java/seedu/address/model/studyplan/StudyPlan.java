@@ -435,9 +435,7 @@ public class StudyPlan implements Cloneable {
      */
     public void blockSemester(SemesterName semesterName, String reasonForBlock) throws SemesterNotFoundException {
         Semester semesterToBlock = null;
-        Iterator<Semester> iterator = semesters.iterator();
-        while (iterator.hasNext()) {
-            Semester semester = iterator.next();
+        for (Semester semester : semesters) {
             if (semester.getSemesterName().equals(semesterName)) {
                 semesterToBlock = semester;
             }
@@ -450,6 +448,21 @@ public class StudyPlan implements Cloneable {
         }
         semesterToBlock.setBlocked(true);
         semesterToBlock.setReasonForBlocked(reasonForBlock);
+        semesterToBlock.clearAllModules();
+    }
+
+    public void unblockSemester(SemesterName semesterName) throws SemesterNotFoundException {
+        Semester semesterToUnblock = null;
+        for (Semester semester : semesters) {
+            if (semester.getSemesterName().equals(semesterName)) {
+                semesterToUnblock = semester;
+            }
+        }
+        if (semesterToUnblock == null) {
+            throw new SemesterNotFoundException();
+        }
+        semesterToUnblock.setBlocked(false);
+        semesterToUnblock.setReasonForBlocked(null);
     }
 
     /**
@@ -457,9 +470,7 @@ public class StudyPlan implements Cloneable {
      */
     public void deleteAllModulesInSemester(SemesterName semesterName) {
         Semester toDelete = null;
-        Iterator<Semester> iterator = semesters.iterator();
-        while (iterator.hasNext()) {
-            Semester semester = iterator.next();
+        for (Semester semester : semesters) {
             if (semester.getSemesterName().equals(semesterName)) {
                 toDelete = semester;
             }

@@ -41,6 +41,8 @@ public class SemesterListPanel extends UiPart<Region> {
             if (empty || semester == null) {
                 setGraphic(null);
                 setText(null);
+            } else if (semester.isBlocked()) {
+                setGraphic(new BlockedSemesterCard(semester).getRoot());
             } else {
                 setGraphic(new SemesterCard(semester).getRoot());
             }
