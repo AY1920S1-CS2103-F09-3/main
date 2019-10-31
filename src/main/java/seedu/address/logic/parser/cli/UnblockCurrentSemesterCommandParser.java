@@ -3,7 +3,6 @@ package seedu.address.logic.parser.cli;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.parser.CliSyntax.SEMESTER_PATTERN;
 
-import java.util.Arrays;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
 

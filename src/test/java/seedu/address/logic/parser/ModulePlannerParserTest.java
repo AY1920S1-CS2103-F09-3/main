@@ -22,8 +22,10 @@ import seedu.address.logic.commands.datamanagement.FindModuleCommand;
 import seedu.address.logic.commands.datamanagement.RemoveAllTagsCommand;
 import seedu.address.logic.commands.datamanagement.RemoveTagFromAllCommand;
 import seedu.address.logic.commands.datamanagement.RemoveTagFromModuleCommand;
+import seedu.address.logic.commands.datamanagement.RemoveTagFromStudyPlanCommand;
 import seedu.address.logic.commands.datamanagement.RenameTagCommand;
 import seedu.address.logic.commands.datamanagement.TagModuleCommand;
+import seedu.address.logic.commands.datamanagement.TagStudyPlanCommand;
 import seedu.address.logic.commands.datamanagement.ViewAllTagsCommand;
 import seedu.address.logic.commands.datamanagement.ViewDefaultTagsCommand;
 import seedu.address.logic.commands.datamanagement.ViewModuleTagsCommand;
@@ -169,9 +171,31 @@ public class ModulePlannerParserTest {
         assertEquals(new FindModuleCommand("CS2030"), command);
     }
 
+    @Test
     public void parseCommand_removeAllTags() throws Exception {
         assertTrue(parser.parseCommand(RemoveAllTagsCommand.COMMAND_WORD) instanceof RemoveAllTagsCommand);
     }
+
+    @Test
+    public void parseCommand_tagStudyPlan() throws Exception {
+        TagStudyPlanCommand command = (TagStudyPlanCommand)
+                parser.parseCommand(TagStudyPlanCommand.COMMAND_WORD + " " + "HIGH" + " " + 1);
+        assertEquals(new TagStudyPlanCommand("HIGH", 1), command);
+        TagStudyPlanCommand command2 = (TagStudyPlanCommand)
+                parser.parseCommand(TagStudyPlanCommand.COMMAND_WORD + " " + "MEDIUM" + " " + 2);
+        assertEquals(new TagStudyPlanCommand("MEDIUM", 2), command2);
+    }
+
+    @Test
+    public void parseCommand_removeTagFromStudyPlan() throws Exception {
+        RemoveTagFromStudyPlanCommand command = (RemoveTagFromStudyPlanCommand)
+                parser.parseCommand(RemoveTagFromStudyPlanCommand.COMMAND_WORD + " " + "HIGH" + " " + 1);
+        assertEquals(new RemoveTagFromStudyPlanCommand("HIGH", 1), command);
+        RemoveTagFromStudyPlanCommand command2 = (RemoveTagFromStudyPlanCommand)
+                parser.parseCommand(RemoveTagFromStudyPlanCommand.COMMAND_WORD + " " + "MEDIUM" + " " + 2);
+        assertEquals(new RemoveTagFromStudyPlanCommand("MEDIUM", 2), command2);
+    }
+
     // =================== GUI ===================
 
     @Test
@@ -279,7 +303,7 @@ public class ModulePlannerParserTest {
     @Test
     public void parseCommand_unrecognisedInput_throwsParseException() {
         assertThrows(ParseException.class, String.format(MESSAGE_INVALID_COMMAND_FORMAT, HelpCommand.MESSAGE_USAGE), ()
-            -> parser.parseCommand(""));
+                -> parser.parseCommand(""));
     }
 
     @Test

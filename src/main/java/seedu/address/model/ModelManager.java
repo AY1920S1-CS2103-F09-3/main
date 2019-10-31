@@ -295,7 +295,7 @@ public class ModelManager implements Model {
 
     @Override
     public void blockSemester(SemesterName sem, String reason) {
-         this.modulePlanner.getActiveStudyPlan().blockSemester(sem, reason);
+        this.modulePlanner.getActiveStudyPlan().blockSemester(sem, reason);
     }
 
     @Override

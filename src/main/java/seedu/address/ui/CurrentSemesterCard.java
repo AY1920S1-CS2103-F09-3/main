@@ -54,22 +54,4 @@ public class CurrentSemesterCard extends UiPart<Region> {
                     moduleListPanelPlaceholder.getChildren().add(moduleCard.getRoot());
                 });
     }
-
-    @Override
-    public boolean equals(Object other) {
-        // short circuit if same object
-        if (other == this) {
-            return true;
-        }
-
-        // instanceof handles nulls
-        if (!(other instanceof CurrentSemesterCard)) {
-            return false;
-        }
-
-        // state check
-        CurrentSemesterCard card = (CurrentSemesterCard) other;
-        return id.getText().equals(card.id.getText())
-                && semester.equals(card.semester);
-    }
 }

@@ -15,15 +15,6 @@ import seedu.address.model.tag.PriorityTagType;
  * Parses input arguments and creates a new RemoveTagFromStudyPlanCommand object
  */
 public class RemoveTagFromStudyPlanCommandParser implements Parser<RemoveTagFromStudyPlanCommand> {
-
-    /**
-     * Returns true if none of the prefixes contains empty {@code Optional} values in the given
-     * {@code ArgumentMultimap}.
-     */
-    private static boolean arePatternsPresent(ArgumentMultimap argumentMultimap, Pattern... patterns) {
-        return Stream.of(patterns).allMatch(pattern -> argumentMultimap.getValue(pattern).isPresent());
-    }
-
     /**
      * Parses the given {@code String} of arguments in the context of the RemoveTagFromStudyPlanCommand
      * and returns an RemoveTagFromStudyPlanCommand object for execution.
@@ -38,10 +29,5 @@ public class RemoveTagFromStudyPlanCommandParser implements Parser<RemoveTagFrom
                     RemoveTagFromStudyPlanCommand.MESSAGE_USAGE));
         }
         return new RemoveTagFromStudyPlanCommand(tokens[0].toUpperCase(), Integer.parseInt(tokens[1]));
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        return this == obj || obj instanceof RemoveTagFromStudyPlanCommandParser;
     }
 }
