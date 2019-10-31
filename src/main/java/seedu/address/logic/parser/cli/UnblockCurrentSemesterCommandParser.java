@@ -37,7 +37,7 @@ public class UnblockCurrentSemesterCommandParser implements Parser<UnblockCurren
         ArgumentMultimap argMultimap =
                 ArgumentTokenizer.tokenize(args, SEMESTER_PATTERN);
         if (!arePatternsPresent(argMultimap, SEMESTER_PATTERN)
-        ) {
+                || argMultimap.getNumberOfArgsForPattern(SEMESTER_PATTERN) != 1) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
                     UnblockCurrentSemesterCommand.MESSAGE_USAGE));
         }

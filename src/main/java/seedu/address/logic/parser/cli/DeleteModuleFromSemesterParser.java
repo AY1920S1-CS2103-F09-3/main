@@ -39,7 +39,8 @@ public class DeleteModuleFromSemesterParser implements Parser<DeleteModuleComman
                 ArgumentTokenizer.tokenize(args, SEMESTER_PATTERN, MODULE_PATTERN);
 
         if (!arePatternsPresent(argMultimap, SEMESTER_PATTERN)
-        ) {
+                || argMultimap.getNumberOfArgsForPattern(MODULE_PATTERN) != 1
+                || argMultimap.getNumberOfArgsForPattern(SEMESTER_PATTERN) != 1) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
                     DeleteModuleCommand.MESSAGE_USAGE));
         }

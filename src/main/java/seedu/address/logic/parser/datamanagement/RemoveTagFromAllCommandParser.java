@@ -37,7 +37,7 @@ public class RemoveTagFromAllCommandParser implements Parser<RemoveTagFromAllCom
                 ArgumentTokenizer.tokenize(args, TAG_PATTERN);
 
         if (!arePatternsPresent(argMultimap, TAG_PATTERN)
-        ) {
+                || argMultimap.getNumberOfArgsForPattern(TAG_PATTERN) != 1) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
                     RemoveTagFromAllCommand.MESSAGE_USAGE));
         }

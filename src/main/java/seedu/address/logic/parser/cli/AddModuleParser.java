@@ -38,7 +38,9 @@ public class AddModuleParser implements Parser<AddModuleCommand> {
         ArgumentMultimap argMultimap =
                 ArgumentTokenizer.tokenize(args, MODULE_PATTERN, SEMESTER_PATTERN);
 
-        if (!arePatternsPresent(argMultimap, MODULE_PATTERN, SEMESTER_PATTERN)) {
+        if (!arePatternsPresent(argMultimap, MODULE_PATTERN, SEMESTER_PATTERN)
+                || argMultimap.getNumberOfArgsForPattern(MODULE_PATTERN) != 1
+                || argMultimap.getNumberOfArgsForPattern(SEMESTER_PATTERN) != 1) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
                     AddModuleCommand.MESSAGE_USAGE));
         }

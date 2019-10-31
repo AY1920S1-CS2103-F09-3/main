@@ -41,7 +41,7 @@ public class EditTitleCommand extends Command {
         } catch (InvalidTitleException e) {
             return new CommandResult(Title.MESSAGE_CONSTRAINTS);
         }
-
+        model.addToHistory();
         return new CommandResult(String.format(MESSAGE_EDIT_STUDYPLAN_SUCCESS, newTitle), true, false);
     }
 

@@ -41,7 +41,7 @@ public class BlockCurrentSemesterParser implements Parser<BlockCurrentSemesterCo
         String reason = tokens.length >= 2 ? String.join(" ",
                 Arrays.copyOfRange(tokens, 1, tokens.length)) : "";
         if (!arePatternsPresent(argMultimap, SEMESTER_PATTERN)
-        ) {
+            || argMultimap.getNumberOfArgsForPattern(SEMESTER_PATTERN) != 1) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
                     BlockCurrentSemesterCommand.MESSAGE_USAGE));
         }

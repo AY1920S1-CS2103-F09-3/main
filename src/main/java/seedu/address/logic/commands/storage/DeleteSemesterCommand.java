@@ -42,7 +42,7 @@ public class DeleteSemesterCommand extends Command {
         }
 
         model.deleteAllModulesInSemester(semesterName);
-
+        model.addToHistory();
         return new CommandResult(String.format(MESSAGE_DELETE_SEMESTER_SUCCESS, semesterName.toString()));
     }
 

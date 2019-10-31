@@ -1,7 +1,6 @@
 package seedu.address.logic.parser.cli;
 
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.address.logic.parser.CliSyntax.MODULE_PATTERN;
 import static seedu.address.logic.parser.CliSyntax.SEMESTER_PATTERN;
 
 import java.util.regex.Pattern;
@@ -36,10 +35,10 @@ public class SetCurrentSemesterParser implements Parser<SetCurrentSemesterComman
      */
     public SetCurrentSemesterCommand parse(String args) throws ParseException {
         ArgumentMultimap argMultimap =
-                ArgumentTokenizer.tokenize(args, SEMESTER_PATTERN, MODULE_PATTERN);
+                ArgumentTokenizer.tokenize(args, SEMESTER_PATTERN);
 
         if (!arePatternsPresent(argMultimap, SEMESTER_PATTERN)
-        ) {
+                || argMultimap.getNumberOfArgsForPattern(SEMESTER_PATTERN) != 1) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
                     SetCurrentSemesterCommand.MESSAGE_USAGE));
         }

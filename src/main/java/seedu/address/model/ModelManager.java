@@ -284,7 +284,6 @@ public class ModelManager implements Model {
                 return current;
             }
         }
-        System.out.println("ERROR HERE");
         return null;
     }
 

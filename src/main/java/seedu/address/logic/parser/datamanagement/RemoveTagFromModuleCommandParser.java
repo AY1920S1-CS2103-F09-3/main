@@ -38,7 +38,8 @@ public class RemoveTagFromModuleCommandParser implements Parser<RemoveTagFromMod
                 ArgumentTokenizer.tokenize(args, MODULE_PATTERN, TAG_PATTERN);
 
         if (!arePatternsPresent(argMultimap, MODULE_PATTERN, TAG_PATTERN)
-        ) {
+                || argMultimap.getNumberOfArgsForPattern(MODULE_PATTERN) != 1
+                || argMultimap.getNumberOfArgsForPattern(TAG_PATTERN) != 1) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
                     RemoveTagFromModuleCommand.MESSAGE_USAGE));
         }

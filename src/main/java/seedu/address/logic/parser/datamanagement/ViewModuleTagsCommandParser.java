@@ -37,7 +37,7 @@ public class ViewModuleTagsCommandParser implements Parser<ViewModuleTagsCommand
                 ArgumentTokenizer.tokenize(args, MODULE_PATTERN);
 
         if (!arePatternsPresent(argMultimap, MODULE_PATTERN)
-        ) {
+                || argMultimap.getNumberOfArgsForPattern(MODULE_PATTERN) != 1) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
                     ViewModuleTagsCommand.MESSAGE_USAGE));
         }
