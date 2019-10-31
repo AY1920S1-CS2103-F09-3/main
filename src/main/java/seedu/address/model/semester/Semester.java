@@ -127,11 +127,15 @@ public class Semester implements Cloneable {
             return true;
         } else if (obj instanceof Semester) {
             Semester other = (Semester) obj;
-            return this.modules.equals(other.getModules())
+            return this.semesterName == other.getSemesterName();
+            /*
+                    this.modules.equals(other.getModules())
                     && this.isBlocked == other.isBlocked
                     && (this.reasonForBlocked == null || this.reasonForBlocked.equals(other.reasonForBlocked))
                     && this.isExpanded == other.isExpanded
                     && this.semesterName == other.getSemesterName();
+
+             */
         }
         return false;
     }

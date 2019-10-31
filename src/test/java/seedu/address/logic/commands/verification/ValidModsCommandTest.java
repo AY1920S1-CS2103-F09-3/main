@@ -306,6 +306,11 @@ public class ValidModsCommandTest {
         }
 
         @Override
+        public void deleteSemester(SemesterName semesterName) {
+
+        }
+
+        @Override
         public boolean canUndoModulePlanner() {
             return false;
         }
