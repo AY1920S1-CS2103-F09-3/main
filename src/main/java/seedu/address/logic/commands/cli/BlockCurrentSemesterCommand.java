@@ -13,8 +13,8 @@ import seedu.address.model.semester.SemesterName;
  */
 public class BlockCurrentSemesterCommand extends Command {
     public static final String COMMAND_WORD = "block";
-    public static final String HELP_MESSAGE = COMMAND_WORD +
-            ": Block off the given semester, for reasons such as exchange, LOA, etc.";
+    public static final String HELP_MESSAGE = COMMAND_WORD
+            + ": Block off the given semester, for reasons such as exchange, LOA, etc.";
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": Block off the given semester, for reasons such as exchange, LOA, etc.\n. "
             + "Parameters: "
