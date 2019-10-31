@@ -15,8 +15,8 @@ import seedu.address.model.semester.Semester;
 /**
  * An UI component that displays information of a {@code Semester}.
  */
-public class SemesterCard extends UiPart<Region> {
-    private static final String FXML = "SemesterListCard.fxml";
+public class CurrentSemesterCard extends UiPart<Region> {
+    private static final String FXML = "CurrentSemesterListCard.fxml";
 
     /**
      * Note: Certain keywords such as "location" and "resources" are reserved keywords in JavaFX.
@@ -27,8 +27,8 @@ public class SemesterCard extends UiPart<Region> {
      */
 
     public final Semester semester;
-
-    @FXML
+    private final Logger logger = LogsCenter.getLogger(getClass());
+    @javafx.fxml.FXML
     private HBox semesterCardPane;
     @FXML
     private Label name;
@@ -40,9 +40,8 @@ public class SemesterCard extends UiPart<Region> {
     private FlowPane tags;
     @FXML
     private VBox moduleListPanelPlaceholder;
-    private final Logger logger = LogsCenter.getLogger(getClass());
 
-    public SemesterCard(Semester semester) {
+    public CurrentSemesterCard(Semester semester) {
         super(FXML);
         this.semester = semester;
         name.setText(semester.getSemesterName().name());
@@ -64,12 +63,12 @@ public class SemesterCard extends UiPart<Region> {
         }
 
         // instanceof handles nulls
-        if (!(other instanceof SemesterCard)) {
+        if (!(other instanceof CurrentSemesterCard)) {
             return false;
         }
 
         // state check
-        SemesterCard card = (SemesterCard) other;
+        CurrentSemesterCard card = (CurrentSemesterCard) other;
         return id.getText().equals(card.id.getText())
                 && semester.equals(card.semester);
     }

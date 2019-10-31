@@ -471,6 +471,12 @@
     -fx-background-radius: 10 10 10 10;
 }
 
+#currentSemesterCardPane {
+    -fx-background-color: #A4A4A4;
+    -fx-border-radius: 10 10 10 10;
+    -fx-background-radius: 10 10 10 10;
+}
+
 #blockedSemesterCardPane {
     -fx-background-color: #575757;
     -fx-border-radius: 10 10 10 10;
@@ -537,3 +543,4 @@
     -fx-text-fill: #EEEEEE;
     -fx-opacity: 0.9;
 }
+
