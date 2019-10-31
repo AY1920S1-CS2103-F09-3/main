@@ -9,10 +9,6 @@
       "reasonForBlocked" : null,
       "modules" : [ {
         "moduleCode" : "CS1101S"
-      }, {
-        "moduleCode" : "CS3244"
-      }, {
-        "moduleCode" : "CS3233"
       } ]
     }, {
       "semesterName" : "Y1S2",
@@ -20,10 +16,6 @@
       "reasonForBlocked" : null,
       "modules" : [ {
         "moduleCode" : "CS2030"
-      }, {
-        "moduleCode" : "CS3245"
-      }, {
-        "moduleCode" : "CS3244"
       } ]
     }, {
       "semesterName" : "Y2S1",
@@ -577,7 +569,10 @@
     } ],
     "moduleTags" : [ ],
     "currentSemester" : "Y1S1",
-    "studyPlanTags" : [ ]
+    "studyPlanTags" : [ {
+      "tagName" : "PRIORITY.HIGH",
+      "isPriority" : true
+    } ]
   }, {
     "totalNumber" : 4,
     "title" : "second study plan",

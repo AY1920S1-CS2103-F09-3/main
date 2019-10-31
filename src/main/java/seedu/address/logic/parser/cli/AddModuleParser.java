@@ -24,7 +24,7 @@ public class AddModuleParser implements Parser<AddModuleCommand> {
      * Returns true if none of the prefixes contains empty {@code Optional} values in the given
      * {@code ArgumentMultimap}.
      */
-    private static boolean arePrefixesPresent(ArgumentMultimap argumentMultimap, Pattern... patterns) {
+    private static boolean arePatternsPresent(ArgumentMultimap argumentMultimap, Pattern... patterns) {
         return Stream.of(patterns).allMatch(pattern -> argumentMultimap.getValue(pattern).isPresent());
     }
 
@@ -38,7 +38,7 @@ public class AddModuleParser implements Parser<AddModuleCommand> {
         ArgumentMultimap argMultimap =
                 ArgumentTokenizer.tokenize(args, MODULE_PATTERN, SEMESTER_PATTERN);
 
-        if (!arePrefixesPresent(argMultimap, MODULE_PATTERN, SEMESTER_PATTERN)) {
+        if (!arePatternsPresent(argMultimap, MODULE_PATTERN, SEMESTER_PATTERN)) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
                     AddModuleCommand.MESSAGE_USAGE));
         }
