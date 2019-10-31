@@ -9,6 +9,7 @@ import seedu.address.logic.commands.cli.BlockCurrentSemesterCommand;
 import seedu.address.logic.commands.cli.DeleteModuleCommand;
 import seedu.address.logic.commands.cli.RedoCommand;
 import seedu.address.logic.commands.cli.SetCurrentSemesterCommand;
+import seedu.address.logic.commands.cli.UnblockCurrentSemesterCommand;
 import seedu.address.logic.commands.cli.UndoCommand;
 import seedu.address.logic.commands.datamanagement.DeleteTagCommand;
 import seedu.address.logic.commands.datamanagement.FindModuleCommand;
@@ -60,9 +61,10 @@ public class HelpCommand extends Command {
             + AddModuleCommand.HELP_MESSAGE + "\n"
             + DeleteModuleCommand.HELP_MESSAGE + "\n"
             + SetCurrentSemesterCommand.HELP_MESSAGE + "\n"
-            + "???: nameue - Naming a UE from a semester\n"
+            + BlockCurrentSemesterCommand.HELP_MESSAGE + "\n"
+            + UnblockCurrentSemesterCommand.HELP_MESSAGE + "\n"
+            + "NOT YET: nameue - Naming a UE from a semester\n"
             + "NOT YET: move - Moving a module from one semester to another\n"
-            + "???: block - Blocking off the given semester\n"
             + "\nStudy plans and committing:\n"
             + CreateStudyPlanCommand.HELP_MESSAGE + "\n"
             + DeleteStudyPlanCommand.HELP_MESSAGE + "\n"
