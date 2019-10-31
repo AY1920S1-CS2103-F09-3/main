@@ -22,8 +22,6 @@
 <li><a href="#verification">3.5. Verification</a></li>
 </ul>
 </li>
-<li><a href="#faq">4. FAQ</a></li>
-<li><a href="#command-summary">5. Command Summary</a></li>
 </ul>
 </div>
 </div>
@@ -416,49 +414,85 @@ Example:</p>
 <div class="sect2">
 <h3 id="command-line-interface"><a class="link" href="#command-line-interface">3.3. Command Line Interface</a></h3>
 <div class="sect3">
-<h4 id="assigning-a-module-to-a-given-semester-code-addmodule-code"><a class="link" href="#assigning-a-module-to-a-given-semester-code-addmodule-code">3.3.1. Assigning a module to a given semester: <code>addmodule</code></a></h4>
+<h4 id="assigning-a-module-to-a-given-semester-code-addmod-code"><a class="link" href="#assigning-a-module-to-a-given-semester-code-addmod-code">3.3.1. Assigning a module to a given semester: <code>addmod</code></a></h4>
 <div class="paragraph">
 <p>Assigns the specified module to a given semester of the current study plan.<br>
-Format:  <code>add SEMESTER MODULE &#8230;&#8203;</code><br>
+Format:  <code>addmod SEMESTER MODULE &#8230;&#8203;</code><br>
 Examples:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>add y1s1 CS1101s</code></p>
+<p><code>addmod y1s1 CS1101s</code></p>
 </li>
 <li>
-<p><code>add y2s2 CS3244 CS3245 CS3233</code></p>
+<p><code>addmod y2s2 CS3244 CS3245 CS3233</code></p>
 </li>
 <li>
-<p><code>add y1s1 ue</code></p>
+<p><code>addmod y1s1 ue</code></p>
 </li>
 <li>
-<p><code>add y1s2 ue:GER1000</code></p>
+<p><code>addmod y1s2 ue:GER1000</code></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="removing-a-module-from-a-given-semester-code-remove-code"><a class="link" href="#removing-a-module-from-a-given-semester-code-remove-code">3.3.2. Removing a module from a given semester. <code>remove</code></a></h4>
+<h4 id="removing-a-module-from-a-given-semester-code-removemod-code"><a class="link" href="#removing-a-module-from-a-given-semester-code-removemod-code">3.3.2. Removing a module from a given semester. <code>removemod</code></a></h4>
 <div class="paragraph">
 <p>Removes the specified module to a given semester of the current study plan.<br>
-Format: <code>remove SEMESTER MODULE &#8230;&#8203;</code><br>
+Format: <code>removemod SEMESTER MODULE &#8230;&#8203;</code><br>
 Examples:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>remove y1s1 CS1101S</code></p>
+<p><code>removemod y1s1 CS1101S</code></p>
 </li>
 <li>
-<p><code>remove y2s2 CS3244</code></p>
+<p><code>removemod y2s2 CS3244</code></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="naming-a-ue-from-a-semester-code-nameue-code"><a class="link" href="#naming-a-ue-from-a-semester-code-nameue-code">3.3.3. Naming a UE from a semester. <code>nameue</code></a></h4>
+<h4 id="setting-the-current-semester-code-setcurrent-code"><a class="link" href="#setting-the-current-semester-code-setcurrent-code">3.3.3. Setting the current semester. <code>setcurrent</code></a></h4>
+<div class="paragraph">
+<p>Sets the given semester as the current one. Semesters before the specified semester will be locked and therefore modules cannot be added or removed from them.<br>
+Format: <code>setcurrent SEMESTER</code><br>
+Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>setcurrent y1s2</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="blocking-off-the-given-semester-code-block-code"><a class="link" href="#blocking-off-the-given-semester-code-block-code">3.3.4. Blocking off the given semester: <code>block</code></a></h4>
+<div class="paragraph">
+<p>Block off the given semester, for reasons such as exchange, LOA, etc.<br>
+Format:  <code>block SEMESTER [REASON]</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="undo-ing-the-previous-command-code-undo-code"><a class="link" href="#undo-ing-the-previous-command-code-undo-code">3.3.5. Undo-ing the previous command: <code>undo</code></a></h4>
+<div class="paragraph">
+<p>Undo the previous command. The state of the application will revert back to that before the previous command. This command cannot undo itself.<br>
+Format: <code>undo</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="redo-ing-the-previous-undone-command-code-redo-code"><a class="link" href="#redo-ing-the-previous-undone-command-code-redo-code">3.3.6. Redo-ing the previous undone command: <code>redo</code></a></h4>
+<div class="paragraph">
+<p>Redo the previous undone command. The state of the application will revert back to that before the undo. This command cannot redo itself.<br>
+Format:  <code>redo</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="naming-a-ue-from-a-semester-code-coming-in-v2-0-code"><a class="link" href="#naming-a-ue-from-a-semester-code-coming-in-v2-0-code">3.3.7. Naming a UE from a semester. <code>[coming in v2.0]</code></a></h4>
 <div class="paragraph">
 <p>Names a UE from the given semester with the given module name. This feature is purely for aesthetic purposes and has no functional implications.</p>
 </div>
@@ -475,7 +509,7 @@ Examples:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="moving-a-module-from-one-semester-to-another-code-move-code"><a class="link" href="#moving-a-module-from-one-semester-to-another-code-move-code">3.3.4. Moving a module from one semester to another. <code>move</code></a></h4>
+<h4 id="moving-a-module-from-one-semester-to-another-code-coming-in-v2-0-code"><a class="link" href="#moving-a-module-from-one-semester-to-another-code-coming-in-v2-0-code">3.3.8. Moving a module from one semester to another. <code>[coming in v2.0]</code></a></h4>
 <div class="paragraph">
 <p>Moves a given module from a source semester to a destination semester, as specified.<br>
 Format: <code>move MODULE SEMESTER_SRC SEMESTER_DEST</code><br>
@@ -490,50 +524,14 @@ Examples:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="setting-the-current-semester-code-setcurrent-code"><a class="link" href="#setting-the-current-semester-code-setcurrent-code">3.3.5. Setting the current semester. <code>setcurrent</code></a></h4>
-<div class="paragraph">
-<p>Sets the given semester as the current one. Semesters before the specified semester will be locked and therefore modules cannot be added or removed from them.<br>
-Format: <code>setcurrent SEMESTER</code><br>
-Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>setcurrent y1s2</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="blocking-off-the-given-semester-code-block-code"><a class="link" href="#blocking-off-the-given-semester-code-block-code">3.3.6. Blocking off the given semester: <code>block</code></a></h4>
-<div class="paragraph">
-<p>Block off the given semester, for reasons such as exchange, LOA, etc.<br>
-Format:  <code>block SEMESTER [REASON]</code></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="undo-ing-the-previous-command-code-undo-code"><a class="link" href="#undo-ing-the-previous-command-code-undo-code">3.3.7. Undo-ing the previous command: <code>undo</code></a></h4>
-<div class="paragraph">
-<p>Undo the previous command. The state of the application will revert back to that before the previous command. This command cannot undo itself.<br>
-Format: <code>undo</code></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="redo-ing-the-previous-undone-command-code-redo-code"><a class="link" href="#redo-ing-the-previous-undone-command-code-redo-code">3.3.8. Redo-ing the previous undone command: <code>redo</code></a></h4>
-<div class="paragraph">
-<p>Redo the previous undone command. The state of the application will revert back to that before the undo. This command cannot redo itself.<br>
-Format:  <code>redo</code></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="declaring-a-focus-area-code-declarefocusarea-code"><a class="link" href="#declaring-a-focus-area-code-declarefocusarea-code">3.3.9. Declaring a focus area: <code>declarefocusarea</code></a></h4>
+<h4 id="declaring-a-focus-area-code-coming-in-v2-0-code"><a class="link" href="#declaring-a-focus-area-code-coming-in-v2-0-code">3.3.9. Declaring a focus area: <code>[coming in v2.0]</code></a></h4>
 <div class="paragraph">
 <p>Declares the given focus area as one of the focus areas of the study plan. This means that the requirements of the focus area has to be met to be eligible for graduation.<br>
 Format: <code>declarefocusarea FOCUS_AREA</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="chaining-commands"><a class="link" href="#chaining-commands">3.3.10. Chaining commands</a></h4>
+<h4 id="chaining-commands-code-coming-in-v2-0-code"><a class="link" href="#chaining-commands-code-coming-in-v2-0-code">3.3.10. Chaining commands <code>[coming in v2.0]</code></a></h4>
 <div class="paragraph">
 <p>Chain commands together for greater efficiency. The commands, if different, are separated by a ‘&amp;&amp;’. ‘&amp;&amp;’ is not needed if the command is the same.<br>
 Format: <code>COMMAND_1 &amp;&amp; COMMAND_2 &amp;&amp; …</code><br>
@@ -542,10 +540,10 @@ Examples:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>addmodule y1s1 CS1101S CS1231 MA1521</code></p>
+<p><code>addmod y1s1 CS1101S CS1231 MA1521</code></p>
 </li>
 <li>
-<p><code>movemodule CS2105 y2s1 y2s2 &amp;&amp; addmodule CS2106 y2s2</code></p>
+<p><code>movemodule CS2105 y2s1 y2s2 &amp;&amp; addmod CS2106 y2s2</code></p>
 </li>
 </ul>
 </div>
@@ -923,16 +921,4 @@ Format: <code>validmods SEMESTER</code></p>
 </div>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="faq"><a class="link" href="#faq">4. FAQ</a></h2>
-<div class="sectionbody">
-
-</div>
-</div>
-<div class="sect1">
-<h2 id="command-summary"><a class="link" href="#command-summary">5. Command Summary</a></h2>
-<div class="sectionbody">
-
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-31 09:32:48 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-31 10:11:30 UTC</div></div></div></body></html>
