@@ -100,8 +100,24 @@ or as <code>newplan Algo and Graphics</code>.</p>
 <div class="sect3">
 <h4 id="creating-a-new-study-plan-code-newplan-code"><a class="link" href="#creating-a-new-study-plan-code-newplan-code">3.1.1. Creating a new study plan: <code>newplan</code></a></h4>
 <div class="paragraph">
-<p>Creates a new study plan with an optional title.<br>
-Format: <code>newplan [TITLE]</code><br>
+<p>Creates a new study plan with an optional title. The title should contain only ASCII characters, and should not be
+longer than 20 characters.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Each study plan is assigned a unique ID upon its creation. This ID will remain the same throughout
+the life of the study plan.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Format: <code>newplan [TITLE]</code><br>
 Examples:</p>
 </div>
 <div class="ulist">
@@ -121,7 +137,7 @@ Examples:</p>
 <div class="sect3">
 <h4 id="deleting-a-study-plan-code-removeplan-code"><a class="link" href="#deleting-a-study-plan-code-removeplan-code">3.1.2. Deleting a study plan: <code>removeplan</code></a></h4>
 <div class="paragraph">
-<p>Deletes a study plan with a given index.<br>
+<p>Deletes a study plan with a given ID.<br>
 Format: <code>removeplan PLAN_NUMBER</code><br>
 Example:</p>
 </div>
@@ -134,10 +150,38 @@ Example:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="commiting-edits-to-a-study-plan-code-commit-code"><a class="link" href="#commiting-edits-to-a-study-plan-code-commit-code">3.1.3. Commiting edits to a study plan: <code>commit</code></a></h4>
+<h4 id="committing-edits-to-a-study-plan-code-commit-code"><a class="link" href="#committing-edits-to-a-study-plan-code-commit-code">3.1.3. Committing edits to a study plan: <code>commit</code></a></h4>
 <div class="paragraph">
-<p>Saves changes to a study plan with a short commit message<br>
-Format: <code>commit SHORT_MESSAGE</code><br>
+<p>Saves changes to a study plan with a short commit message.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Even without committing, the module planner is automatically saved to storage after every command is
+executed successfully. However, commits allow the user to revert to a previous state of the study plan.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+The user is allowed, but not recommended, to commit a study plan even when there are no changes
+since the previous commit.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Format: <code>commit SHORT_MESSAGE</code><br>
 Examples:</p>
 </div>
 <div class="ulist">
@@ -161,18 +205,18 @@ Format: <code>history</code></p>
 <div class="sect3">
 <h4 id="viewing-a-commit-code-viewcommit-code"><a class="link" href="#viewing-a-commit-code-viewcommit-code">3.1.5. Viewing a commit: <code>viewcommit</code></a></h4>
 <div class="paragraph">
-<p>Shows the version of the current study plan for a particular commit.This does not create a new commit, nor does it
-return the study plan to a previous version. The commit will be displayed as a simplified study plan.<br>
-Format: <code>viewcommit COMMIT_NUMBER</code><br>
+<p>Shows the version of the current study plan for a particular commit. This does not create a new commit, nor does it
+return the study plan to a previous version. The commit will be displayed as a simplified study plan.<br></p>
+</div>
+<div class="paragraph">
+<p>Format: <code>viewcommit COMMIT_NUMBER</code><br>
 Example:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>viewcommit 1.1</code></p>
-</li>
-<li>
-<p><code>This allows the user to view commit 1 of study plan 1 (which is currently active).</code></p>
+<p><code>viewcommit 1.1</code><br>
+This allows the user to view commit 1 of study plan 1 (which is currently active).</p>
 </li>
 </ul>
 </div>
@@ -180,9 +224,24 @@ Example:</p>
 <div class="sect3">
 <h4 id="reverting-to-a-commit-code-revert-code"><a class="link" href="#reverting-to-a-commit-code-revert-code">3.1.6. Reverting to a commit: <code>revert</code></a></h4>
 <div class="paragraph">
-<p>Reverts to the version of the current study plan for a particular commit. This creates a new "revert" commit and
-returns the current active study plan back to the state in the specified commit.<br>
-Format: <code>revert COMMIT_NUMBER</code><br>
+<p>Reverts to the version of the current study plan for a particular commit. This creates a new "Revert to" commit and
+returns the current active study plan back to the state in the specified commit.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+The user is allowed, but not recommended, to revert to another "Revert to" commit. This will create a
+long chain of "Revert to Revert to &#8230;&#8203;" commit messages.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Format: <code>revert COMMIT_NUMBER</code><br>
 Example:</p>
 </div>
 <div class="ulist">
@@ -190,22 +249,22 @@ Example:</p>
 <li>
 <p><code>revert 1.1</code><br>
 Suppose there are commits <code>1.0</code>, <code>1.1</code>, <code>1.2</code>, and <code>1.3</code>. This allows the user to revert to commit 1 of study plan 1,
-creating a new commit called <code>1.4: Revert "COMMIT_MESSAGE_OF_1.1"</code>.</p>
+creating a new commit called <code>1.4: Revert to "COMMIT_MESSAGE_OF_1.1"</code>.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="deleting-a-commit-code-deletecommit-code"><a class="link" href="#deleting-a-commit-code-deletecommit-code">3.1.7. Deleting a commit: <code>deletecommit</code></a></h4>
+<h4 id="removing-a-commit-code-removecommit-code"><a class="link" href="#removing-a-commit-code-removecommit-code">3.1.7. Removing a commit: <code>removecommit</code></a></h4>
 <div class="paragraph">
-<p>Deletes a commit in the current active study plan specified by the commit number.<br>
-Format: <code>deletecommit COMMIT_NUMBER</code><br>
+<p>Removes a commit in the current active study plan specified by the commit number.<br>
+Format: <code>removecommit COMMIT_NUMBER</code><br>
 Example:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>deletecommit 2.2</code></p>
+<p><code>removecommit 2.2</code></p>
 </li>
 </ul>
 </div>
@@ -213,7 +272,7 @@ Example:</p>
 <div class="sect3">
 <h4 id="viewing-another-study-plan-code-viewplan-code"><a class="link" href="#viewing-another-study-plan-code-viewplan-code">3.1.8. Viewing another study plan: <code>viewplan</code></a></h4>
 <div class="paragraph">
-<p>Shows the study plan with a given index. The specified study plan will be displayed on the left panel of the GUI
+<p>Shows the study plan with a given ID. The specified study plan will be displayed on the left panel of the GUI
 as a simplified study plan. This does not activate that study plan, so it is for viewing only.<br></p>
 </div>
 <div class="paragraph">
@@ -224,7 +283,7 @@ Example:</p>
 <ul>
 <li>
 <p><code>viewplan 3</code><br>
-This allows the user to view the study plan with an index of 3.</p>
+This allows the user to view the study plan with an ID of 3.</p>
 </li>
 </ul>
 </div>
@@ -247,7 +306,7 @@ Example:</p>
 <div class="sect3">
 <h4 id="moving-a-semester-to-a-study-plan-code-movesem-code-code-coming-in-v2-0-code"><a class="link" href="#moving-a-semester-to-a-study-plan-code-movesem-code-code-coming-in-v2-0-code">3.1.10. Moving a semester to a study plan: <code>movesem</code> <code>[coming in v2.0]</code></a></h4>
 <div class="paragraph">
-<p>Moves a semester of modules to another study plan with a specified index.<br></p>
+<p>Moves a semester of modules to another study plan with a specified ID.<br></p>
 </div>
 <div class="paragraph">
 <p>Format: <code>movesem SEMESTER SOURCE_PLAN DESTINATION_PLAN</code><br>
@@ -267,7 +326,7 @@ Examples:</p>
 <div class="sect3">
 <h4 id="adding-a-semester-code-addsem-code"><a class="link" href="#adding-a-semester-code-addsem-code">3.1.11. Adding a semester: <code>addsem</code></a></h4>
 <div class="paragraph">
-<p>Adds a <em>non_mainstream_semester</em> (i.e. special term or Year 5 semester) to the current active study plan.</p>
+<p>Adds a <em>non-mainstream semester</em> (i.e. special term or Year 5 semester) to the current active study plan.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -276,7 +335,7 @@ Examples:</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The user is not allowed to add a <em>mainstream_semester</em>. The eight default semesters will always be displayed on
+The user is not allowed to add a <em>mainstream semester</em>. The eight default semesters will always be displayed on
 the GUI.
 </td>
 </tr>
@@ -299,7 +358,7 @@ Example:</p>
 <div class="paragraph">
 <p>Deletes all the modules in the specified semester in the current active study plan, after which that
 semester will contain no modules. If the semester to be deleted is a <em>mainstream semester</em>  (i.e. not a special term
-or a Year 5 semester), an empty semester will remain on the GUI. If the semester is a <em>non_mainstream semester</em>,
+or a Year 5 semester), an empty semester will remain on the GUI. If the semester is a <em>non-mainstream semester</em>,
 e.g. Y1ST1, the whole semester will disappear from the current study plan.<br></p>
 </div>
 <div class="paragraph">
@@ -335,8 +394,11 @@ Example:</p>
 <div class="sect3">
 <h4 id="editing-the-title-of-current-study-plan-code-title-code"><a class="link" href="#editing-the-title-of-current-study-plan-code-title-code">3.1.14. Editing the title of current study plan: <code>title</code></a></h4>
 <div class="paragraph">
-<p>Changes the title of the current active study plan.<br>
-Format: <code>title PLAN_TITLE</code><br>
+<p>Changes the title of the current active study plan. The title should contain only ASCII characters, and should not be
+longer than 20 characters.<br></p>
+</div>
+<div class="paragraph">
+<p>Format: <code>title PLAN_TITLE</code><br>
 Example:</p>
 </div>
 <div class="ulist">
@@ -350,15 +412,30 @@ Example:</p>
 <div class="sect3">
 <h4 id="setting-default-study-plan-code-default-code"><a class="link" href="#setting-default-study-plan-code-default-code">3.1.15. Setting default study plan: <code>default</code></a></h4>
 <div class="paragraph">
-<p>Generates a study plan with pre-populated modules according to the recommended study plan for a year one student.<br>
+<p>Generates a study plan with pre-populated modules according to the recommended study plan for a Year one CS student.<br>
 Format: <code>default</code></p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="listing-all-study-plans-code-list-code"><a class="link" href="#listing-all-study-plans-code-list-code">3.1.16. Listing all study plans: <code>list</code></a></h4>
 <div class="paragraph">
-<p>Lists all the study plans that the user has created and has not deleted.<br>
-Format: <code>list</code></p>
+<p>Lists all the study plans that the user has created and has not deleted.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Each study plan is assigned a unique ID upon its creation. This ID will remain the same throughout
+the life of the study plan.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Format: <code>list</code></p>
 </div>
 </div>
 </div>
@@ -810,7 +887,7 @@ Format: <code>findmod MODULE_CODE</code></p>
 <h4 id="adding-priority-tags-to-a-study-plan-code-tagplan-code"><a class="link" href="#adding-priority-tags-to-a-study-plan-code-tagplan-code">3.4.12. Adding priority tags to a study plan : <code>tagplan</code></a></h4>
 <div class="paragraph">
 <p>Attaches a priority tag to the study plan.<br>
-Format: <code>tagplan PRIORITY_LEVEL STUDY_PLAN_INDEX</code></p>
+Format: <code>tagplan PRIORITY_LEVEL STUDY_PLAN_ID</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -850,7 +927,7 @@ Format: <code>tagplan PRIORITY_LEVEL STUDY_PLAN_INDEX</code></p>
 <h4 id="removing-priority-tags-from-study-plan-code-removeplantag-code"><a class="link" href="#removing-priority-tags-from-study-plan-code-removeplantag-code">3.4.13. Removing priority tags from study plan: <code>removeplantag</code></a></h4>
 <div class="paragraph">
 <p>Removes the priority tag from the study plan.<br>
-Format: <code>removeplantag PRIORITY_LEVEL STUDY_PLAN_INDEX</code></p>
+Format: <code>removeplantag PRIORITY_LEVEL STUDY_PLAN_ID</code></p>
 </div>
 <div class="paragraph">
 <p>Examples</p>
@@ -919,4 +996,4 @@ Format: <code>validmods SEMESTER</code></p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-01 07:12:40 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-01 09:43:57 UTC</div></div></div></body></html>
