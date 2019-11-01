@@ -24,6 +24,7 @@ public class AddModuleCommand extends Command {
     public static final String MESSAGE_DUPLICATE_MODULE = "This module already exists in the semester";
     public static final String MESSAGE_MODULE_DOES_NOT_EXIST = "This module does not exist.";
     public static final String MESSAGE_SEMESTER_DOES_NOT_EXIST = "This semester does not exist.";
+    public static final String MESSAGE_SEMESTER_BLOCKED = "This semester is blocked.";
 
     private final SemesterName sem;
     private final String moduleCode;
@@ -49,6 +50,10 @@ public class AddModuleCommand extends Command {
 
         if (!model.isValidModuleCode(this.moduleCode)) {
             throw new CommandException(MESSAGE_MODULE_DOES_NOT_EXIST);
+        }
+
+        if (model.getSemester(this.sem).isBlocked()) {
+            throw new CommandException(MESSAGE_SEMESTER_BLOCKED);
         }
 
         model.addModule(moduleCode, sem);
