@@ -12,6 +12,7 @@ import static seedu.address.testutil.TypicalModuleHashMap.getTypicalModuleHashMa
 import static seedu.address.testutil.TypicalSemesterList.TYPICAL_SEMESTER_LIST;
 import static seedu.address.testutil.TypicalSemesterList.TYPICAL_SEMESTER_LIST_WITH_CS1101S;
 
+import java.util.Arrays;
 import java.util.HashMap;
 
 import org.junit.jupiter.api.Test;
@@ -31,7 +32,7 @@ import seedu.address.testutil.TypicalModulesInfo;
 class RedoCommandTest {
     @Test
     public void addMod_undo() throws CommandException {
-        AddModuleCommand addModule = new AddModuleCommand("CS1101S", SemesterName.Y1S1);
+        AddModuleCommand addModule = new AddModuleCommand(Arrays.asList("CS1101S"), SemesterName.Y1S1);
         StudyPlan studyPlan = new StudyPlanBuilder()
                 .withModules(getTypicalModuleHashMap())
                 .withSemesters(TYPICAL_SEMESTER_LIST).build();

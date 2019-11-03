@@ -578,7 +578,7 @@
       "tagName" : "ml",
       "isPriority" : false
     } ],
-    "currentSemester" : "Y2S2",
+    "currentSemester" : "Y1S2",
     "studyPlanTags" : [ ]
   }, {
     "totalNumber" : 3,
@@ -1188,7 +1188,7 @@
       "tagName" : "exchange",
       "isPriority" : false
     } ],
-    "currentSemester" : "Y2S2",
+    "currentSemester" : "Y1S2",
     "studyPlanTags" : [ ]
   } ],
   "activeStudyPlanIndex" : 3,
@@ -1782,5 +1782,5 @@
       } ]
     } ]
   },
-  "currentSemester" : "Y2S2"
+  "currentSemester" : "Y1S2"
 }

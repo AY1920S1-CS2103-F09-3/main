@@ -246,7 +246,9 @@ Format:  `addmod SEMESTER MODULE ...` +
 Examples:
 
 * `addmod y1s1 CS1101s`
-* `addmod y2s2 CS3244`
+* `addmod y2s2 CS3244 CS3245 CS3233`
+* `addmod y1s1 ue`
+* `addmod y1s2 ue:GER1000`
 
 ==== Removing a module from a given semester. `removemod`
 Removes the specified module to a given semester of the current study plan. +

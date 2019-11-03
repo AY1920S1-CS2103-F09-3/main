@@ -39,7 +39,8 @@ class SetCurrentSemesterCommandTest {
                 new UserPrefs(), TypicalModulesInfo.getTypicalModulesInfo());
         model.activateFirstStudyPlan();
 
-        StudyPlan expectedStudyPlan = new StudyPlanBuilder().withModules(getTypicalModuleHashMap())
+        StudyPlan expectedStudyPlan = new StudyPlanBuilder()
+                .withModules(getTypicalModuleHashMap())
                 .withSemesters(TYPICAL_SEMESTER_LIST)
                 .withCurrentSemester("Y2S1").build();
         Model expectedModel = new ModelManager(new ModulePlannerBuilder().withStudyPlan(expectedStudyPlan).build(),

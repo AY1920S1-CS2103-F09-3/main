@@ -10,6 +10,7 @@ import static seedu.address.testutil.TypicalModule.ST2334;
 import static seedu.address.testutil.TypicalModulesInfo.TYPICAL_MODULES_INFO;
 import static seedu.address.testutil.TypicalSemesterList.TYPICAL_SEMESTER_LIST;
 
+import java.util.Arrays;
 import java.util.HashMap;
 
 import org.junit.jupiter.api.Test;
@@ -29,7 +30,7 @@ import seedu.address.testutil.TypicalModulesInfo;
 class UndoCommandTest {
     @Test
     public void addMod_undo() throws CommandException {
-        AddModuleCommand addModule = new AddModuleCommand("CS1101S", SemesterName.Y1S1);
+        AddModuleCommand addModule = new AddModuleCommand(Arrays.asList("CS1101S"), SemesterName.Y1S1);
 
         HashMap<String, Module> moduleHashMap = new HashMap<>();
         moduleHashMap.put("ST2334", ST2334);
