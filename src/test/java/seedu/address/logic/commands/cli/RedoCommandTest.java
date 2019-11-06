@@ -1,19 +1,11 @@
 package seedu.address.logic.commands.cli;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static seedu.address.testutil.TypicalModule.CS1101S;
-import static seedu.address.testutil.TypicalModule.CS2102;
-import static seedu.address.testutil.TypicalModule.CS3244;
-import static seedu.address.testutil.TypicalModule.CS5219;
-import static seedu.address.testutil.TypicalModule.CS5339;
-import static seedu.address.testutil.TypicalModule.ST2334;
-import static seedu.address.testutil.TypicalModuleHashMap.TYPICAL_MODULE_HASHMAP;
 import static seedu.address.testutil.TypicalModuleHashMap.getTypicalModuleHashMap;
 import static seedu.address.testutil.TypicalSemesterList.TYPICAL_SEMESTER_LIST;
 import static seedu.address.testutil.TypicalSemesterList.TYPICAL_SEMESTER_LIST_WITH_CS1101S;
 
 import java.util.Arrays;
-import java.util.HashMap;
 
 import org.junit.jupiter.api.Test;
 
@@ -22,7 +14,6 @@ import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
-import seedu.address.model.module.Module;
 import seedu.address.model.semester.SemesterName;
 import seedu.address.model.studyplan.StudyPlan;
 import seedu.address.testutil.ModulePlannerBuilder;

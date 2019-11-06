@@ -7,7 +7,6 @@ import static seedu.address.testutil.TypicalModule.CS3244;
 import static seedu.address.testutil.TypicalModule.CS5219;
 import static seedu.address.testutil.TypicalModule.CS5339;
 import static seedu.address.testutil.TypicalModule.ST2334;
-import static seedu.address.testutil.TypicalModulesInfo.TYPICAL_MODULES_INFO;
 import static seedu.address.testutil.TypicalSemesterList.TYPICAL_SEMESTER_LIST;
 
 import java.util.Arrays;
