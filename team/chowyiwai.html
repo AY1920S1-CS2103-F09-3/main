@@ -1,0 +1,772 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Chow Yi Wai - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="../images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="../index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">AddressBook-Level3</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="../LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/se-edu/addressbook-level3"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Chow Yi Wai - Project Portfolio</h1></div><div id="content"><div class="sect1">
+<h2 id="project-cs-modbuddy"><a class="link" href="#project-cs-modbuddy">PROJECT: CS ModBuddy</a></h2>
+<div class="sectionbody">
+<div class="imageblock">
+<div class="content">
+<img src="../images/title.png" alt="title" width="250">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>CS ModBuddy is a desktop application that can be used for module planning by NUS undergraduates taking a Computer
+Science major. The user interacts with it using a CLI and it has a GUI created with JavaFX. It is written in Java and
+has about 85kLoC.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Major enhancement</strong>: Added <strong>the ability to manage and classify modules and study plans with tag-related commands</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>For <u>modules</u>: Users can <em>add</em>, <em>delete</em>, <em>rename</em> and <em>view</em> tags, as well as view modules
+that are filtered according to their tags</p>
+</li>
+<li>
+<p>For <u>study plans</u>: Users can add <em>priority</em> tags to study plans to indicate the relative importance
+of different study plans and view a list of study plans that are sorted according to their priorities</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Justification: This feature improves the product significantly because module planning is considerably complex given
+the variety of modules that one can choose from. Hence, the application should provide a convenient way to manage and
+categorize them for easier viewing and neater planning.</p>
+</li>
+<li>
+<p>Highlights: This enhancement required an in-depth analysis of design alternatives. Instead of adopting the previous
+implementation of creating a new tag object every time a change is made, this implementation modifies the existing tag
+directly. In addition, references were used to allow various entities to store the same tag. This not only promotes
+consistency when a change to a tag is made, but also the efficiency of a command as only one object has to be modified.
+Polymorphism was also utilized to support the storage of different types of tags (e.g. default tags, user-created tags
+and priority tags)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>: Added a command that allows users to find the semester in which a module is current located
+within the active study plan.</p>
+</li>
+<li>
+<p><strong>Code contributed</strong>: [<a href="https://nus-cs2103-ay1920s1.github.io/tp-dashboard/#search=chow%20yi%20wai&amp;sort=groupTitle&amp;sortWithin=title&amp;since=2019-09-06&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByRepos&amp;breakdown=false&amp;tabOpen=true&amp;tabType=authorship&amp;tabAuthor=chowyiwai&amp;tabRepo=AY1920S1-CS2103-F09-3%2Fmain%5Bmaster%5D">Functional code</a>][<a href="https://nus-cs2103-ay1920s1.github.io/tp-dashboard/#search=chow%20yi%20wai&amp;sort=groupTitle&amp;sortWithin=title&amp;since=2019-09-06&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByRepos&amp;breakdown=false&amp;tabOpen=true&amp;tabType=authorship&amp;tabAuthor=chowyiwai&amp;tabRepo=AY1920S1-CS2103-F09-3%2Fmain%5Bmaster%5D">Test code</a>]</p>
+</li>
+<li>
+<p><strong>Other contributions</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Project management:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>In charge of managing documentations and deadlines and deliverables</p>
+</li>
+<li>
+<p>Managed some milestones (assigned issues to other members and closed milestone)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Enhancements to existing features:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Did basic refactoring of AddressBook, Person and other related classes (e.g. Name, Address, etc.) in AB3 to Module Planner and Study Plan classes (Pull request <a href="https://https://github.com/AY1920S1-CS2103-F09-3/main/pull/111.com">#111</a>)</p>
+</li>
+<li>
+<p>Added result view panel in GUI to show different result types (e.g. tag cards, module cards) depending on executed command (Pull request <a href="https://github.com/AY1920S1-CS2103-F09-3/main/pull/184">#184</a>)</p>
+</li>
+<li>
+<p>Modified Tag class to an interface that supports different types of tags and changed existing tests (Pull request <a href="https://github.com/AY1920S1-CS2103-F09-3/main/pull/104">#104</a>, <a href="https://github.com/AY1920S1-CS2103-F09-3/main/pull/221">#221</a>, <a href="https://github.com/AY1920S1-CS2103-F09-3/main/pull/145">#145</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Documentation:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Contributed to modification of overall design part of the developer’s guide</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Community:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Helped to fix minor bugs in teammates’ codes</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="data-classification-and-management"><a class="link" href="#data-classification-and-management">Data classification and management</a></h3>
+<div class="sect3">
+<h4 id="viewing-default-tags-code-viewdefaulttags-code"><a class="link" href="#viewing-default-tags-code-viewdefaulttags-code">Viewing default tags : <code>viewdefaulttags</code></a></h4>
+<div class="paragraph">
+<p>Shows all default tag types.<br>
+Format: <code>viewdefaulttags</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>List of default tags:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Completed</code><br>
+<em>Completed</em> modules are modules that are in any semester before the <strong>current semester</strong>.</p>
+</li>
+<li>
+<p><code>Core</code><br>
+<em>Core</em> modules are <strong>Computer Science Foundation</strong> modules that count towards <strong>Programme Requirements</strong>.</p>
+</li>
+<li>
+<p><code>S/U-able</code><br>
+<em>S/U-able</em> modules are modules that permit the <strong>Satisfactory/Unsatisfactory option</strong>.</p>
+</li>
+<li>
+<p><code>UE</code><br>
+<em>UE</em> modules are <strong>Unrestricted Elective</strong> modules.</p>
+</li>
+<li>
+<p><code>ULR</code><br>
+<em>ULR</em> modules are modules that count towards <strong>University Level Requirements</strong>.</p>
+</li>
+<li>
+<p><code>FOCUS_AREA_NAME:P</code><br>
+<em>P</em> modules are modules that count towards Focus Area Primaries for <em>FOCUS_AREA_NAME</em>.</p>
+</li>
+<li>
+<p><code>FOCUS_AREA_NAME:E</code><br>
+<em>E</em> modules are modules that count towards Focus Area Electives for <em>FOCUS_AREA_NAME</em>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="viewing-all-tags-code-viewallmodtags-code"><a class="link" href="#viewing-all-tags-code-viewallmodtags-code">Viewing all tags : <code>viewallmodtags</code></a></h4>
+<div class="paragraph">
+<p>Shows all tag types.<br>
+Format: <code>viewallmodtags</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="renaming-an-existing-tag-code-renamemodtag-code"><a class="link" href="#renaming-an-existing-tag-code-renamemodtag-code">Renaming an existing tag : <code>renamemodtag</code></a></h4>
+<div class="paragraph">
+<p>Renames a tag.<br>
+Format: <code>renamemodtag ORIGINAL_TAG_NAME NEW_TAG_NAME</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Only user-created tags can be renamed, i.e. default tag cannot be renamed.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>renamemodtag exchange sep</code><br>
+Renames the tag name from <em>exchange</em> to <em>sep</em>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="tagging-modules-code-tagmod-code"><a class="link" href="#tagging-modules-code-tagmod-code">Tagging modules : <code>tagmod</code></a></h4>
+<div class="paragraph">
+<p>Attaches a tag to a module.<br>
+Format: <code>tagmod MODULE_CODE TAG_NAME</code></p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+If a tag with the given <code>TAG_NAME</code> does not exist, a new tag will automatically be created and tagged to the specified module.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>tagmod cs3230 exchange</code><br>
+Attaches the tag with name <em>exchange</em> to <em>CS3230</em>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="removing-a-tag-from-a-module-code-removemodtag-code"><a class="link" href="#removing-a-tag-from-a-module-code-removemodtag-code">Removing a tag from a module: <code>removemodtag</code></a></h4>
+<div class="paragraph">
+<p>Removes a tag from a module.<br>
+Format: <code>removemodtag MODULE_CODE TAG_NAME</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>removemodtag cs3230 exchange</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="removing-a-tag-from-all-modules-code-removeall-code"><a class="link" href="#removing-a-tag-from-all-modules-code-removeall-code">Removing a tag from all modules: <code>removeall</code></a></h4>
+<div class="paragraph">
+<p>Removes a tag from all modules that it is attached to.<br>
+Format: <code>removeall TAG_NAME</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>removeall exchange</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="deleting-tags-code-deletemodtag-code"><a class="link" href="#deleting-tags-code-deletemodtag-code">Deleting tags: <code>deletemodtag</code></a></h4>
+<div class="paragraph">
+<p>Deletes a tag completely and removes it from any module that it is attached to.<br>
+Format: <code>deletemodtag TAG_NAME</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Only user-created tags can be deleted, i.e. default tag cannot be deleted.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>deletemodtag exchange</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="viewing-modules-with-specific-tags-code-viewtagged-code"><a class="link" href="#viewing-modules-with-specific-tags-code-viewtagged-code">Viewing modules with specific tags : <code>viewtagged</code></a></h4>
+<div class="paragraph">
+<p>Shows all modules attached to all the specified tags.<br>
+Format: <code>viewtagged TAG_NAME &#8230;&#8203;</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>viewtagged completed</code><br>
+Shows all modules that are tagged as <em>completed</em>.</p>
+</li>
+<li>
+<p><code>viewtagged core completed</code><br>
+Shows all modules that are tagged as <em>core</em> and <em>completed</em>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="viewing-tags-for-a-specific-module-code-viewtags-code"><a class="link" href="#viewing-tags-for-a-specific-module-code-viewtags-code">Viewing tags for a specific module : <code>viewtags</code></a></h4>
+<div class="paragraph">
+<p>Shows all tags attached to the specified module.<br>
+Format: <code>viewtags MODULE_CODE</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>viewtags cs2030</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="removing-all-tags-from-the-study-plan-code-removeallmodtags-code"><a class="link" href="#removing-all-tags-from-the-study-plan-code-removeallmodtags-code">Removing all tags from the study plan : <code>removeallmodtags</code></a></h4>
+<div class="paragraph">
+<p>Removes all user-created tags in the entire study plan.<br>
+Format: <code>removeallmodtags</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="finding-modules-using-the-module-code-code-findmod-code"><a class="link" href="#finding-modules-using-the-module-code-code-findmod-code">Finding modules using the module code : <code>findmod</code></a></h4>
+<div class="paragraph">
+<p>Shows which semester the specified module is located at.<br>
+Format: <code>findmod MODULE_CODE</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>findmod cs1101s</code></p>
+</li>
+<li>
+<p><code>findmod cs2103</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="adding-priority-tags-to-a-study-plan-code-tagplan-code"><a class="link" href="#adding-priority-tags-to-a-study-plan-code-tagplan-code">Adding priority tags to a study plan : <code>tagplan</code></a></h4>
+<div class="paragraph">
+<p>Attaches a priority tag to the study plan.<br>
+Format: <code>tagplan PRIORITY_LEVEL STUDY_PLAN_ID</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>List of priority levels:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>HIGH</code><br></p>
+</li>
+<li>
+<p><code>MEDIUM</code><br></p>
+</li>
+<li>
+<p><code>LOW</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>tagplan high 1</code></p>
+</li>
+<li>
+<p><code>tagplan low 3</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="removing-priority-tags-from-study-plan-code-removeplantag-code"><a class="link" href="#removing-priority-tags-from-study-plan-code-removeplantag-code">Removing priority tags from study plan: <code>removeplantag</code></a></h4>
+<div class="paragraph">
+<p>Removes the priority tag from the study plan.<br>
+Format: <code>removeplantag PRIORITY_LEVEL STUDY_PLAN_ID</code></p>
+</div>
+<div class="paragraph">
+<p>Examples</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>removeplantag high 1</code></p>
+</li>
+<li>
+<p><code>removeplantag low 3</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="listing-study-plans-by-priority-code-listbypriority-code"><a class="link" href="#listing-study-plans-by-priority-code-listbypriority-code">Listing study plans by priority: <code>listbypriority</code></a></h4>
+<div class="paragraph">
+<p>Lists all study plans in the order of their priorities.<br>
+Format: <code>listbypriority</code></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="Design-Model"><a class="link" href="#Design-Model">Model component</a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ModelClassDiagram.png" alt="ModelClassDiagram">
+</div>
+<div class="title">Figure 1. Structure of the Model Component</div>
+</div>
+<div class="paragraph">
+<p><strong>API</strong> : <a href="{repoURL}/src/main/java/seedu/address/model/Model.java"><code>Model.java</code></a></p>
+</div>
+<div class="paragraph">
+<p>The <code>Model</code>,</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>stores a <code>UserPref</code> object that represents the user&#8217;s preferences.</p>
+</li>
+<li>
+<p>stores the module planner data.</p>
+</li>
+<li>
+<p>exposes an unmodifiable <code>ObservableList&lt;Person&gt;</code> that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.</p>
+</li>
+<li>
+<p>does not depend on any of the other three components.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+As a more OOP model, we can store a <code>Tag</code> list in <code>module planner</code>, which <code>Person</code> can reference. This would allow <code>module planner</code> to only require one <code>Tag</code> object per unique <code>Tag</code>, instead of each <code>Person</code> needing their own <code>Tag</code> object. An example of how such a model may look like is given below.<br>
+<br>
+<span class="image"><img src="../images/BetterModelClassDiagram.png" alt="BetterModelClassDiagram"></span>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="module-tagging-feature"><a class="link" href="#module-tagging-feature">Module Tagging Feature</a></h3>
+<div class="sect3">
+<h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
+<div class="paragraph">
+<p>The module tagging mechanism is facilitated by <code>UserTag</code>, <code>DefaultTag</code> and <code>UniqueTagList</code>.</p>
+</div>
+<div class="paragraph">
+<p><code>UserTag</code> and <code>DefaultTag</code> implement the <code>Tag</code> interface. The former represents user-created tags while the latter
+represents default tags of one of the types in <code>DefaultTagType</code>. The key difference between <code>UserTag</code> and <code>DefaultTag</code>
+is that the first is user-modifiable while the second is not and is essentially immutable. The operation
+<code>Tag#isDefault()</code> is implemented to differentiate between the two classes of <code>Tag</code>.</p>
+</div>
+<div class="paragraph">
+<p>Each <code>Tag</code> is stored in a <code>UniqueTagList</code>, which implements <code>Iterable&lt;Tag&gt;</code> and is stored internally in <code>Module</code> and
+<code>StudyPlan</code> as <code>tags</code>.  It represents a list of tags that can be of type <code>UserTag</code> or <code>DefaultTag</code> and enforces the
+uniqueness between the tags. Additionally, it implements the following operations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>UniqueTagList#addTag(Tag toAdd)</code>&#8201;&#8212;&#8201;Adds the given <code>Tag</code> to the list.</p>
+</li>
+<li>
+<p><code>UniqueTagList#removeTag(Tag toRemove)</code>&#8201;&#8212;&#8201;Removes the given <code>Tag</code> from the list.</p>
+</li>
+<li>
+<p><code>UniqueTagList#containsTagWithName(String tagName)</code>&#8201;&#8212;&#8201;Checks if the list contains a <code>Tag</code> with the given <code>tagName</code>.</p>
+</li>
+<li>
+<p><code>UniqueTagList#getTag(String tagName)</code>&#8201;&#8212;&#8201;Returns the <code>Tag</code> with the given <code>tagName</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario of the <code>UniqueTagList#addTag(Tag toAdd)</code> operation and how the module tagging
+mechanism behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user executes the <code>addtag MODULE_CODE TAG_NAME</code>. command to add a tag with the name <em>TAG_NAME</em> to the
+module with the module code <em>MODULE_CODE</em>.  A <code>toAdd</code> variable of type <code>Tag</code> and a boolean value <code>newTagCreated</code> is
+maintained during the execution of the command to represent the tag that is to be added and whether or not a new tag
+has been created respectively. The <code>addtag</code> command calls <code>Model#activeSpContainsTag(String tagName)</code> to check if the
+active study plan contains a tag with the given <code>tagName</code>. This method accesses the active study plan in the module
+planner and checks if such a tag exists in its <code>UniqueTagList</code>. There are two possible scenarios that are described
+in steps 2 and 3.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. If such a tag does not exist, a new <code>UserTag</code> is created and is assigned to <code>toAdd</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/TagModuleCommandDiagram1.png" alt="TagModuleCommandDiagram1">
+</div>
+</div>
+<div class="paragraph">
+<p>Step 3. If such a tag exists, <code>Model#getTagFromActiveSp(String tagName)</code> is called. The <code>Tag</code> in the <code>UniqueTagList</code>
+of the active study plan is returned and assigned to <code>toAdd</code>. <code>Tag#isDefault()</code> is called to check if the returned <code>Tag</code>
+is a <code>DefaultTag</code>. If so, a <code>CommandException</code> is thrown as default tags cannot be added by users.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/TagModuleCommandDiagram2.png" alt="TagModuleCommandDiagram2">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+We only have to handle the case of adding default tags in this step and not in the previous step as default tags are
+already initialised into the study plan and hence <code>Model#activeSpContainsTag(String tagName)</code> will always return true
+if the given name is a default tag name.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Step 4. <code>Model#addTagToActiveSp(UserTag toAdd, String moduleCode)</code> is called to add <code>toAdd</code> to the module with the
+given module code. This method accesses the module with the given <code>moduleCode</code>, which will call <code>Module#addTag(Tag tag)</code>
+to add <code>toAdd</code> to its <code>UniqueTagList</code>. In the case that <code>toAdd</code> already exists in the <code>UniqueTagList</code>, it will not be
+added, and the method will return <code>false</code>. (Step 5)</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The above scenario should not occur if a new tag had been created as described in Step 2.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Otherwise, the <code>toAdd</code> will be added and the method will return <code>true</code>. (Step 6)</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/TagModuleCommandDiagram3.png" alt="TagModuleCommandDiagram3">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/TagModuleCommandDiagram4.png" alt="TagModuleCommandDiagram4">
+</div>
+</div>
+<div class="paragraph">
+<p>Step 5. If the tag had not been added, it would indicate that an essentially identical tag had already been attached to
+the target module. Hence, a <code>CommandException</code> will be thrown.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<code>Tag</code> has a method <code>Tag#isSameTag</code> to identify essentially identical tags by comparing the tag names for <code>UserTag</code>
+(this is case-insensitive) and the <code>DefaultTagType</code> for <code>DefaultTag</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Step 6: If the tag had been added, a <code>CommandResult</code> with a success message is returned.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram and activity diagram show how the <code>addtag</code> command works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/TagModuleCommandSequenceDiagram.png" alt="TagModuleCommandSequenceDiagram">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/TagModuleCommandActivityDiagram.png" alt="TagModuleCommandActivityDiagram">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-tags-are-assigned-to-modules"><a class="link" href="#aspect-how-tags-are-assigned-to-modules">Aspect: How tags are assigned to modules</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> A tag with a given name is only created once. Adding a tag to a module simply
+creates a reference from the module to the existing tag.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Reduces memory usage and makes duplication checking easier (simply check the <code>UniqueTagList</code> of the <code>StudyPlan</code>
+instead of checking the list in every <code>Module</code>).</p>
+</li>
+<li>
+<p>Cons: More difficult to implement and requires searching and reassignment of pointers every time the command is
+executed.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> A new tag is created every time a tag is added even if there is already an existing tag with the
+same name.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easier to implement as no searching of previous tags need to be done.</p>
+</li>
+<li>
+<p>Cons: Increases memory usage and duplication checking might be more difficult (have to check the <code>UniqueTagList</code> of
+every <code>Module</code> instead of just the one in the <code>StudyPlan</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-uc04-tag-a-module"><a class="link" href="#use-case-uc04-tag-a-module">Use case: UC04 - Tag a module</a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Student requests to tag a module</p>
+</li>
+<li>
+<p>ModBuddy requests student to enter a tag name.</p>
+</li>
+<li>
+<p>ModBuddy displays changes to study plan.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. ModBuddy detects that the module entered does not exist.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1a1. ModBuddy prompts Student to enter a correct module code</p>
+</li>
+<li>
+<p>1a2. User enters new module.</p>
+<div class="paragraph">
+<p>Steps 1a1-1a2 are repeated until the data entered are correct.</p>
+</div>
+<div class="paragraph">
+<p>Use case resumes from step 3.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>2a. ModBuddy detects that the module already has the tag.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>2a1. ModBuddy does not add a new tag.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="project-powerpointlabs"><a class="link" href="#project-powerpointlabs">PROJECT: PowerPointLabs</a></h2>
+<div class="sectionbody">
+<hr>
+<div class="paragraph">
+<p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-06 11:04:39 UTC</div></div></div></body></html>
