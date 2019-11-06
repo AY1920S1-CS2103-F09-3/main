@@ -9,7 +9,6 @@ import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
 import seedu.address.logic.commands.gui.CollapseCommand;
-import seedu.address.logic.commands.gui.ExpandCommand;
 import seedu.address.logic.parser.ArgumentMultimap;
 import seedu.address.logic.parser.ArgumentTokenizer;
 import seedu.address.logic.parser.Parser;
@@ -43,9 +42,9 @@ public class CollapseCommandParser implements Parser<CollapseCommand> {
         if (!arePatternsPresent(argMultimap, SEMESTER_PATTERN)
                 || argMultimap.getNumberOfArgsForPattern(SEMESTER_PATTERN) != 1) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
-                    ExpandCommand.MESSAGE_USAGE));
+                    CollapseCommand.MESSAGE_USAGE));
         }
-        SemesterName semesterName = ParserUtil.parseSemester(argMultimap.getValue(SEMESTER_PATTERN).get());
+        SemesterName semesterName = ParserUtil.parseSemester(args);
 
         return new CollapseCommand(semesterName);
     }
