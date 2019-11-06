@@ -586,9 +586,11 @@
     "index" : 3,
     "semesters" : [ {
       "semesterName" : "Y1S1",
-      "isBlocked" : true,
-      "reasonForBlocked" : "",
-      "modules" : [ ],
+      "isBlocked" : false,
+      "reasonForBlocked" : null,
+      "modules" : [ {
+        "moduleCode" : "CS1101S"
+      } ],
       "isExpanded" : false
     }, {
       "semesterName" : "Y1S2",
@@ -1782,5 +1784,5 @@
       } ]
     } ]
   },
-  "currentSemester" : "Y1S2"
+  "currentSemester" : "Y1S1"
 }
