@@ -238,6 +238,8 @@ Example:
 
 * `collapse y1s1`
 
+tag::cli[]
+
 === Command Line Interface
 
 ==== Assigning a module to a given semester: `addmod`
@@ -301,8 +303,11 @@ Chain commands together for greater efficiency. The commands, if different, are 
 Format: `COMMAND_1 && COMMAND_2 && …` +
 Examples:
 
-* `addmod y1s1 CS1101S CS1231 MA1521`
 * `movemodule CS2105 y2s1 y2s2 && addmod CS2106 y2s2`
+
+
+end::cli[]
+tag::datamanagement[]
 
 === Data classification and management
 ==== Viewing default tags : `viewdefaulttags`
