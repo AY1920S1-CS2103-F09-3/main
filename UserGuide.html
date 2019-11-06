@@ -15,11 +15,21 @@
 <li><a href="#quick-start">2. Quick Start</a></li>
 <li><a href="#Features">3. Features</a>
 <ul class="sectlevel2">
-<li><a href="#storage-and-version-tracking">3.1. Storage and Version Tracking</a></li>
-<li><a href="#help-and-handling-the-gui">3.2. Help and handling the GUI</a></li>
-<li><a href="#command-line-interface">3.3. Command Line Interface</a></li>
-<li><a href="#data-classification-and-management">3.4. Data classification and management</a></li>
-<li><a href="#verification">3.5. Verification</a></li>
+<li><a href="#basic">3.1. Basic</a></li>
+<li><a href="#module">3.2. Module</a></li>
+<li><a href="#semester">3.3. Semester</a></li>
+<li><a href="#tagging">3.4. Tagging</a></li>
+<li><a href="#study-plan">3.5. Study Plan</a></li>
+<li><a href="#version-tracking">3.6. Version Tracking</a></li>
+<li><a href="#gui">3.7. GUI</a></li>
+</ul>
+</li>
+<li><a href="#upcoming-features-coming-in-v2-0">4. Upcoming Features [coming in v2.0]</a>
+<ul class="sectlevel2">
+<li><a href="#basic-2">4.1. Basic</a></li>
+<li><a href="#semester-2">4.2. Semester</a></li>
+<li><a href="#module-2">4.3. Module</a></li>
+<li><a href="#study-plan-2">4.4. Study Plan</a></li>
 </ul>
 </li>
 </ul>
@@ -96,238 +106,152 @@ or as <code>newplan Algo and Graphics</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="storage-and-version-tracking"><a class="link" href="#storage-and-version-tracking">3.1. Storage and Version Tracking</a></h3>
+<h3 id="basic"><a class="link" href="#basic">3.1. Basic</a></h3>
 <div class="sect3">
-<h4 id="creating-a-new-study-plan-code-newplan-code"><a class="link" href="#creating-a-new-study-plan-code-newplan-code">3.1.1. Creating a new study plan: <code>newplan</code></a></h4>
+<h4 id="general-help-code-help-code"><a class="link" href="#general-help-code-help-code">3.1.1. General Help: <code>help</code></a></h4>
 <div class="paragraph">
-<p>Creates a new study plan with an optional title. The title should contain only ASCII characters, and should not be
-longer than 20 characters.</p>
+<p>Provides a list of possible commands the user can type.<br>
+Format: <code>help</code></p>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Each study plan is assigned a unique ID upon its creation. This ID will remain the same throughout
-the life of the study plan.
-</td>
-</tr>
-</table>
 </div>
+<div class="sect3">
+<h4 id="help-for-a-specific-command-code-help-code"><a class="link" href="#help-for-a-specific-command-code-help-code">3.1.2. Help for a specific command: <code>help</code></a></h4>
 <div class="paragraph">
-<p>Format: <code>newplan [TITLE]</code><br>
+<p>Provides help for a specific command.<br>
+Format: <code>help COMMAND</code><br>
+Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>help newplan</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="autocompleting-code-tab-code"><a class="link" href="#autocompleting-code-tab-code">3.1.3. Autocompleting: <code>tab</code></a></h4>
+<div class="paragraph">
+<p>When the user presses <code>tab</code>, the command word, or module code, or semester,
+or tag name will be autocompleted
+If there is only one possible completion, it will be filled immediately.
+If there is more than one possible completion, a menu of possible autocompletions
+is drawn that can be selected with the up and down buttons.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="undo-ing-the-previous-command-code-undo-code"><a class="link" href="#undo-ing-the-previous-command-code-undo-code">3.1.4. Undo-ing the previous command: <code>undo</code></a></h4>
+<div class="paragraph">
+<p>Undo the previous command. The state of the application will revert back to that before the previous command. This command cannot undo itself.<br>
+Format: <code>undo</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="redo-ing-the-previous-undone-command-code-redo-code"><a class="link" href="#redo-ing-the-previous-undone-command-code-redo-code">3.1.5. Redo-ing the previous undone command: <code>redo</code></a></h4>
+<div class="paragraph">
+<p>Redo the previous undone command. The state of the application will revert back to that before the undo. This command cannot redo itself.<br>
+Format:  <code>redo</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="error-messages"><a class="link" href="#error-messages">3.1.6. Error messages</a></h4>
+<div class="paragraph">
+<p>Displays a useful error message if the input is invalid. For example,
+it should highlight wrong commands, wrong numbers of arguments, or arguments in the wrong format.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="module"><a class="link" href="#module">3.2. Module</a></h3>
+<div class="sect3">
+<h4 id="assigning-a-module-to-a-given-semester-code-addmod-code"><a class="link" href="#assigning-a-module-to-a-given-semester-code-addmod-code">3.2.1. Assigning a module to a given semester: <code>addmod</code></a></h4>
+<div class="paragraph">
+<p>Assigns the specified module to a given semester of the current study plan.<br>
+Format:  <code>addmod SEMESTER MODULE &#8230;&#8203;</code><br>
 Examples:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>newplan</code></p>
+<p><code>addmod y1s1 CS1101s</code></p>
 </li>
 <li>
-<p><code>newplan noc half year</code></p>
+<p><code>addmod y2s2 CS3244 CS3245 CS3233</code></p>
 </li>
 <li>
-<p><code>newplan minor in maths</code></p>
+<p><code>addmod y1s1 ue</code></p>
+</li>
+<li>
+<p><code>addmod y1s2 ue:GER1000</code></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="deleting-a-study-plan-code-removeplan-code"><a class="link" href="#deleting-a-study-plan-code-removeplan-code">3.1.2. Deleting a study plan: <code>removeplan</code></a></h4>
+<h4 id="removing-a-module-from-a-given-semester-code-removemod-code"><a class="link" href="#removing-a-module-from-a-given-semester-code-removemod-code">3.2.2. Removing a module from a given semester. <code>removemod</code></a></h4>
 <div class="paragraph">
-<p>Deletes a study plan with a given ID.<br>
-Format: <code>removeplan PLAN_NUMBER</code><br>
-Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>removeplan 4</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="committing-edits-to-a-study-plan-code-commit-code"><a class="link" href="#committing-edits-to-a-study-plan-code-commit-code">3.1.3. Committing edits to a study plan: <code>commit</code></a></h4>
-<div class="paragraph">
-<p>Saves changes to a study plan with a short commit message. Each commit is assigned an index of the format
-<code>[PLAN_ID].[COMMIT_INDEX]</code> such as <code>4.0</code>, where <code>PLAN_ID</code> is the study plan ID associated with the commit, and <code>COMMIT_INDEX</code>
-depends on the position of this commit in the commit list of this study plan. The commit index may change
-(shift forward) if another commit prior to it gets deleted.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Even without committing, the module planner is automatically saved to storage after every command is
-executed successfully. However, commits allow the user to possibly revert to a previous state of the study plan in the future.
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-The user is allowed, but not recommended, to commit a study plan even when there are no changes
-since the previous commit.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Format: <code>commit SHORT_MESSAGE</code><br>
+<p>Removes the specified module to a given semester of the current study plan.<br>
+Format: <code>removemod SEMESTER MODULE &#8230;&#8203;</code><br>
 Examples:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>commit planned until y2s2</code></p>
+<p><code>removemod y1s1 CS1101S</code></p>
 </li>
 <li>
-<p><code>commit haven’t added UEs</code></p>
+<p><code>removemod y2s2 CS3244</code></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="checking-commit-history-code-history-code"><a class="link" href="#checking-commit-history-code-history-code">3.1.4. Checking commit history: <code>history</code></a></h4>
+<h4 id="finding-modules-using-the-module-code-code-findmod-code"><a class="link" href="#finding-modules-using-the-module-code-code-findmod-code">3.2.3. Finding modules using the module code : <code>findmod</code></a></h4>
 <div class="paragraph">
-<p>Shows all commit history of the current study plan.<br>
-Format: <code>history</code></p>
+<p>Shows which semester the specified module is located at.<br>
+Format: <code>findmod MODULE_CODE</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>findmod cs1101s</code></p>
+</li>
+<li>
+<p><code>findmod cs2103</code></p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="viewing-a-commit-code-viewcommit-code"><a class="link" href="#viewing-a-commit-code-viewcommit-code">3.1.5. Viewing a commit: <code>viewcommit</code></a></h4>
+<h4 id="viewing-description-of-a-module-code-description-code"><a class="link" href="#viewing-description-of-a-module-code-description-code">3.2.4. Viewing description of a module: <code>description</code></a></h4>
 <div class="paragraph">
-<p>Shows the version of the current study plan for a particular commit. This does not create a new commit, nor does it
-return the study plan to a previous version. The commit will be displayed as a simplified study plan.<br></p>
-</div>
-<div class="paragraph">
-<p>Format: <code>viewcommit COMMIT_NUMBER</code><br>
+<p>Shows the description of a particular module, including its prerequisites.
+Only computer-science related modules will have these descriptions, and not general modules nor electives.<br>
+Format: <code>description MODULE_CODE</code><br>
 Example:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>viewcommit 1.1</code><br>
-This allows the user to view commit 1 of study plan 1 (which is currently active).</p>
+<p><code>description CS2103T</code></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="reverting-to-a-commit-code-revert-code"><a class="link" href="#reverting-to-a-commit-code-revert-code">3.1.6. Reverting to a commit: <code>revert</code></a></h4>
+<h4 id="display-for-invalid-modules"><a class="link" href="#display-for-invalid-modules">3.2.5. Display for invalid modules</a></h4>
 <div class="paragraph">
-<p>Reverts to the version of the current study plan for a particular commit. This creates a new "Revert to" commit and
-returns the current active study plan back to the state in the specified commit.</p>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-The user is allowed, but not recommended, to revert to another "Revert to" commit. This will create a
-long chain of "Revert to Revert to &#8230;&#8203;" commit messages.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Format: <code>revert COMMIT_NUMBER</code><br>
-Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>revert 1.1</code><br>
-Suppose there are commits <code>1.0</code>, <code>1.1</code>, <code>1.2</code>, and <code>1.3</code>. This allows the user to revert to commit 1 of study plan 1,
-creating a new commit called <code>1.4: Revert to "COMMIT_MESSAGE_OF_1.1"</code>.</p>
-</li>
-</ul>
+<p>Highlights a module in red if it doesn&#8217;t satisfy any of its prerequisites, displaying these required modules.</p>
 </div>
 </div>
+</div>
+<div class="sect2">
+<h3 id="semester"><a class="link" href="#semester">3.3. Semester</a></h3>
 <div class="sect3">
-<h4 id="removing-a-commit-code-removecommit-code"><a class="link" href="#removing-a-commit-code-removecommit-code">3.1.7. Removing a commit: <code>removecommit</code></a></h4>
-<div class="paragraph">
-<p>Removes a commit in the current active study plan specified by the commit number.<br>
-Format: <code>removecommit COMMIT_NUMBER</code><br>
-Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>removecommit 2.2</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="viewing-another-study-plan-code-viewplan-code"><a class="link" href="#viewing-another-study-plan-code-viewplan-code">3.1.8. Viewing another study plan: <code>viewplan</code></a></h4>
-<div class="paragraph">
-<p>Shows the study plan with a given ID. The specified study plan will be displayed on the left panel of the GUI
-as a simplified study plan. This does not activate that study plan, so it is for viewing only.<br></p>
-</div>
-<div class="paragraph">
-<p>Format: <code>viewplan PLAN_NUMBER</code><br>
-Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>viewplan 3</code><br>
-This allows the user to view the study plan with an ID of 3.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="setting-another-study-plan-as-active-code-activate-code"><a class="link" href="#setting-another-study-plan-as-active-code-activate-code">3.1.9. Setting another study plan as active: <code>activate</code></a></h4>
-<div class="paragraph">
-<p>Replaces the current study plan with the specified study plan as the active one.<br>
-Format: <code>activate PLAN_NUMBER</code><br>
-Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>activate 2</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="moving-a-semester-to-a-study-plan-code-movesem-code-code-coming-in-v2-0-code"><a class="link" href="#moving-a-semester-to-a-study-plan-code-movesem-code-code-coming-in-v2-0-code">3.1.10. Moving a semester to a study plan: <code>movesem</code> <code>[coming in v2.0]</code></a></h4>
-<div class="paragraph">
-<p>Moves a semester of modules to another study plan with a specified ID.<br></p>
-</div>
-<div class="paragraph">
-<p>Format: <code>movesem SEMESTER SOURCE_PLAN DESTINATION_PLAN</code><br>
-Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>movesem y2s2 1 3</code></p>
-</li>
-<li>
-<p><code>movesem y3s1 2 1</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="adding-a-semester-code-addsem-code"><a class="link" href="#adding-a-semester-code-addsem-code">3.1.11. Adding a semester: <code>addsem</code></a></h4>
+<h4 id="adding-a-semester-code-addsem-code"><a class="link" href="#adding-a-semester-code-addsem-code">3.3.1. Adding a semester: <code>addsem</code></a></h4>
 <div class="paragraph">
 <p>Adds a <em>non-mainstream semester</em> (i.e. special term or Year 5 semester) to the current active study plan.</p>
 </div>
@@ -357,7 +281,7 @@ Example:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="removing-a-semester-from-a-study-plan-code-removesem-code"><a class="link" href="#removing-a-semester-from-a-study-plan-code-removesem-code">3.1.12. Removing a semester from a study plan: <code>removesem</code></a></h4>
+<h4 id="removing-a-semester-from-a-study-plan-code-removesem-code"><a class="link" href="#removing-a-semester-from-a-study-plan-code-removesem-code">3.3.2. Removing a semester from a study plan: <code>removesem</code></a></h4>
 <div class="paragraph">
 <p>Deletes all the modules in the specified semester in the current active study plan, after which that
 semester will contain no modules. If the semester to be deleted is a <em>mainstream semester</em>  (i.e. not a special term
@@ -375,193 +299,6 @@ Examples:</p>
 </li>
 <li>
 <p><code>removesem y1st2</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="viewing-description-of-a-module-code-description-code"><a class="link" href="#viewing-description-of-a-module-code-description-code">3.1.13. Viewing description of a module: <code>description</code></a></h4>
-<div class="paragraph">
-<p>Shows the description of a particular module, including its prerequisites.
-Only computer-science related modules will have these descriptions, and not general modules nor electives.<br>
-Format: <code>description MODULE_CODE</code><br>
-Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>description CS2103T</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="editing-the-title-of-current-study-plan-code-title-code"><a class="link" href="#editing-the-title-of-current-study-plan-code-title-code">3.1.14. Editing the title of current study plan: <code>title</code></a></h4>
-<div class="paragraph">
-<p>Changes the title of the current active study plan. The title should contain only ASCII characters, and should not be
-longer than 20 characters.<br></p>
-</div>
-<div class="paragraph">
-<p>Format: <code>title PLAN_TITLE</code><br>
-Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>title Algo and Graphics</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="setting-default-study-plan-code-default-code"><a class="link" href="#setting-default-study-plan-code-default-code">3.1.15. Setting default study plan: <code>default</code></a></h4>
-<div class="paragraph">
-<p>Generates a study plan with pre-populated modules according to the recommended study plan for a Year one CS student.<br>
-Format: <code>default</code></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="listing-all-study-plans-code-list-code"><a class="link" href="#listing-all-study-plans-code-list-code">3.1.16. Listing all study plans: <code>list</code></a></h4>
-<div class="paragraph">
-<p>Lists all the study plans that the user has created and has not deleted.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Each study plan is assigned a unique ID upon its creation. This ID will remain the same throughout
-the life of the study plan.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Format: <code>list</code></p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="help-and-handling-the-gui"><a class="link" href="#help-and-handling-the-gui">3.2. Help and handling the GUI</a></h3>
-<div class="sect3">
-<h4 id="general-help-code-help-code"><a class="link" href="#general-help-code-help-code">3.2.1. General Help: <code>help</code></a></h4>
-<div class="paragraph">
-<p>Provides a list of possible commands the user can type.<br>
-Format: <code>help</code></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="help-for-a-specific-command-code-help-code"><a class="link" href="#help-for-a-specific-command-code-help-code">3.2.2. Help for a specific command: <code>help</code></a></h4>
-<div class="paragraph">
-<p>Provides help for a specific command.<br>
-Format: <code>help COMMAND</code><br>
-Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>help newplan</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="autocompleting-code-tab-code"><a class="link" href="#autocompleting-code-tab-code">3.2.3. Autocompleting: <code>tab</code></a></h4>
-<div class="paragraph">
-<p>When the user presses <code>tab</code>, the command word, or module code, or semester,
-or tag name will be autocompleted.
-If there is only one possible completion, it will be filled immediately.
-If there is more than one possible completion, a menu of possible autocompletions
-is drawn that can be selected with the up and down buttons.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="expanding-a-semester-code-expand-code"><a class="link" href="#expanding-a-semester-code-expand-code">3.2.4. Expanding a semester: <code>expand</code></a></h4>
-<div class="paragraph">
-<p>Expands a semester so that more details can be seen.<br>
-Format: <code>expand SEMESTER</code><br>
-Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>expand y1s1</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="expanding-all-semesters-code-expandall-code"><a class="link" href="#expanding-all-semesters-code-expandall-code">3.2.5. Expanding all semesters: <code>expandall</code></a></h4>
-<div class="paragraph">
-<p>Expands all semesters so that more details can be seen.<br>
-Format: <code>expandall</code></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="collapsing-a-semester-code-collapse-code"><a class="link" href="#collapsing-a-semester-code-collapse-code">3.2.6. Collapsing a semester: <code>collapse</code></a></h4>
-<div class="paragraph">
-<p>Collapses a semester so that most details are hidden.<br>
-Format: <code>collapse SEMESTER</code><br>
-Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>collapse y1s1</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="collapsing-all-semesters-code-collapseall-code"><a class="link" href="#collapsing-all-semesters-code-collapseall-code">3.2.7. Collapsing all semesters: <code>collapseall</code></a></h4>
-<div class="paragraph">
-<p>Collapses all semesters so that most details are hidden.<br>
-Format: <code>collapseall</code></p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="command-line-interface"><a class="link" href="#command-line-interface">3.3. Command Line Interface</a></h3>
-<div class="sect3">
-<h4 id="assigning-a-module-to-a-given-semester-code-addmod-code"><a class="link" href="#assigning-a-module-to-a-given-semester-code-addmod-code">3.3.1. Assigning a module to a given semester: <code>addmod</code></a></h4>
-<div class="paragraph">
-<p>Assigns the specified module to a given semester of the current study plan.<br>
-Format:  <code>addmod SEMESTER MODULE &#8230;&#8203;</code><br>
-Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>addmod y1s1 CS1101s</code></p>
-</li>
-<li>
-<p><code>addmod y2s2 CS3244 CS3245 CS3233</code></p>
-</li>
-<li>
-<p><code>addmod y1s1 ue</code></p>
-</li>
-<li>
-<p><code>addmod y1s2 ue:GER1000</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="removing-a-module-from-a-given-semester-code-removemod-code"><a class="link" href="#removing-a-module-from-a-given-semester-code-removemod-code">3.3.2. Removing a module from a given semester. <code>removemod</code></a></h4>
-<div class="paragraph">
-<p>Removes the specified module to a given semester of the current study plan.<br>
-Format: <code>removemod SEMESTER MODULE &#8230;&#8203;</code><br>
-Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>removemod y1s1 CS1101S</code></p>
-</li>
-<li>
-<p><code>removemod y2s2 CS3244</code></p>
 </li>
 </ul>
 </div>
@@ -589,76 +326,33 @@ Format:  <code>block SEMESTER [REASON]</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="undo-ing-the-previous-command-code-undo-code"><a class="link" href="#undo-ing-the-previous-command-code-undo-code">3.3.5. Undo-ing the previous command: <code>undo</code></a></h4>
+<h4 id="unblocking-the-given-semester-code-unblock-code"><a class="link" href="#unblocking-the-given-semester-code-unblock-code">3.3.5. Unblocking the given semester: <code>unblock</code></a></h4>
 <div class="paragraph">
-<p>Undo the previous command. The state of the application will revert back to that before the previous command. This command cannot undo itself.<br>
-Format: <code>undo</code></p>
+<p>Unblock the given semester.<br>
+Format:  <code>unblock SEMESTER</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="redo-ing-the-previous-undone-command-code-redo-code"><a class="link" href="#redo-ing-the-previous-undone-command-code-redo-code">3.3.6. Redo-ing the previous undone command: <code>redo</code></a></h4>
+<h4 id="viewing-modules-that-can-be-taken-in-a-given-semester-code-validmods-code"><a class="link" href="#viewing-modules-that-can-be-taken-in-a-given-semester-code-validmods-code">3.3.6. Viewing modules that can be taken in a given semester : <code>validmods</code></a></h4>
 <div class="paragraph">
-<p>Redo the previous undone command. The state of the application will revert back to that before the undo. This command cannot redo itself.<br>
-Format:  <code>redo</code></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="naming-a-ue-from-a-semester-code-coming-in-v2-0-code"><a class="link" href="#naming-a-ue-from-a-semester-code-coming-in-v2-0-code">3.3.7. Naming a UE from a semester. <code>[coming in v2.0]</code></a></h4>
-<div class="paragraph">
-<p>Names a UE from the given semester with the given module name. This feature is purely for aesthetic purposes and has no functional implications.</p>
+<p>Shows all the modules that can be taken in a given semester, based only on whether its prerequisites have been met.<br>
+This semester need not necessarily exist in the module planner for you to view its valid modules.<br>
+Format: <code>validmods SEMESTER</code></p>
 </div>
 <div class="paragraph">
-<p>Format: <code>nameue SEMESTER NAME</code><br>
-Examples:</p>
+<p>Example:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>nameue y1s1 GER1000</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="moving-a-module-from-one-semester-to-another-code-coming-in-v2-0-code"><a class="link" href="#moving-a-module-from-one-semester-to-another-code-coming-in-v2-0-code">3.3.8. Moving a module from one semester to another. <code>[coming in v2.0]</code></a></h4>
-<div class="paragraph">
-<p>Moves a given module from a source semester to a destination semester, as specified.<br>
-Format: <code>move MODULE SEMESTER_SRC SEMESTER_DEST</code><br>
-Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>move CS3243 y2s1 y2s2</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="declaring-a-focus-area-code-coming-in-v2-0-code"><a class="link" href="#declaring-a-focus-area-code-coming-in-v2-0-code">3.3.9. Declaring a focus area: <code>[coming in v2.0]</code></a></h4>
-<div class="paragraph">
-<p>Declares the given focus area as one of the focus areas of the study plan. This means that the requirements of the focus area has to be met to be eligible for graduation.<br>
-Format: <code>declarefocusarea FOCUS_AREA</code></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="chaining-commands-code-coming-in-v2-0-code"><a class="link" href="#chaining-commands-code-coming-in-v2-0-code">3.3.10. Chaining commands <code>[coming in v2.0]</code></a></h4>
-<div class="paragraph">
-<p>Chain commands together for greater efficiency. The commands, if different, are separated by a ‘&amp;&amp;’. ‘&amp;&amp;’ is not needed if the command is the same.<br>
-Format: <code>COMMAND_1 &amp;&amp; COMMAND_2 &amp;&amp; …</code><br>
-Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>movemodule CS2105 y2s1 y2s2 &amp;&amp; addmod CS2106 y2s2</code></p>
+<p><code>validmods y2s1</code></p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="data-classification-and-management"><a class="link" href="#data-classification-and-management">3.4. Data classification and management</a></h3>
+<h3 id="tagging"><a class="link" href="#tagging">3.4. Tagging</a></h3>
 <div class="sect3">
 <h4 id="viewing-default-tags-code-viewdefaulttags-code"><a class="link" href="#viewing-default-tags-code-viewdefaulttags-code">3.4.1. Viewing default tags : <code>viewdefaulttags</code></a></h4>
 <div class="paragraph">
@@ -706,47 +400,10 @@ Format: <code>viewdefaulttags</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="viewing-all-tags-code-viewallmodtags-code"><a class="link" href="#viewing-all-tags-code-viewallmodtags-code">3.4.2. Viewing all tags : <code>viewallmodtags</code></a></h4>
-<div class="paragraph">
-<p>Shows all tag types.<br>
-Format: <code>viewallmodtags</code></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="renaming-an-existing-tag-code-renamemodtag-code"><a class="link" href="#renaming-an-existing-tag-code-renamemodtag-code">3.4.3. Renaming an existing tag : <code>renamemodtag</code></a></h4>
-<div class="paragraph">
-<p>Renames a tag.<br>
-Format: <code>renamemodtag ORIGINAL_TAG_NAME NEW_TAG_NAME</code></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Only user-created tags can be renamed, i.e. default tag cannot be renamed.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>renamemodtag exchange sep</code><br>
-Renames the tag name from <em>exchange</em> to <em>sep</em>.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="tagging-modules-code-tagmod-code"><a class="link" href="#tagging-modules-code-tagmod-code">3.4.4. Tagging modules : <code>tagmod</code></a></h4>
+<h4 id="tagging-modules-code-addtag-code"><a class="link" href="#tagging-modules-code-addtag-code">3.4.2. Tagging modules : <code>addtag</code></a></h4>
 <div class="paragraph">
 <p>Attaches a tag to a module.<br>
-Format: <code>tagmod MODULE_CODE TAG_NAME</code></p>
+Format: <code>addtag MODULE_CODE TAG_NAME</code></p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -766,51 +423,17 @@ If a tag with the given <code>TAG_NAME</code> does not exist, a new tag will aut
 <div class="ulist">
 <ul>
 <li>
-<p><code>tagmod cs3230 exchange</code><br>
+<p><code>addtag cs3230 exchange</code><br>
 Attaches the tag with name <em>exchange</em> to <em>CS3230</em>.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="removing-a-tag-from-a-module-code-removemodtag-code"><a class="link" href="#removing-a-tag-from-a-module-code-removemodtag-code">3.4.5. Removing a tag from a module: <code>removemodtag</code></a></h4>
-<div class="paragraph">
-<p>Removes a tag from a module.<br>
-Format: <code>removemodtag MODULE_CODE TAG_NAME</code></p>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>removemodtag cs3230 exchange</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="removing-a-tag-from-all-modules-code-removeall-code"><a class="link" href="#removing-a-tag-from-all-modules-code-removeall-code">3.4.6. Removing a tag from all modules: <code>removeall</code></a></h4>
-<div class="paragraph">
-<p>Removes a tag from all modules that it is attached to.<br>
-Format: <code>removeall TAG_NAME</code></p>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>removeall exchange</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="deleting-tags-code-deletemodtag-code"><a class="link" href="#deleting-tags-code-deletemodtag-code">3.4.7. Deleting tags: <code>deletemodtag</code></a></h4>
+<h4 id="deleting-tags-code-deletetag-code"><a class="link" href="#deleting-tags-code-deletetag-code">3.4.3. Deleting tags: <code>deletetag</code></a></h4>
 <div class="paragraph">
 <p>Deletes a tag completely and removes it from any module that it is attached to.<br>
-Format: <code>deletemodtag TAG_NAME</code></p>
+Format: <code>deletetag TAG_NAME</code></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -830,13 +453,67 @@ Only user-created tags can be deleted, i.e. default tag cannot be deleted.
 <div class="ulist">
 <ul>
 <li>
-<p><code>deletemodtag exchange</code></p>
+<p><code>deletetag exchange</code></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="viewing-modules-with-specific-tags-code-viewtagged-code"><a class="link" href="#viewing-modules-with-specific-tags-code-viewtagged-code">3.4.8. Viewing modules with specific tags : <code>viewtagged</code></a></h4>
+<h4 id="removing-a-tag-from-a-module-code-removetag-code"><a class="link" href="#removing-a-tag-from-a-module-code-removetag-code">3.4.4. Removing a tag from a module: <code>removetag</code></a></h4>
+<div class="paragraph">
+<p>Removes a tag from a module.<br>
+Format: <code>removetag MODULE_CODE TAG_NAME</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>removetag cs3230 exchange</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="viewing-all-tags-code-viewalltags-code"><a class="link" href="#viewing-all-tags-code-viewalltags-code">3.4.5. Viewing all tags : <code>viewalltags</code></a></h4>
+<div class="paragraph">
+<p>Shows all tag types.<br>
+Format: <code>viewalltags</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="renaming-an-existing-tag-code-renametag-code"><a class="link" href="#renaming-an-existing-tag-code-renametag-code">3.4.6. Renaming an existing tag : <code>renametag</code></a></h4>
+<div class="paragraph">
+<p>Renames a tag.<br>
+Format: <code>renametag ORIGINAL_TAG_NAME NEW_TAG_NAME</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Only user-created tags can be renamed, i.e. default tag cannot be renamed.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>renametag exchange sep</code><br>
+Renames the tag name from <em>exchange</em> to <em>sep</em>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="viewing-modules-with-specific-tags-code-viewtagged-code"><a class="link" href="#viewing-modules-with-specific-tags-code-viewtagged-code">3.4.7. Viewing modules with specific tags : <code>viewtagged</code></a></h4>
 <div class="paragraph">
 <p>Shows all modules attached to all the specified tags.<br>
 Format: <code>viewtagged TAG_NAME &#8230;&#8203;</code></p>
@@ -858,7 +535,7 @@ Shows all modules that are tagged as <em>core</em> and <em>completed</em>.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="viewing-tags-for-a-specific-module-code-viewtags-code"><a class="link" href="#viewing-tags-for-a-specific-module-code-viewtags-code">3.4.9. Viewing tags for a specific module : <code>viewtags</code></a></h4>
+<h4 id="viewing-tags-for-a-specific-module-code-viewtags-code"><a class="link" href="#viewing-tags-for-a-specific-module-code-viewtags-code">3.4.8. Viewing tags for a specific module : <code>viewtags</code></a></h4>
 <div class="paragraph">
 <p>Shows all tags attached to the specified module.<br>
 Format: <code>viewtags MODULE_CODE</code></p>
@@ -875,37 +552,153 @@ Format: <code>viewtags MODULE_CODE</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="removing-all-tags-from-the-study-plan-code-removeallmodtags-code"><a class="link" href="#removing-all-tags-from-the-study-plan-code-removeallmodtags-code">3.4.10. Removing all tags from the study plan : <code>removeallmodtags</code></a></h4>
+<h4 id="removing-all-tags-from-the-study-plan-code-removealltags-code"><a class="link" href="#removing-all-tags-from-the-study-plan-code-removealltags-code">3.4.9. Removing all tags from the study plan : <code>removealltags</code></a></h4>
 <div class="paragraph">
 <p>Removes all user-created tags in the entire study plan.<br>
 Format: <code>removeallmodtags</code></p>
 </div>
 </div>
+</div>
+<div class="sect2">
+<h3 id="study-plan"><a class="link" href="#study-plan">3.5. Study Plan</a></h3>
 <div class="sect3">
-<h4 id="finding-modules-using-the-module-code-code-findmod-code"><a class="link" href="#finding-modules-using-the-module-code-code-findmod-code">3.4.11. Finding modules using the module code : <code>findmod</code></a></h4>
+<h4 id="creating-a-new-study-plan-code-newplan-code"><a class="link" href="#creating-a-new-study-plan-code-newplan-code">3.5.1. Creating a new study plan: <code>newplan</code></a></h4>
 <div class="paragraph">
-<p>Shows which semester the specified module is located at.<br>
-Format: <code>findmod MODULE_CODE</code></p>
+<p>Creates a new study plan with an optional title. The title should contain only ASCII characters, and should not be
+longer than 20 characters.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Each study plan is assigned a unique ID upon its creation. This ID will remain the same throughout
+the life of the study plan.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
+<p>Format: <code>newplan [TITLE]</code><br>
+Examples:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>findmod cs1101s</code></p>
+<p><code>newplan</code></p>
 </li>
 <li>
-<p><code>findmod cs2103</code></p>
+<p><code>newplan noc half year</code></p>
+</li>
+<li>
+<p><code>newplan minor in maths</code></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="adding-priority-tags-to-a-study-plan-code-tagplan-code"><a class="link" href="#adding-priority-tags-to-a-study-plan-code-tagplan-code">3.4.12. Adding priority tags to a study plan : <code>tagplan</code></a></h4>
+<h4 id="deleting-a-study-plan-code-removeplan-code"><a class="link" href="#deleting-a-study-plan-code-removeplan-code">3.5.2. Deleting a study plan: <code>removeplan</code></a></h4>
+<div class="paragraph">
+<p>Deletes a study plan with a given ID.<br>
+Format: <code>removeplan PLAN_NUMBER</code><br>
+Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>removeplan 4</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="listing-all-study-plans-code-list-code"><a class="link" href="#listing-all-study-plans-code-list-code">3.5.3. Listing all study plans: <code>list</code></a></h4>
+<div class="paragraph">
+<p>Lists all the study plans that the user has created and has not deleted.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Each study plan is assigned a unique ID upon its creation. This ID will remain the same throughout
+the life of the study plan.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Format: <code>list</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="viewing-another-study-plan-code-viewplan-code"><a class="link" href="#viewing-another-study-plan-code-viewplan-code">3.5.4. Viewing another study plan: <code>viewplan</code></a></h4>
+<div class="paragraph">
+<p>Shows the study plan with a given ID. The specified study plan will be displayed on the left panel of the GUI
+as a simplified study plan. This does not activate that study plan, so it is for viewing only.<br></p>
+</div>
+<div class="paragraph">
+<p>Format: <code>viewplan PLAN_NUMBER</code><br>
+Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>viewplan 3</code><br>
+This allows the user to view the study plan with an ID of 3.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="setting-another-study-plan-as-active-code-activate-code"><a class="link" href="#setting-another-study-plan-as-active-code-activate-code">3.5.5. Setting another study plan as active: <code>activate</code></a></h4>
+<div class="paragraph">
+<p>Replaces the current study plan with the specified study plan as the active one.<br>
+Format: <code>activate PLAN_NUMBER</code><br>
+Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>activate 2</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="editing-the-title-of-current-study-plan-code-title-code"><a class="link" href="#editing-the-title-of-current-study-plan-code-title-code">3.5.6. Editing the title of current study plan: <code>title</code></a></h4>
+<div class="paragraph">
+<p>Changes the title of the current active study plan. The title should contain only ASCII characters, and should not be
+longer than 20 characters.<br></p>
+</div>
+<div class="paragraph">
+<p>Format: <code>title PLAN_TITLE</code><br>
+Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>title Algo and Graphics</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="setting-default-study-plan-code-default-code"><a class="link" href="#setting-default-study-plan-code-default-code">3.5.7. Setting default study plan: <code>default</code></a></h4>
+<div class="paragraph">
+<p>Generates a study plan with pre-populated modules according to the recommended study plan for a Year one CS student.<br>
+Format: <code>default</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="adding-priority-tags-to-a-study-plan-code-setpriority-code"><a class="link" href="#adding-priority-tags-to-a-study-plan-code-setpriority-code">3.5.8. Adding priority tags to a study plan : <code>setpriority</code></a></h4>
 <div class="paragraph">
 <p>Attaches a priority tag to the study plan.<br>
-Format: <code>tagplan PRIORITY_LEVEL STUDY_PLAN_ID</code></p>
+Format: <code>setpriority PRIORITY_LEVEL STUDY_PLAN_ID</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -933,19 +726,19 @@ Format: <code>tagplan PRIORITY_LEVEL STUDY_PLAN_ID</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>tagplan high 1</code></p>
+<p><code>setpriority high 1</code></p>
 </li>
 <li>
-<p><code>tagplan low 3</code></p>
+<p><code>setpriority low 3</code></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="removing-priority-tags-from-study-plan-code-removeplantag-code"><a class="link" href="#removing-priority-tags-from-study-plan-code-removeplantag-code">3.4.13. Removing priority tags from study plan: <code>removeplantag</code></a></h4>
+<h4 id="removing-priority-tags-from-study-plan-code-removepriority-code"><a class="link" href="#removing-priority-tags-from-study-plan-code-removepriority-code">3.5.9. Removing priority tags from study plan: <code>removepriority</code></a></h4>
 <div class="paragraph">
 <p>Removes the priority tag from the study plan.<br>
-Format: <code>removeplantag PRIORITY_LEVEL STUDY_PLAN_ID</code></p>
+Format: <code>removepriority PRIORITY_LEVEL STUDY_PLAN_ID</code></p>
 </div>
 <div class="paragraph">
 <p>Examples</p>
@@ -953,33 +746,23 @@ Format: <code>removeplantag PRIORITY_LEVEL STUDY_PLAN_ID</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>removeplantag high 1</code></p>
+<p><code>removepriority high 1</code></p>
 </li>
 <li>
-<p><code>removeplantag low 3</code></p>
+<p><code>removepriority low 3</code></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="listing-study-plans-by-priority-code-listbypriority-code"><a class="link" href="#listing-study-plans-by-priority-code-listbypriority-code">3.4.14. Listing study plans by priority: <code>listbypriority</code></a></h4>
+<h4 id="listing-study-plans-by-priority-code-listbypriority-code"><a class="link" href="#listing-study-plans-by-priority-code-listbypriority-code">3.5.10. Listing study plans by priority: <code>listbypriority</code></a></h4>
 <div class="paragraph">
 <p>Lists all study plans in the order of their priorities.<br>
 Format: <code>listbypriority</code></p>
 </div>
 </div>
-</div>
-<div class="sect2">
-<h3 id="verification"><a class="link" href="#verification">3.5. Verification</a></h3>
 <div class="sect3">
-<h4 id="error-messages"><a class="link" href="#error-messages">3.5.1. Error messages</a></h4>
-<div class="paragraph">
-<p>Displays a useful error message if the input is invalid. For example,
-it should highlight wrong commands, wrong numbers of arguments, or arguments in the wrong format.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="checking-a-study-plan-s-feasibility"><a class="link" href="#checking-a-study-plan-s-feasibility">3.5.2. Checking a study plan&#8217;s feasibility</a></h4>
+<h4 id="checking-a-study-plan-s-feasibility-code-check-code"><a class="link" href="#checking-a-study-plan-s-feasibility-code-check-code">3.5.11. Checking a study plan&#8217;s feasibility : <code>check</code></a></h4>
 <div class="paragraph">
 <p>Shows details about what graduation requirements are left to be fulfilled,
 such as MCs, core or focus area modules that remain to be taken.<br>
@@ -987,40 +770,307 @@ Format: <code>check</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="viewing-modules-that-can-be-taken-in-a-given-semester-code-validmods-code"><a class="link" href="#viewing-modules-that-can-be-taken-in-a-given-semester-code-validmods-code">3.5.3. Viewing modules that can be taken in a given semester : <code>validmods</code></a></h4>
-<div class="paragraph">
-<p>Shows all the modules that can be taken in a given semester, based only on whether its prerequisites have been met.<br>
-This semester need not necessarily exist in the module planner for you to view its valid modules.<br>
-Format: <code>validmods SEMESTER</code></p>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>validmods y2s1</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="clear-all-currently-invalid-modules-code-clearinvalidmods-code"><a class="link" href="#clear-all-currently-invalid-modules-code-clearinvalidmods-code">3.5.4. Clear all currently invalid modules : <code>clearinvalidmods</code></a></h4>
+<h4 id="clear-all-currently-invalid-modules-code-clearinvalidmods-code"><a class="link" href="#clear-all-currently-invalid-modules-code-clearinvalidmods-code">3.5.12. Clear all currently invalid modules : <code>clearinvalidmods</code></a></h4>
 <div class="paragraph">
 <p>Clears all modules that are currently invalid, whose prerequisites have not been met in previous semesters.
 This may cause other modules in future semesters to be invalidated as well.<br>
 Format: <code>clearinvalidmods</code></p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="displays"><a class="link" href="#displays">3.5.5. Displays</a></h4>
-<div class="paragraph">
-<p>Highlights a module in red if it doesn&#8217;t satisfy any of its prerequisites, displaying these required modules as tags.</p>
 </div>
+<div class="sect2">
+<h3 id="version-tracking"><a class="link" href="#version-tracking">3.6. Version Tracking</a></h3>
+<div class="sect3">
+<h4 id="committing-edits-to-a-study-plan-code-commit-code"><a class="link" href="#committing-edits-to-a-study-plan-code-commit-code">3.6.1. Committing edits to a study plan: <code>commit</code></a></h4>
+<div class="paragraph">
+<p>Saves changes to a study plan with a short commit message.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Even without committing, the module planner is automatically saved to storage after every command is
+executed successfully. However, commits allow the user to revert to a previous state of the study plan.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+The user is allowed, but not recommended, to commit a study plan even when there are no changes
+since the previous commit.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Format: <code>commit SHORT_MESSAGE</code><br>
+Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>commit planned until y2s2</code></p>
+</li>
+<li>
+<p><code>commit haven’t added UEs</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="checking-commit-history-code-history-code"><a class="link" href="#checking-commit-history-code-history-code">3.6.2. Checking commit history: <code>history</code></a></h4>
+<div class="paragraph">
+<p>Shows all commit history of the current study plan.<br>
+Format: <code>history</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="viewing-a-commit-code-viewcommit-code"><a class="link" href="#viewing-a-commit-code-viewcommit-code">3.6.3. Viewing a commit: <code>viewcommit</code></a></h4>
+<div class="paragraph">
+<p>Shows the version of the current study plan for a particular commit. This does not create a new commit, nor does it
+return the study plan to a previous version. The commit will be displayed as a simplified study plan.<br></p>
+</div>
+<div class="paragraph">
+<p>Format: <code>viewcommit COMMIT_NUMBER</code><br>
+Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>viewcommit 1.1</code><br>
+This allows the user to view commit 1 of study plan 1 (which is currently active).</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="reverting-to-a-commit-code-revert-code"><a class="link" href="#reverting-to-a-commit-code-revert-code">3.6.4. Reverting to a commit: <code>revert</code></a></h4>
+<div class="paragraph">
+<p>Reverts to the version of the current study plan for a particular commit. This creates a new "Revert to" commit and
+returns the current active study plan back to the state in the specified commit.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+The user is allowed, but not recommended, to revert to another "Revert to" commit. This will create a
+long chain of "Revert to Revert to &#8230;&#8203;" commit messages.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Format: <code>revert COMMIT_NUMBER</code><br>
+Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>revert 1.1</code><br>
+Suppose there are commits <code>1.0</code>, <code>1.1</code>, <code>1.2</code>, and <code>1.3</code>. This allows the user to revert to commit 1 of study plan 1,
+creating a new commit called <code>1.4: Revert to "COMMIT_MESSAGE_OF_1.1"</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="removing-a-commit-code-removecommit-code"><a class="link" href="#removing-a-commit-code-removecommit-code">3.6.5. Removing a commit: <code>removecommit</code></a></h4>
+<div class="paragraph">
+<p>Removes a commit in the current active study plan specified by the commit number.<br>
+Format: <code>removecommit COMMIT_NUMBER</code><br>
+Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>removecommit 2.2</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="gui"><a class="link" href="#gui">3.7. GUI</a></h3>
+<div class="sect3">
+<h4 id="expanding-a-semester-code-expand-code"><a class="link" href="#expanding-a-semester-code-expand-code">3.7.1. Expanding a semester: <code>expand</code></a></h4>
+<div class="paragraph">
+<p>Expands a semester so that more details can be seen.<br>
+Format: <code>expand SEMESTER</code><br>
+Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>expand y1s1</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="expanding-all-semesters-code-expandall-code"><a class="link" href="#expanding-all-semesters-code-expandall-code">3.7.2. Expanding all semesters: <code>expandall</code></a></h4>
+<div class="paragraph">
+<p>Expands all semesters so that more details can be seen.<br>
+Format: <code>expandall</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="collapsing-a-semester-code-collapse-code"><a class="link" href="#collapsing-a-semester-code-collapse-code">3.7.3. Collapsing a semester: <code>collapse</code></a></h4>
+<div class="paragraph">
+<p>Collapses a semester so that most details are hidden.<br>
+Format: <code>collapse SEMESTER</code><br>
+Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>collapse y1s1</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="collapsing-all-semesters-code-collapseall-code"><a class="link" href="#collapsing-all-semesters-code-collapseall-code">3.7.4. Collapsing all semesters: <code>collapseall</code></a></h4>
+<div class="paragraph">
+<p>Collapses all semesters so that most details are hidden.<br>
+Format: <code>collapseall</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="changing-the-theme-of-the-gui-code-theme-code"><a class="link" href="#changing-the-theme-of-the-gui-code-theme-code">3.7.5. Changing the theme of the GUI: <code>theme</code></a></h4>
+<div class="paragraph">
+<p>Changes the theme of the GUI<br>
+Format: <code>theme THEME_NAME</code></p>
+</div>
+<div class="paragraph">
+<p>Existing themes are:
+light, dark.</p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>theme light</code></p>
+</li>
+<li>
+<p><code>theme dark</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="upcoming-features-coming-in-v2-0"><a class="link" href="#upcoming-features-coming-in-v2-0">4. Upcoming Features [coming in v2.0]</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="basic-2"><a class="link" href="#basic-2">4.1. Basic</a></h3>
+<div class="sect3">
+<h4 id="chaining-commands-code-coming-in-v2-0-code"><a class="link" href="#chaining-commands-code-coming-in-v2-0-code">4.1.1. Chaining commands <code>[coming in v2.0]</code></a></h4>
+<div class="paragraph">
+<p>Chain commands together for greater efficiency. The commands, if different, are separated by a ‘&amp;&amp;’. ‘&amp;&amp;’ is not needed if the command is the same.<br>
+Format: <code>COMMAND_1 &amp;&amp; COMMAND_2 &amp;&amp; …</code><br>
+Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>addmod y1s1 CS1101S CS1231 MA1521</code></p>
+</li>
+<li>
+<p><code>movemodule CS2105 y2s1 y2s2 &amp;&amp; addmod CS2106 y2s2</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="semester-2"><a class="link" href="#semester-2">4.2. Semester</a></h3>
+<div class="sect3">
+<h4 id="moving-a-semester-to-a-study-plan-code-movesem-code-code-coming-in-v2-0-code"><a class="link" href="#moving-a-semester-to-a-study-plan-code-movesem-code-code-coming-in-v2-0-code">4.2.1. Moving a semester to a study plan: <code>movesem</code> <code>[coming in v2.0]</code></a></h4>
+<div class="paragraph">
+<p>Moves a semester of modules to another study plan with a specified ID.<br></p>
+</div>
+<div class="paragraph">
+<p>Format: <code>movesem SEMESTER SOURCE_PLAN DESTINATION_PLAN</code><br>
+Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>movesem y2s2 1 3</code></p>
+</li>
+<li>
+<p><code>movesem y3s1 2 1</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="module-2"><a class="link" href="#module-2">4.3. Module</a></h3>
+<div class="sect3">
+<h4 id="naming-a-ue-from-a-semester-code-coming-in-v2-0-code"><a class="link" href="#naming-a-ue-from-a-semester-code-coming-in-v2-0-code">4.3.1. Naming a UE from a semester. <code>[coming in v2.0]</code></a></h4>
+<div class="paragraph">
+<p>Names a UE from the given semester with the given module name. This feature is purely for aesthetic purposes and has no functional implications.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>nameue SEMESTER NAME</code><br>
+Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>nameue y1s1 GER1000</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="moving-a-module-from-one-semester-to-another-code-coming-in-v2-0-code"><a class="link" href="#moving-a-module-from-one-semester-to-another-code-coming-in-v2-0-code">4.3.2. Moving a module from one semester to another. <code>[coming in v2.0]</code></a></h4>
+<div class="paragraph">
+<p>Moves a given module from a source semester to a destination semester, as specified.<br>
+Format: <code>movemod MODULE SEMESTER_SRC SEMESTER_DEST</code><br>
+Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>movemod CS3243 y2s1 y2s2</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="study-plan-2"><a class="link" href="#study-plan-2">4.4. Study Plan</a></h3>
+<div class="sect3">
+<h4 id="declaring-a-focus-area-code-coming-in-v2-0-code"><a class="link" href="#declaring-a-focus-area-code-coming-in-v2-0-code">4.4.1. Declaring a focus area: <code>[coming in v2.0]</code></a></h4>
+<div class="paragraph">
+<p>Declares the given focus area as one of the focus areas of the study plan. This means that the requirements of the focus area has to be met to be eligible for graduation.<br>
+Format: <code>declarefocusarea FOCUS_AREA</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="displays-for-an-invalid-study-plan"><a class="link" href="#displays-for-an-invalid-study-plan">4.4.2. Displays for an invalid study plan</a></h4>
 <div class="paragraph">
 <p><code>[coming in v2.0]</code> The study plan will have a tick or cross beside it, which shows if the entire plan is feasible.</p>
 </div>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-06 13:23:39 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-06 13:47:30 UTC</div></div></div></body></html>

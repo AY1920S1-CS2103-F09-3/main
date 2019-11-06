@@ -141,7 +141,7 @@ within the active study plan.</p>
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="data-classification-and-management"><a class="link" href="#data-classification-and-management">Data classification and management</a></h3>
+<h3 id="tagging"><a class="link" href="#tagging">Tagging</a></h3>
 <div class="sect3">
 <h4 id="viewing-default-tags-code-viewdefaulttags-code"><a class="link" href="#viewing-default-tags-code-viewdefaulttags-code">Viewing default tags : <code>viewdefaulttags</code></a></h4>
 <div class="paragraph">
@@ -189,47 +189,10 @@ Format: <code>viewdefaulttags</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="viewing-all-tags-code-viewallmodtags-code"><a class="link" href="#viewing-all-tags-code-viewallmodtags-code">Viewing all tags : <code>viewallmodtags</code></a></h4>
-<div class="paragraph">
-<p>Shows all tag types.<br>
-Format: <code>viewallmodtags</code></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="renaming-an-existing-tag-code-renamemodtag-code"><a class="link" href="#renaming-an-existing-tag-code-renamemodtag-code">Renaming an existing tag : <code>renamemodtag</code></a></h4>
-<div class="paragraph">
-<p>Renames a tag.<br>
-Format: <code>renamemodtag ORIGINAL_TAG_NAME NEW_TAG_NAME</code></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Only user-created tags can be renamed, i.e. default tag cannot be renamed.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>renamemodtag exchange sep</code><br>
-Renames the tag name from <em>exchange</em> to <em>sep</em>.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="tagging-modules-code-tagmod-code"><a class="link" href="#tagging-modules-code-tagmod-code">Tagging modules : <code>tagmod</code></a></h4>
+<h4 id="tagging-modules-code-addtag-code"><a class="link" href="#tagging-modules-code-addtag-code">Tagging modules : <code>addtag</code></a></h4>
 <div class="paragraph">
 <p>Attaches a tag to a module.<br>
-Format: <code>tagmod MODULE_CODE TAG_NAME</code></p>
+Format: <code>addtag MODULE_CODE TAG_NAME</code></p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -249,51 +212,17 @@ If a tag with the given <code>TAG_NAME</code> does not exist, a new tag will aut
 <div class="ulist">
 <ul>
 <li>
-<p><code>tagmod cs3230 exchange</code><br>
+<p><code>addtag cs3230 exchange</code><br>
 Attaches the tag with name <em>exchange</em> to <em>CS3230</em>.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="removing-a-tag-from-a-module-code-removemodtag-code"><a class="link" href="#removing-a-tag-from-a-module-code-removemodtag-code">Removing a tag from a module: <code>removemodtag</code></a></h4>
-<div class="paragraph">
-<p>Removes a tag from a module.<br>
-Format: <code>removemodtag MODULE_CODE TAG_NAME</code></p>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>removemodtag cs3230 exchange</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="removing-a-tag-from-all-modules-code-removeall-code"><a class="link" href="#removing-a-tag-from-all-modules-code-removeall-code">Removing a tag from all modules: <code>removeall</code></a></h4>
-<div class="paragraph">
-<p>Removes a tag from all modules that it is attached to.<br>
-Format: <code>removeall TAG_NAME</code></p>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>removeall exchange</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="deleting-tags-code-deletemodtag-code"><a class="link" href="#deleting-tags-code-deletemodtag-code">Deleting tags: <code>deletemodtag</code></a></h4>
+<h4 id="deleting-tags-code-deletetag-code"><a class="link" href="#deleting-tags-code-deletetag-code">Deleting tags: <code>deletetag</code></a></h4>
 <div class="paragraph">
 <p>Deletes a tag completely and removes it from any module that it is attached to.<br>
-Format: <code>deletemodtag TAG_NAME</code></p>
+Format: <code>deletetag TAG_NAME</code></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -313,7 +242,61 @@ Only user-created tags can be deleted, i.e. default tag cannot be deleted.
 <div class="ulist">
 <ul>
 <li>
-<p><code>deletemodtag exchange</code></p>
+<p><code>deletetag exchange</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="removing-a-tag-from-a-module-code-removetag-code"><a class="link" href="#removing-a-tag-from-a-module-code-removetag-code">Removing a tag from a module: <code>removetag</code></a></h4>
+<div class="paragraph">
+<p>Removes a tag from a module.<br>
+Format: <code>removetag MODULE_CODE TAG_NAME</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>removetag cs3230 exchange</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="viewing-all-tags-code-viewalltags-code"><a class="link" href="#viewing-all-tags-code-viewalltags-code">Viewing all tags : <code>viewalltags</code></a></h4>
+<div class="paragraph">
+<p>Shows all tag types.<br>
+Format: <code>viewalltags</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="renaming-an-existing-tag-code-renametag-code"><a class="link" href="#renaming-an-existing-tag-code-renametag-code">Renaming an existing tag : <code>renametag</code></a></h4>
+<div class="paragraph">
+<p>Renames a tag.<br>
+Format: <code>renametag ORIGINAL_TAG_NAME NEW_TAG_NAME</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Only user-created tags can be renamed, i.e. default tag cannot be renamed.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>renametag exchange sep</code><br>
+Renames the tag name from <em>exchange</em> to <em>sep</em>.</p>
 </li>
 </ul>
 </div>
@@ -358,97 +341,10 @@ Format: <code>viewtags MODULE_CODE</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="removing-all-tags-from-the-study-plan-code-removeallmodtags-code"><a class="link" href="#removing-all-tags-from-the-study-plan-code-removeallmodtags-code">Removing all tags from the study plan : <code>removeallmodtags</code></a></h4>
+<h4 id="removing-all-tags-from-the-study-plan-code-removealltags-code"><a class="link" href="#removing-all-tags-from-the-study-plan-code-removealltags-code">Removing all tags from the study plan : <code>removealltags</code></a></h4>
 <div class="paragraph">
 <p>Removes all user-created tags in the entire study plan.<br>
 Format: <code>removeallmodtags</code></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="finding-modules-using-the-module-code-code-findmod-code"><a class="link" href="#finding-modules-using-the-module-code-code-findmod-code">Finding modules using the module code : <code>findmod</code></a></h4>
-<div class="paragraph">
-<p>Shows which semester the specified module is located at.<br>
-Format: <code>findmod MODULE_CODE</code></p>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>findmod cs1101s</code></p>
-</li>
-<li>
-<p><code>findmod cs2103</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="adding-priority-tags-to-a-study-plan-code-tagplan-code"><a class="link" href="#adding-priority-tags-to-a-study-plan-code-tagplan-code">Adding priority tags to a study plan : <code>tagplan</code></a></h4>
-<div class="paragraph">
-<p>Attaches a priority tag to the study plan.<br>
-Format: <code>tagplan PRIORITY_LEVEL STUDY_PLAN_ID</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="paragraph">
-<p>List of priority levels:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>HIGH</code><br></p>
-</li>
-<li>
-<p><code>MEDIUM</code><br></p>
-</li>
-<li>
-<p><code>LOW</code></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>tagplan high 1</code></p>
-</li>
-<li>
-<p><code>tagplan low 3</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="removing-priority-tags-from-study-plan-code-removeplantag-code"><a class="link" href="#removing-priority-tags-from-study-plan-code-removeplantag-code">Removing priority tags from study plan: <code>removeplantag</code></a></h4>
-<div class="paragraph">
-<p>Removes the priority tag from the study plan.<br>
-Format: <code>removeplantag PRIORITY_LEVEL STUDY_PLAN_ID</code></p>
-</div>
-<div class="paragraph">
-<p>Examples</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>removeplantag high 1</code></p>
-</li>
-<li>
-<p><code>removeplantag low 3</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="listing-study-plans-by-priority-code-listbypriority-code"><a class="link" href="#listing-study-plans-by-priority-code-listbypriority-code">Listing study plans by priority: <code>listbypriority</code></a></h4>
-<div class="paragraph">
-<p>Lists all study plans in the order of their priorities.<br>
-Format: <code>listbypriority</code></p>
 </div>
 </div>
 </div>
@@ -724,4 +620,4 @@ every <code>Module</code> instead of just the one in the <code>StudyPlan</code>.
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-06 13:23:39 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-06 13:47:30 UTC</div></div></div></body></html>
