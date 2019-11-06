@@ -578,7 +578,7 @@
       "tagName" : "ml",
       "isPriority" : false
     } ],
-    "currentSemester" : "Y1S2",
+    "currentSemester" : "Y1S1",
     "studyPlanTags" : [ ]
   }, {
     "totalNumber" : 3,
@@ -590,8 +590,14 @@
       "reasonForBlocked" : null,
       "modules" : [ {
         "moduleCode" : "CS1101S"
+      }, {
+        "moduleCode" : "CS3244"
+      }, {
+        "moduleCode" : "MA1101R"
+      }, {
+        "moduleCode" : "MA1521"
       } ],
-      "isExpanded" : false
+      "isExpanded" : true
     }, {
       "semesterName" : "Y1S2",
       "isBlocked" : false,
@@ -632,11 +638,9 @@
       "isExpanded" : false
     }, {
       "semesterName" : "Y3S1",
-      "isBlocked" : false,
-      "reasonForBlocked" : null,
-      "modules" : [ {
-        "moduleCode" : "CS3203"
-      } ],
+      "isBlocked" : true,
+      "reasonForBlocked" : "",
+      "modules" : [ ],
       "isExpanded" : false
     }, {
       "semesterName" : "Y3S2",
@@ -844,7 +848,13 @@
       "moduleCode" : "CS1101S",
       "color" : "RED",
       "userTags" : [ {
-        "tagName" : "exchange",
+        "tagName" : "hard",
+        "isPriority" : false
+      }, {
+        "tagName" : "lolsiclasd",
+        "isPriority" : false
+      }, {
+        "tagName" : "a",
         "isPriority" : false
       } ]
     }, {
@@ -926,7 +936,16 @@
     }, {
       "moduleCode" : "CS3244",
       "color" : "RED",
-      "userTags" : [ ]
+      "userTags" : [ {
+        "tagName" : "lols",
+        "isPriority" : false
+      }, {
+        "tagName" : "yoink",
+        "isPriority" : false
+      }, {
+        "tagName" : "yoink2",
+        "isPriority" : false
+      } ]
     }, {
       "moduleCode" : "CS4212",
       "color" : "RED",
@@ -1187,10 +1206,28 @@
       "tagName" : "SEP",
       "isPriority" : false
     }, {
-      "tagName" : "exchange",
+      "tagName" : "hard",
+      "isPriority" : false
+    }, {
+      "tagName" : "lols",
+      "isPriority" : false
+    }, {
+      "tagName" : "lolsiclasd",
+      "isPriority" : false
+    }, {
+      "tagName" : "lll",
+      "isPriority" : false
+    }, {
+      "tagName" : "yoink",
+      "isPriority" : false
+    }, {
+      "tagName" : "yoink2",
+      "isPriority" : false
+    }, {
+      "tagName" : "a",
       "isPriority" : false
     } ],
-    "currentSemester" : "Y1S2",
+    "currentSemester" : "Y1S1",
     "studyPlanTags" : [ ]
   } ],
   "activeStudyPlanIndex" : 3,

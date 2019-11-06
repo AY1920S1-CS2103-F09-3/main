@@ -43,6 +43,10 @@ public class DeleteModuleCommand extends Command {
             throw new CommandException(MESSAGE_SEMESTER_DOES_NOT_EXIST);
         }
 
+        if (model.getSemester(this.sem).isBlocked()) {
+            throw new CommandException(MESSAGE_SEMESTER_BLOCKED);
+        }
+
         if (!model.semesterHasModule(this.moduleCode, this.sem)) {
             throw new CommandException(MODULE_DOES_NOT_EXIST);
         }
