@@ -1,0 +1,553 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Ong Yan Chun (yaaanch)- Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="../images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="../index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">AddressBook-Level3</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="../LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/se-edu/addressbook-level3"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Ong Yan Chun (yaaanch)- Project Portfolio</h1></div><div id="content"><div class="sect1">
+<h2 id="project-cs-modbuddy"><a class="link" href="#project-cs-modbuddy">PROJECT: CS ModBuddy</a></h2>
+<div class="sectionbody">
+<div class="imageblock">
+<div class="content">
+<img src="../images/title.png" alt="title" width="600">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/Ui.png" alt="Ui" width="600">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>CS ModBuddy is for those who prefer to use a desktop app for planning their modules. More importantly, CS ModBuddy is optimized for those who prefer to work with a Command Line Interface (CLI) while still having the benefits of a Graphical User Interface (GUI). The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 25 kLoC.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Overall contributions were in the field of User Interface and User Experience.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Major enhancement</strong>: added <strong>Autocomplete</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: When the user presses <code>tab</code>, the command word, or module code, or semester, or tag name will be autocompleted.
+If there is only one possible completion, it will be filled immediately.
+If there is more than one possible completion, a menu of possible autocompletions is drawn that can be selected with the up and down buttons.</p>
+</li>
+<li>
+<p>Justification: This feature improves the product significantly because it makes the entire basis of the command-line interface, typing commands, significantly smoother and easier.</p>
+</li>
+<li>
+<p>Highlights: This enhancement affects every part of the user experience in this CLI app.
+It is interlinked with existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required some use of data structures, as well as integration with existing commands, module codes, and tags.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Minor enhancements</strong>: added a history command that allows the user to navigate to previous commands using up/down keys.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Added expanding and collapsing of semesters, allows familiar semesters to take up less important visual space in the GUI.</p>
+</li>
+<li>
+<p>Added various GUI themes, such as light or dark mode, so that the user can customise the look of the GUI to their wants.</p>
+</li>
+<li>
+<p>Added a complex help function that can give general help and also specific help per command, which makes using the app much simpler.</p>
+</li>
+<li>
+<p>Added block command handling for adding modules, so multiple modules can be added to a semester at once.</p>
+</li>
+<li>
+<p>Handled most of the overall GUI design, apart from the Result Display on the left side.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Code contributed</strong>: [<a href="https://nus-cs2103-ay1920s1.github.io/tp-dashboard/#search=yaaanch&amp;sort=groupTitle&amp;sortWithin=title&amp;since=2019-09-06&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByRepos&amp;breakdown=false&amp;tabOpen=true&amp;tabType=authorship&amp;tabAuthor=yaaanch&amp;tabRepo=AY1920S1-CS2103-F09-3%2Fmain%5Bmaster%5D">Functional code</a>] [<a href="https://nus-cs2103-ay1920s1.github.io/tp-dashboard/#search=yaaanch&amp;sort=groupTitle&amp;sortWithin=title&amp;since=2019-09-06&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByRepos&amp;breakdown=false&amp;tabOpen=true&amp;tabType=authorship&amp;tabAuthor=yaaanch&amp;tabRepo=AY1920S1-CS2103-F09-3%2Fmain%5Bmaster%5D">Test code</a>]</p>
+</li>
+<li>
+<p><strong>Other contributions</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Project management:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Team Lead.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Enhancements to existing features:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Designed the UX flow and UI mockups with Balsamiq and Figma.</p>
+</li>
+<li>
+<p>Designed a logo, created banner and replaced the logo and title of the app.</p>
+</li>
+<li>
+<p>Spearheaded the conversion of GUI from AddressBook (Pull requests #120, #130, #146, #150, #153, #169)</p>
+</li>
+<li>
+<p>Wrote tests.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Documentation:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Edited UI section in Developer Guide.</p>
+</li>
+<li>
+<p>Helped to rearrange sections within User Guide.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Community:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Reviewed other team&#8217;s Developer Guide: [<a href="https://github.com/nus-cs2103-AY1920S1/addressbook-level3/pull/11/files/a420128b5b5e72e1fb07a6ba7fdfee5f52b4fcdc?file-filters%5B%5D=.adoc&amp;file-filters%5B%5D=.csv&amp;file-filters%5B%5D=.gradle&amp;file-filters%5B%5D=.java&amp;file-filters%5B%5D=.jpg&amp;file-filters%5B%5D=.json&amp;file-filters%5B%5D=.png&amp;file-filters%5B%5D=.puml&amp;file-filters%5B%5D=.txt&amp;file-filters%5B%5D=dotfile#diff-d23c8091515dc18149f4f2e759e1e288">MoneyGoWhere</a>]</p>
+</li>
+<li>
+<p>Contributed to forum: [<a href="https://github.com/nus-cs2103-AY1920S1/forum/issues/73">library request</a>]</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="basic"><a class="link" href="#basic">Basic</a></h3>
+<div class="sect3">
+<h4 id="general-help-code-help-code"><a class="link" href="#general-help-code-help-code">General Help: <code>help</code></a></h4>
+<div class="paragraph">
+<p>Provides a list of possible commands the user can type with brief descriptions.<br>
+Format: <code>help</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="help-for-a-specific-command-code-help-code"><a class="link" href="#help-for-a-specific-command-code-help-code">Help for a specific command: <code>help</code></a></h4>
+<div class="paragraph">
+<p>Provides detailed help for a specific command, including the parameters required.<br>
+Format: <code>help COMMAND</code><br>
+Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>help newplan</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="autocompleting-code-tab-code"><a class="link" href="#autocompleting-code-tab-code">Autocompleting: <code>tab</code></a></h4>
+<div class="paragraph">
+<p>When the user presses <code>tab</code>, the command word, or module code, or semester,
+or tag name will be autocompleted
+If there is only one possible completion, it will be filled immediately.
+If there is more than one possible completion, a menu of possible autocompletions
+is drawn that can be selected with the up and down buttons.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="gui"><a class="link" href="#gui">GUI</a></h3>
+<div class="sect3">
+<h4 id="expanding-a-semester-code-expand-code"><a class="link" href="#expanding-a-semester-code-expand-code">Expanding a semester: <code>expand</code></a></h4>
+<div class="paragraph">
+<p>Expands a semester so that more details can be seen. Will display module titles, MC count, and their tags.<br>
+Format: <code>expand SEMESTER</code><br>
+Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>expand y1s1</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="expanding-all-semesters-code-expandall-code"><a class="link" href="#expanding-all-semesters-code-expandall-code">Expanding all semesters: <code>expandall</code></a></h4>
+<div class="paragraph">
+<p>Expands all semesters so that more details can be seen. Will display module titles, MC count, and their tags.<br>
+Format: <code>expandall</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="collapsing-a-semester-code-collapse-code"><a class="link" href="#collapsing-a-semester-code-collapse-code">Collapsing a semester: <code>collapse</code></a></h4>
+<div class="paragraph">
+<p>Collapses a semester so that most details are hidden. Will hide module titles, MC count, and their tags.<br>
+Format: <code>collapse SEMESTER</code><br>
+Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>collapse y1s1</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="collapsing-all-semesters-code-collapseall-code"><a class="link" href="#collapsing-all-semesters-code-collapseall-code">Collapsing all semesters: <code>collapseall</code></a></h4>
+<div class="paragraph">
+<p>Collapses all semesters so that most details are hidden. Will hide module titles, MC count, and their tags.<br>
+Format: <code>collapseall</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="changing-the-theme-of-the-gui-code-theme-code"><a class="link" href="#changing-the-theme-of-the-gui-code-theme-code">Changing the theme of the GUI: <code>theme</code></a></h4>
+<div class="paragraph">
+<p>Changes the theme of the GUI. Existing themes are: light, dark.<br>
+Format: <code>theme THEME_NAME</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>theme light</code></p>
+</li>
+<li>
+<p><code>theme dark</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="upcoming-features-coming-in-v2-0"><a class="link" href="#upcoming-features-coming-in-v2-0">Upcoming Features [coming in v2.0]</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="gui-2"><a class="link" href="#gui-2">GUI</a></h3>
+<div class="sect3">
+<h4 id="animations-code-coming-in-v2-0-code"><a class="link" href="#animations-code-coming-in-v2-0-code">Animations: <code>[coming in v2.0]</code></a></h4>
+<div class="paragraph">
+<p>Expanding and collapsing semesters will be fluidly animated.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="colours-code-coming-in-v2-0-code"><a class="link" href="#colours-code-coming-in-v2-0-code">Colours: <code>[coming in v2.0]</code></a></h4>
+<div class="paragraph">
+<p>Each module and tag can be assigned with a specific colour to allow more customisation.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="Design-Ui"><a class="link" href="#Design-Ui">UI component</a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UiClassDiagram.png" alt="UiClassDiagram">
+</div>
+<div class="title">Figure 1. Structure of the UI Component</div>
+</div>
+<div class="paragraph">
+<p><strong>API</strong> : <a href="{repoURL}/src/main/java/seedu/address/ui/Ui.java"><code>Ui.java</code></a></p>
+</div>
+<div class="paragraph">
+<p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.
+<code>SemesterListPanel</code>, <code>ResultDisplay</code>, <code>CommandBox</code>, <code>StudyPlanTagPanel</code>, etc.
+All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
+</div>
+<div class="paragraph">
+<p>The <code>UI</code> component uses JavaFx UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="{repoURL}/src/main/java/seedu/address/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="{repoURL}/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
+</div>
+<div class="paragraph">
+<p>The <code>UI</code> component,</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Executes user commands using the <code>Logic</code> component.</p>
+</li>
+<li>
+<p>Listens for changes to <code>Model</code> data so that the UI can be updated with the modified data.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="autocomplete"><a class="link" href="#autocomplete">Autocomplete</a></h3>
+<div class="sect3">
+<h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AutocompleteClassDiagram.png" alt="AutocompleteClassDiagram" width="600">
+</div>
+</div>
+<div class="paragraph">
+<p>The autocompletion of keywords is facilitated by <code>AutocompleteTextField</code>, which inherits from <code>Textfield</code>,
+and <code>ModulePlannerAutocompleteSearch</code>.
+<code>AutocompleteTextField</code> handles user input and changing the text in the text field.
+<code>ModulePlannerAutocompleteSearch</code> handles the autocorrect searching for keywords.</p>
+</div>
+<div class="paragraph">
+<p>When the <code>MainWindow</code> is created, a <code>CommandBox</code> is created and added to the GUI.
+The <code>CommandBox</code> creates an <code>AutocompleteTextField</code> and it is added to the GUI.
+The <code>AutocompleteTextField</code> holds a <code>ModulePlannerAutocompleteSearch</code>.</p>
+</div>
+<div class="paragraph">
+<p><code>CommandBox</code> attaches a <code>keyEvent</code> listener to <code>AutocompleteTextField</code> that listens for the <code>TAB</code> key press,
+which starts the autocomplete process.</p>
+</div>
+<div class="paragraph">
+<p><code>ModulePlannerAutocompleteSearch</code> holds two sets of keywords, a set for commands and a set for arguments.
+These keywords are represented as <code>SortedSet&lt;String&gt;</code>.
+Within each input, the first word will be autocompleted with the set for commands,
+while subsequent words (separated by spaces) will be autocompleted with the set for arguments.
+An exception is the <code>help</code> command, in which the subsequent words will be autocompleted with the
+set for commands.</p>
+</div>
+<div class="paragraph">
+<p><code>ModulePlannerAutocompleteSearch</code> is constructed with a <code>ReadOnlyModulePlanner</code>.
+It is used to create the keyword sets.
+Hence, <code>AutocompleteTextField</code> is also constructed with a <code>ReadOnlyModulePlanner</code> to pass this down.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows the creation of Autocomplete:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AutocompleteSequenceDiagram.png" alt="AutocompleteSequenceDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p><code>AutocompleteTextField</code> holds the following public operations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AutocompleteTextField#handleAutocomplete</code>&#8201;&#8212;&#8201;Handles the entire autocomplete process based on the current text.</p>
+</li>
+<li>
+<p><code>AutocompleteTextField#handleChangeOfActiveStudyPlan</code>&#8201;&#8212;&#8201;Resets the argument keywords when there is a
+change in the active study plan.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><code>ModulePlannerAutocompleteSearch</code> is never accessed by any external classes.</p>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario of the <code>AutocompleteTextField#handleAutocomplete()</code> operation
+and how the autocomplete mechanism behaves at each step for commands.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user enters the beginning of a command into the GUI text field, for example "addt" for <code>addtag</code>.
+The user then presses the activation key <code>TAB</code> with begins the autocomplete process.
+The <code>KeyEvent</code> listener calls the <code>AutocompleteTextField#handleAutocomplete()</code> operation.</p>
+</div>
+<div class="paragraph">
+<p>Step 2: <code>AutocompleteTextField</code> passes the input to <code>ModulePlannerAutocompleteSearch</code>, by calling
+<code>ModulePlannerAutocompleteSearch#getSearchResults(String input)</code>.
+In <code>ModulePlannerAutocompleteSearch</code>, the text in the text field is checked.
+As it is the first word, the keywords set for commands is used.
+<code>ModulePlannerAutocompleteSearch#performSearch(String input, SortedSet&lt;String&gt; keywords)</code>
+is called to proceed with the search.</p>
+</div>
+<div class="paragraph">
+<p>Step 3: This method finds search results, which is a subset from the keywords set for commands that begin with the input.
+This result is returned back through <code>ModulePlannerAutocompleteSearch#getSearchResults(String input)</code>.
+<code>AutocompleteTextField#handleAutocomplete()</code> uses the search results to proceed.
+There are two possible scenarios that are described in Steps 4 and 5.</p>
+</div>
+<div class="paragraph">
+<p>Step 4: If there is only one search result,
+<code>AutocompleteTextField#setAutocompleteText(String searchResult)</code> is called. Proceed to Step 6.</p>
+</div>
+<div class="paragraph">
+<p>Step 5: If there is more than one search result, a menu will be created for the user to make a selection.
+This method will call the <code>populateMenu(List&lt;String&gt; searchResult)</code> method, and then show the menu if it is not showing.
+Then, focus will be requested from the first menu item in the menu. The <code>populateMenu(List&lt;String&gt; searchResult)</code>
+populates a <code>ContextMenu</code> with <code>CustomMenuItem</code>, which correspond to each search result.
+On action of the menu item, either through clicking or pressing the key <code>ENTER</code> while it is focused,
+<code>AutocompleteTextField#setAutocompleteText(String searchResult)</code> is called. Proceed to Step 6.</p>
+</div>
+<div class="paragraph">
+<p>Step 6: <code>AutocompleteTextField#setAutocompleteText(String searchResult)</code>
+causes the input text to be changed to the search result and the caret
+positioned at the end of the line.</p>
+</div>
+<div class="paragraph">
+<p>The autocomplete mechanism behaves similarly for arguments, except the argument set of keywords will be used.
+Furthermore, <code>AutocompleteTextField#setAutocompleteText(String searchResult)</code> will cause
+the input text to be changed to the text before the space concatenated with a space and the search result
+and the caret is positioned at the end of the line.
+This change replicates autocompleting only the last word without erasing previous terms.</p>
+</div>
+<div class="paragraph">
+<p>The following activity diagram shows how the autocomplete works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AutocompleteActivityDiagram.png" alt="AutocompleteActivityDiagram" width="600">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-autocompletion-is-broken-down"><a class="link" href="#aspect-how-autocompletion-is-broken-down">Aspect: How autocompletion is broken down</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice)</strong>: One class for handling the text field, one class for handling the querying.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easier for testing. More cohesion.</p>
+</li>
+<li>
+<p>Cons: More classes written.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2 </strong>: One class to handle everything.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easier to code.</p>
+</li>
+<li>
+<p>Cons: Harder to test.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-how-arguments-are-completed"><a class="link" href="#aspect-how-arguments-are-completed">Aspect: How arguments are completed</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice)</strong>: All arguments including semester names, tags and module codes are checked for
+together.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement.</p>
+</li>
+<li>
+<p>Cons: User may want to only be autocompleting for tags, but module codes appear as well.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2</strong>: Arguments are identified as tags or module codes and autocompleted based on
+the command.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: User can autocomplete without undesired suggestions.</p>
+</li>
+<li>
+<p>Cons: The command will have to be parsed upon autocomplete call, which will
+take more time and alter the structure of parsing commands.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-how-help-is-implemented"><a class="link" href="#aspect-how-help-is-implemented">Aspect: How help is implemented</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice)</strong>: Help is treated as a special case.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement. Help is the only command that takes in commands as arguments.</p>
+</li>
+<li>
+<p>Cons: A hard-coded exception does not make the code extensible.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2</strong>: Every command is parsed and their keywords identified.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: More extensible as help is future commands can take in commands as keywords.</p>
+</li>
+<li>
+<p>Cons: The command will have to be parsed upon autocomplete call, which will
+take more time and alter the structure of parsing commands.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-07 16:00:12 UTC</div></div></div></body></html>
