@@ -18,8 +18,41 @@
 <li><a href="#design">2. Design</a>
 <ul class="sectlevel2">
 <li><a href="#Design-Architecture">2.1. Architecture</a></li>
+<li><a href="#Design-Ui">2.2. UI component</a></li>
+<li><a href="#Design-Logic">2.3. Logic component</a></li>
+<li><a href="#Design-Model">2.4. Model component</a></li>
+<li><a href="#Design-Storage">2.5. Storage component</a></li>
+<li><a href="#Design-Commons">2.6. Common classes</a></li>
 </ul>
 </li>
+<li><a href="#implementation">3. Implementation</a>
+<ul class="sectlevel2">
+<li><a href="#undo-redo-feature">3.1. Undo/Redo feature</a></li>
+<li><a href="#work-in-progress-version-tracking">3.2. [Work in Progress] Version Tracking</a></li>
+<li><a href="#logging">3.3. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.4. Configuration</a></li>
+<li><a href="#module-tagging-feature">3.5. Module Tagging Feature</a></li>
+<li><a href="#module-information-and-verification">3.6. Module Information and Verification</a></li>
+<li><a href="#autocomplete">3.7. Autocomplete</a></li>
+</ul>
+</li>
+<li><a href="#documentation">4. Documentation</a></li>
+<li><a href="#testing">5. Testing</a></li>
+<li><a href="#dev-ops">6. Dev Ops</a></li>
+<li><a href="#product-scope">Appendix A: Product Scope</a></li>
+<li><a href="#user-stories">Appendix B: User Stories</a></li>
+<li><a href="#use-cases">Appendix C: Use Cases</a>
+<ul class="sectlevel2">
+<li><a href="#use-case-uc01-create-study-plan">C.1. Use case: UC01 - Create study plan</a></li>
+<li><a href="#use-case-uc02-add-module">C.2. Use case: UC02 - Add module</a></li>
+<li><a href="#use-case-uc03-commit-a-study-plan">C.3. Use case: UC03 - Commit a study plan</a></li>
+<li><a href="#use-case-uc04-tag-a-module">C.4. Use case: UC04 - Tag a module</a></li>
+<li><a href="#use-case-uc05-correct-modules-without-a-prerequisite">C.5. Use case: UC05 - Correct modules without a prerequisite</a></li>
+<li><a href="#use-case-uc06-chaining-commands">C.6. Use case: UC06 - Chaining commands</a></li>
+</ul>
+</li>
+<li><a href="#non-functional-requirements">Appendix D: Non Functional Requirements</a></li>
+<li><a href="#glossary">Appendix E: Glossary</a></li>
 </ul>
 </div>
 </div>
@@ -112,32 +145,26 @@ The following class plays an important role at the architecture level:</p>
 </div>
 <h4 id="how-the-architecture-components-interact-with-each-other" class="discrete">How the architecture components interact with each other</h4>
 <div class="paragraph">
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-The <em>Sequence Diagram</em> below shows how the components interact with each other for the scenario where the user issues
+<p>The <em>Sequence Diagram</em> below shows how the components interact with each other for the scenario where the user issues
 the command <code>addmod y1s1 cs1231s</code>.</p>
 </div>
-<div class="exampleblock">
-<div class="title">Example 1. Component interactions for the <code>addmod y1s1 cs1231s</code> command</div>
+<div class="imageblock">
 <div class="content">
-<div class="paragraph">
-<p>The <em>Sequence Diagram</em> below shows how the components interact with each other for the scenario where the user issues the command <code>addmod y1s1 CS3244</code>.</p>
+<img src="images/ArchitectureSequenceDiagram.png" alt="ArchitectureSequenceDiagram">
 </div>
-<div class="paragraph">
-<div class="title">Component interactions for <code>addmod y1s1 CS3244</code> command</div>
-<p>&gt;&gt;&gt;&gt;&gt;&gt;&gt; 993a9fffe20caedbfd4498fec21138b100b46106
-image::ArchitectureSequenceDiagram.png[]</p>
+<div class="title">Figure 3. Component interactions for the <code>addmod y1s1 cs1231s</code> command</div>
 </div>
 <div class="paragraph">
 <p>The sections below give more details of each component.</p>
 </div>
-<div id="Design-Ui" class="paragraph">
-<p>=== UI component</p>
 </div>
+<div class="sect2">
+<h3 id="Design-Ui"><a class="link" href="#Design-Ui">2.2. UI component</a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/UiClassDiagram.png" alt="UiClassDiagram">
 </div>
-<div class="title">Figure 3. Structure of the UI Component</div>
+<div class="title">Figure 4. Structure of the UI Component</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103-F09-3/main/src/main/java/seedu/address/ui/Ui.java"><code>Ui.java</code></a></p>
@@ -163,14 +190,14 @@ All these, including the <code>MainWindow</code>, inherit from the abstract <cod
 </li>
 </ul>
 </div>
-<div id="Design-Logic" class="paragraph">
-<p>=== Logic component</p>
 </div>
+<div class="sect2">
+<h3 id="Design-Logic"><a class="link" href="#Design-Logic">2.3. Logic component</a></h3>
 <div id="fig-LogicClassDiagram" class="imageblock">
 <div class="content">
 <img src="images/LogicClassDiagram.png" alt="LogicClassDiagram">
 </div>
-<div class="title">Figure 4. Structure of the Logic Component</div>
+<div class="title">Figure 5. Structure of the Logic Component</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> :
@@ -202,7 +229,7 @@ All these, including the <code>MainWindow</code>, inherit from the abstract <cod
 <div class="content">
 <img src="images/DeleteSequenceDiagram.png" alt="DeleteSequenceDiagram">
 </div>
-<div class="title">Figure 5. Interactions Inside the Logic Component for the <code>delete 1</code> Command</div>
+<div class="title">Figure 6. Interactions Inside the Logic Component for the <code>delete 1</code> Command</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -216,14 +243,14 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 </tr>
 </table>
 </div>
-<div id="Design-Model" class="paragraph">
-<p>=== Model component</p>
 </div>
+<div class="sect2">
+<h3 id="Design-Model"><a class="link" href="#Design-Model">2.4. Model component</a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/ModelClassDiagram.png" alt="ModelClassDiagram">
 </div>
-<div class="title">Figure 6. Structure of the Model Component</div>
+<div class="title">Figure 7. Structure of the Model Component</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103-F09-3/main/src/main/java/seedu/address/model/Model.java"><code>Model.java</code></a></p>
@@ -261,14 +288,14 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>module planne
 </tr>
 </table>
 </div>
-<div id="Design-Storage" class="paragraph">
-<p>=== Storage component</p>
 </div>
+<div class="sect2">
+<h3 id="Design-Storage"><a class="link" href="#Design-Storage">2.5. Storage component</a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/StorageClassDiagram.png" alt="StorageClassDiagram">
 </div>
-<div class="title">Figure 7. Structure of the Storage Component</div>
+<div class="title">Figure 8. Structure of the Storage Component</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103-F09-3/main/src/main/java/seedu/address/storage/Storage.java"><code>Storage.java</code></a></p>
@@ -286,22 +313,25 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>module planne
 </li>
 </ul>
 </div>
-<div id="Design-Commons" class="paragraph">
-<p>=== Common classes</p>
 </div>
+<div class="sect2">
+<h3 id="Design-Commons"><a class="link" href="#Design-Commons">2.6. Common classes</a></h3>
 <div class="paragraph">
 <p>Classes used by multiple components are in the <code>seedu.address.commons</code> package.</p>
 </div>
-<div class="paragraph">
-<p>== Implementation</p>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="implementation"><a class="link" href="#implementation">3. Implementation</a></h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>This section describes some noteworthy details on how certain features are implemented.</p>
 </div>
-<div class="paragraph">
-<p>=== Undo/Redo feature
-==== Current Implementation</p>
-</div>
+<div class="sect2">
+<h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">3.1. Undo/Redo feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">3.1.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The undo/redo mechanism is inpired by the undo/redo implementation in AddressBook 3 and is facilitated by <code>VersionedModulePlanner</code>.
 It extends <code>modulePlanner</code> with an undo/redo history, stored internally as an <code>historyStateList</code> and <code>currentStatePointer</code>.
@@ -437,12 +467,11 @@ If the <code>currentStatePointer</code> is at index <code>historyStateList.size(
 <img src="images/UndoRedoState4.png" alt="UndoRedoState4">
 </div>
 </div>
-<div class="paragraph">
-<p>==== Design Considerations</p>
 </div>
-<div class="paragraph">
-<p>===== Aspect: How undo &amp; redo executes</p>
-</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">3.1.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -473,10 +502,13 @@ If the <code>currentStatePointer</code> is at index <code>historyStateList.size(
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>=== [Work in Progress] Version Tracking
-==== Current Implementation</p>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="work-in-progress-version-tracking"><a class="link" href="#work-in-progress-version-tracking">3.2. [Work in Progress] Version Tracking</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">3.2.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The version tracking mechanism (or <em>commit</em> mechanism) is facilitated by <code>VersionTrackingManager</code>.
 It is stored as an instance attribute of a <code>ModulePlanner</code> object.
@@ -580,12 +612,11 @@ no deletion will take place. Instead the user will be prompted by an error messa
 <div class="paragraph">
 <p>The following activity diagram summarizes what happens when a user executes a commit command:</p>
 </div>
-<div class="paragraph">
-<p>==== Design Considerations</p>
 </div>
-<div class="paragraph">
-<p>===== Aspect: How commit executes</p>
-</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.2.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-commit-executes"><a class="link" href="#aspect-how-commit-executes">Aspect: How commit executes</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -616,9 +647,9 @@ no deletion will take place. Instead the user will be prompted by an error messa
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>===== Aspect: Data structure to support the commit commands</p>
 </div>
+<div class="sect4">
+<h5 id="aspect-data-structure-to-support-the-commit-commands"><a class="link" href="#aspect-data-structure-to-support-the-commit-commands">Aspect: Data structure to support the commit commands</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -636,16 +667,18 @@ no deletion will take place. Instead the user will be prompted by an error messa
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>=== Logging</p>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="logging"><a class="link" href="#logging">3.3. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">[Implementation-Configuration]</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.4, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -674,18 +707,19 @@ no deletion will take place. Instead the user will be prompted by an error messa
 </li>
 </ul>
 </div>
-<div id="Implementation-Configuration" class="paragraph">
-<p>=== Configuration</p>
 </div>
+<div class="sect2">
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.4. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
-<div class="paragraph">
-<p>=== Module Tagging Feature</p>
 </div>
+<div class="sect2">
+<h3 id="module-tagging-feature"><a class="link" href="#module-tagging-feature">3.5. Module Tagging Feature</a></h3>
+<div class="sect3">
+<h4 id="implementation-2"><a class="link" href="#implementation-2">3.5.1. Implementation</a></h4>
 <div class="paragraph">
-<p>==== Implementation
-The module tagging mechanism is facilitated by <code>UserTag</code>, <code>DefaultTag</code> and <code>UniqueTagList</code>.</p>
+<p>The module tagging mechanism is facilitated by <code>UserTag</code>, <code>DefaultTag</code> and <code>UniqueTagList</code>.</p>
 </div>
 <div class="paragraph">
 <p><code>UserTag</code> and <code>DefaultTag</code> implement the <code>Tag</code> interface. The former represents user-created tags while the latter
@@ -823,12 +857,11 @@ the target module. Hence, a <code>CommandException</code> will be thrown.</p>
 <img src="images/TagModuleCommandActivityDiagram.png" alt="TagModuleCommandActivityDiagram">
 </div>
 </div>
-<div class="paragraph">
-<p>==== Design Considerations</p>
 </div>
-<div class="paragraph">
-<p>===== Aspect: How tags are assigned to modules</p>
-</div>
+<div class="sect3">
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.5.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-tags-are-assigned-to-modules"><a class="link" href="#aspect-how-tags-are-assigned-to-modules">Aspect: How tags are assigned to modules</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -864,12 +897,13 @@ every <code>Module</code> instead of just the one in the <code>StudyPlan</code>.
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>=== Module Information and Verification</p>
 </div>
-<div class="paragraph">
-<p>==== Implementation</p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="module-information-and-verification"><a class="link" href="#module-information-and-verification">3.6. Module Information and Verification</a></h3>
+<div class="sect3">
+<h4 id="implementation-3"><a class="link" href="#implementation-3">3.6.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The reading of modules information is facilitated by <code>ModulesInfo</code>, which contains a list of <code>ModuleInfo</code> objects.</p>
 </div>
@@ -918,9 +952,9 @@ of <code>ModuleInfo</code> objects&#8201;&#8212;&#8201;it is then passed into ou
 matches their corresponding <code>ModulesInfo</code> objects. Each <code>Module</code> object should correspond to exactly one
 <code>ModuleInfo</code> object (with the same module code).</p>
 </div>
-<div class="paragraph">
-<p>==== Prerequisite checking</p>
 </div>
+<div class="sect3">
+<h4 id="prerequisite-checking"><a class="link" href="#prerequisite-checking">3.6.2. Prerequisite checking</a></h4>
 <div class="paragraph">
 <p>To facilitate prerequisite checking, we have an interface <code>PrereqTree</code>, implemented by two classes
 <code>PrereqLeaf</code> and <code>PrereqNode</code>.</p>
@@ -958,12 +992,11 @@ with a red tag beside it.</p>
 <img src="images/VerificationActivityDiagram.png" alt="VerificationActivityDiagram">
 </div>
 </div>
-<div class="paragraph">
-<p>==== Design Considerations</p>
 </div>
-<div class="paragraph">
-<p>===== Aspect: Relationship between a module and its module information</p>
-</div>
+<div class="sect3">
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.6.3. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-relationship-between-a-module-and-its-module-information"><a class="link" href="#aspect-relationship-between-a-module-and-its-module-information">Aspect: Relationship between a module and its module information</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -999,12 +1032,13 @@ the necessary information.</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>=== Autocomplete</p>
 </div>
-<div class="paragraph">
-<p>==== Implementation</p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="autocomplete"><a class="link" href="#autocomplete">3.7. Autocomplete</a></h3>
+<div class="sect3">
+<h4 id="implementation-4"><a class="link" href="#implementation-4">3.7.1. Implementation</a></h4>
 <div class="imageblock">
 <div class="content">
 <img src="images/AutocompleteClassDiagram.png" alt="AutocompleteClassDiagram" width="600">
@@ -1118,13 +1152,15 @@ This change replicates autocompleting only the last word without erasing previou
 <img src="images/AutocompleteActivityDiagram.png" alt="AutocompleteActivityDiagram" width="600">
 </div>
 </div>
-<div class="paragraph">
-<p>==== Design Considerations</p>
 </div>
-<div class="paragraph">
-<p>===== Aspect: How autocompletion is broken down
-* <strong>Alternative 1 (current choice)</strong>: One class for handling the text field, one class for handling the querying.</p>
-</div>
+<div class="sect3">
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">3.7.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-autocompletion-is-broken-down"><a class="link" href="#aspect-how-autocompletion-is-broken-down">Aspect: How autocompletion is broken down</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice)</strong>: One class for handling the text field, one class for handling the querying.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -1132,14 +1168,14 @@ This change replicates autocompleting only the last word without erasing previou
 </li>
 <li>
 <p>Cons: More classes written.</p>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 2 </strong>: One class to handle everything.</p>
 </li>
 </ul>
 </div>
 </li>
+<li>
+<p><strong>Alternative 2 </strong>: One class to handle everything.</p>
+<div class="ulist">
+<ul>
 <li>
 <p>Pros: Easier to code.</p>
 </li>
@@ -1148,9 +1184,12 @@ This change replicates autocompleting only the last word without erasing previou
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>===== Aspect: How arguments are completed</p>
+</li>
+</ul>
 </div>
+</div>
+<div class="sect4">
+<h5 id="aspect-how-arguments-are-completed"><a class="link" href="#aspect-how-arguments-are-completed">Aspect: How arguments are completed</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -1184,10 +1223,13 @@ take more time and alter the structure of parsing commands.</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>===== Aspect: How help is implemented
-* <strong>Alternative 1 (current choice)</strong>: Help is treated as a special case.</p>
 </div>
+<div class="sect4">
+<h5 id="aspect-how-help-is-implemented"><a class="link" href="#aspect-how-help-is-implemented">Aspect: How help is implemented</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice)</strong>: Help is treated as a special case.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -1195,14 +1237,14 @@ take more time and alter the structure of parsing commands.</p>
 </li>
 <li>
 <p>Cons: A hard-coded exception does not make the code extensible.</p>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 2</strong>: Every command is parsed and their keywords identified.</p>
 </li>
 </ul>
 </div>
 </li>
+<li>
+<p><strong>Alternative 2</strong>: Every command is parsed and their keywords identified.</p>
+<div class="ulist">
+<ul>
 <li>
 <p>Pros: More extensible as help is future commands can take in commands as keywords.</p>
 </li>
@@ -1212,27 +1254,41 @@ take more time and alter the structure of parsing commands.</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>== Documentation</p>
+</li>
+</ul>
 </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="documentation"><a class="link" href="#documentation">4. Documentation</a></h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Refer to the guide <a href="Documentation.html">here</a>.</p>
 </div>
-<div class="paragraph">
-<p>== Testing</p>
 </div>
+</div>
+<div class="sect1">
+<h2 id="testing"><a class="link" href="#testing">5. Testing</a></h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Refer to the guide <a href="Testing.html">here</a>.</p>
 </div>
-<div class="paragraph">
-<p>== Dev Ops</p>
 </div>
+</div>
+<div class="sect1">
+<h2 id="dev-ops"><a class="link" href="#dev-ops">6. Dev Ops</a></h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Refer to the guide <a href="DevOps.html">here</a>.</p>
 </div>
-<div class="paragraph">
-<p>== Product Scope</p>
 </div>
+</div>
+<div class="sect1">
+<h2 id="product-scope"><a class="link" href="#product-scope">Appendix A: Product Scope</a></h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p><strong>Target user profile</strong>:</p>
 </div>
@@ -1286,9 +1342,11 @@ take more time and alter the structure of parsing commands.</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>== User Stories</p>
 </div>
+</div>
+<div class="sect1">
+<h2 id="user-stories"><a class="link" href="#user-stories">Appendix B: User Stories</a></h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Priorities: High (must have) - <code>* * *</code>, Medium (nice to have) - <code>* *</code>, Low (unlikely to have) - <code>*</code></p>
 </div>
@@ -1556,15 +1614,16 @@ take more time and alter the structure of parsing commands.</p>
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p>== Use Cases</p>
 </div>
+</div>
+<div class="sect1">
+<h2 id="use-cases"><a class="link" href="#use-cases">Appendix C: Use Cases</a></h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>(For all use cases below, the <strong>System</strong> is the <code>ModBuddy</code> and the <strong>Actor</strong> is the <code>Student</code>, unless specified otherwise)</p>
 </div>
-<div class="paragraph">
-<p>=== Use case: UC01 - Create study plan</p>
-</div>
+<div class="sect2">
+<h3 id="use-case-uc01-create-study-plan"><a class="link" href="#use-case-uc01-create-study-plan">C.1. Use case: UC01 - Create study plan</a></h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -1607,9 +1666,9 @@ take more time and alter the structure of parsing commands.</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>=== Use case: UC02 - Add module</p>
 </div>
+<div class="sect2">
+<h3 id="use-case-uc02-add-module"><a class="link" href="#use-case-uc02-add-module">C.2. Use case: UC02 - Add module</a></h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -1652,9 +1711,9 @@ take more time and alter the structure of parsing commands.</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>=== Use case: UC03 - Commit a study plan</p>
 </div>
+<div class="sect2">
+<h3 id="use-case-uc03-commit-a-study-plan"><a class="link" href="#use-case-uc03-commit-a-study-plan">C.3. Use case: UC03 - Commit a study plan</a></h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -1691,9 +1750,9 @@ take more time and alter the structure of parsing commands.</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>=== Use case: UC04 - Tag a module</p>
 </div>
+<div class="sect2">
+<h3 id="use-case-uc04-tag-a-module"><a class="link" href="#use-case-uc04-tag-a-module">C.4. Use case: UC04 - Tag a module</a></h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -1752,9 +1811,9 @@ take more time and alter the structure of parsing commands.</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>=== Use case: UC05 - Correct modules without a prerequisite</p>
 </div>
+<div class="sect2">
+<h3 id="use-case-uc05-correct-modules-without-a-prerequisite"><a class="link" href="#use-case-uc05-correct-modules-without-a-prerequisite">C.5. Use case: UC05 - Correct modules without a prerequisite</a></h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -1806,9 +1865,9 @@ take more time and alter the structure of parsing commands.</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>=== Use case: UC06 - Chaining commands</p>
 </div>
+<div class="sect2">
+<h3 id="use-case-uc06-chaining-commands"><a class="link" href="#use-case-uc06-chaining-commands">C.6. Use case: UC06 - Chaining commands</a></h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -1841,9 +1900,12 @@ take more time and alter the structure of parsing commands.</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>== Non Functional Requirements</p>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="non-functional-requirements"><a class="link" href="#non-functional-requirements">Appendix D: Non Functional Requirements</a></h2>
+<div class="sectionbody">
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1881,9 +1943,11 @@ take more time and alter the structure of parsing commands.</p>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p>== Glossary</p>
 </div>
+</div>
+<div class="sect1">
+<h2 id="glossary"><a class="link" href="#glossary">Appendix E: Glossary</a></h2>
+<div class="sectionbody">
 <div class="dlist">
 <dl>
 <dt class="hdlist1"><a id="active-study-plan"></a> Active study plan</dt>
@@ -2223,7 +2287,4 @@ year of undergraduate studies in NUS.</p>
 </dl>
 </div>
 </div>
-</div>
-</div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-06 14:10:31 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-07 07:47:00 UTC</div></div></div></body></html>
