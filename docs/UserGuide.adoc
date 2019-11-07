@@ -51,18 +51,23 @@ or as `newplan Algo and Graphics`.
 
 ====
 
+// tag::help[]
 === Basic
 
 ==== General Help: `help`
-Provides a list of possible commands the user can type. +
+Provides a list of possible commands the user can type with brief descriptions. +
 Format: `help`
 
 ==== Help for a specific command: `help`
-Provides help for a specific command. +
+Provides detailed help for a specific command, including the parameters required. +
 Format: `help COMMAND` +
 Example:
 
 * `help newplan`
+
+// end::help[]
+
+// tag::autocomplete[]
 
 ==== Autocompleting: `tab`
 When the user presses `tab`, the command word, or module code, or semester,
@@ -70,6 +75,8 @@ or tag name will be autocompleted
 If there is only one possible completion, it will be filled immediately.
 If there is more than one possible completion, a menu of possible autocompletions
 is drawn that can be selected with the up and down buttons.
+
+// end::autocomplete[]
 
 // tag::undoredo[]
 
@@ -86,7 +93,7 @@ Redo the previous undone command. The state of the application will revert back 
 
 Format:  `redo`
 
-// tag::undoredo[]
+//end::undoredo[]
 
 ==== Error messages
 Displays a useful error message if the input is invalid. For example,
@@ -112,6 +119,7 @@ Examples:
 * `removemod y2s2 CS3244`
 
 // end::addremovemod[]
+//tag::dataclassificationandmanagement1[]
 
 ==== Finding modules using the module code : `findmod`
 Shows which semester the specified module is located at. +
@@ -121,6 +129,7 @@ Examples:
 
 * `findmod cs1101s`
 * `findmod cs2103`
+//end::dataclassificationandmanagement1[]
 
 ==== Viewing description of a module: `description`
 Shows the description of a particular module, including its prerequisites.
@@ -183,8 +192,12 @@ Example:
 
 * `validmods y2s1`
 
-//tag::dataclassificationandmanagement[]
+//tag::dataclassificationandmanagement2[]
 === Tagging
+
+[IMPORTANT]
+All tag names must be single words and cannot be more than 25 characters long.
+
 ==== Viewing default tags : `viewdefaulttags`
 Shows all default tag types. +
 Format: `viewdefaulttags`
@@ -277,8 +290,9 @@ Examples:
 Removes all user-created tags in the entire study plan. +
 Format: `removeallmodtags`
 
-//end::dataclassificationandmanagement[]
+//end::dataclassificationandmanagement2[]
 
+// tag::studyplan[]
 === Study Plan
 
 ==== Creating a new study plan: `newplan`
@@ -342,6 +356,10 @@ Example:
 Generates a study plan with pre-populated modules according to the recommended study plan for a Year one CS student. +
 Format: `default`
 
+// end::studyplan[]
+
+//tag::dataclassificationandmanagement3[]
+
 ==== Adding priority tags to a study plan : `setpriority`
 Attaches a priority tag to the study plan. +
 Format: `setpriority PRIORITY_LEVEL STUDY_PLAN_ID`
@@ -371,6 +389,7 @@ Examples
 ==== Listing study plans by priority: `listbypriority`
 Lists all study plans in the order of their priorities. +
 Format: `listbypriority`
+//end::dataclassificationandmanagement3[]
 
 ==== Checking a study plan's feasibility : `check`
 Shows details about what graduation requirements are left to be fulfilled,
@@ -382,6 +401,7 @@ Clears all modules that are currently invalid, whose prerequisites have not been
 This may cause other modules in future semesters to be invalidated as well. +
 Format: `clearinvalidmods`
 
+// tag::versiontracking[]
 === Version Tracking
 
 ==== Committing edits to a study plan: `commit`
@@ -437,41 +457,43 @@ Example:
 
 * `removecommit 2.2`
 
+// end::versiontracking[]
+
+// tag::gui[]
 === GUI
 
 ==== Expanding a semester: `expand`
-Expands a semester so that more details can be seen. +
+Expands a semester so that more details can be seen. Will display module titles, MC count, and their tags. +
 Format: `expand SEMESTER` +
 Example:
 
 * `expand y1s1`
 
 ==== Expanding all semesters: `expandall`
-Expands all semesters so that more details can be seen. +
+Expands all semesters so that more details can be seen. Will display module titles, MC count, and their tags. +
 Format: `expandall`
 
 ==== Collapsing a semester: `collapse`
-Collapses a semester so that most details are hidden. +
+Collapses a semester so that most details are hidden. Will hide module titles, MC count, and their tags. +
 Format: `collapse SEMESTER` +
 Example:
 
 * `collapse y1s1`
 
 ==== Collapsing all semesters: `collapseall`
-Collapses all semesters so that most details are hidden. +
+Collapses all semesters so that most details are hidden. Will hide module titles, MC count, and their tags. +
 Format: `collapseall`
 
 ==== Changing the theme of the GUI: `theme`
-Changes the theme of the GUI +
+Changes the theme of the GUI. Existing themes are: light, dark. +
 Format: `theme THEME_NAME`
-
-Existing themes are:
-light, dark.
 
 Examples:
 
 * `theme light`
 * `theme dark`
+
+// end::gui[]
 
 == Upcoming Features [coming in v2.0]
 
@@ -485,6 +507,8 @@ Examples:
 * `addmod y1s1 CS1101S CS1231 MA1521`
 * `movemodule CS2105 y2s1 y2s2 && addmod CS2106 y2s2`
 
+// tag::movingasemester[]
+
 === Semester
 
 ==== Moving a semester to a study plan: `movesem` `[coming in v2.0]`
@@ -495,6 +519,8 @@ Examples:
 
 * `movesem y2s2 1 3`
 * `movesem y3s1 2 1`
+
+// end::movingasemester[]
 
 === Module
 
@@ -513,6 +539,26 @@ Examples:
 
 * `movemod CS3243 y2s1 y2s2`
 
+
+=== Tagging
+//tag::dataclassificationandmanagement4[]
+==== Setting focus area tags to study plans: `[coming in v2.0]`
+A tag with the declared focus area will automatically appear when the user declares his/her focus area. +
+Refer to <<Declaring a focus area: `[coming in v2.0]`>>.
+
+==== Change colour theme of tags: `[coming in v2.0]`
+Changes the colour theme of all the tags in the study plan with the specified one.
+
+==== Change colour of specific tags: `[coming in v2.0]`
+Changes the colour of a specific tag.
+
+==== Get module codes from keywords: `[coming in v2.0]`
+Shows all module codes of modules with names containing the specified keywords.
+
+==== Tagging modules across all study plans: `[coming in v2.0]`
+Attaches a specified tag to a module across all study plans. For example, a tag `difficult` can be attached to a
+given module across all study plans instead of tagging them individually in every study plan.
+//end::dataclassificationandmanagement4[]
 === Study Plan
 
 ==== Declaring a focus area: `[coming in v2.0]`
@@ -522,6 +568,16 @@ Format: `declarefocusarea FOCUS_AREA`
 ==== Displays for an invalid study plan
 `[coming in v2.0]` The study plan will have a tick or cross beside it, which shows if the entire plan is feasible.
 
+// tag::guifuture[]
+=== GUI
+
+==== Animations: `[coming in v2.0]`
+Expanding and collapsing semesters will be fluidly animated.
+
+==== Colours: `[coming in v2.0]`
+Each module and tag can be assigned with a specific colour to allow more customisation.
+
+// end::guifuture[]
 
 == FAQ
 
