@@ -28,7 +28,7 @@
 <li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#undo-redo-feature">3.1. Undo/Redo feature</a></li>
-<li><a href="#work-in-progress-version-tracking">3.2. [Work in Progress] Version Tracking</a></li>
+<li><a href="#version-tracking">3.2. Version Tracking</a></li>
 <li><a href="#logging">3.3. Logging</a></li>
 <li><a href="#Implementation-Configuration">3.4. Configuration</a></li>
 <li><a href="#module-tagging-feature">3.5. Module Tagging Feature</a></li>
@@ -222,27 +222,6 @@ All these, including the <code>MainWindow</code>, inherit from the abstract <cod
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p>Given below is the Sequence Diagram for interactions within the <code>Logic</code> component for the <code>execute("delete 1")</code> API call.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/DeleteSequenceDiagram.png" alt="DeleteSequenceDiagram">
-</div>
-<div class="title">Figure 6. Interactions Inside the Logic Component for the <code>delete 1</code> Command</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The lifeline for <code>DeleteCommandParser</code> should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
-</td>
-</tr>
-</table>
-</div>
 </div>
 <div class="sect2">
 <h3 id="Design-Model"><a class="link" href="#Design-Model">2.4. Model component</a></h3>
@@ -250,7 +229,7 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <div class="content">
 <img src="images/ModelClassDiagram.png" alt="ModelClassDiagram">
 </div>
-<div class="title">Figure 7. Structure of the Model Component</div>
+<div class="title">Figure 6. Structure of the Model Component</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103-F09-3/main/src/main/java/seedu/address/model/Model.java"><code>Model.java</code></a></p>
@@ -295,10 +274,10 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>module planne
 <div class="content">
 <img src="images/StorageClassDiagram.png" alt="StorageClassDiagram">
 </div>
-<div class="title">Figure 8. Structure of the Storage Component</div>
+<div class="title">Figure 7. Structure of the Storage Component</div>
 </div>
 <div class="paragraph">
-<p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103-F09-3/main/src/main/java/seedu/address/storage/Storage.java"><code>Storage.java</code></a></p>
+<p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103-F09-3/main/blob/master/src/main/java/seedu/address/storage/Storage.java"><code>Storage.java</code></a></p>
 </div>
 <div class="paragraph">
 <p>The <code>Storage</code> component,</p>
@@ -309,7 +288,10 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>module planne
 <p>can save <code>UserPref</code> objects in json format and read it back.</p>
 </li>
 <li>
-<p>can save the module planner data in json format and read it back.</p>
+<p>can save the <code>ModulePlanner</code> data in json format and read it back.</p>
+</li>
+<li>
+<p>can save the <code>ModulesInfo</code> data in json format and read it back.</p>
 </li>
 </ul>
 </div>
@@ -506,7 +488,7 @@ If the <code>currentStatePointer</code> is at index <code>historyStateList.size(
 </div>
 </div>
 <div class="sect2">
-<h3 id="work-in-progress-version-tracking"><a class="link" href="#work-in-progress-version-tracking">3.2. [Work in Progress] Version Tracking</a></h3>
+<h3 id="version-tracking"><a class="link" href="#version-tracking">3.2. Version Tracking</a></h3>
 <div class="sect3">
 <h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">3.2.1. Current Implementation</a></h4>
 <div class="paragraph">
@@ -1858,7 +1840,7 @@ take more time and alter the structure of parsing commands.</p>
 </div>
 </li>
 <li>
-<p>3a. ModBuddy suggests suitable semesters where the student can take the untaken prerequisites.</p>
+<p>3a. Student checks if the module to be added is valid in a selected previous semester.</p>
 <div class="paragraph">
 <p>Use case resumes from step 4.</p>
 </div>
@@ -2287,4 +2269,4 @@ year of undergraduate studies in NUS.</p>
 </dl>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-07 07:47:00 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-07 15:03:08 UTC</div></div></div></body></html>
