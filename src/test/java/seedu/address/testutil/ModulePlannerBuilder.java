@@ -7,7 +7,7 @@ import seedu.address.model.studyplan.StudyPlan;
  * A utility class to help with building ModulePlanner objects.
  * Example usage: <br>
  * {@code ModulePlanner mp = new ModulePlannerBuilder().withStudyPlan(studyPlan).build();}
- */ 
+ */
 public class ModulePlannerBuilder {
 
     private ModulePlanner modulePlanner;
