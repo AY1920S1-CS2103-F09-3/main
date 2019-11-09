@@ -180,7 +180,7 @@ Additionally, it implements the following operations:</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>These operations are exposed in the <code>Model</code> interface as <code>Model#saveToHistory()</code>, <code>Model#undo()</code> and <code>Model#redo()</code> respectively.</p>
+<p>These operations are exposed in the <code>Model</code> interface as <code>Model#addToHistory()</code>, <code>Model#undo()</code> and <code>Model#redo()</code> respectively.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -206,7 +206,7 @@ Currently, the undo-redo mechanism does not include/respond to changes to comman
 </div>
 </div>
 <div class="paragraph">
-<p>Step 2. The user executes <code>addmod CS3233 y1s1</code> command to add the Module <code>CS3233</code> module into Semester <code>y1s1</code> in the active study plan. The <code>addmod</code> command calls <code>Model#saveToHistory()</code>, causing the modified state of the module planner after the <code>addmod CS3233 y1s1</code> command executes to be saved in the <code>historyStateList</code>, and the <code>currentStatePointer</code> is shifted to the newly inserted module planner state.</p>
+<p>Step 2. The user executes <code>addmod CS3233 y1s1</code> command to add the Module <code>CS3233</code> module into Semester <code>y1s1</code> in the active study plan. The <code>addmod</code> command calls <code>Model#addToHistory()</code>, causing the modified state of the module planner after the <code>addmod CS3233 y1s1</code> command executes to be saved in the <code>historyStateList</code>, and the <code>currentStatePointer</code> is shifted to the newly inserted module planner state.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -214,7 +214,7 @@ Currently, the undo-redo mechanism does not include/respond to changes to comman
 </div>
 </div>
 <div class="paragraph">
-<p>Step 3. The user executes <code>removemod CS1101s y1s1</code> to remove the Module <code>CS1101S</code> module from Semester <code>y1s1</code> in the active study plan. The <code>remove</code> command also calls <code>Model#saveToHistory()</code>, causing another modified module planner state to be saved into the <code>historyStateList</code>.</p>
+<p>Step 3. The user executes <code>removemod CS1101s y1s1</code> to remove the Module <code>CS1101S</code> module from Semester <code>y1s1</code> in the active study plan. The <code>remove</code> command also calls <code>Model#addToHistory()</code>, causing another modified module planner state to be saved into the <code>historyStateList</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -228,7 +228,7 @@ Currently, the undo-redo mechanism does not include/respond to changes to comman
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If a command fails its execution, it will not call <code>Model#saveToHistory()</code>, so the module planner state will not be saved into the <code>historyStateList</code>.
+If a command fails its execution, it will not call <code>Model#addToHistory()</code>, so the module planner state will not be saved into the <code>historyStateList</code>.
 </td>
 </tr>
 </table>
@@ -289,11 +289,19 @@ If the <code>currentStatePointer</code> is at index <code>historyStateList.size(
 </table>
 </div>
 <div class="paragraph">
-<p>Step 5. The user then decides to execute the command <code>history</code>. Commands that do not modify the module planner, such as <code>history</code>, will usually not call <code>Model#saveToHistory()</code>, <code>Model#undo()</code> or <code>Model#redo()</code>. Thus, the <code>historyStateList</code> remains unchanged.</p>
+<p>Step 5. The user then decides to execute the command <code>history</code>. Commands that do not modify the module planner, such as <code>history</code>, will usually not call <code>Model#addToHistory()</code>, <code>Model#undo()</code> or <code>Model#redo()</code>. Thus, the <code>historyStateList</code> remains unchanged.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/UndoRedoState4.png" alt="UndoRedoState4">
+</div>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarizes what happens when a user executes a new command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/CommitActivityDiagram.png" alt="CommitActivityDiagram">
 </div>
 </div>
 </div>
@@ -344,4 +352,4 @@ If the <code>currentStatePointer</code> is at index <code>historyStateList.size(
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-09 06:35:24 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-09 14:05:34 UTC</div></div></div></body></html>

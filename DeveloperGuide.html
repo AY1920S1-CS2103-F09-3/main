@@ -28,12 +28,13 @@
 <li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#undo-redo-feature">3.1. Undo/Redo feature</a></li>
-<li><a href="#version-tracking">3.2. Version Tracking</a></li>
-<li><a href="#logging">3.3. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.4. Configuration</a></li>
-<li><a href="#module-tagging-feature">3.5. Module Tagging Feature</a></li>
-<li><a href="#module-information-and-verification">3.6. Module Information and Verification</a></li>
-<li><a href="#autocomplete">3.7. Autocomplete</a></li>
+<li><a href="#parser">3.2. Parser</a></li>
+<li><a href="#version-tracking">3.3. Version Tracking</a></li>
+<li><a href="#logging">3.4. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.5. Configuration</a></li>
+<li><a href="#module-tagging-feature">3.6. Module Tagging Feature</a></li>
+<li><a href="#module-information-and-verification">3.7. Module Information and Verification</a></li>
+<li><a href="#autocomplete">3.8. Autocomplete</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a></li>
@@ -218,7 +219,7 @@ All these, including the <code>MainWindow</code>, inherit from the abstract <cod
 <p>The result of the command execution is encapsulated as a <code>CommandResult</code> object which is passed back to the <code>Ui</code>.</p>
 </li>
 <li>
-<p>In addition, the <code>CommandResult</code> object can also instruct the <code>Ui</code> to perform certain actions, such as displaying help to the user.</p>
+<p>In addition, the <code>CommandResult</code> object can also instruct the <code>Ui</code> to perform certain actions, such as displaying information to the user or refreshing the Ui.</p>
 </li>
 </ol>
 </div>
@@ -333,7 +334,7 @@ Additionally, it implements the following operations:</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>These operations are exposed in the <code>Model</code> interface as <code>Model#saveToHistory()</code>, <code>Model#undo()</code> and <code>Model#redo()</code> respectively.</p>
+<p>These operations are exposed in the <code>Model</code> interface as <code>Model#addToHistory()</code>, <code>Model#undo()</code> and <code>Model#redo()</code> respectively.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -359,7 +360,7 @@ Currently, the undo-redo mechanism does not include/respond to changes to comman
 </div>
 </div>
 <div class="paragraph">
-<p>Step 2. The user executes <code>addmod CS3233 y1s1</code> command to add the Module <code>CS3233</code> module into Semester <code>y1s1</code> in the active study plan. The <code>addmod</code> command calls <code>Model#saveToHistory()</code>, causing the modified state of the module planner after the <code>addmod CS3233 y1s1</code> command executes to be saved in the <code>historyStateList</code>, and the <code>currentStatePointer</code> is shifted to the newly inserted module planner state.</p>
+<p>Step 2. The user executes <code>addmod CS3233 y1s1</code> command to add the Module <code>CS3233</code> module into Semester <code>y1s1</code> in the active study plan. The <code>addmod</code> command calls <code>Model#addToHistory()</code>, causing the modified state of the module planner after the <code>addmod CS3233 y1s1</code> command executes to be saved in the <code>historyStateList</code>, and the <code>currentStatePointer</code> is shifted to the newly inserted module planner state.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -367,7 +368,7 @@ Currently, the undo-redo mechanism does not include/respond to changes to comman
 </div>
 </div>
 <div class="paragraph">
-<p>Step 3. The user executes <code>removemod CS1101s y1s1</code> to remove the Module <code>CS1101S</code> module from Semester <code>y1s1</code> in the active study plan. The <code>remove</code> command also calls <code>Model#saveToHistory()</code>, causing another modified module planner state to be saved into the <code>historyStateList</code>.</p>
+<p>Step 3. The user executes <code>removemod CS1101s y1s1</code> to remove the Module <code>CS1101S</code> module from Semester <code>y1s1</code> in the active study plan. The <code>remove</code> command also calls <code>Model#addToHistory()</code>, causing another modified module planner state to be saved into the <code>historyStateList</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -381,7 +382,7 @@ Currently, the undo-redo mechanism does not include/respond to changes to comman
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If a command fails its execution, it will not call <code>Model#saveToHistory()</code>, so the module planner state will not be saved into the <code>historyStateList</code>.
+If a command fails its execution, it will not call <code>Model#addToHistory()</code>, so the module planner state will not be saved into the <code>historyStateList</code>.
 </td>
 </tr>
 </table>
@@ -442,11 +443,19 @@ If the <code>currentStatePointer</code> is at index <code>historyStateList.size(
 </table>
 </div>
 <div class="paragraph">
-<p>Step 5. The user then decides to execute the command <code>history</code>. Commands that do not modify the module planner, such as <code>history</code>, will usually not call <code>Model#saveToHistory()</code>, <code>Model#undo()</code> or <code>Model#redo()</code>. Thus, the <code>historyStateList</code> remains unchanged.</p>
+<p>Step 5. The user then decides to execute the command <code>history</code>. Commands that do not modify the module planner, such as <code>history</code>, will usually not call <code>Model#addToHistory()</code>, <code>Model#undo()</code> or <code>Model#redo()</code>. Thus, the <code>historyStateList</code> remains unchanged.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/UndoRedoState4.png" alt="UndoRedoState4">
+</div>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarizes what happens when a user executes a new command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/CommitActivityDiagram.png" alt="CommitActivityDiagram">
 </div>
 </div>
 </div>
@@ -488,9 +497,83 @@ If the <code>currentStatePointer</code> is at index <code>historyStateList.size(
 </div>
 </div>
 <div class="sect2">
-<h3 id="version-tracking"><a class="link" href="#version-tracking">3.2. Version Tracking</a></h3>
+<h3 id="parser"><a class="link" href="#parser">3.2. Parser</a></h3>
 <div class="sect3">
 <h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">3.2.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The current parsing mechanism is facilitated by <code>ArgumentTokenizer</code> and <code>ArgumentMultimap</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ParserDiagram.png" alt="ParserDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the parsing mechanism behaves at each step.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ParserSequenceDiagram.png" alt="ParserSequenceDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>Step 1. The user enters the <code>addmod MODULE_CODE SEMESTER</code>. command to add a module with the moduel code <em>MODULE_CODE</em> to the
+semester with the name <em>SEMESTER</em>. In this case, the command entered is <code>addmod CS2102 Y1S1</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The Ui component sends the commadn to the <code>LogicManager</code> to parse the command. The <code>ModulePlannerParser</code> detects the COMMAND_WORD of the command, <code>addmod</code>, and creates an instance of the <code>AddModuleParser</code> class.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. The <code>AddModuleParser</code> instance then calls <code>ArgumentTokeniser</code> static method, tokenise, with arguments <em>ARG_STRING</em>, <em>MODULE_PATTERN</em> and <em>SEMESTER_PATTERN</em>. These patterns are instances of Java <code>Patterns</code> class and are pre-defined in the CliSyntax class. They are passed into the tokenise method so that the <code>ArgumentTokeniser</code> knows to parse to find these patterns.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. The <code>ArgumentTokeniser</code> then creates an <code>ArgumentMultiMap</code> based on the specified patterns, which is then returned to the <code>AddModuleParser</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 5. The <code>ArgumentMultiMap</code> is then used to obtain the arguments to create an instance of the <code>AddModuleCommand</code> class.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.2.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-parser-is-implemented"><a class="link" href="#aspect-how-parser-is-implemented">Aspect: How parser is implemented</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Use Java <code>Pattern</code> class to detect argument types.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: User no longer has to type prefixes before each argument type to declare the parameter of the argument.</p>
+</li>
+<li>
+<p>Cons: Difficult to implement because it requires a lot of corner case detection, and also does not consider the order of arguments being entered.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Use prefixes (similar to that implemented in Address Book 3) so that user declares type of parameter before each argument in the command.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement.</p>
+</li>
+<li>
+<p>Cons: User has to type in prefixes, which will reduce ease and efficiency of application use.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="version-tracking"><a class="link" href="#version-tracking">3.3. Version Tracking</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">3.3.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The version tracking mechanism (or <em>commit</em> mechanism) is facilitated by <code>VersionTrackingManager</code>.
 It is stored as an instance attribute of a <code>ModulePlanner</code> object.
@@ -596,7 +679,7 @@ no deletion will take place. Instead the user will be prompted by an error messa
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.2.2. Design Considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.3.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-commit-executes"><a class="link" href="#aspect-how-commit-executes">Aspect: How commit executes</a></h5>
 <div class="ulist">
@@ -653,14 +736,14 @@ no deletion will take place. Instead the user will be prompted by an error messa
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.3. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.4. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.4, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.5, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -691,15 +774,15 @@ no deletion will take place. Instead the user will be prompted by an error messa
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.4. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.5. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="module-tagging-feature"><a class="link" href="#module-tagging-feature">3.5. Module Tagging Feature</a></h3>
+<h3 id="module-tagging-feature"><a class="link" href="#module-tagging-feature">3.6. Module Tagging Feature</a></h3>
 <div class="sect3">
-<h4 id="implementation-2"><a class="link" href="#implementation-2">3.5.1. Implementation</a></h4>
+<h4 id="implementation-2"><a class="link" href="#implementation-2">3.6.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The module tagging mechanism is facilitated by <code>UserTag</code>, <code>DefaultTag</code> and <code>UniqueTagList</code>.</p>
 </div>
@@ -841,7 +924,7 @@ the target module. Hence, a <code>CommandException</code> will be thrown.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.5.2. Design Considerations</a></h4>
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.6.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-tags-are-assigned-to-modules"><a class="link" href="#aspect-how-tags-are-assigned-to-modules">Aspect: How tags are assigned to modules</a></h5>
 <div class="ulist">
@@ -883,9 +966,9 @@ every <code>Module</code> instead of just the one in the <code>StudyPlan</code>.
 </div>
 </div>
 <div class="sect2">
-<h3 id="module-information-and-verification"><a class="link" href="#module-information-and-verification">3.6. Module Information and Verification</a></h3>
+<h3 id="module-information-and-verification"><a class="link" href="#module-information-and-verification">3.7. Module Information and Verification</a></h3>
 <div class="sect3">
-<h4 id="implementation-3"><a class="link" href="#implementation-3">3.6.1. Implementation</a></h4>
+<h4 id="implementation-3"><a class="link" href="#implementation-3">3.7.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The reading of modules information is facilitated by <code>ModulesInfo</code>, which contains a list of <code>ModuleInfo</code> objects.</p>
 </div>
@@ -936,7 +1019,7 @@ matches their corresponding <code>ModulesInfo</code> objects. Each <code>Module<
 </div>
 </div>
 <div class="sect3">
-<h4 id="prerequisite-checking"><a class="link" href="#prerequisite-checking">3.6.2. Prerequisite checking</a></h4>
+<h4 id="prerequisite-checking"><a class="link" href="#prerequisite-checking">3.7.2. Prerequisite checking</a></h4>
 <div class="paragraph">
 <p>To facilitate prerequisite checking, we have an interface <code>PrereqTree</code>, implemented by two classes
 <code>PrereqLeaf</code> and <code>PrereqNode</code>.</p>
@@ -976,7 +1059,7 @@ with a red tag beside it.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.6.3. Design Considerations</a></h4>
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">3.7.3. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-relationship-between-a-module-and-its-module-information"><a class="link" href="#aspect-relationship-between-a-module-and-its-module-information">Aspect: Relationship between a module and its module information</a></h5>
 <div class="ulist">
@@ -1018,9 +1101,9 @@ the necessary information.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="autocomplete"><a class="link" href="#autocomplete">3.7. Autocomplete</a></h3>
+<h3 id="autocomplete"><a class="link" href="#autocomplete">3.8. Autocomplete</a></h3>
 <div class="sect3">
-<h4 id="implementation-4"><a class="link" href="#implementation-4">3.7.1. Implementation</a></h4>
+<h4 id="implementation-4"><a class="link" href="#implementation-4">3.8.1. Implementation</a></h4>
 <div class="imageblock">
 <div class="content">
 <img src="images/AutocompleteClassDiagram.png" alt="AutocompleteClassDiagram" width="600">
@@ -1136,7 +1219,7 @@ This change replicates autocompleting only the last word without erasing previou
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">3.7.2. Design Considerations</a></h4>
+<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">3.8.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-autocompletion-is-broken-down"><a class="link" href="#aspect-how-autocompletion-is-broken-down">Aspect: How autocompletion is broken down</a></h5>
 <div class="ulist">
@@ -2269,4 +2352,4 @@ year of undergraduate studies in NUS.</p>
 </dl>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-09 06:35:24 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-09 14:05:34 UTC</div></div></div></body></html>

@@ -98,7 +98,10 @@
 <p>Spearheaded initial tests for refactored models: Module, Semester, StudyPlan to increase coverage from 27% to 38% (Pull request <a href="https://github.com/AY1920S1-CS2103-F09-3/main/pull/200">#200</a>)</p>
 </li>
 <li>
-<p>Improve aesthetics of GUI (Pull request <a href="https://github.com/AY1920S1-CS2103-F09-3/main/pull/246">#246</a>)</p>
+<p>Wrote additional tests for GUI (Pull request <a href="https://github.com/AY1920S1-CS2103-F09-3/main/pull/324">#324</a>)</p>
+</li>
+<li>
+<p>Improve aesthetics of GUI by fixing unintended bugs with colors (Pull request <a href="https://github.com/AY1920S1-CS2103-F09-3/main/pull/246">#246</a>)</p>
 </li>
 <li>
 <p>Implement reading of required resource file <code>modulesinfo.json</code> from within the jar file (Pull request <a href="https://github.com/AY1920S1-CS2103-F09-3/main/pull/217">#217</a>).</p>
@@ -110,6 +113,9 @@
 <p>Project management:</p>
 <div class="ulist">
 <ul>
+<li>
+<p>Role: Git Expert and Integration</p>
+</li>
 <li>
 <p>Managed releases from v1.1 to v1.3 on GitHub</p>
 </li>
@@ -263,7 +269,7 @@ The commands that make changes to the storage file, such as <code>commit</code>,
 <p>The result of the command execution is encapsulated as a <code>CommandResult</code> object which is passed back to the <code>Ui</code>.</p>
 </li>
 <li>
-<p>In addition, the <code>CommandResult</code> object can also instruct the <code>Ui</code> to perform certain actions, such as displaying help to the user.</p>
+<p>In addition, the <code>CommandResult</code> object can also instruct the <code>Ui</code> to perform certain actions, such as displaying information to the user or refreshing the Ui.</p>
 </li>
 </ol>
 </div>
@@ -291,7 +297,7 @@ Additionally, it implements the following operations:</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>These operations are exposed in the <code>Model</code> interface as <code>Model#saveToHistory()</code>, <code>Model#undo()</code> and <code>Model#redo()</code> respectively.</p>
+<p>These operations are exposed in the <code>Model</code> interface as <code>Model#addToHistory()</code>, <code>Model#undo()</code> and <code>Model#redo()</code> respectively.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -317,7 +323,7 @@ Currently, the undo-redo mechanism does not include/respond to changes to comman
 </div>
 </div>
 <div class="paragraph">
-<p>Step 2. The user executes <code>addmod CS3233 y1s1</code> command to add the Module <code>CS3233</code> module into Semester <code>y1s1</code> in the active study plan. The <code>addmod</code> command calls <code>Model#saveToHistory()</code>, causing the modified state of the module planner after the <code>addmod CS3233 y1s1</code> command executes to be saved in the <code>historyStateList</code>, and the <code>currentStatePointer</code> is shifted to the newly inserted module planner state.</p>
+<p>Step 2. The user executes <code>addmod CS3233 y1s1</code> command to add the Module <code>CS3233</code> module into Semester <code>y1s1</code> in the active study plan. The <code>addmod</code> command calls <code>Model#addToHistory()</code>, causing the modified state of the module planner after the <code>addmod CS3233 y1s1</code> command executes to be saved in the <code>historyStateList</code>, and the <code>currentStatePointer</code> is shifted to the newly inserted module planner state.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -325,7 +331,7 @@ Currently, the undo-redo mechanism does not include/respond to changes to comman
 </div>
 </div>
 <div class="paragraph">
-<p>Step 3. The user executes <code>removemod CS1101s y1s1</code> to remove the Module <code>CS1101S</code> module from Semester <code>y1s1</code> in the active study plan. The <code>remove</code> command also calls <code>Model#saveToHistory()</code>, causing another modified module planner state to be saved into the <code>historyStateList</code>.</p>
+<p>Step 3. The user executes <code>removemod CS1101s y1s1</code> to remove the Module <code>CS1101S</code> module from Semester <code>y1s1</code> in the active study plan. The <code>remove</code> command also calls <code>Model#addToHistory()</code>, causing another modified module planner state to be saved into the <code>historyStateList</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -339,7 +345,7 @@ Currently, the undo-redo mechanism does not include/respond to changes to comman
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If a command fails its execution, it will not call <code>Model#saveToHistory()</code>, so the module planner state will not be saved into the <code>historyStateList</code>.
+If a command fails its execution, it will not call <code>Model#addToHistory()</code>, so the module planner state will not be saved into the <code>historyStateList</code>.
 </td>
 </tr>
 </table>
@@ -400,11 +406,19 @@ If the <code>currentStatePointer</code> is at index <code>historyStateList.size(
 </table>
 </div>
 <div class="paragraph">
-<p>Step 5. The user then decides to execute the command <code>history</code>. Commands that do not modify the module planner, such as <code>history</code>, will usually not call <code>Model#saveToHistory()</code>, <code>Model#undo()</code> or <code>Model#redo()</code>. Thus, the <code>historyStateList</code> remains unchanged.</p>
+<p>Step 5. The user then decides to execute the command <code>history</code>. Commands that do not modify the module planner, such as <code>history</code>, will usually not call <code>Model#addToHistory()</code>, <code>Model#undo()</code> or <code>Model#redo()</code>. Thus, the <code>historyStateList</code> remains unchanged.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/UndoRedoState4.png" alt="UndoRedoState4">
+</div>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarizes what happens when a user executes a new command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/CommitActivityDiagram.png" alt="CommitActivityDiagram">
 </div>
 </div>
 </div>
@@ -442,56 +456,77 @@ If the <code>currentStatePointer</code> is at index <code>historyStateList.size(
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p><strong>Target user profile</strong>:</p>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="parser"><a class="link" href="#parser">Parser</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">Current Implementation</a></h4>
+<div class="paragraph">
+<p>The current parsing mechanism is facilitated by <code>ArgumentTokenizer</code> and <code>ArgumentMultimap</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ParserDiagram.png" alt="ParserDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the parsing mechanism behaves at each step.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ParserSequenceDiagram.png" alt="ParserSequenceDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>Step 1. The user enters the <code>addmod MODULE_CODE SEMESTER</code>. command to add a module with the moduel code <em>MODULE_CODE</em> to the
+semester with the name <em>SEMESTER</em>. In this case, the command entered is <code>addmod CS2102 Y1S1</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The Ui component sends the commadn to the <code>LogicManager</code> to parse the command. The <code>ModulePlannerParser</code> detects the COMMAND_WORD of the command, <code>addmod</code>, and creates an instance of the <code>AddModuleParser</code> class.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. The <code>AddModuleParser</code> instance then calls <code>ArgumentTokeniser</code> static method, tokenise, with arguments <em>ARG_STRING</em>, <em>MODULE_PATTERN</em> and <em>SEMESTER_PATTERN</em>. These patterns are instances of Java <code>Patterns</code> class and are pre-defined in the CliSyntax class. They are passed into the tokenise method so that the <code>ArgumentTokeniser</code> knows to parse to find these patterns.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. The <code>ArgumentTokeniser</code> then creates an <code>ArgumentMultiMap</code> based on the specified patterns, which is then returned to the <code>AddModuleParser</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 5. The <code>ArgumentMultiMap</code> is then used to obtain the arguments to create an instance of the <code>AddModuleCommand</code> class.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-parser-is-implemented"><a class="link" href="#aspect-how-parser-is-implemented">Aspect: How parser is implemented</a></h5>
 <div class="ulist">
 <ul>
 <li>
-<p>Undergraduate CS student studying in NUS</p>
-</li>
-<li>
-<p>Needs to manage his/her study plans and module planning</p>
-</li>
-<li>
-<p>Needs to see whether his/her study plans are feasible</p>
-</li>
-<li>
-<p>Prefer desktop apps over other types</p>
-</li>
-<li>
-<p>Can type fast</p>
-</li>
-<li>
-<p>Prefers typing over mouse input</p>
-</li>
-<li>
-<p>Is reasonably comfortable using CLI apps</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><strong>Value proposition</strong>:</p>
-</div>
+<p><strong>Alternative 1 (current choice):</strong> Use Java <code>Pattern</code> class to detect argument types.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Functionality is not offered by any other existing application.</p>
+<p>Pros: User no longer has to type prefixes before each argument type to declare the parameter of the argument.</p>
 </li>
 <li>
-<p>Tailored to needs of NUS CS undergraduate students.</p>
+<p>Cons: Difficult to implement because it requires a lot of corner case detection, and also does not consider the order of arguments being entered.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p>Users will be able to check all the problems (e.g. graduation requirements, prerequisite for modules) with their current study plan with ModBuddy through a desktop application.</p>
+<p><strong>Alternative 2:</strong> Use prefixes (similar to that implemented in Address Book 3) so that user declares type of parameter before each argument in the command.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement.</p>
 </li>
 <li>
-<p>Have multiple study plans, and move semesters around quickly with a CLI.</p>
+<p>Cons: User has to type in prefixes, which will reduce ease and efficiency of application use.</p>
 </li>
-<li>
-<p>Version control for saving history of study plans, ensuring that mistakes or past study plans are recoverable.</p>
-</li>
-<li>
-<p>Suits users who are able to type fast and can manage their study plan faster.</p>
+</ul>
+</div>
 </li>
 </ul>
 </div>
@@ -499,4 +534,4 @@ If the <code>currentStatePointer</code> is at index <code>historyStateList.size(
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-09 06:35:24 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-09 14:05:34 UTC</div></div></div></body></html>
