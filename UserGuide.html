@@ -19,9 +19,8 @@
 <li><a href="#module">3.2. Module</a></li>
 <li><a href="#semester">3.3. Semester</a></li>
 <li><a href="#tagging">3.4. Tagging</a></li>
-<li><a href="#study-plan">3.5. Study Plan</a></li>
-<li><a href="#version-tracking">3.6. Version Tracking</a></li>
-<li><a href="#gui">3.7. GUI</a></li>
+<li><a href="#version-tracking">3.5. Version Tracking</a></li>
+<li><a href="#gui">3.6. GUI</a></li>
 </ul>
 </li>
 <li><a href="#upcoming-features-coming-in-v2-0">4. Upcoming Features [coming in v2.0]</a>
@@ -30,7 +29,8 @@
 <li><a href="#semester-2">4.2. Semester</a></li>
 <li><a href="#module-2">4.3. Module</a></li>
 <li><a href="#tagging-2">4.4. Tagging</a></li>
-<li><a href="#gui-2">4.5. GUI</a></li>
+<li><a href="#study-plan">4.5. Study Plan</a></li>
+<li><a href="#gui-2">4.6. GUI</a></li>
 </ul>
 </li>
 <li><a href="#faq">5. FAQ</a></li>
@@ -216,7 +216,7 @@ Examples:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="removing-a-module-from-a-given-semester-code-removemod-code"><a class="link" href="#removing-a-module-from-a-given-semester-code-removemod-code">3.2.2. Removing a module from a given semester. <code>removemod</code></a></h4>
+<h4 id="removing-a-module-from-a-given-semester-code-removemod-code"><a class="link" href="#removing-a-module-from-a-given-semester-code-removemod-code">3.2.2. Removing a module from a given semester: <code>removemod</code></a></h4>
 <div class="paragraph">
 <p>Removes the specified module to a given semester of the current study plan.<br>
 Format: <code>removemod SEMESTER MODULE &#8230;&#8203;</code><br>
@@ -234,7 +234,7 @@ Examples:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="finding-modules-using-the-module-code-code-findmod-code"><a class="link" href="#finding-modules-using-the-module-code-code-findmod-code">3.2.3. Finding modules using the module code : <code>findmod</code></a></h4>
+<h4 id="finding-modules-using-module-code-code-findmod-code"><a class="link" href="#finding-modules-using-module-code-code-findmod-code">3.2.3. Finding modules using module code: <code>findmod</code></a></h4>
 <div class="paragraph">
 <p>Shows the semester that the specified module is located at.<br>
 Format: <code>findmod MODULE_CODE</code></p>
@@ -246,9 +246,6 @@ Format: <code>findmod MODULE_CODE</code></p>
 <ul>
 <li>
 <p><code>findmod cs1101s</code></p>
-</li>
-<li>
-<p><code>findmod cs2103</code></p>
 </li>
 </ul>
 </div>
@@ -396,10 +393,12 @@ All tag names must be single words and cannot be more than 25 characters long.
 <div class="sect3">
 <h4 id="viewing-default-tags-code-viewdefaulttags-code"><a class="link" href="#viewing-default-tags-code-viewdefaulttags-code">3.4.1. Viewing default tags : <code>viewdefaulttags</code></a></h4>
 <div class="paragraph">
-<p>Shows all default tag types.<br>
-Format: <code>viewdefaulttags</code></p>
+<p>Shows all default tag types.</p>
 </div>
-<div class="sidebarblock">
+<div class="paragraph">
+<p>Format: <code>viewdefaulttags</code></p>
+</div>
+<div class="exampleblock">
 <div class="content">
 <div class="paragraph">
 <p>List of default tags:</p>
@@ -407,31 +406,31 @@ Format: <code>viewdefaulttags</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>Completed</code><br>
+<p><code>Completed</code> :
 <em>Completed</em> modules are modules that are in any semester before the <strong>current semester</strong>.</p>
 </li>
 <li>
-<p><code>Core</code><br>
+<p><code>Core</code> :
 <em>Core</em> modules are <strong>Computer Science Foundation</strong> modules that count towards <strong>Programme Requirements</strong>.</p>
 </li>
 <li>
-<p><code>S/U-able</code><br>
+<p><code>S/U-able</code> :
 <em>S/U-able</em> modules are modules that permit the <strong>Satisfactory/Unsatisfactory option</strong>.</p>
 </li>
 <li>
-<p><code>UE</code><br>
+<p><code>UE</code> :
 <em>UE</em> modules are <strong>Unrestricted Elective</strong> modules.</p>
 </li>
 <li>
-<p><code>ULR</code><br>
+<p><code>ULR</code> :
 <em>ULR</em> modules are modules that count towards <strong>University Level Requirements</strong>.</p>
 </li>
 <li>
-<p><code>FOCUS_AREA_NAME:P</code><br>
+<p><code>FOCUS_AREA_NAME:P</code> :
 <em>P</em> modules are modules that count towards Focus Area Primaries for <em>FOCUS_AREA_NAME</em>.</p>
 </li>
 <li>
-<p><code>FOCUS_AREA_NAME:E</code><br>
+<p><code>FOCUS_AREA_NAME:E</code> :
 <em>E</em> modules are modules that count towards Focus Area Electives for <em>FOCUS_AREA_NAME</em>.</p>
 </li>
 </ul>
@@ -595,14 +594,12 @@ Format: <code>viewtags MODULE_CODE</code></p>
 <h4 id="removing-all-tags-from-the-study-plan-code-removealltags-code"><a class="link" href="#removing-all-tags-from-the-study-plan-code-removealltags-code">3.4.9. Removing all tags from the study plan : <code>removealltags</code></a></h4>
 <div class="paragraph">
 <p>Removes all user-created tags in the entire study plan.<br>
-Format: <code>removeallmodtags</code></p>
+Format: <code>removealltags</code>
+=== Study Plan</p>
 </div>
 </div>
-</div>
-<div class="sect2">
-<h3 id="study-plan"><a class="link" href="#study-plan">3.5. Study Plan</a></h3>
 <div class="sect3">
-<h4 id="creating-a-new-study-plan-code-newplan-code"><a class="link" href="#creating-a-new-study-plan-code-newplan-code">3.5.1. Creating a new study plan: <code>newplan</code></a></h4>
+<h4 id="creating-a-new-study-plan-code-newplan-code"><a class="link" href="#creating-a-new-study-plan-code-newplan-code">3.4.10. Creating a new study plan: <code>newplan</code></a></h4>
 <div class="paragraph">
 <p>Creates a new study plan with an optional title. The title should contain only ASCII characters, and should not be
 longer than 20 characters.</p>
@@ -639,7 +636,7 @@ Examples:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="deleting-a-study-plan-code-removeplan-code"><a class="link" href="#deleting-a-study-plan-code-removeplan-code">3.5.2. Deleting a study plan: <code>removeplan</code></a></h4>
+<h4 id="deleting-a-study-plan-code-removeplan-code"><a class="link" href="#deleting-a-study-plan-code-removeplan-code">3.4.11. Deleting a study plan: <code>removeplan</code></a></h4>
 <div class="paragraph">
 <p>Deletes a study plan with a given ID.<br>
 Format: <code>removeplan PLAN_NUMBER</code><br>
@@ -654,7 +651,7 @@ Example:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="listing-all-study-plans-code-list-code"><a class="link" href="#listing-all-study-plans-code-list-code">3.5.3. Listing all study plans: <code>list</code></a></h4>
+<h4 id="listing-all-study-plans-code-list-code"><a class="link" href="#listing-all-study-plans-code-list-code">3.4.12. Listing all study plans: <code>list</code></a></h4>
 <div class="paragraph">
 <p>Lists all the study plans that the user has created and has not deleted.</p>
 </div>
@@ -676,7 +673,7 @@ the life of the study plan.
 </div>
 </div>
 <div class="sect3">
-<h4 id="viewing-another-study-plan-code-viewplan-code"><a class="link" href="#viewing-another-study-plan-code-viewplan-code">3.5.4. Viewing another study plan: <code>viewplan</code></a></h4>
+<h4 id="viewing-another-study-plan-code-viewplan-code"><a class="link" href="#viewing-another-study-plan-code-viewplan-code">3.4.13. Viewing another study plan: <code>viewplan</code></a></h4>
 <div class="paragraph">
 <p>Shows the study plan with a given ID. The specified study plan will be displayed on the left panel of the GUI
 as a simplified study plan. This does not activate that study plan, so it is for viewing only.<br></p>
@@ -695,7 +692,7 @@ This allows the user to view the study plan with an ID of 3.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="setting-another-study-plan-as-active-code-activate-code"><a class="link" href="#setting-another-study-plan-as-active-code-activate-code">3.5.5. Setting another study plan as active: <code>activate</code></a></h4>
+<h4 id="setting-another-study-plan-as-active-code-activate-code"><a class="link" href="#setting-another-study-plan-as-active-code-activate-code">3.4.14. Setting another study plan as active: <code>activate</code></a></h4>
 <div class="paragraph">
 <p>Replaces the current study plan with the specified study plan as the active one.<br>
 Format: <code>activate PLAN_NUMBER</code><br>
@@ -710,7 +707,7 @@ Example:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="editing-the-title-of-current-study-plan-code-title-code"><a class="link" href="#editing-the-title-of-current-study-plan-code-title-code">3.5.6. Editing the title of current study plan: <code>title</code></a></h4>
+<h4 id="editing-the-title-of-current-study-plan-code-title-code"><a class="link" href="#editing-the-title-of-current-study-plan-code-title-code">3.4.15. Editing the title of current study plan: <code>title</code></a></h4>
 <div class="paragraph">
 <p>Changes the title of the current active study plan. The title should contain only ASCII characters, and should not be
 longer than 20 characters.<br></p>
@@ -728,14 +725,14 @@ Example:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="setting-default-study-plan-code-default-code"><a class="link" href="#setting-default-study-plan-code-default-code">3.5.7. Setting default study plan: <code>default</code></a></h4>
+<h4 id="setting-default-study-plan-code-default-code"><a class="link" href="#setting-default-study-plan-code-default-code">3.4.16. Setting default study plan: <code>default</code></a></h4>
 <div class="paragraph">
 <p>Generates a study plan with pre-populated modules according to the recommended study plan for a Year one CS student.<br>
 Format: <code>default</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="adding-priority-tags-to-a-study-plan-code-setpriority-code"><a class="link" href="#adding-priority-tags-to-a-study-plan-code-setpriority-code">3.5.8. Adding priority tags to a study plan : <code>setpriority</code></a></h4>
+<h4 id="adding-priority-tags-to-a-study-plan-code-setpriority-code"><a class="link" href="#adding-priority-tags-to-a-study-plan-code-setpriority-code">3.4.17. Adding priority tags to a study plan : <code>setpriority</code></a></h4>
 <div class="paragraph">
 <p>Attaches a priority tag to the study plan.<br>
 Format: <code>setpriority PRIORITY_LEVEL STUDY_PLAN_ID</code></p>
@@ -775,7 +772,7 @@ Format: <code>setpriority PRIORITY_LEVEL STUDY_PLAN_ID</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="removing-priority-tags-from-study-plan-code-removepriority-code"><a class="link" href="#removing-priority-tags-from-study-plan-code-removepriority-code">3.5.9. Removing priority tags from study plan: <code>removepriority</code></a></h4>
+<h4 id="removing-priority-tags-from-study-plan-code-removepriority-code"><a class="link" href="#removing-priority-tags-from-study-plan-code-removepriority-code">3.4.18. Removing priority tags from study plan: <code>removepriority</code></a></h4>
 <div class="paragraph">
 <p>Removes the priority tag from the study plan.<br>
 Format: <code>removepriority STUDY_PLAN_ID</code></p>
@@ -795,14 +792,14 @@ Format: <code>removepriority STUDY_PLAN_ID</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="listing-study-plans-by-priority-code-listbypriority-code"><a class="link" href="#listing-study-plans-by-priority-code-listbypriority-code">3.5.10. Listing study plans by priority: <code>listbypriority</code></a></h4>
+<h4 id="listing-study-plans-by-priority-code-listbypriority-code"><a class="link" href="#listing-study-plans-by-priority-code-listbypriority-code">3.4.19. Listing study plans by priority: <code>listbypriority</code></a></h4>
 <div class="paragraph">
 <p>Lists all study plans in the order of their priorities.<br>
 Format: <code>listbypriority</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="checking-a-study-plan-s-feasibility-code-check-code"><a class="link" href="#checking-a-study-plan-s-feasibility-code-check-code">3.5.11. Checking a study plan&#8217;s feasibility : <code>check</code></a></h4>
+<h4 id="checking-a-study-plan-s-feasibility-code-check-code"><a class="link" href="#checking-a-study-plan-s-feasibility-code-check-code">3.4.20. Checking a study plan&#8217;s feasibility : <code>check</code></a></h4>
 <div class="paragraph">
 <p>Shows details about what graduation requirements are left to be fulfilled,
 such as MCs, core or focus area modules that remain to be taken.</p>
@@ -844,7 +841,7 @@ as additional modules that students may take (such as UEs or ULRs) are outside t
 </div>
 </div>
 <div class="sect3">
-<h4 id="clear-all-currently-invalid-modules-code-clearinvalidmods-code"><a class="link" href="#clear-all-currently-invalid-modules-code-clearinvalidmods-code">3.5.12. Clear all currently invalid modules : <code>clearinvalidmods</code></a></h4>
+<h4 id="clear-all-currently-invalid-modules-code-clearinvalidmods-code"><a class="link" href="#clear-all-currently-invalid-modules-code-clearinvalidmods-code">3.4.21. Clear all currently invalid modules : <code>clearinvalidmods</code></a></h4>
 <div class="paragraph">
 <p>Clears all modules that are currently invalid, whose prerequisites have not been met in previous semesters.
 This may cause other modules in future semesters to be invalidated as well.<br>
@@ -853,9 +850,9 @@ Format: <code>clearinvalidmods</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="version-tracking"><a class="link" href="#version-tracking">3.6. Version Tracking</a></h3>
+<h3 id="version-tracking"><a class="link" href="#version-tracking">3.5. Version Tracking</a></h3>
 <div class="sect3">
-<h4 id="committing-edits-to-a-study-plan-code-commit-code"><a class="link" href="#committing-edits-to-a-study-plan-code-commit-code">3.6.1. Committing edits to a study plan: <code>commit</code></a></h4>
+<h4 id="committing-edits-to-a-study-plan-code-commit-code"><a class="link" href="#committing-edits-to-a-study-plan-code-commit-code">3.5.1. Committing edits to a study plan: <code>commit</code></a></h4>
 <div class="paragraph">
 <p>Saves changes to a study plan with a short commit message.</p>
 </div>
@@ -901,14 +898,14 @@ Examples:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="checking-commit-history-code-history-code"><a class="link" href="#checking-commit-history-code-history-code">3.6.2. Checking commit history: <code>history</code></a></h4>
+<h4 id="checking-commit-history-code-history-code"><a class="link" href="#checking-commit-history-code-history-code">3.5.2. Checking commit history: <code>history</code></a></h4>
 <div class="paragraph">
 <p>Shows all commit history of the current study plan.<br>
 Format: <code>history</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="viewing-a-commit-code-viewcommit-code"><a class="link" href="#viewing-a-commit-code-viewcommit-code">3.6.3. Viewing a commit: <code>viewcommit</code></a></h4>
+<h4 id="viewing-a-commit-code-viewcommit-code"><a class="link" href="#viewing-a-commit-code-viewcommit-code">3.5.3. Viewing a commit: <code>viewcommit</code></a></h4>
 <div class="paragraph">
 <p>Shows the version of the current study plan for a particular commit. This does not create a new commit, nor does it
 return the study plan to a previous version. The commit will be displayed as a simplified study plan.<br></p>
@@ -927,7 +924,7 @@ This allows the user to view commit 1 of study plan 1 (which is currently active
 </div>
 </div>
 <div class="sect3">
-<h4 id="reverting-to-a-commit-code-revert-code"><a class="link" href="#reverting-to-a-commit-code-revert-code">3.6.4. Reverting to a commit: <code>revert</code></a></h4>
+<h4 id="reverting-to-a-commit-code-revert-code"><a class="link" href="#reverting-to-a-commit-code-revert-code">3.5.4. Reverting to a commit: <code>revert</code></a></h4>
 <div class="paragraph">
 <p>Reverts to the version of the current study plan for a particular commit. This creates a new "Revert to" commit and
 returns the current active study plan back to the state in the specified commit.</p>
@@ -960,7 +957,7 @@ creating a new commit called <code>1.4: Revert to "COMMIT_MESSAGE_OF_1.1"</code>
 </div>
 </div>
 <div class="sect3">
-<h4 id="removing-a-commit-code-removecommit-code"><a class="link" href="#removing-a-commit-code-removecommit-code">3.6.5. Removing a commit: <code>removecommit</code></a></h4>
+<h4 id="removing-a-commit-code-removecommit-code"><a class="link" href="#removing-a-commit-code-removecommit-code">3.5.5. Removing a commit: <code>removecommit</code></a></h4>
 <div class="paragraph">
 <p>Removes a commit in the current active study plan specified by the commit number.<br>
 Format: <code>removecommit COMMIT_NUMBER</code><br>
@@ -976,9 +973,9 @@ Example:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="gui"><a class="link" href="#gui">3.7. GUI</a></h3>
+<h3 id="gui"><a class="link" href="#gui">3.6. GUI</a></h3>
 <div class="sect3">
-<h4 id="expanding-a-semester-code-expand-code"><a class="link" href="#expanding-a-semester-code-expand-code">3.7.1. Expanding a semester: <code>expand</code></a></h4>
+<h4 id="expanding-a-semester-code-expand-code"><a class="link" href="#expanding-a-semester-code-expand-code">3.6.1. Expanding a semester: <code>expand</code></a></h4>
 <div class="paragraph">
 <p>Expands a semester so that more details can be seen. Will display module titles, MC count, and their tags.<br>
 Format: <code>expand SEMESTER</code><br>
@@ -993,14 +990,14 @@ Example:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="expanding-all-semesters-code-expandall-code"><a class="link" href="#expanding-all-semesters-code-expandall-code">3.7.2. Expanding all semesters: <code>expandall</code></a></h4>
+<h4 id="expanding-all-semesters-code-expandall-code"><a class="link" href="#expanding-all-semesters-code-expandall-code">3.6.2. Expanding all semesters: <code>expandall</code></a></h4>
 <div class="paragraph">
 <p>Expands all semesters so that more details can be seen. Will display module titles, MC count, and their tags.<br>
 Format: <code>expandall</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="collapsing-a-semester-code-collapse-code"><a class="link" href="#collapsing-a-semester-code-collapse-code">3.7.3. Collapsing a semester: <code>collapse</code></a></h4>
+<h4 id="collapsing-a-semester-code-collapse-code"><a class="link" href="#collapsing-a-semester-code-collapse-code">3.6.3. Collapsing a semester: <code>collapse</code></a></h4>
 <div class="paragraph">
 <p>Collapses a semester so that most details are hidden. Will hide module titles, MC count, and their tags.<br>
 Format: <code>collapse SEMESTER</code><br>
@@ -1015,14 +1012,14 @@ Example:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="collapsing-all-semesters-code-collapseall-code"><a class="link" href="#collapsing-all-semesters-code-collapseall-code">3.7.4. Collapsing all semesters: <code>collapseall</code></a></h4>
+<h4 id="collapsing-all-semesters-code-collapseall-code"><a class="link" href="#collapsing-all-semesters-code-collapseall-code">3.6.4. Collapsing all semesters: <code>collapseall</code></a></h4>
 <div class="paragraph">
 <p>Collapses all semesters so that most details are hidden. Will hide module titles, MC count, and their tags.<br>
 Format: <code>collapseall</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="changing-the-theme-of-the-gui-code-theme-code"><a class="link" href="#changing-the-theme-of-the-gui-code-theme-code">3.7.5. Changing the theme of the GUI: <code>theme</code></a></h4>
+<h4 id="changing-the-theme-of-the-gui-code-theme-code"><a class="link" href="#changing-the-theme-of-the-gui-code-theme-code">3.6.5. Changing the theme of the GUI: <code>theme</code></a></h4>
 <div class="paragraph">
 <p>Changes the theme of the GUI. Existing themes are: light, dark, hacker, dawn.<br>
 Format: <code>theme THEME_NAME</code></p>
@@ -1138,59 +1135,61 @@ Examples:</p>
 <h4 id="setting-focus-area-tags-to-study-plans-code-coming-in-v2-0-code"><a class="link" href="#setting-focus-area-tags-to-study-plans-code-coming-in-v2-0-code">4.4.1. Setting focus area tags to study plans: <code>[coming in v2.0]</code></a></h4>
 <div class="paragraph">
 <p>A tag with the declared focus area will automatically appear when the user declares his/her focus area.<br>
-Refer to <a href="#declaring-a-focus-area-code-coming-in-v2-0-code">Section 4.4.6, &#8220;Declaring a focus area: <code>[coming in v2.0]</code>&#8221;</a>.</p>
+Refer to <a href="#declaring-a-focus-area-code-coming-in-v2-0-code">Section 4.5.1, &#8220;Declaring a focus area: <code>[coming in v2.0]</code>&#8221;</a>.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="change-colour-theme-of-tags-code-coming-in-v2-0-code"><a class="link" href="#change-colour-theme-of-tags-code-coming-in-v2-0-code">4.4.2. Change colour theme of tags: <code>[coming in v2.0]</code></a></h4>
-<div class="paragraph">
-<p>Changes the colour theme of all the tags in the study plan with the specified one.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="change-colour-of-specific-tags-code-coming-in-v2-0-code"><a class="link" href="#change-colour-of-specific-tags-code-coming-in-v2-0-code">4.4.3. Change colour of specific tags: <code>[coming in v2.0]</code></a></h4>
-<div class="paragraph">
-<p>Changes the colour of a specific tag.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="get-module-codes-from-keywords-code-coming-in-v2-0-code"><a class="link" href="#get-module-codes-from-keywords-code-coming-in-v2-0-code">4.4.4. Get module codes from keywords: <code>[coming in v2.0]</code></a></h4>
+<h4 id="get-module-codes-from-keywords-code-coming-in-v2-0-code"><a class="link" href="#get-module-codes-from-keywords-code-coming-in-v2-0-code">4.4.2. Get module codes from keywords: <code>[coming in v2.0]</code></a></h4>
 <div class="paragraph">
 <p>Shows all module codes of modules with names containing the specified keywords.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="tagging-modules-across-all-study-plans-code-coming-in-v2-0-code"><a class="link" href="#tagging-modules-across-all-study-plans-code-coming-in-v2-0-code">4.4.5. Tagging modules across all study plans: <code>[coming in v2.0]</code></a></h4>
+<h4 id="tagging-modules-across-all-study-plans-code-coming-in-v2-0-code"><a class="link" href="#tagging-modules-across-all-study-plans-code-coming-in-v2-0-code">4.4.3. Tagging modules across all study plans: <code>[coming in v2.0]</code></a></h4>
 <div class="paragraph">
 <p>Attaches a specified tag to a module across all study plans. For example, a tag <code>difficult</code> can be attached to a
-given module across all study plans instead of tagging them individually in every study plan.
-=== Study Plan</p>
+given module across all study plans instead of tagging them individually in every study plan.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="declaring-a-focus-area-code-coming-in-v2-0-code"><a class="link" href="#declaring-a-focus-area-code-coming-in-v2-0-code">4.4.6. Declaring a focus area: <code>[coming in v2.0]</code></a></h4>
+<h4 id="change-colour-theme-of-tags-code-coming-in-v2-0-code"><a class="link" href="#change-colour-theme-of-tags-code-coming-in-v2-0-code">4.4.4. Change colour theme of tags: <code>[coming in v2.0]</code></a></h4>
+<div class="paragraph">
+<p>Changes the colour theme of all the tags in the study plan with the specified one.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="change-colour-of-specific-tags-code-coming-in-v2-0-code"><a class="link" href="#change-colour-of-specific-tags-code-coming-in-v2-0-code">4.4.5. Change colour of specific tags: <code>[coming in v2.0]</code></a></h4>
+<div class="paragraph">
+<p>Changes the colour of a specific tag.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="study-plan"><a class="link" href="#study-plan">4.5. Study Plan</a></h3>
+<div class="sect3">
+<h4 id="declaring-a-focus-area-code-coming-in-v2-0-code"><a class="link" href="#declaring-a-focus-area-code-coming-in-v2-0-code">4.5.1. Declaring a focus area: <code>[coming in v2.0]</code></a></h4>
 <div class="paragraph">
 <p>Declares the given focus area as one of the focus areas of the study plan. This means that the requirements of the focus area has to be met to be eligible for graduation.<br>
 Format: <code>declarefocusarea FOCUS_AREA</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="displays-for-an-invalid-study-plan"><a class="link" href="#displays-for-an-invalid-study-plan">4.4.7. Displays for an invalid study plan</a></h4>
+<h4 id="displays-for-an-invalid-study-plan"><a class="link" href="#displays-for-an-invalid-study-plan">4.5.2. Displays for an invalid study plan</a></h4>
 <div class="paragraph">
 <p><code>[coming in v2.0]</code> The study plan will have a tick or cross beside it, which shows if the entire plan is feasible.</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="gui-2"><a class="link" href="#gui-2">4.5. GUI</a></h3>
+<h3 id="gui-2"><a class="link" href="#gui-2">4.6. GUI</a></h3>
 <div class="sect3">
-<h4 id="animations-code-coming-in-v2-0-code"><a class="link" href="#animations-code-coming-in-v2-0-code">4.5.1. Animations: <code>[coming in v2.0]</code></a></h4>
+<h4 id="animations-code-coming-in-v2-0-code"><a class="link" href="#animations-code-coming-in-v2-0-code">4.6.1. Animations: <code>[coming in v2.0]</code></a></h4>
 <div class="paragraph">
 <p>Expanding and collapsing semesters will be fluidly animated.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="colours-code-coming-in-v2-0-code"><a class="link" href="#colours-code-coming-in-v2-0-code">4.5.2. Colours: <code>[coming in v2.0]</code></a></h4>
+<h4 id="colours-code-coming-in-v2-0-code"><a class="link" href="#colours-code-coming-in-v2-0-code">4.6.2. Colours: <code>[coming in v2.0]</code></a></h4>
 <div class="paragraph">
 <p>Each module and tag can be assigned with a specific colour to allow more customisation.</p>
 </div>
@@ -1206,4 +1205,4 @@ Format: <code>declarefocusarea FOCUS_AREA</code></p>
 <strong>A</strong>: Download the jar file in the other computer and overwrite the empty data folder it creates with the previous data folder containing the moduleplanner.json.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 13:41:54 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 13:43:53 UTC</div></div></div></body></html>

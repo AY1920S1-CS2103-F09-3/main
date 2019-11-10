@@ -228,7 +228,7 @@ All these, including the <code>MainWindow</code>, inherit from the abstract <cod
 <h3 id="Design-Model"><a class="link" href="#Design-Model">2.4. Model component</a></h3>
 <div class="imageblock">
 <div class="content">
-<img src="images/ModelClassDiagram.png" alt="ModelClassDiagram">
+<img src="images/ModelClassDiagram.png" alt="ModelClassDiagram" width="350">
 </div>
 <div class="title">Figure 6. Structure of the Model Component</div>
 </div>
@@ -820,7 +820,7 @@ to study plan tagging, i.e. allowing study plans to have other kinds of tags.
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/TagClassDiagram.png" alt="TagClassDiagram">
+<img src="images/TagClassDiagram.png" alt="TagClassDiagram" width="170">
 </div>
 <div class="title">Figure 8. Class diagram for the tag model</div>
 </div>
@@ -843,7 +843,7 @@ in steps 2 and 3.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/TagModuleCommandDiagram1.png" alt="TagModuleCommandDiagram1">
+<img src="images/TagModuleCommandDiagram1.png" alt="TagModuleCommandDiagram1" width="275">
 </div>
 </div>
 <div class="paragraph">
@@ -853,7 +853,7 @@ is a <code>DefaultTag</code>. If so, a <code>CommandException</code> is thrown a
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/TagModuleCommandDiagram2.png" alt="TagModuleCommandDiagram2">
+<img src="images/TagModuleCommandDiagram2.png" alt="TagModuleCommandDiagram2" width="275">
 </div>
 </div>
 <div class="admonitionblock note">
@@ -893,12 +893,7 @@ The above scenario should not occur if a new tag had been created as described i
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/TagModuleCommandDiagram3.png" alt="TagModuleCommandDiagram3">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/TagModuleCommandDiagram4.png" alt="TagModuleCommandDiagram4">
+<img src="images/TagModuleCommandDiagram4.png" alt="TagModuleCommandDiagram4" width="350">
 </div>
 </div>
 <div class="paragraph">
@@ -938,9 +933,23 @@ the target module. Hence, a <code>CommandException</code> will be thrown.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/TagModuleCommandActivityDiagram.png" alt="TagModuleCommandActivityDiagram">
+<img src="images/TagModuleCommandActivityDiagram.png" alt="TagModuleCommandActivityDiagram" width="270">
 </div>
 <div class="title">Figure 11. Activity diagram for module tagging</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The command exceptions in the above activity diagram should actually point to a single <em>stop</em> at the end.
+There are multiple <em>stops</em> in the above diagram as PlantUML does not support having a single <em>stop</em> and []
+for branch labels in one syntax.
+</td>
+</tr>
+</table>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -2387,4 +2396,4 @@ year of undergraduate studies in NUS.</p>
 </dl>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 13:41:54 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 13:43:53 UTC</div></div></div></body></html>
