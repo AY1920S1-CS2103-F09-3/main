@@ -32,7 +32,7 @@
 <li><a href="#version-tracking">3.3. Version Tracking</a></li>
 <li><a href="#logging">3.4. Logging</a></li>
 <li><a href="#Implementation-Configuration">3.5. Configuration</a></li>
-<li><a href="#module-tagging-feature">3.6. Module Tagging Feature</a></li>
+<li><a href="#tagging-feature">3.6. Tagging Feature</a></li>
 <li><a href="#module-information-and-verification">3.7. Module Information and Verification</a></li>
 <li><a href="#autocomplete">3.8. Autocomplete</a></li>
 </ul>
@@ -233,7 +233,7 @@ All these, including the <code>MainWindow</code>, inherit from the abstract <cod
 <div class="title">Figure 6. Structure of the Model Component</div>
 </div>
 <div class="paragraph">
-<p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103-F09-3/main/src/main/java/seedu/address/model/Model.java"><code>Model.java</code></a></p>
+<p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103-F09-3/main/blob/master/src/main/java/seedu/address/model/Model.java"><code>Model.java</code></a></p>
 </div>
 <div class="paragraph">
 <p>The <code>Model</code>,</p>
@@ -244,29 +244,15 @@ All these, including the <code>MainWindow</code>, inherit from the abstract <cod
 <p>stores a <code>UserPref</code> object that represents the user&#8217;s preferences.</p>
 </li>
 <li>
-<p>stores the module planner data.</p>
+<p>stores the data in the module planner, which consists of module information, study plans, semesters, modules, tags and version tracking history.</p>
 </li>
 <li>
-<p>exposes an unmodifiable <code>ObservableList&lt;Person&gt;</code> that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.</p>
+<p>exposes an unmodifiable <code>ObservableList&lt;StudyPlan&gt;</code> that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.</p>
 </li>
 <li>
 <p>does not depend on any of the other three components.</p>
 </li>
 </ul>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-As a more OOP model, we can store a <code>Tag</code> list in <code>module planner</code>, which <code>Person</code> can reference. This would allow <code>module planner</code> to only require one <code>Tag</code> object per unique <code>Tag</code>, instead of each <code>Person</code> needing their own <code>Tag</code> object. An example of how such a model may look like is given below.<br>
-<br>
-<span class="image"><img src="images/BetterModelClassDiagram.png" alt="BetterModelClassDiagram"></span>
-</td>
-</tr>
-</table>
 </div>
 </div>
 <div class="sect2">
@@ -780,22 +766,41 @@ no deletion will take place. Instead the user will be prompted by an error messa
 </div>
 </div>
 <div class="sect2">
-<h3 id="module-tagging-feature"><a class="link" href="#module-tagging-feature">3.6. Module Tagging Feature</a></h3>
+<h3 id="tagging-feature"><a class="link" href="#tagging-feature">3.6. Tagging Feature</a></h3>
 <div class="sect3">
 <h4 id="implementation-2"><a class="link" href="#implementation-2">3.6.1. Implementation</a></h4>
 <div class="paragraph">
-<p>The module tagging mechanism is facilitated by <code>UserTag</code>, <code>DefaultTag</code> and <code>UniqueTagList</code>.</p>
+<p>The tagging mechanism is facilitated by <code>UserTag</code>, <code>DefaultTag</code>, <code>PriorityTag</code> and <code>UniqueTagList</code>.</p>
 </div>
 <div class="paragraph">
-<p><code>UserTag</code> and <code>DefaultTag</code> implement the <code>Tag</code> interface. The former represents user-created tags while the latter
+<p><code>UserTag</code>, <code>DefaultTag</code> and <code>PriorityTag</code> all implement the <code>Tag</code> interface.
+Specifically, <code>UserTag</code> and <code>DefaultTag</code> are attached to modules and <code>PriorityTag</code> is attached to study plans.</p>
+</div>
+<div class="sect4">
+<h5 id="module-tags"><a class="link" href="#module-tags">Module Tags</a></h5>
+<div class="paragraph">
+<p><code>UserTag</code> represents user-created tags while the <code>DefaultTag</code>
 represents default tags of one of the types in <code>DefaultTagType</code>. The key difference between <code>UserTag</code> and <code>DefaultTag</code>
 is that the first is user-modifiable while the second is not and is essentially immutable. The operation
-<code>Tag#isDefault()</code> is implemented to differentiate between the two classes of <code>Tag</code>.</p>
+<code>Tag#isDefault()</code> is implemented to identify a <code>Tag</code> as a <code>DefaultTag</code>.</p>
 </div>
+</div>
+<div class="sect4">
+<h5 id="study-plan-tags"><a class="link" href="#study-plan-tags">Study Plan Tags</a></h5>
+<div class="paragraph">
+<p><code>PriorityTag</code> represents a priority tag of one of the types in <code>PriorityTagType</code>. The user can attach a <code>PriorityTag</code> to a study plan to indicate its priority level.
+The operation <code>Tag#isPriority()</code> is implemented to identify a <code>Tag</code> as a <code>PriorityTag</code>.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="uniquetaglist"><a class="link" href="#uniquetaglist">UniqueTagList</a></h5>
 <div class="paragraph">
 <p>Each <code>Tag</code> is stored in a <code>UniqueTagList</code>, which implements <code>Iterable&lt;Tag&gt;</code> and is stored internally in <code>Module</code> and
-<code>StudyPlan</code> as <code>tags</code>.  It represents a list of tags that can be of type <code>UserTag</code> or <code>DefaultTag</code> and enforces the
-uniqueness between the tags. Additionally, it implements the following operations:</p>
+<code>StudyPlan</code>. It represents a list of tags that can be of type <code>UserTag</code>, <code>DefaultTag</code> or <code>PriorityTag</code> and enforces the
+uniqueness between them. Each <code>StudyPlan</code> has two unique tag lists, one for its <code>PriorityTag</code> and another for all of its modules' tags. The purpose
+of storing the <code>PriorityTag</code> in a <code>UniqueTagList</code> instead of as independent attribute is to allow for further extensions
+to study plan tagging, i.e. allowing study plans to have other kinds of tags.
+<code>UniqueTagList</code> implements the following operations:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -813,12 +818,19 @@ uniqueness between the tags. Additionally, it implements the following operation
 </li>
 </ul>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="images/TagClassDiagram.png" alt="TagClassDiagram">
+</div>
+<div class="title">Figure 8. Class diagram for the tag model</div>
+</div>
 <div class="paragraph">
-<p>Given below is an example usage scenario of the <code>UniqueTagList#addTag(Tag toAdd)</code> operation and how the module tagging
+<p>There are many operations that can be done in relation to tagging modules. Some examples are <em>adding</em>, <em>deleting</em>,
+and <em>renaming</em> tags. Given below is an example usage scenario of the <code>UniqueTagList#addTag(Tag toAdd)</code> operation and how the module tagging
 mechanism behaves at each step.</p>
 </div>
 <div class="paragraph">
-<p>Step 1. The user executes the <code>addtag MODULE_CODE TAG_NAME</code>. command to add a tag with the name <em>TAG_NAME</em> to the
+<p>Step 1. The user executes the <code>addtag MODULE_CODE TAG_NAME</code> command to add a tag with the name <em>TAG_NAME</em> to the
 module with the module code <em>MODULE_CODE</em>.  A <code>toAdd</code> variable of type <code>Tag</code> and a boolean value <code>newTagCreated</code> is
 maintained during the execution of the command to represent the tag that is to be added and whether or not a new tag
 has been created respectively. The <code>addtag</code> command calls <code>Model#activeSpContainsTag(String tagName)</code> to check if the
@@ -914,12 +926,35 @@ the target module. Hence, a <code>CommandException</code> will be thrown.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/TagModuleCommandSequenceDiagram.png" alt="TagModuleCommandSequenceDiagram">
+<img src="images/TagModuleCommandSequenceDiagram1.png" alt="TagModuleCommandSequenceDiagram1">
 </div>
+<div class="title">Figure 9. <code>addtag</code> command execution</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/TagModuleCommandSequenceDiagram2.png" alt="TagModuleCommandSequenceDiagram2">
+</div>
+<div class="title">Figure 10. Adding the module tag in the model</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/TagModuleCommandActivityDiagram.png" alt="TagModuleCommandActivityDiagram">
+</div>
+<div class="title">Figure 11. Activity diagram for module tagging</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The command exceptions in the above activity diagram should actually point to a single <em>stop</em> at the end.
+There are multiple <em>stops</em> in the above diagram as PlantUML does not support having a single <em>stop</em> and []
+for branch labels in one syntax.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -935,7 +970,7 @@ creates a reference from the module to the existing tag.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Reduces memory usage and makes duplication checking easier (simply check the <code>UniqueTagList</code> of the <code>StudyPlan</code>
+<p>Pros: Reduces memory usage, promotes consistency and makes duplication checking easier (simply check the <code>UniqueTagList</code> of the <code>StudyPlan</code>
 instead of checking the list in every <code>Module</code>).</p>
 </li>
 <li>
@@ -954,7 +989,7 @@ same name.</p>
 <p>Pros: Easier to implement as no searching of previous tags need to be done.</p>
 </li>
 <li>
-<p>Cons: Increases memory usage and duplication checking might be more difficult (have to check the <code>UniqueTagList</code> of
+<p>Cons: Increases memory usage, ensuring consistency and duplication checking might be more difficult (have to check the <code>UniqueTagList</code> of
 every <code>Module</code> instead of just the one in the <code>StudyPlan</code>.</p>
 </li>
 </ul>
@@ -2352,4 +2387,4 @@ year of undergraduate studies in NUS.</p>
 </dl>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-09 14:05:34 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 03:06:00 UTC</div></div></div></body></html>
