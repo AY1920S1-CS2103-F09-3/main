@@ -184,8 +184,24 @@ it should highlight wrong commands, wrong numbers of arguments, or arguments in 
 <div class="sect3">
 <h4 id="assigning-a-module-to-a-given-semester-code-addmod-code"><a class="link" href="#assigning-a-module-to-a-given-semester-code-addmod-code">3.2.1. Assigning a module to a given semester: <code>addmod</code></a></h4>
 <div class="paragraph">
-<p>Assigns the specified module to a given semester of the current study plan.<br>
-Format:  <code>addmod SEMESTER MODULE &#8230;&#8203;</code><br>
+<p>Assigns the specified module to a given semester of the current study plan.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Only CS modules may be added to the study plan. Additional modules taken outside of the
+CS curriculum, such as other University Level Requirements (ULRs) or Unrestricted Electives (UEs),
+are outside the scope of our application.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Format:  <code>addmod SEMESTER MODULE &#8230;&#8203;</code><br>
 Examples:</p>
 </div>
 <div class="ulist">
@@ -789,8 +805,42 @@ Format: <code>listbypriority</code></p>
 <h4 id="checking-a-study-plan-s-feasibility-code-check-code"><a class="link" href="#checking-a-study-plan-s-feasibility-code-check-code">3.5.11. Checking a study plan&#8217;s feasibility : <code>check</code></a></h4>
 <div class="paragraph">
 <p>Shows details about what graduation requirements are left to be fulfilled,
-such as MCs, core or focus area modules that remain to be taken.<br>
-Format: <code>check</code></p>
+such as MCs, core or focus area modules that remain to be taken.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This command will not check for the minimum number of MCs to be taken per semester,
+as additional modules that students may take (such as UEs or ULRs) are outside the scope of our project.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Format: <code>check [AREA]</code></p>
+</div>
+<div class="paragraph">
+<p>Examples</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>check mcs</code></p>
+</li>
+<li>
+<p><code>check core</code></p>
+</li>
+<li>
+<p><code>check focus</code></p>
+</li>
+<li>
+<p><code>check</code></p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect3">
@@ -1156,4 +1206,4 @@ Format: <code>declarefocusarea FOCUS_AREA</code></p>
 <strong>A</strong>: Download the jar file in the other computer and overwrite the empty data folder it creates with the previous data folder containing the moduleplanner.json.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 03:07:32 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 13:41:54 UTC</div></div></div></body></html>
