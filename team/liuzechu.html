@@ -3,7 +3,16 @@
 <link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="../images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="../index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">AddressBook-Level4</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="../LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/se-edu/addressbook-level4"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Liu Zechu - Project Portfolio</h1></div><div id="content"><div class="sect1">
 <h2 id="project-cs-modbuddy"><a class="link" href="#project-cs-modbuddy">PROJECT: CS ModBuddy</a></h2>
 <div class="sectionbody">
-<hr>
+<div class="imageblock">
+<div class="content">
+<img src="../images/title.png" alt="title" width="250">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/Ui.png" alt="Ui" width="600">
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -104,7 +113,7 @@ local files in JSON format.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Updated the Storage section of the Developer Guide: <a href="https://github.com">#14</a> (NOT YET)</p>
+<p>Updated the Storage section of the Developer Guide: <a href="https://github.com/AY1920S1-CS2103-F09-3/main/pull/314">#314</a></p>
 </li>
 </ul>
 </div>
@@ -511,11 +520,11 @@ initial module planner state, and its <code>StudyPlanCommitManagerList</code> wi
 </div>
 </div>
 <div class="paragraph">
-<p>Step 2. After changing the state of the current active study plan (e.g. by calling <code>addmodule y1s1 cs1101s</code>),
+<p>Step 2. After changing the state of the current active study plan (e.g. by calling <code>addmod cs1101s y1s1</code>),
 the user executes <code>commit first draft</code> command to save the current state of this study plan with the commit message
 <code>first draft</code>. The <code>commit</code> command calls <code>Model#commitActiveStudyPlan(String commitMessage)</code>,
-causing the modified state of the current active study plan after the <code>commit first draft command executes to be cloned and saved
-in the `StudyPlanCommitManager</code> corresponding to this study plan, inside the <code>VersionTrackingManager</code> under
+causing the modified state of the current active study plan after the execution of the <code>commit first draft</code> command to be cloned and saved
+in the <code>StudyPlanCommitManager</code> corresponding to this study plan, inside the <code>VersionTrackingManager</code> under
 <code>ModulePlanner</code>.</p>
 </div>
 <div class="imageblock">
@@ -525,7 +534,7 @@ in the `StudyPlanCommitManager</code> corresponding to this study plan, inside t
 </div>
 <div class="paragraph">
 <p>Step 3. The user executes <code>revert 1.1</code> to revert to the commit indexed by <code>1</code> in the active study plan which
-has an index of <code>1</code>. The <code>revert</code> command also calls <code>Model#revertCommit(int studyPlanIndex, int commitNumber)</code>,
+has an ID of <code>1</code>. The <code>revert</code> command also calls <code>Model#revertCommit(int studyPlanIndex, int commitNumber)</code>,
 causing the state of the study plan stored in this commit to be made active, and this reverted state to be saved
 into the <code>StudyPlanCommitManager</code> inside the <code>VersionTrackingManager</code> as a revert commit.</p>
 </div>
@@ -542,16 +551,16 @@ into the <code>StudyPlanCommitManager</code> inside the <code>VersionTrackingMan
 </td>
 <td class="content">
 If a study plan does not have any commit history, it will not call <code>Model#revertCommit(int studyPlanIndex, int commitNumber)</code>,
-so the no commit will be made active. Instead it will prompt the user to create commits first.
+so that no commit will be made active. Instead it will prompt the user to create commits first.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
 <p>Step 4. The user now decides that there is a commit that they want to delete from the history completely,
-and decides to delete that commit by executing the <code>deletecommit</code> command. The <code>deletecommit</code> command
+and decides to delete that commit by executing the <code>removecommit</code> command. The <code>removecommit</code> command
 will call <code>Model#deleteCommit(int studyPlanIndex, int commitNumber)</code>,
-which will delete the commit specified by the <code>commitNumber</code> from the history of the study plan with index <code>studyPlanIndex</code>.</p>
+which will delete the commit specified by the <code>commitNumber</code> from the history of the study plan with ID <code>studyPlanIndex</code>.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -567,15 +576,12 @@ no deletion will take place. Instead the user will be prompted by an error messa
 </table>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how the <code>deletecommit</code> operation works:</p>
+<p>The following activity diagram shows how the <code>removecommit</code> operation works:</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/DeleteCommitActivityDiagram.png" alt="DeleteCommitActivityDiagram">
 </div>
-</div>
-<div class="paragraph">
-<p>The following activity diagram summarizes what happens when a user executes a commit command:</p>
 </div>
 </div>
 <div class="sect3">
@@ -602,7 +608,7 @@ no deletion will take place. Instead the user will be prompted by an error messa
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Will use less memory (e.g. for <code>addmodule</code>, just store the module being added).</p>
+<p>Pros: Will use less memory (e.g. for <code>addmod</code>, just store the module being added).</p>
 </li>
 <li>
 <p>Cons: We must ensure that the differences in states are stored and loaded correctly when we switch between commits.</p>
@@ -618,7 +624,7 @@ no deletion will take place. Instead the user will be prompted by an error messa
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Use a list to store the history of commits for each study plan.</p>
+<p><strong>Current choice:</strong> Use a list to store the history of commits for each study plan.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -635,5 +641,437 @@ no deletion will take place. Instead the user will be prompted by an error messa
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="use-case-uc01-create-study-plan"><a class="link" href="#use-case-uc01-create-study-plan">Use case: UC01 - Create study plan</a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 13:43:53 UTC</div></div></div></body></html>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User chooses to create a study plan.</p>
+</li>
+<li>
+<p>User enters the requested description.</p>
+</li>
+<li>
+<p>ModBuddy displays the new study plan.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. User chooses not to enter a description.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>2a1. ModBuddy creates a new study plan with a default description.</p>
+</li>
+<li>
+<p>2a2. Use case resumes from step 4.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-uc03-commit-a-study-plan"><a class="link" href="#use-case-uc03-commit-a-study-plan">Use case: UC03 - Commit a study plan</a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Student requests to save the current version of the study plan</p>
+</li>
+<li>
+<p>ModBuddy confirms that the version has been saved.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. ModBuddy detects that there have been no changes to the study plan from the previous commit.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1a1. ModBuddy informs Student that the current version has already been saved.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="glossary"><a class="link" href="#glossary">Appendix A: Glossary</a></h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><a id="active-study-plan"></a> Active study plan</dt>
+<dd>
+<p>The study plan that is currently editable by various commands. Also known as the active plan for short.</p>
+</dd>
+<dt class="hdlist1"><a id="CLI"></a> CLI</dt>
+<dd>
+<p>Abbreviation for Command Line Interface, which is a text-based user interface used to view and manage information
+related to study plans in our application.</p>
+</dd>
+<dt class="hdlist1"><a id="command"></a> Command</dt>
+<dd>
+<p>An instruction that the user enters into the text input field of our application. A valid command will result
+in a successful operation on viewing or manipulating the study plan(s).</p>
+</dd>
+<dt class="hdlist1"><a id="commit"></a> Commit</dt>
+<dd>
+<p>A version of a study plan that the user saves to a local file. The user may opt to view or revert to a particular
+version of any study plan.</p>
+</dd>
+<dt class="hdlist1"><a id="core-module"></a> Core module</dt>
+<dd>
+<p>A core module is compulsory for all students in the NUS Computer Science course in order to fulfill the graduation
+requirements. Such modules include:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Computer Science Foundation</p>
+<div class="ulist">
+<ul>
+<li>
+<p>CS1101S Programming Methodology</p>
+</li>
+<li>
+<p>CS1231S Discrete Structures</p>
+</li>
+<li>
+<p>CS2030 Programming Methodology II</p>
+</li>
+<li>
+<p>CS2040S Data Structures and Algorithms</p>
+</li>
+<li>
+<p>CS2100 Computer Organisation</p>
+</li>
+<li>
+<p>CS2103T Software Engineering</p>
+</li>
+<li>
+<p>CS2105 Introduction to Computer Networks</p>
+</li>
+<li>
+<p>CS2106 Introduction to Operating Systems</p>
+</li>
+<li>
+<p>CS3230 Design and Analysis of Algorithms</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>IT Professionalism</p>
+<div class="ulist">
+<ul>
+<li>
+<p>IS1103/X IS Innovations in Organisations and Society</p>
+</li>
+<li>
+<p>CS2101 Effective Communication for Computing Professionals</p>
+</li>
+<li>
+<p>ES2660 Communicating in the Information Age</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Mathematics &amp; Sciences</p>
+<div class="ulist">
+<ul>
+<li>
+<p>MA1521 Calculus for Computing</p>
+</li>
+<li>
+<p>MA1101R Linear Algebra I</p>
+</li>
+<li>
+<p>ST2334 Probability and Statistics</p>
+</li>
+<li>
+<p>One Science Module</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1"><a id="co-requisite"></a> Co-requisite</dt>
+<dd>
+<p>Co-requisites are modules that are to be taken concurrently.</p>
+</dd>
+<dt class="hdlist1"><a id="CS"></a> CS</dt>
+<dd>
+<p>Abbreviation for Computer Science, the study of processes that interact with data and that can be represented
+as data in the form of programs. In particular, CS here refers to the course for Bachelor of Computing in Computer
+Science (with Honours) offered by School of Computing (SoC), National University of Singapore (NUS).</p>
+</dd>
+<dt class="hdlist1"><a id="current-semester"></a> Current Semester</dt>
+<dd>
+<p>The semester in which the user is currently taking modules. All modules taken in and before the current semester are locked
+and uneditable. The user may manipulate modules after the current semester.</p>
+</dd>
+<dt class="hdlist1"><a id="default-study-plan"></a> Default study plan</dt>
+<dd>
+<p>The recommended study plan for a CS freshman, pre-populated with core modules arranged in their recommended semesters of
+study.</p>
+</dd>
+<dt class="hdlist1"><a id="elective"></a> Elective</dt>
+<dd>
+<p>Refer to UE.</p>
+</dd>
+<dt class="hdlist1"><a id="feasibility"></a> Feasibility</dt>
+<dd>
+<p>The feasibility of a study plan, or part of a study plan, refers to whether the following conditions are met:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>All modules are taken after their prerequisites have been taken.</p>
+</li>
+<li>
+<p>All modules are not taken together with any of their respective preclusions.</p>
+</li>
+<li>
+<p>The user, by following this study plan, satisfies their graduation requirements and will be able to graduate without
+extending their candidature in NUS.</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1"><a id="focus-area"></a> Focus area</dt>
+<dd>
+<p>CS modules are organised into Focus Areas of coherent modules according to technical areas of study.
+A CS Focus Area is satisfied by completing 3 modules from the Area Primaries, with at least one module at 4000-level or
+above. CS Foundation Modules (CFM) that appear in the Area Primaries can be counted as one of the 3 modules towards
+satisfying a Focus Area. In this case, a student has to read just two other modules in the Area Primaries to satisfy
+the Focus Area. The ten Focus Areas are listed below:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Algorithms &amp; Theory</p>
+</li>
+<li>
+<p>Artificial Intelligence</p>
+</li>
+<li>
+<p>Computer Graphics and Games</p>
+</li>
+<li>
+<p>Computer Security</p>
+</li>
+<li>
+<p>Database Systems</p>
+</li>
+<li>
+<p>Multimedia Information Retrieval</p>
+</li>
+<li>
+<p>Networking and Distributed Systems</p>
+</li>
+<li>
+<p>Parallel Computing</p>
+</li>
+<li>
+<p>Programming Languages</p>
+</li>
+<li>
+<p>Software Engineering</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1"><a id="graduation"></a> Graduation</dt>
+<dd>
+<p>To graduate from NUS CS means to complete all the stipulated requirements within the user&#8217;s candidature period,
+and finish their studies with a Bachelor&#8217;s degree.</p>
+</dd>
+<dt class="hdlist1"><a id="GUI"></a> GUI</dt>
+<dd>
+<p>Abbreviation for the Graphical User Interface, which allows users to interact with electronic devices through
+graphical icons and visual indicators as opposed to a Command Line Interface (CLI).</p>
+</dd>
+<dt class="hdlist1"><a id="leave-of-absence"></a> Leave of Absence</dt>
+<dd>
+<p>Also known as LOA for short. During LOA, students will temporarily stop taking NUS modules for an extended period
+of time, usually one semester. Students may be granted leave of absence for the following reasons:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Medical reasons</p>
+</li>
+<li>
+<p>Academic reasons</p>
+</li>
+<li>
+<p>Personal reasons</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1"><a id="mainstream-os"></a> Mainstream OS</dt>
+<dd>
+<p>Windows, Linux, Unix, OS-X.</p>
+</dd>
+<dt class="hdlist1"><a id="mainstream-semester"></a> Mainstream semester</dt>
+<dd>
+<p>Semesters 1 and 2 in Years 1, 2, 3 and 4. These are the default semesters for a CS single-degree undergraduate.
+In contrast, a <em>non-mainstream semester</em> is a special term (e.g. Y1ST1) or a Year 5 semester (e.g. Y5S1).</p>
+</dd>
+<dt class="hdlist1"><a id="major"></a> Major</dt>
+<dd>
+<p>An academic major is the academic discipline to which an undergraduate student formally commits. A student who
+successfully completes all modules required for the major qualifies for an undergraduate degree.</p>
+</dd>
+<dt class="hdlist1"><a id="minor"></a> Minor</dt>
+<dd>
+<p>A Minor programme is a coherent course of study providing significant depth in a certain area outside that of the Major,
+within or outside the student&#8217;s department.The modular credit (MC) requirement for a Minor programme should be at least
+24MCs, of which up to 8MCs may be used to meet the requirements for both the Minor and a Major or another Minor subject
+to the agreement of the particular department(s), faculty/faculties or programme(s) hosting the Minor.</p>
+</dd>
+<dt class="hdlist1"><a id="modular-credits"></a> Modular credits</dt>
+<dd>
+<p>The undergraduate and graduate curricula are based on a modular system. Under this system, workloads are expressed
+in terms of Modular Credits (MCs), and academic performance is measured by grade points on a 5-point scale.</p>
+</dd>
+<dt class="hdlist1"><a id="module"></a> Module</dt>
+<dd>
+<p>A module (colloquially <em>mod</em>) is a class of a specific topic that generally runs for an entire semester. Each module carries a stipulated
+number of Modular Credits and requires weekly contact hours for students.</p>
+</dd>
+<dt class="hdlist1"><a id="module-code"></a> Module code</dt>
+<dd>
+<p>Each module of study has a unique module code consisting of a two- or three-letter prefix that denotes the discipline,
+and four digits, the first of which indicates the level of the module (e.g., 1000 indicates a Level 1 module and 2000,
+a Level 2 module). Modules offered by the Department of Computer Science generally start with CS.</p>
+</dd>
+<dt class="hdlist1"><a id="nus-overseas-colleges"></a> NUS Overseas Colleges</dt>
+<dd>
+<p>The NUS Overseas Colleges Programme, or NOC for short, is an internship programme with strong emphasis on technology
+entrepreneurship. Selected candidates will spend either 6 or 12 months with a high-tech start-up and take
+entrepreneurship courses at a designated partner university. NOC students will be full-time interns and
+part-time students.</p>
+</dd>
+<dt class="hdlist1"><a id="nus"></a> NUS</dt>
+<dd>
+<p>The National University of Singapore (NUS) is the first autonomous research university in Singapore.
+NUS is a comprehensive research university, offering a wide range of disciplines, including the sciences,
+medicine and dentistry, design and environment, law, arts and social sciences, engineering, business,
+computing and music at both the undergraduate and postgraduate levels. Computer Science (CS) is one of the
+undergraduate programmes offered by NUS.</p>
+</dd>
+<dt class="hdlist1"><a id="preclusion"></a> Preclusion</dt>
+<dd>
+<p>A module may also specify certain preclusions. These are modules that have similar emphases and may not be taken
+together with that particular module.</p>
+</dd>
+<dt class="hdlist1"><a id="prerequisite"></a> Prerequisite</dt>
+<dd>
+<p>Pre-requisites indicate the base of knowledge on which the subject matter of a particular module will be built.
+Before taking a module, a student should complete any pre-requisite module(s) listed for that particular module.
+Where pre-requisites are specified, equivalent modules will also be accepted. If in doubt, students should consult
+the module instructor or the Department academic advisor regarding the acceptable equivalent modules.</p>
+</dd>
+<dt class="hdlist1"><a id="semester"></a> Semester</dt>
+<dd>
+<p>An academic year in NUS consists of two regular semesters, each spanning 13 weeks excluding the recess and reading
+weeks. In our application, a semester is defined as a regular semester (as opposed to special semesters).</p>
+</dd>
+<dt class="hdlist1"><a id="student"></a> Student</dt>
+<dd>
+<p>Our application is specifically targeted to students who study Computer Science (CS) in the School of
+Computing in the National University of Singapore (NUS).</p>
+</dd>
+<dt class="hdlist1"><a id="student-exchange-programme"></a> Student exchange programme</dt>
+<dd>
+<p>The NUS Student Exchange Programme, or SEP for short, provides students with the opportunity to study in an overseas partner
+university, usually for a semester or two, with approval of the School, to further enhance their learning experience.
+Students from either partner university pay fees only at their home institution while on exchange.</p>
+</dd>
+<dt class="hdlist1"><a id="study-plan"></a> Study plan</dt>
+<dd>
+<p>A study plan is an academic plan detailing all modules that a student plans to take in all the semesters in their
+candidature in NUS. One study plan comprises 8 semesters of modules. The user may have multiple alternative study plans.</p>
+</dd>
+<dt class="hdlist1"><a id="SU"></a> S/U</dt>
+<dd>
+<p>Abbreviation for Satisfactory / Unsatisfactory Options. Sometimes abbreviated as SU.
+In general, students may exercise the S/U option for up to 32 MCs in the first two regular semesters;
+if this is not fully utilised, the S/U option may still be exercised in subsequent semesters, for up to 12 MCs.
+Modules with grades as S/U are not factored into the calculation of students' Cumulative Average Points (CAP).
+Modules on which the S/U option can be exercised are described as <em>SU-able</em>.</p>
+</dd>
+<dt class="hdlist1"><a id="tag"></a> Tag</dt>
+<dd>
+<p>A module can be added a tag or multiple tags, which include the following:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>core module</p>
+</li>
+<li>
+<p>UE</p>
+</li>
+<li>
+<p>focus area
+etc</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1"><a id="UE"></a> UE</dt>
+<dd>
+<p>UE stands for Unrestricted Elective. Unrestricted Electives enable students to pursue their academic interests and aspirations.
+Students may also use Unrestricted Electives to satisfy partially or wholly the requirements of other programmes.
+As long as the appropriate prerequisites are met, students can satisfy the Unrestricted Electives requirement by taking
+modules from any of the Departments/Faculties at any level. The limit on the number of Level-1000 modules to be counted
+towards fulfilment of graduation requirements is 60 MCs for 160-MC programmes. In CS, a student needs to
+fulfill at least 32 MCs of UEs before graduation.</p>
+</dd>
+<dt class="hdlist1"><a id="valid-module"></a> Valid module</dt>
+<dd>
+<p>A module is said to be valid if its prerequisites have been fulfilled and none of its preclusions are being
+taken at the same time as the student takes that particular module.</p>
+</dd>
+<dt class="hdlist1"><a id="year-of-study"></a> Year of study</dt>
+<dd>
+<p>A student&#8217;s year refers to whether the student is in their first (Y1), second (Y2), third (Y3), fourth (Y4), or fifth (Y5)
+year of undergraduate studies in NUS.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 14:17:06 UTC</div></div></div></body></html>
