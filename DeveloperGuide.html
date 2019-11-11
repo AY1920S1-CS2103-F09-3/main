@@ -604,7 +604,7 @@ initial module planner state, and its <code>StudyPlanCommitManagerList</code> wi
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/VersionTrackingClassDiagram.png" alt="VersionTrackingClassDiagram" width="500"" height="">
+<img src="images/VersionTrackingClassDiagram.png" alt="VersionTrackingClassDiagram" width="800"" height="">
 </div>
 </div>
 <div class="paragraph">
@@ -617,7 +617,7 @@ in the <code>StudyPlanCommitManager</code> corresponding to this study plan, ins
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/CommitStudyPlan.png" alt="CommitStudyPlan" width="290"" height="">
+<img src="images/CommitStudyPlan.png" alt="CommitStudyPlan" width="400"" height="">
 </div>
 </div>
 <div class="paragraph">
@@ -671,7 +671,7 @@ no deletion will take place. Instead the user will be prompted by an error messa
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/DeleteCommitActivityDiagram.png" alt="DeleteCommitActivityDiagram" width="400"" height="">
+<img src="images/DeleteCommitActivityDiagram.png" alt="DeleteCommitActivityDiagram" width="600"" height="">
 </div>
 </div>
 </div>
@@ -944,7 +944,7 @@ the target module. Hence, a <code>CommandException</code> will be thrown.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/TagModuleCommandActivityDiagram.png" alt="TagModuleCommandActivityDiagram" width="350">
+<img src="images/TagModuleCommandActivityDiagram.png" alt="TagModuleCommandActivityDiagram" width="400">
 </div>
 <div class="title">Figure 11. Activity diagram for module tagging</div>
 </div>
@@ -2567,6 +2567,28 @@ If there exists an active study plan, the study plan has the given semester and 
 </ol>
 </div>
 </li>
+<li>
+<p>Finding a module</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisite</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>The module must exist in the study plan.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Test case: <code>findmod CS1101S</code><br>
+Expected:
+The semester in which CS1101S is located will appear in the left panel.</p>
+</li>
+</ol>
+</div>
+</li>
 </ol>
 </div>
 </div>
@@ -2574,6 +2596,56 @@ If there exists an active study plan, the study plan has the given semester and 
 <h3 id="executing-semester-related-commands"><a class="link" href="#executing-semester-related-commands">F.4. Executing semester-related commands</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
+<li>
+<p>Adding a semester</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisite</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>There is at least one study plan. (i.e. There is a current active study plan)</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Test case: <code>addsem y1st1</code> note that the semester must be a special term or a Year 5 semester<br>
+Expected:
+The semester <code>Y1ST1</code> will appear on the right panel of GUI. You can add modules etc to this semester from now on.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Removing a semester</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisite</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>There is at least one study plan. (i.e. There is a current active study plan)</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Test case 1: <code>removesem y1st1</code> note that the semester is a special term or a Year 5 semester in this case<br>
+Expected:
+The semester <code>Y1ST1</code> will disappear from the right panel.</p>
+</li>
+<li>
+<p>Test case 2: <code>removesem y1s1</code> note that the semester is a regular semester in this case<br>
+Expected:
+The semester <code>Y1S1</code> will have all its modules cleared. But this semester will still remain on the right panel
+since it is one of the default semesters.</p>
+</li>
+</ol>
+</div>
+</li>
 <li>
 <p>Set current semester</p>
 <div class="olist loweralpha">
@@ -2832,94 +2904,6 @@ All default tags will appear in the left panel.</p>
 </ol>
 </div>
 </li>
-<li>
-<p>Finding a module</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Prerequisite</p>
-<div class="olist lowerroman">
-<ol class="lowerroman" type="i">
-<li>
-<p>The module must exist in the study plan.</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Test case: <code>findmod CS1101S</code><br>
-Expected:
-The semester in which CS1101S is located will appear in the left panel.</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Setting the priority of a study plan</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Prerequisite</p>
-<div class="olist lowerroman">
-<ol class="lowerroman" type="i">
-<li>
-<p>There must be at least one study plan in the module planner.</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Test case: <code>setpriority high 1</code><br>
-Expected: If there is a study plan with index 1, a red priority tag named "PRIORITY.HIGH" will appear next to the study plan title.
-If the index is invalid, an error message will be shown.</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Removing the priority of a study plan</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Prerequisite</p>
-<div class="olist lowerroman">
-<ol class="lowerroman" type="i">
-<li>
-<p>The target study plan must have a priority tag</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Test case: <code>removepriority 1</code><br>
-Expected: If the study plan has a priority tag, it will be removed. If the index is invalid or the study plan does not have a
-priority tag, an error message will be shown.</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Listing study plans according to their priorities</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Prerequisite</p>
-<div class="olist lowerroman">
-<ol class="lowerroman" type="i">
-<li>
-<p>There are three study plans in the module planner, two set with priorities <code>low</code>, <code>high</code> and one with no priority.</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Test case: <code>listbypriority</code><br>
-Expected:
-A left panel with a list of study plans sorted in the order such that their priorities are <code>high</code>, <code>low</code> and no priority.</p>
-</li>
-</ol>
-</div>
-</li>
 </ol>
 </div>
 </div>
@@ -3068,6 +3052,72 @@ A unique ID will be assigned to this plan too.</p>
 </ol>
 </div>
 </li>
+<li>
+<p>Setting the priority of a study plan</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisite</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>There must be at least one study plan in the module planner.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Test case: <code>setpriority high 1</code><br>
+Expected: If there is a study plan with index 1, a red priority tag named "PRIORITY.HIGH" will appear next to the study plan title.
+If the index is invalid, an error message will be shown.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Removing the priority of a study plan</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisite</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>The target study plan must have a priority tag</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Test case: <code>removepriority 1</code><br>
+Expected: If the study plan has a priority tag, it will be removed. If the index is invalid or the study plan does not have a
+priority tag, an error message will be shown.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Listing study plans according to their priorities</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisite</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>There are three study plans in the module planner, two set with priorities <code>low</code>, <code>high</code> and one with no priority.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Test case: <code>listbypriority</code><br>
+Expected:
+A left panel with a list of study plans sorted in the order such that their priorities are <code>high</code>, <code>low</code> and no priority.</p>
+</li>
+</ol>
+</div>
+</li>
 </ol>
 </div>
 </div>
@@ -3197,56 +3247,6 @@ commit list, so all the commit numbers will be shifted forward.</p>
 </ol>
 </div>
 </li>
-<li>
-<p>Adding a semester</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Prerequisite</p>
-<div class="olist lowerroman">
-<ol class="lowerroman" type="i">
-<li>
-<p>There is at least one study plan. (i.e. There is a current active study plan)</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Test case: <code>addsem y1st1</code> note that the semester must be a special term or a Year 5 semester<br>
-Expected:
-The semester <code>Y1ST1</code> will appear on the right panel of GUI. You can add modules etc to this semester from now on.</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Removing a semester</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Prerequisite</p>
-<div class="olist lowerroman">
-<ol class="lowerroman" type="i">
-<li>
-<p>There is at least one study plan. (i.e. There is a current active study plan)</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Test case 1: <code>removesem y1st1</code> note that the semester is a special term or a Year 5 semester in this case<br>
-Expected:
-The semester <code>Y1ST1</code> will disappear from the right panel.</p>
-</li>
-<li>
-<p>Test case 2: <code>removesem y1s1</code> note that the semester is a regular semester in this case<br>
-Expected:
-The semester <code>Y1S1</code> will have all its modules cleared. But this semester will still remain on the right panel
-since it is one of the default semesters.</p>
-</li>
-</ol>
-</div>
-</li>
 </ol>
 </div>
 </div>
@@ -3360,4 +3360,4 @@ of prerequisite modules.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 14:36:43 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 14:40:57 UTC</div></div></div></body></html>
