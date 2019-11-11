@@ -40,10 +40,6 @@ public class SetCurrentSemesterCommand extends Command {
             throw new CommandException(MESSAGE_SEMESTER_DOES_NOT_EXIST);
         }
 
-        if (model.getSemester(this.sem).isBlocked()) {
-            throw new CommandException(MESSAGE_SEMESTER_BLOCKED);
-        }
-
         model.setSemester(sem);
         model.updateAllCompletedTags();
         model.addToHistory();
