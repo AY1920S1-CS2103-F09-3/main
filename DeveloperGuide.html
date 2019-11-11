@@ -54,6 +54,12 @@
 </li>
 <li><a href="#non-functional-requirements">Appendix D: Non Functional Requirements</a></li>
 <li><a href="#glossary">Appendix E: Glossary</a></li>
+<li><a href="#instructions-for-manual-testing">Appendix F: Instructions for Manual Testing</a>
+<ul class="sectlevel2">
+<li><a href="#launch-and-shutdown">F.1. Launch and Shutdown</a></li>
+<li><a href="#executing-tagging-related-commands">F.2. Executing tagging-related commands</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -2410,4 +2416,325 @@ year of undergraduate studies in NUS.</p>
 </dl>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 08:09:23 UTC</div></div></div></body></html>
+</div>
+<div class="sect1">
+<h2 id="instructions-for-manual-testing"><a class="link" href="#instructions-for-manual-testing">Appendix F: Instructions for Manual Testing</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Given below are instructions to test the app manually.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+These instructions only provide a starting point for testers to work on; testers are expected to do more <em>exploratory</em> testing.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">F.1. Launch and Shutdown</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Initial launch</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Download the jar file and copy into an empty folder</p>
+</li>
+<li>
+<p>Double-click the jar file or run <code>java -jar csmodbuddy.jar</code> in command prompt (Windows) or terminal (Mac)<br>
+Expected: Shows the GUI with a default study plan. The window size may not be optimum.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Saving window preferences</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Resize the window to an optimum size. Move the window to a different location. Close the window.</p>
+</li>
+<li>
+<p>Re-launch the app by double-clicking the jar file or running <code>java -jar csmodbuddy.jar</code> in command prompt/terminal.<br>
+Expected: The most recent window size and location is retained.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="executing-tagging-related-commands"><a class="link" href="#executing-tagging-related-commands">F.2. Executing tagging-related commands</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Tagging a module</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>A tag name has to be a single word, less than 25 characters long and not be a default tag name.</p>
+</li>
+<li>
+<p>The target module must exist.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Test case: <code>addtag cs1101s exchange</code><br>
+Expected:
+If CS1101S is currently in the study plan, a new tag with the name "exchange" can be seen below the module CS1101S. If CS1101S is not in the
+study plan, add it to the study plan and the tag can be seen attached to it. The tag will also be in the list when <code>viewalltags</code> is called.</p>
+</li>
+<li>
+<p>Test case (after (b)): <code>addtag cs1101s EXCHANGE</code><br>
+Expected:
+No new tag is added since CS1101S already has the tag "exchange".</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Renaming a module tag</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>The new tag name has to be a single word, less than 25 characters long and not be a default tag name.</p>
+</li>
+<li>
+<p>The target tag (e.g. "exchange") must exist in the study plan.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Test case: <code>renametag exchange sep</code><br>
+Expected:
+All the tags named "exchange" will be renamed to "sep".</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Removing a tag from a module</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>The target tag (e.g. "exchange") must exist in the target module.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Test case: <code>removetag cs1101s exchange</code><br>
+Expected:
+The tag will be removed from CS1101S only.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Deleting a module tag</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>The target tag (e.g. "exchange") must exist in the study plan.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Test case: <code>deletetag exchange</code><br>
+Expected:
+The tags named "exchange" will be removed from all the modules they are attached to. The tag will not be in the list when <code>viewalltags</code> is called.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Viewing a module&#8217;s tags</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>viewtags CS1101S</code><br>
+Expected:
+A left panel with a list of tags will appear. The tags that are in the list should include the default tags <code>Core</code> and <code>S/U-able</code>,
+as well as any other user-created tags that have been added.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Removing all tags</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>removealltags</code><br>
+Expected:
+All user-created tags will be removed from all modules.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Viewing all modules tagged with a given tag</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>The tags entered should exist in the study plan.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Test case: <code>viewtagged core s/u-able</code><br>
+Expected:
+A left panel with a list of all modules attached with both tags will appear.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Viewing all tags</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>viewalltags</code><br>
+Expected:
+All tags, default and user-created, will appear in the left panel. Default tags have short descriptions attached.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Viewing all default tags</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>viewdefaulttags</code><br>
+Expected:
+All default tags will appear in the left panel.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Finding a module</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisite</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>The module must exist in the study plan.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Test case: <code>findmod CS1101S</code><br>
+Expected:
+The semester in which CS1101S is located will appear in the left panel.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Setting the priority of a study plan</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisite</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>There must be at least one study plan in the module planner.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Test case: <code>setpriority high 1</code><br>
+Expected: If there is a study plan with index 1, a red priority tag named "PRIORITY.HIGH" will appear next to the study plan title.
+If the index is invalid, an error message will be shown.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Removing the priority of a study plan</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisite</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>The target study plan must have a priority tag</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Test case: <code>removepriority 1</code><br>
+Expected: If the study plan has a priority tag, it will be removed. If the index is invalid or the study plan does not have a
+priority tag, an error message will be shown.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Listing study plans according to their priorities</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisite</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>There are three study plans in the module planner, two set with priorities <code>low</code>, <code>high</code> and one with no priority.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Test case: <code>listbypriority</code><br>
+Expected:
+A left panel with a list of study plans sorted in the order such that their priorities are <code>high</code>, <code>low</code> and no priority.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 11:28:27 UTC</div></div></div></body></html>
