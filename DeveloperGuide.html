@@ -61,7 +61,8 @@
 <li><a href="#executing-module-related-commands">F.3. Executing module-related commands</a></li>
 <li><a href="#executing-semester-related-commands">F.4. Executing semester-related commands</a></li>
 <li><a href="#executing-tagging-related-commands">F.5. Executing tagging-related commands</a></li>
-<li><a href="#executing-information-and-verification-related-commands">F.6. Executing information and verification-related commands</a></li>
+<li><a href="#executing-study-plan-level-commands">F.6. Executing study plan-level commands</a></li>
+<li><a href="#executing-information-and-verification-related-commands">F.7. Executing information and verification-related commands</a></li>
 </ul>
 </li>
 </ul>
@@ -2939,7 +2940,135 @@ A left panel with a list of study plans sorted in the order such that their prio
 </div>
 </div>
 <div class="sect2">
-<h3 id="executing-information-and-verification-related-commands"><a class="link" href="#executing-information-and-verification-related-commands">F.6. Executing information and verification-related commands</a></h3>
+<h3 id="executing-study-plan-level-commands"><a class="link" href="#executing-study-plan-level-commands">F.6. Executing study plan-level commands</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Adding a study plan</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>newplan first</code><br>
+Expected:
+A study plan with the title <code>first</code> is created, and a unique ID is assigned to it.</p>
+</li>
+<li>
+<p>Test case: <code>newplan</code><br>
+Expected:
+A study plan without a title is created, and a unique ID is assigned to it.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Deleting a study plan</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisite</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>The study plan ID must refer to an existing study plan. You can check this by the <code>list</code> command.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Test case: <code>removeplan 1</code><br>
+Expected:
+The study plan with the ID <code>1</code> will be deleted. To check your study plans' indices, you can use the <code>list</code> command.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Listing all study plans</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisite</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>There is at least one study plan.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Test case: <code>list</code><br>
+Expected: all study plans are listed.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Viewing another study plan</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisite</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>The study plan ID must refer to an existing study plan. You can check this by the <code>list</code> command.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Test case: <code>viewplan 1</code><br>
+Expected:
+The study plan with the ID <code>1</code> will be displayed in the left panel as a simplified view.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Activating another study plan</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisite</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>The study plan ID must refer to an existing study plan. You can check this by the <code>list</code> command.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Test case: <code>newplan title</code> then <code>activate 2</code> if the new plan&#8217;s ID is <code>2</code><br>
+Expected:
+The study plan with the ID <code>2</code> will be displayed in the left panel as a simplified view.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Editing the title</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisite</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>There is at least one study plan. (There is a current active plan)</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="executing-information-and-verification-related-commands"><a class="link" href="#executing-information-and-verification-related-commands">F.7. Executing information and verification-related commands</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3048,4 +3177,4 @@ of prerequisite modules.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 14:05:39 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 14:06:02 UTC</div></div></div></body></html>
