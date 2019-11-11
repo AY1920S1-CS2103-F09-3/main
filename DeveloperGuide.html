@@ -62,7 +62,8 @@
 <li><a href="#executing-semester-related-commands">F.4. Executing semester-related commands</a></li>
 <li><a href="#executing-tagging-related-commands">F.5. Executing tagging-related commands</a></li>
 <li><a href="#executing-study-plan-level-commands">F.6. Executing study plan-level commands</a></li>
-<li><a href="#executing-information-and-verification-related-commands">F.7. Executing information and verification-related commands</a></li>
+<li><a href="#executing-version-tracking-related-commands">F.7. Executing version tracking-related commands</a></li>
+<li><a href="#executing-information-and-verification-related-commands">F.8. Executing information and verification-related commands</a></li>
 </ul>
 </li>
 </ul>
@@ -2941,7 +2942,8 @@ A study plan with the title <code>first</code> is created, and a unique ID is as
 <li>
 <p>Test case: <code>newplan</code><br>
 Expected:
-A study plan without a title is created, and a unique ID is assigned to it.</p>
+A study plan without a title is created, and a unique ID is assigned to it. Note that this ID is unique
+and will not change throughout the life of the study plan.</p>
 </li>
 </ol>
 </div>
@@ -2963,7 +2965,8 @@ A study plan without a title is created, and a unique ID is assigned to it.</p>
 <li>
 <p>Test case: <code>removeplan 1</code><br>
 Expected:
-The study plan with the ID <code>1</code> will be deleted. To check your study plans' indices, you can use the <code>list</code> command.</p>
+The study plan with the ID <code>1</code> will be deleted. To check your study plans' indices, you can use the <code>list</code> command.
+Note that since the IDs are unique, the IDs of the other study plans will not change after the deletion of this plan.</p>
 </li>
 </ol>
 </div>
@@ -3042,10 +3045,28 @@ The study plan with the ID <code>2</code> will be displayed in the left panel as
 <div class="olist lowerroman">
 <ol class="lowerroman" type="i">
 <li>
-<p>There is at least one study plan. (There is a current active plan)</p>
+<p>There is at least one study plan. (i.e. There is a current active study plan)</p>
 </li>
 </ol>
 </div>
+</li>
+<li>
+<p>Test case: <code>title best plan</code><br>
+Expected:
+The active study plan (on the right) will have its title changed to <code>best plan</code>.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Setting default study plan</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>default</code><br>
+Expected:
+A new study plan with the title <code>Recommended Plan</code> will be created and made active (shown on the right panel).
+A unique ID will be assigned to this plan too.</p>
 </li>
 </ol>
 </div>
@@ -3054,7 +3075,186 @@ The study plan with the ID <code>2</code> will be displayed in the left panel as
 </div>
 </div>
 <div class="sect2">
-<h3 id="executing-information-and-verification-related-commands"><a class="link" href="#executing-information-and-verification-related-commands">F.7. Executing information and verification-related commands</a></h3>
+<h3 id="executing-version-tracking-related-commands"><a class="link" href="#executing-version-tracking-related-commands">F.7. Executing version tracking-related commands</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Committing a study plan</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisite</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>There is at least one study plan. (i.e. There is a current active study plan)</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Test case: <code>commit some message</code><br>
+Expected:
+The state of the current study plan will be saved and committed. If you enter <code>history</code>, you can see this
+commit with the message <code>some message</code>.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Checking commit history</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisite</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>There is at least one study plan. (i.e. There is a current active study plan)</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Test case: <code>history</code><br>
+Expected:
+All the commits of this study plan will be listed. If there are no commits, it will prompt the user that
+there are no commits currently.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Viewing a commit</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisite</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>There is at least one study plan. (i.e. There is a current active study plan). And there is at least one
+commit in its commit history.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Test case: <code>viewcommit</code> followed by the commit number e.g. <code>viewcommit 1.1</code>. You can check the number using <code>history</code><br>
+Expected:
+The state of the study plan represented by the specified commit will be shown on the left panel as a simplified view.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Reverting to a commit</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisite</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>There is at least one study plan. (i.e. There is a current active study plan)</p>
+</li>
+<li>
+<p>There is at least one commit in its commit history.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Test case: <code>revert</code> followed by the commit number e.g. <code>revert 1.1</code>. You can check the number using <code>history</code><br>
+Expected:
+The state of the study plan represented by the specified commit will be activated and shown on the right panel
+of the GUI. If you enter <code>history</code>, you will see a new <code>Revert to &#8230;&#8203;</code> commit being newly added to the commit history.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Removing a commit</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisite</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>There is at least one study plan. (i.e. There is a current active study plan)</p>
+</li>
+<li>
+<p>There is at least one commit in its commit history.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Test case: <code>removecommit</code> followed by the commit number e.g. <code>removecommit 1.1</code>. You can check the number using <code>history</code><br>
+Expected:
+The specified commit will be removed from the commit history permanently. If you enter <code>history</code>,
+you will see that the commit has disappeared. Note that the indices are based on the position of the commit in the
+commit list, so all the commit numbers will be shifted forward.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Adding a semester</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisite</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>There is at least one study plan. (i.e. There is a current active study plan)</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Test case: <code>addsem y1st1</code> note that the semester must be a special term or a Year 5 semester<br>
+Expected:
+The semester <code>Y1ST1</code> will appear on the right panel of GUI. You can add modules etc to this semester from now on.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Removing a semester</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisite</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>There is at least one study plan. (i.e. There is a current active study plan)</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Test case 1: <code>removesem y1st1</code> note that the semester is a special term or a Year 5 semester in this case<br>
+Expected:
+The semester <code>Y1ST1</code> will disappear from the right panel.</p>
+</li>
+<li>
+<p>Test case 2: <code>removesem y1s1</code> note that the semester is a regular semester in this case<br>
+Expected:
+The semester <code>Y1S1</code> will have all its modules cleared. But this semester will still remain on the right panel
+since it is one of the default semesters.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="executing-information-and-verification-related-commands"><a class="link" href="#executing-information-and-verification-related-commands">F.8. Executing information and verification-related commands</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3087,7 +3287,7 @@ all 3 criteria are met.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Test case: <code>description CS1101S</code>
+<p>Test case: <code>description CS1101S</code><br>
 Expected:
 It should show the description of CS1101S, including module name, MC count, S/U-ability, prerequisites,
 and more.</p>
@@ -3100,7 +3300,7 @@ and more.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Test case: <code>showfocus</code>
+<p>Test case: <code>showfocus</code><br>
 Expected:
 It should show a list of all focus area primary modules in the left panel, regardless
 of whether they are in the study plan or not.</p>
@@ -3113,7 +3313,7 @@ of whether they are in the study plan or not.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Test case: <code>showcore</code>
+<p>Test case: <code>showcore</code><br>
 Expected:
 It should show a list of all core modules in the left panel, regardless of whether
 they are already in the study plan or not.</p>
@@ -3137,7 +3337,7 @@ have been satisfied.</p>
 </div>
 </li>
 <li>
-<p>Test case: <code>clearinvalidmods</code>
+<p>Test case: <code>clearinvalidmods</code><br>
 Expected:
 It should remove all modules that are invalid in the right panel. Note that this can
 cause new modules to become invalid as well.</p>
@@ -3150,7 +3350,7 @@ cause new modules to become invalid as well.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Test case: <code>validmods y1s1</code>
+<p>Test case: <code>validmods y1s1</code><br>
 Expected:
 It should show all valid modules that can be taken in Y1S1. Note that this may include
 the dissertation and internship, as their prerequisites are not expressible in terms
@@ -3163,4 +3363,4 @@ of prerequisite modules.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 14:20:04 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 14:25:16 UTC</div></div></div></body></html>
