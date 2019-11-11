@@ -29,6 +29,30 @@ personalize their study plan, and check if they meet graduation requirements.</p
 <div class="ulist">
 <ul>
 <li>
+<p><strong>Major enhancement</strong>: added the <strong>description of modules</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: given a module code, users can retrieve a description of the entire module, including
+its focus areas, S/U-ability, prerequisites, and more. Users may also list all core or focus area modules that
+can be taken.</p>
+</li>
+<li>
+<p>Justification: this feature allows users to easily refer to information on various modules, which facilitates
+module planning and helps them decide whether or not to include them in their study plans.</p>
+</li>
+<li>
+<p>Highlights: it required the creation of a comprehensive JSON file detailing module requirements, prerequisites, and all other
+module-related information, which forms the backbone of all modules created in our application.
+(<a href="https://github.com/AY1920S1-CS2103-F09-3/main/pull/61">#61</a>)</p>
+</li>
+<li>
+<p>Credits: The information for computer science modules was sourced from <a href="https://nusmods.com">NUSMods</a>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
 <p><strong>Major enhancement</strong>: added the <strong>checking of module prerequisites and study plan requirements</strong></p>
 <div class="ulist">
 <ul>
@@ -38,27 +62,15 @@ It also checks the study plan for overall graduation requirements, such as focus
 core module requirements, and total MC count.</p>
 </li>
 <li>
-<p>Justification: This feature allows the user to create a legitimate study plan that satisfies the given requirements,
-so that the resulting study plan is valid and allows the student to graduate according to their study plan.</p>
+<p>Justification: this feature allows the user to create a legitimate study plan that satisfies the given requirements,
+so that the resulting study plan allows the student to graduate.</p>
 </li>
 <li>
-<p>Highlights: This enhancement affects the validity of the entire app and user experience.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>It required the creation of a comprehensive JSON file detailing module requirements, prerequisites, and all other
-module-related information, which forms the backbone of all modules created in our application.</p>
+<p>Highlights: to check for a module&#8217;s prerequisites, they need to be parsed into trees (involving AND or OR structures)
+that are checked against every time the user makes adjustments to their study plan.</p>
 </li>
 <li>
-<p>Module prerequisites needed to be parsed into trees (involving AND or OR structures), that are checked against
-every time the user makes adjustments to the study plan.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Credits: The information for computer science modules was pulled from <a href="https://nusmods.com">NUSMods</a>, while the information
-on overall graduation requirements was sourced from the <a href="https://www.comp.nus.edu.sg">NUS Computing website</a>.</p>
+<p>Credits: The information on overall graduation requirements was sourced from the <a href="https://www.comp.nus.edu.sg">NUS Computing website</a>.</p>
 </li>
 </ul>
 </div>
@@ -71,27 +83,17 @@ on overall graduation requirements was sourced from the <a href="https://www.com
 <p>Added a command to clear all invalid modules in a study plan, whose prerequisites have not been met.</p>
 </li>
 <li>
-<p>Added a command to describe all of a module&#8217;s related information, given its module code.</p>
-</li>
-<li>
 <p>Added a command to view all valid modules that can be taken in a given semester. This helps the user to
 decide what modules he or she may take next.</p>
 </li>
 </ul>
 </div>
 </li>
-</ul>
-</div>
-<div class="ulist">
-<ul>
 <li>
-<p><strong>Code contributed</strong>: [<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>] <em>{give links to collated code files}</em></p>
+<p><strong>Code contributed</strong>: [<a href="https://nus-cs2103-ay1920s1.github.io/tp-dashboard/#search=halfwhole&amp;sort=groupTitle&amp;sortWithin=title&amp;since=2019-09-06&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByRepos&amp;breakdown=false">Functional and Test Code</a>]</p>
 </li>
 <li>
 <p><strong>Other contributions</strong>:</p>
-</li>
-</ul>
-</div>
 <div class="ulist">
 <ul>
 <li>
@@ -99,7 +101,11 @@ decide what modules he or she may take next.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Managed release <code>v1.3</code> on GitHub</p>
+<p>Took part in the release of <code>v1.3</code></p>
+</li>
+<li>
+<p>Opened a consolidated bug tracker for issues discovered while testing
+(Issue <a href="https://github.com/AY1920S1-CS2103-F09-3/main/issues/239">#239</a>)</p>
 </li>
 </ul>
 </div>
@@ -109,10 +115,21 @@ decide what modules he or she may take next.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Updated the GUI color scheme (Pull requests <a href="https://github.com">#33</a>, <a href="https://github.com">#34</a>)</p>
+<p>Made GUI displays for invalid modules, showing its module prerequisites.
+(Pull request <a href="https://github.com/AY1920S1-CS2103-F09-3/main/pull/149">#149</a>)</p>
 </li>
 <li>
-<p>Wrote additional tests for existing features to increase coverage from 88% to 92% (Pull requests <a href="https://github.com">#36</a>, <a href="https://github.com">#38</a>)</p>
+<p>Updated the GUI with a completed and total MC count for the entire study plan
+(Pull request <a href="https://github.com/AY1920S1-CS2103-F09-3/main/pull/194">#194</a>)</p>
+</li>
+<li>
+<p>Wrote additional tests for features related to module information and verification
+(Pull requests
+<a href="https://github.com/AY1920S1-CS2103-F09-3/main/pull/154">#154</a>,
+<a href="https://github.com/AY1920S1-CS2103-F09-3/main/pull/180">#180</a>,
+<a href="https://github.com/AY1920S1-CS2103-F09-3/main/pull/195">#195</a>,
+<a href="https://github.com/AY1920S1-CS2103-F09-3/main/pull/228">#228</a>,
+<a href="https://github.com/AY1920S1-CS2103-F09-3/main/pull/299">#299</a>)</p>
 </li>
 </ul>
 </div>
@@ -122,7 +139,11 @@ decide what modules he or she may take next.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Did cosmetic tweaks to existing contents of the User Guide: <a href="https://github.com">#14</a></p>
+<p>Added several sections to the readme, as well as user and developer guides:
+<a href="https://github.com/AY1920S1-CS2103-F09-3/main/pull/46">#46</a>,
+<a href="https://github.com/AY1920S1-CS2103-F09-3/main/pull/92">#92</a>,
+<a href="https://github.com/AY1920S1-CS2103-F09-3/main/pull/232">#232</a>,
+<a href="https://github.com/AY1920S1-CS2103-F09-3/main/pull/294">#294</a></p>
 </li>
 </ul>
 </div>
@@ -132,13 +153,26 @@ decide what modules he or she may take next.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com">#12</a>, <a href="https://github.com">#32</a>, <a href="https://github.com">#19</a>, <a href="https://github.com">#42</a></p>
+<p>Reviewed PRs for other teams (with non-trivial review comments): <a href="https://github.com/nus-cs2103-AY1920S1/addressbook-level3/pull/11">#11</a></p>
 </li>
 <li>
-<p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>)</p>
+<p>Made additions and fixes to other related components in the team project:
+<a href="https://github.com/AY1920S1-CS2103-F09-3/main/pull/127">#127</a>,
+<a href="https://github.com/AY1920S1-CS2103-F09-3/main/pull/132">#132</a>,
+<a href="https://github.com/AY1920S1-CS2103-F09-3/main/pull/247">#247</a></p>
 </li>
 <li>
-<p>Some parts of the history feature I added was adopted by several other class mates (<a href="https://github.com">1</a>, <a href="https://github.com">2</a>)</p>
+<p>Reported bugs and suggestions for other teams in the class
+(examples:
+<a href="https://github.com/halfwhole/ped/issues/7">1</a>,
+<a href="https://github.com/halfwhole/ped/issues/2">2</a>,
+<a href="https://github.com/halfwhole/ped/issues/1">3</a>,
+<a href="https://github.com/halfwhole/ped/issues/8">4</a>,
+<a href="https://github.com/halfwhole/ped/issues/6">5</a>,
+<a href="https://github.com/halfwhole/ped/issues/18">6</a>)</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
@@ -160,11 +194,114 @@ decide what modules he or she may take next.</p>
 </tr>
 </tbody>
 </table>
+<div class="sect3">
+<h4 id="checking-a-study-plan-s-feasibility-code-check-code"><a class="link" href="#checking-a-study-plan-s-feasibility-code-check-code">Checking a study plan&#8217;s feasibility : <code>check</code></a></h4>
 <div class="paragraph">
-<p>include::../UserGuide.adoc</p>
+<p>Shows details about what graduation requirements are left to be fulfilled,
+such as MCs, core or focus area modules that remain to be taken.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This command will not check for the minimum number of MCs to be taken per semester,
+as additional modules that students may take (such as UEs or ULRs) are outside the scope of our project.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>include::../UserGuide.adoc</p>
+<p>Format: <code>check [AREA]</code></p>
+</div>
+<div class="paragraph">
+<p>Examples</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>check mcs</code></p>
+</li>
+<li>
+<p><code>check core</code></p>
+</li>
+<li>
+<p><code>check focus</code></p>
+</li>
+<li>
+<p><code>check</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="error-messages"><a class="link" href="#error-messages">Error messages</a></h4>
+<div class="paragraph">
+<p>Displays a useful error message if the input is invalid. For example,
+it should highlight wrong commands, wrong numbers of arguments, or arguments in the wrong format.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="viewing-modules-that-can-be-taken-in-a-given-semester-code-validmods-code"><a class="link" href="#viewing-modules-that-can-be-taken-in-a-given-semester-code-validmods-code">Viewing modules that can be taken in a given semester : <code>validmods</code></a></h4>
+<div class="paragraph">
+<p>Shows all the modules that can be taken in a given semester, based only on whether its prerequisites have been met.<br>
+This semester need not necessarily exist in the module planner for you to view its valid modules.<br>
+Format: <code>validmods SEMESTER</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>validmods y2s1</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="clear-all-currently-invalid-modules-code-clearinvalidmods-code"><a class="link" href="#clear-all-currently-invalid-modules-code-clearinvalidmods-code">Clear all currently invalid modules : <code>clearinvalidmods</code></a></h4>
+<div class="paragraph">
+<p>Clears all modules that are currently invalid, whose prerequisites have not been met in previous semesters.
+This may cause other modules in future semesters to be invalidated as well.<br>
+Format: <code>clearinvalidmods</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="viewing-description-of-a-module-code-description-code"><a class="link" href="#viewing-description-of-a-module-code-description-code">Viewing description of a module: <code>description</code></a></h4>
+<div class="paragraph">
+<p>Shows the description of a particular module, including its prerequisites.
+Only computer-science related modules will have these descriptions, and not general modules nor electives.<br>
+Format: <code>description MODULE_CODE</code><br>
+Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>description CS2103T</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="showing-all-core-modules-code-showcore-code"><a class="link" href="#showing-all-core-modules-code-showcore-code">Showing all core modules: <code>showcore</code></a></h4>
+<div class="paragraph">
+<p>Shows all core modules.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>showcore</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="showing-all-focus-area-primary-modules-code-showfocus-code"><a class="link" href="#showing-all-focus-area-primary-modules-code-showfocus-code">Showing all focus area primary modules: <code>showfocus</code></a></h4>
+<div class="paragraph">
+<p>Shows all focus area primary modules.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>showfocus</code></p>
+</div>
 </div>
 </div>
 </div>
@@ -181,6 +318,97 @@ decide what modules he or she may take next.</p>
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="Design-Architecture"><a class="link" href="#Design-Architecture">Architecture</a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ArchitectureDiagram.png" alt="ArchitectureDiagram">
+</div>
+<div class="title">Figure 1. Architecture Diagram</div>
+</div>
+<div class="paragraph">
+<p>The <strong><em>Architecture Diagram</em></strong> given above explains the high-level design of the App. Given below is a quick overview of each component.</p>
+</div>
+<div class="paragraph">
+<p><code>Main</code> has two classes called <a href="{repoURL}/blob/master/src/main/java/seedu/address/Main.java"><code>Main</code></a> and <a href="{repoURL}/blob/master/src/main/java/seedu/address/MainApp.java"><code>MainApp</code></a>. It is responsible for,</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>At app launch: Initializes the components in the correct sequence, and connects them up with each other.</p>
+</li>
+<li>
+<p>At shut down: Shuts down the components and invokes cleanup method where necessary.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a href="#Design-Commons"><strong><code>Commons</code></strong></a> represents a collection of classes used by multiple other components.
+The following class plays an important role at the architecture level:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>LogsCenter</code> : Used by many classes to write log messages to the App&#8217;s log file.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The rest of the App consists of four components.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#Design-Ui"><strong><code>UI</code></strong></a>: The UI of the App.</p>
+</li>
+<li>
+<p><a href="#Design-Logic"><strong><code>Logic</code></strong></a>: The command executor.</p>
+</li>
+<li>
+<p><a href="#Design-Model"><strong><code>Model</code></strong></a>: Holds the data of the App in-memory.</p>
+</li>
+<li>
+<p><a href="#Design-Storage"><strong><code>Storage</code></strong></a>: Reads data from, and writes data to, the hard disk.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Each of the four components</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Defines its <em>API</em> in an <code>interface</code> with the same name as the Component.</p>
+</li>
+<li>
+<p>Exposes its functionality using a <code>{Component Name}Manager</code> class.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For example, the <code>Logic</code> component (see the class diagram given below) defines its API in the <code>Logic.java</code> interface and exposes its functionality using the <code>LogicManager.java</code> class.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/LogicClassDiagram.png" alt="LogicClassDiagram">
+</div>
+<div class="title">Figure 2. Class Diagram of the Logic Component</div>
+</div>
+<h4 id="how-the-architecture-components-interact-with-each-other" class="discrete">How the architecture components interact with each other</h4>
+<div class="paragraph">
+<p>The <em>Sequence Diagram</em> below shows how the components interact with each other for the scenario where the user issues
+the command <code>addmod y1s1 CS3244</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ArchitectureSequenceDiagram.png" alt="ArchitectureSequenceDiagram">
+</div>
+<div class="title">Figure 3. Component interactions for the <code>addmod y1s1 CS3244</code> command</div>
+</div>
+<div class="paragraph">
+<p>The sections below give more details of each component.</p>
+</div>
+</div>
 <div class="sect2">
 <h3 id="module-information-and-verification"><a class="link" href="#module-information-and-verification">Module Information and Verification</a></h3>
 <div class="sect3">
@@ -370,9 +598,6 @@ the necessary information.</p>
 </ul>
 </div>
 <hr>
-<div class="paragraph">
-<p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 12:41:55 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 12:42:17 UTC</div></div></div></body></html>
