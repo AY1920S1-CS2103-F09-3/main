@@ -44,10 +44,12 @@
 <li><a href="#user-stories">Appendix B: User Stories</a></li>
 <li><a href="#use-cases">Appendix C: Use Cases</a>
 <ul class="sectlevel2">
-<li><a href="#use-case-uc03-commit-a-study-plan">C.1. Use case: UC03 - Commit a study plan</a></li>
-<li><a href="#use-case-uc04-tag-a-module">C.2. Use case: UC04 - Tag a module</a></li>
-<li><a href="#use-case-uc05-correct-modules-without-a-prerequisite">C.3. Use case: UC05 - Correct modules without a prerequisite</a></li>
-<li><a href="#use-case-uc06-chaining-commands">C.4. Use case: UC06 - Chaining commands</a></li>
+<li><a href="#use-case-uc01-create-study-plan">C.1. Use case: UC01 - Create study plan</a></li>
+<li><a href="#use-case-uc02-add-module">C.2. Use case: UC02 - Add module</a></li>
+<li><a href="#use-case-uc03-commit-a-study-plan">C.3. Use case: UC03 - Commit a study plan</a></li>
+<li><a href="#use-case-uc04-tag-a-module">C.4. Use case: UC04 - Tag a module</a></li>
+<li><a href="#use-case-uc05-correct-modules-without-a-prerequisite">C.5. Use case: UC05 - Correct modules without a prerequisite</a></li>
+<li><a href="#use-case-uc06-chaining-commands">C.6. Use case: UC06 - Chaining commands</a></li>
 </ul>
 </li>
 <li><a href="#non-functional-requirements">Appendix D: Non Functional Requirements</a></li>
@@ -591,7 +593,7 @@ initial module planner state, and its <code>StudyPlanCommitManagerList</code> wi
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/VersionTrackingClassDiagram.png" alt="VersionTrackingClassDiagram">
+<img src="images/VersionTrackingClassDiagram.png" alt="VersionTrackingClassDiagram" width="500"" height="">
 </div>
 </div>
 <div class="paragraph">
@@ -604,11 +606,11 @@ in the <code>StudyPlanCommitManager</code> corresponding to this study plan, ins
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/CommitStudyPlan.png" alt="CommitStudyPlan">
+<img src="images/CommitStudyPlan.png" alt="CommitStudyPlan" width="290"" height="">
 </div>
 </div>
 <div class="paragraph">
-<p>Step 3. The user executes <code>revert 1.1</code> to revert to the commit indexed by <code>1</code> in the active study plan which
+<p>Step 3. The user executes <code>revert 1.0</code> to revert to the commit indexed by <code>0</code> in the active study plan which
 has an ID of <code>1</code>. The <code>revert</code> command also calls <code>Model#revertCommit(int studyPlanIndex, int commitNumber)</code>,
 causing the state of the study plan stored in this commit to be made active, and this reverted state to be saved
 into the <code>StudyPlanCommitManager</code> inside the <code>VersionTrackingManager</code> as a revert commit.</p>
@@ -617,6 +619,9 @@ into the <code>StudyPlanCommitManager</code> inside the <code>VersionTrackingMan
 <div class="content">
 <img src="images/RevertCommitSequenceDiagram.png" alt="RevertCommitSequenceDiagram">
 </div>
+</div>
+<div class="paragraph">
+<p>(simplified diagram to reduce clutter; <code>revertToCommit</code> is abbreviated as <code>revert</code> etc.)</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -655,7 +660,7 @@ no deletion will take place. Instead the user will be prompted by an error messa
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/DeleteCommitActivityDiagram.png" alt="DeleteCommitActivityDiagram">
+<img src="images/DeleteCommitActivityDiagram.png" alt="DeleteCommitActivityDiagram" width="400"" height="">
 </div>
 </div>
 </div>
@@ -1724,9 +1729,10 @@ take more time and alter the structure of parsing commands.</p>
 <h2 id="use-cases"><a class="link" href="#use-cases">Appendix C: Use Cases</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>(For all use cases below, the <strong>System</strong> is the <code>ModBuddy</code> and the <strong>Actor</strong> is the <code>Student</code>, unless specified otherwise)
-=== Use case: UC01 - Create study plan</p>
+<p>(For all use cases below, the <strong>System</strong> is the <code>ModBuddy</code> and the <strong>Actor</strong> is the <code>Student</code>, unless specified otherwise)</p>
 </div>
+<div class="sect2">
+<h3 id="use-case-uc01-create-study-plan"><a class="link" href="#use-case-uc01-create-study-plan">C.1. Use case: UC01 - Create study plan</a></h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -1736,7 +1742,7 @@ take more time and alter the structure of parsing commands.</p>
 <p>User chooses to create a study plan.</p>
 </li>
 <li>
-<p>User enters the requested description.</p>
+<p>User enters the title of the study plan.</p>
 </li>
 <li>
 <p>ModBuddy displays the new study plan.</p>
@@ -1752,24 +1758,26 @@ take more time and alter the structure of parsing commands.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a. User chooses not to enter a description.</p>
+<p>2a. User chooses not to enter a title.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>2a1. ModBuddy creates a new study plan with a default description.</p>
+<p>2a1. ModBuddy creates a new study plan with a default title.</p>
 </li>
 <li>
-<p>2a2. Use case resumes from step 4.</p>
+<p>2a2. Use case resumes from step 3.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Use case ends.
-=== Use case: UC02 - Add module</p>
+<p>Use case ends.</p>
 </div>
 </li>
 </ul>
 </div>
+</div>
+<div class="sect2">
+<h3 id="use-case-uc02-add-module"><a class="link" href="#use-case-uc02-add-module">C.2. Use case: UC02 - Add module</a></h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -1812,15 +1820,16 @@ take more time and alter the structure of parsing commands.</p>
 </li>
 </ul>
 </div>
+</div>
 <div class="sect2">
-<h3 id="use-case-uc03-commit-a-study-plan"><a class="link" href="#use-case-uc03-commit-a-study-plan">C.1. Use case: UC03 - Commit a study plan</a></h3>
+<h3 id="use-case-uc03-commit-a-study-plan"><a class="link" href="#use-case-uc03-commit-a-study-plan">C.3. Use case: UC03 - Commit a study plan</a></h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Student requests to save the current version of the study plan</p>
+<p>Student requests to save the current version of the study plan.</p>
 </li>
 <li>
 <p>ModBuddy confirms that the version has been saved.</p>
@@ -1852,7 +1861,7 @@ take more time and alter the structure of parsing commands.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="use-case-uc04-tag-a-module"><a class="link" href="#use-case-uc04-tag-a-module">C.2. Use case: UC04 - Tag a module</a></h3>
+<h3 id="use-case-uc04-tag-a-module"><a class="link" href="#use-case-uc04-tag-a-module">C.4. Use case: UC04 - Tag a module</a></h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -1913,7 +1922,7 @@ take more time and alter the structure of parsing commands.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="use-case-uc05-correct-modules-without-a-prerequisite"><a class="link" href="#use-case-uc05-correct-modules-without-a-prerequisite">C.3. Use case: UC05 - Correct modules without a prerequisite</a></h3>
+<h3 id="use-case-uc05-correct-modules-without-a-prerequisite"><a class="link" href="#use-case-uc05-correct-modules-without-a-prerequisite">C.5. Use case: UC05 - Correct modules without a prerequisite</a></h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -1967,7 +1976,7 @@ take more time and alter the structure of parsing commands.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="use-case-uc06-chaining-commands"><a class="link" href="#use-case-uc06-chaining-commands">C.4. Use case: UC06 - Chaining commands</a></h3>
+<h3 id="use-case-uc06-chaining-commands"><a class="link" href="#use-case-uc06-chaining-commands">C.6. Use case: UC06 - Chaining commands</a></h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -2069,6 +2078,10 @@ in a successful operation on viewing or manipulating the study plan(s).</p>
 <p>A version of a study plan that the user saves to a local file. The user may opt to view or revert to a particular
 version of any study plan.</p>
 </dd>
+</dl>
+</div>
+<div class="dlist">
+<dl>
 <dt class="hdlist1"><a id="core-module"></a> Core module</dt>
 <dd>
 <p>A core module is compulsory for all students in the NUS Computer Science course in order to fulfill the graduation
@@ -2147,6 +2160,10 @@ requirements. Such modules include:</p>
 </ul>
 </div>
 </dd>
+</dl>
+</div>
+<div class="dlist">
+<dl>
 <dt class="hdlist1"><a id="co-requisite"></a> Co-requisite</dt>
 <dd>
 <p>Co-requisites are modules that are to be taken concurrently.</p>
@@ -2159,8 +2176,8 @@ Science (with Honours) offered by School of Computing (SoC), National University
 </dd>
 <dt class="hdlist1"><a id="current-semester"></a> Current Semester</dt>
 <dd>
-<p>The semester in which the user is currently taking modules. All modules taken in and before the current semester are locked
-and uneditable. The user may manipulate modules after the current semester.</p>
+<p>The semester in which the user is currently taking modules. All modules taken before the current semester are considered
+completed.</p>
 </dd>
 <dt class="hdlist1"><a id="default-study-plan"></a> Default study plan</dt>
 <dd>
@@ -2326,7 +2343,8 @@ the module instructor or the Department academic advisor regarding the acceptabl
 <dt class="hdlist1"><a id="semester"></a> Semester</dt>
 <dd>
 <p>An academic year in NUS consists of two regular semesters, each spanning 13 weeks excluding the recess and reading
-weeks. In our application, a semester is defined as a regular semester (as opposed to special semesters).</p>
+weeks. In our application, a semester can be either a mainstream semester (see above) or a special semester (usually
+during summer).</p>
 </dd>
 <dt class="hdlist1"><a id="student"></a> Student</dt>
 <dd>
@@ -2392,4 +2410,4 @@ year of undergraduate studies in NUS.</p>
 </dl>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 06:30:39 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 06:31:29 UTC</div></div></div></body></html>
